@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>FDS Module 3 | Semester III Study Hub</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{
+  --paper:#f4f3ef;
+  --plate:#fbfaf7;
+  --ink:#191d21;
+  --ink-soft:#4a5259;
+  --ink-faint:#858d94;
+  --rule:#d8d5cc;
+  --hair:#e6e3da;
+  --accent:#0e5c62;
+  --accent-wash:#e4eeee;
+  --amber:#8a5a1c;
+  --amber-wash:#f5eddf;
+  --grid:rgba(14,92,98,.055);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151a;
+    --plate:#181c22;
+    --ink:#e9e7e1;
+    --ink-soft:#a6aeb6;
+    --ink-faint:#79828b;
+    --rule:#2b3138;
+    --hair:#242a31;
+    --accent:#67b8bd;
+    --accent-wash:#17282c;
+    --amber:#d3a05a;
+    --amber-wash:#241f16;
+    --grid:rgba(103,184,189,.06);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151a;
+  --plate:#181c22;
+  --ink:#e9e7e1;
+  --ink-soft:#a6aeb6;
+  --ink-faint:#79828b;
+  --rule:#2b3138;
+  --hair:#242a31;
+  --accent:#67b8bd;
+  --accent-wash:#17282c;
+  --amber:#d3a05a;
+  --amber-wash:#241f16;
+  --grid:rgba(103,184,189,.06);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  /* EB Garamond sits in the stack so Greek (β, σ, γ, ρ) and math glyphs missing
+     from Libre Franklin resolve there instead of a mismatched system fallback */
+  font-family:"Libre Franklin","EB Garamond",-apple-system,"Segoe UI",sans-serif;
+  font-size:14.5px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:1160px;margin:0 auto;padding:0 26px 80px}
+
+/* ============ masthead ============ */
+.mast{
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 22px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/22px 100%;
+  border-bottom:1px solid var(--ink);
+  padding:52px 0 26px;
+  margin-bottom:0;
+}
+.mast .inner{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 14px;
+}
+.mast h1{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(38px,6.4vw,74px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  margin:0;
+  text-wrap:balance;
+}
+.mast h1 em{font-style:italic;color:var(--accent)}
+.colophon{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  line-height:1.9;
+  color:var(--ink-faint);
+  letter-spacing:.015em;
+  border-left:1px solid var(--rule);
+  padding-left:16px;
+}
+.colophon b{color:var(--ink-soft);font-weight:500}
+.standfirst{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:19px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:64ch;
+  margin:26px 0 0;
+  border-top:1px solid var(--hair);
+  padding-top:22px;
+}
+
+/* ============ contents rail ============ */
+nav{
+  position:sticky;top:0;z-index:9;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  margin:0 0 46px;
+  padding:11px 0;
+  display:flex;flex-wrap:wrap;gap:0 22px;
+}
+nav a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-faint);text-decoration:none;
+  padding:2px 0;border-bottom:1px solid transparent;
+}
+nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav a span{color:var(--rule);margin-right:6px}
+nav a:hover span{color:var(--accent)}
+
+/* ============ sections ============ */
+section{margin:0 0 58px;scroll-margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px}
+.sec-num{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:44px;line-height:1;font-weight:400;
+  color:var(--accent);opacity:.5;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.sec-head h2{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;font-size:31px;line-height:1.1;margin:0;
+  letter-spacing:-.01em;
+}
+.sec-head .kicker{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:12.5px;color:var(--ink-faint);
+  margin-left:auto;text-align:right;max-width:34ch;
+  border-top:1px solid var(--rule);padding-top:5px;
+}
+.rule{height:1px;background:var(--ink);margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(470px,1fr))}
+
+/* ============ formula plates ============ */
+.plate{
+  background:var(--plate);
+  border:1px solid var(--hair);
+  padding:16px 20px 18px;
+  display:flex;flex-direction:column;
+}
+.plate-head{
+  display:flex;align-items:baseline;gap:10px;
+  margin-bottom:12px;
+  padding-bottom:7px;
+  border-bottom:1px solid var(--hair);
+}
+.ref{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;color:var(--accent);letter-spacing:.05em;
+  padding-top:2px;flex:none;
+}
+.plate h3{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:13.5px;font-weight:600;margin:0;letter-spacing:.005em;
+}
+.plate p{margin:11px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.plate p em{color:var(--ink)}
+.plate ul{margin:11px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+.plate li{margin:4px 0}
+.plate li::marker{color:var(--accent)}
+.plate strong{color:var(--ink);font-weight:600}
+
+/* ============ math ============ */
+.f{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:20px;line-height:1.45;color:var(--ink);
+  display:block;overflow-x:auto;padding:10px 0;
+  text-align:center;white-space:nowrap;
+}
+.f.left{text-align:left}
+.f.wrap{white-space:normal;line-height:1.7}
+.f + .f{border-top:1px dotted var(--rule);margin-top:2px}
+i,var{font-family:"EB Garamond",Georgia,serif;font-style:italic}
+.op{padding:0 .22em;font-style:normal}
+.lbl{font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:var(--ink-faint);font-style:normal;letter-spacing:.02em}
+sub,sup{font-size:.62em;font-style:normal;line-height:0}
+
+/* stacked fraction: its own tight line-height, centred on the text baseline */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  line-height:1.16;
+  font-size:.92em;
+  margin:0 .26em;
+}
+.frac>span{display:block;padding:0 .42em;white-space:nowrap}
+.frac>span:last-child{
+  border-top:1px solid currentColor;
+  padding-top:.12em;margin-top:.12em;
+}
+
+/* radical: sits centred against whatever height its content needs */
+.sqrt{display:inline-flex;align-items:center;vertical-align:middle;white-space:nowrap}
+.sqrt::before{content:"\221A";font-style:normal;font-size:1.15em;line-height:1}
+.sqrt>span{border-top:1px solid currentColor;padding:.14em .22em 0}
+.sum{font-style:normal;font-size:1.2em;padding-right:.05em;line-height:1}
+
+/* ============ worked plates ============ */
+.worked{background:var(--amber-wash);border-color:var(--rule)}
+.worked .ref{color:var(--amber)}
+.worked .plate-head{border-bottom-color:var(--rule)}
+.worked .data{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;line-height:1.85;color:var(--ink-soft);
+}
+.worked dl{display:grid;grid-template-columns:auto 1fr;gap:1px 16px;margin:12px 0 0;font-size:13px}
+.worked dt{color:var(--ink-soft)}
+.worked dd{
+  margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink);
+}
+
+/* ============ figures ============ */
+.figure{background:var(--plate);border:1px solid var(--hair);padding:16px 20px 18px}
+.figure svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.shapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:4px}
+.shape figcaption{
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+  text-align:center;margin-top:8px;
+}
+.shape figcaption b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.legend{
+  display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
+.swatch{width:18px;height:2px;display:inline-block}
+
+/* ============ tables ============ */
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);background:var(--plate)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:540px}
+th,td{padding:10px 18px;text-align:left;border-bottom:1px solid var(--hair)}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:500;background:var(--accent-wash);
+  border-bottom:1px solid var(--rule);
+}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;white-space:nowrap}
+td .f{font-size:17px;line-height:1.4;text-align:left;padding:2px 0}
+
+footer{
+  margin-top:30px;padding-top:20px;border-top:1px solid var(--ink);
+  display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;line-height:1.9;color:var(--ink-faint);
+}
+
+@media (max-width:640px){
+  .sheet{padding:0 16px 60px}
+  .mast{padding:34px 0 20px}
+  .colophon{border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:12px}
+  .sec-head{flex-wrap:wrap}
+  .sec-head .kicker{margin-left:0;text-align:left}
+  .f{font-size:18px}
+}
+@media print{
+  nav{display:none}
+  body{background:#fff}
+  .plate,.worked,.figure{break-inside:avoid}
+}
+
+.modband{margin:6px 0 30px;padding:14px 0 12px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:16px;
+  font-family:"EB Garamond",Georgia,serif;font-size:26px;font-weight:500;letter-spacing:-.01em}
+.modband span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:400}
+nav .mod{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding:2px 0;border-left:1px solid var(--rule);padding-left:14px;margin-left:2px}
+.grid.wide .f{white-space:normal;line-height:1.75}
+.grid.wide .f .frac{white-space:nowrap}
+.plate .tablewrap{margin-top:4px}
+.plate table{min-width:0;font-size:13px}
+.plate th,.plate td{padding:6px 10px}
+@media print{.modband{break-after:avoid}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="sheet"><div class="inner"><div><p class="eyebrow">Fundamentals of Data Science &middot; Module 3</p><h1 style="font-size:clamp(34px,5.4vw,60px)">Data similarity and dissimilarity</h1></div><div class="colophon"><b>FDS</b><br>4 sections &middot; 24 plates<br>3 worked checks<br>SY AIDS &middot; Semester III</div></div></div></div>
+<div class="sheet">
+<nav><a href="./"><span>&larr;</span>FDS</a><a href="module-1.html"><span>1</span>Module 1</a><a href="module-2.html"><span>2</span>Module 2</a><a href="module-3.html" style="color:var(--accent);border-bottom-color:var(--accent)"><span>3</span>Module 3</a><a href="module-4.html"><span>4</span>Module 4</a><a href="module-5.html"><span>5</span>Module 5</a><a href="FDS_Complete_Formula_Sheet.html"><span>&#9638;</span>Full sheet</a></nav>
+<section id="s12">
+  <div class="sec-head">
+    <span class="sec-num">12</span>
+    <h2>Numeric data</h2>
+    <span class="kicker">How far apart are two objects described by numbers?</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">12.1</span><h3>What makes a distance a metric</h3></div><p style="margin-top:0">Similarity and dissimilarity are linked: for <i>d</i> <span class="op">∈</span> [0, 1], <i>s</i> <span class="op">=</span> 1 <span class="op">&minus;</span> <i>d</i>; otherwise <i>s</i> <span class="op">=</span> 1/(1 <span class="op">+</span> <i>d</i>) is common.</p><ul><li><i>d</i>(<i>x</i>, <i>y</i>) <span class="op">≥</span> 0, and <i>d</i> <span class="op">=</span> 0 only when <i>x</i> <span class="op">=</span> <i>y</i> (positivity).</li><li><i>d</i>(<i>x</i>, <i>y</i>) <span class="op">=</span> <i>d</i>(<i>y</i>, <i>x</i>) (symmetry).</li><li><i>d</i>(<i>x</i>, <i>z</i>) <span class="op">≤</span> <i>d</i>(<i>x</i>, <i>y</i>) <span class="op">+</span> <i>d</i>(<i>y</i>, <i>z</i>) (triangle inequality).</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.2</span><h3>Minkowski distance (order p)</h3></div><span class="f"><i>d</i>(<i>x</i>, <i>y</i>) <span class="op">=</span> ( <span class="sum">&Sigma;</span> |<i>x</i><sub><i>i</i></sub> <span class="op">&minus;</span> <i>y</i><sub><i>i</i></sub>|<sup><i>p</i></sup> )<sup>1/<i>p</i></sup></span><p>The general form. The three common distances below are special cases; <i>p</i> <span class="op">≥</span> 1 keeps it a metric.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.3</span><h3>Manhattan distance (p = 1, L₁)</h3></div><span class="f"><i>d</i> <span class="op">=</span> <span class="sum">&Sigma;</span> |<i>x</i><sub><i>i</i></sub> <span class="op">&minus;</span> <i>y</i><sub><i>i</i></sub>|</span><p>City-block distance: total of the absolute differences along each axis.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.4</span><h3>Euclidean distance (p = 2, L₂)</h3></div><span class="f"><i>d</i> <span class="op">=</span> <span class="sqrt"><span><span class="sum">&Sigma;</span> (<i>x</i><sub><i>i</i></sub> <span class="op">&minus;</span> <i>y</i><sub><i>i</i></sub>)<sup>2</sup></span></span></span><p>Straight-line distance. Sensitive to scale, so normalise attributes first (module 4).</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.5</span><h3>Supremum distance (p → ∞, Chebyshev)</h3></div><span class="f"><i>d</i> <span class="op">=</span> max<sub><i>i</i></sub> |<i>x</i><sub><i>i</i></sub> <span class="op">&minus;</span> <i>y</i><sub><i>i</i></sub>|</span><p>The largest difference along any single attribute.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.6</span><h3>Mahalanobis distance</h3></div><span class="f"><i>d</i>(<i>x</i>, <i>y</i>) <span class="op">=</span> <span class="sqrt"><span>(<i>x</i> <span class="op">&minus;</span> <i>y</i>)<sup><i>T</i></sup> <i>S</i><sup><span class="op">&minus;</span>1</sup> (<i>x</i> <span class="op">&minus;</span> <i>y</i>)</span></span></span><span class="f"><span class="lbl">2-D</span>&nbsp; <i>S</i> <span class="op">=</span> [ σ<sub><i>x</i></sub><sup>2</sup> &nbsp; cov ; cov &nbsp; σ<sub><i>y</i></sub><sup>2</sup> ], &nbsp; <i>S</i><sup><span class="op">&minus;</span>1</sup> <span class="op">=</span> <span class="frac"><span>1</span><span>det&nbsp;<i>S</i></span></span> [ σ<sub><i>y</i></sub><sup>2</sup> &nbsp; <span class="op">&minus;</span>cov ; <span class="op">&minus;</span>cov &nbsp; σ<sub><i>x</i></sub><sup>2</sup> ]</span><p><i>S</i> is the covariance matrix. It scales by variance and removes correlation between attributes. For a point against a distribution, use <i>x</i> <span class="op">&minus;</span> μ. If <i>S</i> is the identity matrix it reduces to Euclidean distance.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.7</span><h3>Bhattacharyya distance</h3></div><span class="f">BC(<i>p</i>, <i>q</i>) <span class="op">=</span> <span class="sum">&Sigma;</span> <span class="sqrt"><span><i>p</i><sub><i>i</i></sub> <i>q</i><sub><i>i</i></sub></span></span></span><span class="f"><i>D</i><sub><i>B</i></sub> <span class="op">=</span> <span class="op">&minus;</span>ln&nbsp;BC(<i>p</i>, <i>q</i>)</span><span class="f"><span class="lbl">two normals</span>&nbsp; <i>D</i><sub><i>B</i></sub> <span class="op">=</span> <span class="frac"><span>1</span><span>4</span></span> <span class="frac"><span>(μ<sub><i>p</i></sub> <span class="op">&minus;</span> μ<sub><i>q</i></sub>)<sup>2</sup></span><span>σ<sub><i>p</i></sub><sup>2</sup> <span class="op">+</span> σ<sub><i>q</i></sub><sup>2</sup></span></span> <span class="op">+</span> <span class="frac"><span>1</span><span>2</span></span> ln <span class="frac"><span>σ<sub><i>p</i></sub><sup>2</sup> <span class="op">+</span> σ<sub><i>q</i></sub><sup>2</sup></span><span>2σ<sub><i>p</i></sub>σ<sub><i>q</i></sub></span></span></span><p>Measures overlap between two probability distributions. 0 <span class="op">≤</span> BC <span class="op">≤</span> 1; no overlap gives BC <span class="op">=</span> 0, identical distributions give BC <span class="op">=</span> 1 and <i>D</i><sub><i>B</i></sub> <span class="op">=</span> 0.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">12.8</span><h3>Bregman divergence</h3></div><span class="f"><i>D</i><sub>φ</sub>(<i>x</i>, <i>y</i>) <span class="op">=</span> φ(<i>x</i>) <span class="op">&minus;</span> φ(<i>y</i>) <span class="op">&minus;</span> ⟨∇φ(<i>y</i>), <i>x</i> <span class="op">&minus;</span> <i>y</i>⟩</span><ul><li>φ strictly convex and differentiable: <i>D</i><sub>φ</sub> is the gap between φ and its tangent at <i>y</i>.</li><li>φ = ‖x‖² gives <strong>squared Euclidean</strong> distance.</li><li>φ = Σ p log p gives <strong>KL divergence</strong>, <span class="sum">&Sigma;</span> <i>p</i><sub><i>j</i></sub> log(<i>p</i><sub><i>j</i></sub> / <i>q</i><sub><i>j</i></sub>).</li><li>Not symmetric and does not satisfy the triangle inequality, so it is a divergence, not a metric.</li></ul></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Distances between A(2, 3, 5) and B(5, 7, 5)</h3></div><dl><dt>Manhattan</dt><dd>3 + 4 + 0 = 7</dd><dt>Euclidean</dt><dd>√(9 + 16 + 0) = 5</dd><dt>Supremum</dt><dd>max(3, 4, 0) = 4</dd></dl></div>
+<div class="figure"><div class="plate-head"><span class="ref">Fig. 4</span><h3>Unit "circles" of the Minkowski family</h3></div>
+<div class="shapes">
+<figure class="shape" style="margin:0"><svg viewBox="0 0 120 120"><line x1="10" y1="60" x2="110" y2="60" stroke="var(--rule)"/><line x1="60" y1="10" x2="60" y2="110" stroke="var(--rule)"/><polygon points="60,15 105,60 60,105 15,60" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.8"/></svg><figcaption><b>Manhattan</b>p = 1, diamond</figcaption></figure>
+<figure class="shape" style="margin:0"><svg viewBox="0 0 120 120"><line x1="10" y1="60" x2="110" y2="60" stroke="var(--rule)"/><line x1="60" y1="10" x2="60" y2="110" stroke="var(--rule)"/><circle cx="60" cy="60" r="45" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.8"/></svg><figcaption><b>Euclidean</b>p = 2, circle</figcaption></figure>
+<figure class="shape" style="margin:0"><svg viewBox="0 0 120 120"><line x1="10" y1="60" x2="110" y2="60" stroke="var(--rule)"/><line x1="60" y1="10" x2="60" y2="110" stroke="var(--rule)"/><rect x="15" y="15" width="90" height="90" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.8"/></svg><figcaption><b>Supremum</b>p → ∞, square</figcaption></figure>
+</div><p style="margin:12px 0 0;font-size:13.5px;color:var(--ink-soft)">Each shape is the set of points at distance 1 from the origin. As <i>p</i> grows the shape fills out from the diamond to the square, so d<sub>1</sub> ≥ d<sub>2</sub> ≥ d<sub>∞</sub> always.</p></div>
+</div>
+</section>
+<section id="s13">
+  <div class="sec-head">
+    <span class="sec-num">13</span>
+    <h2>Binary data</h2>
+    <span class="kicker">Match counts on 0/1 attributes, symmetric or asymmetric.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">13.1</span><h3>Contingency table of two binary objects</h3></div><div class="tablewrap"><table><thead><tr><th></th><th><i>j</i> <span class="op">=</span> 1</th><th><i>j</i> <span class="op">=</span> 0</th></tr></thead><tbody><tr><td><i>i</i> <span class="op">=</span> 1</td><td><strong>q</strong> (both 1)</td><td><strong>r</strong></td></tr><tr><td><i>i</i> <span class="op">=</span> 0</td><td><strong>s</strong></td><td><strong>t</strong> (both 0)</td></tr></tbody></table></div>
+<p>Tan's notation: <i>M</i><sub>11</sub> <span class="op">=</span> <i>q</i>, <i>M</i><sub>10</sub> <span class="op">=</span> <i>r</i>, <i>M</i><sub>01</sub> <span class="op">=</span> <i>s</i>, <i>M</i><sub>00</sub> <span class="op">=</span> <i>t</i>. Always <i>q</i> <span class="op">+</span> <i>r</i> <span class="op">+</span> <i>s</i> <span class="op">+</span> <i>t</i> = number of attributes.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">13.2</span><h3>Symmetric binary — simple matching</h3></div><span class="f"><i>d</i> <span class="op">=</span> <span class="frac"><span><i>r</i> <span class="op">+</span> <i>s</i></span><span><i>q</i> <span class="op">+</span> <i>r</i> <span class="op">+</span> <i>s</i> <span class="op">+</span> <i>t</i></span></span></span><span class="f">SMC <span class="op">=</span> <span class="frac"><span><i>q</i> <span class="op">+</span> <i>t</i></span><span><i>q</i> <span class="op">+</span> <i>r</i> <span class="op">+</span> <i>s</i> <span class="op">+</span> <i>t</i></span></span> <span class="op">=</span> 1 <span class="op">&minus;</span> <i>d</i></span><p>Both states carry equal weight (e.g. gender), so a 0-0 match is as informative as a 1-1 match.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">13.3</span><h3>Asymmetric binary — Jaccard</h3></div><span class="f"><i>d</i> <span class="op">=</span> <span class="frac"><span><i>r</i> <span class="op">+</span> <i>s</i></span><span><i>q</i> <span class="op">+</span> <i>r</i> <span class="op">+</span> <i>s</i></span></span></span><span class="f"><i>J</i> <span class="op">=</span> <span class="frac"><span><i>q</i></span><span><i>q</i> <span class="op">+</span> <i>r</i> <span class="op">+</span> <i>s</i></span></span> <span class="op">=</span> 1 <span class="op">&minus;</span> <i>d</i></span><p>One state is rare and important (e.g. a positive test), so 0-0 matches are <strong>ignored</strong>. For sets, <i>J</i> <span class="op">=</span> |<i>A</i> <span class="op">∩</span> <i>B</i>| / |<i>A</i> <span class="op">∪</span> <i>B</i>|.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">13.4</span><h3>Hamming distance</h3></div><span class="f"><i>H</i> <span class="op">=</span> <i>r</i> <span class="op">+</span> <i>s</i></span><p>The number of positions at which two equal-length bit strings or words differ.</p></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Two 8-bit objects</h3></div><p class="data">i = 1 0 1 1 0 0 0 1  ·  j = 1 1 0 1 0 0 0 0</p><dl><dt>q, r, s, t</dt><dd>2, 2, 1, 3</dd><dt>Symmetric d</dt><dd>3 / 8 = 0.375</dd><dt>SMC</dt><dd>5 / 8 = 0.625</dd><dt>Jaccard</dt><dd>2 / 5 = 0.40</dd><dt>Hamming</dt><dd>3</dd></dl></div>
+</div>
+</section>
+<section id="s14">
+  <div class="sec-head">
+    <span class="sec-num">14</span>
+    <h2>Textual data</h2>
+    <span class="kicker">Strings and documents: edit, overlap, angle and probability.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">14.1</span><h3>Edit (Levenshtein) distance</h3></div><span class="f"><i>D</i>(<i>i</i>, 0) <span class="op">=</span> <i>i</i>, &nbsp; <i>D</i>(0, <i>j</i>) <span class="op">=</span> <i>j</i></span><span class="f"><i>D</i>(<i>i</i>, <i>j</i>) <span class="op">=</span> min{ <i>D</i>(<i>i</i> <span class="op">&minus;</span> 1, <i>j</i>) <span class="op">+</span> 1, &nbsp; <i>D</i>(<i>i</i>, <i>j</i> <span class="op">&minus;</span> 1) <span class="op">+</span> 1, &nbsp; <i>D</i>(<i>i</i> <span class="op">&minus;</span> 1, <i>j</i> <span class="op">&minus;</span> 1) <span class="op">+</span> [<i>a</i><sub><i>i</i></sub> <span class="op">≠</span> <i>b</i><sub><i>j</i></sub>] }</span><p>Minimum number of insertions, deletions and substitutions (each cost 1) to turn string 1 into string 2. Fill an (<i>m</i> <span class="op">+</span> 1) <span class="op">×</span> (<i>n</i> <span class="op">+</span> 1) table; the answer is <i>D</i>(<i>m</i>, <i>n</i>). The bracket is 0 if the letters match, else 1.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">14.2</span><h3>Longest common subsequence (LCS)</h3></div><span class="f"><i>L</i>(<i>i</i>, 0) <span class="op">=</span> <i>L</i>(0, <i>j</i>) <span class="op">=</span> 0</span><span class="f"><i>L</i>(<i>i</i>, <i>j</i>) <span class="op">=</span> { <i>L</i>(<i>i</i> <span class="op">&minus;</span> 1, <i>j</i> <span class="op">&minus;</span> 1) <span class="op">+</span> 1 &nbsp; if &nbsp; <i>a</i><sub><i>i</i></sub> <span class="op">=</span> <i>b</i><sub><i>j</i></sub> ; &nbsp; max( <i>L</i>(<i>i</i> <span class="op">&minus;</span> 1, <i>j</i>), <i>L</i>(<i>i</i>, <i>j</i> <span class="op">&minus;</span> 1) ) &nbsp; otherwise }</span><p>LCS distance = <i>m</i> <span class="op">+</span> <i>n</i> <span class="op">&minus;</span> 2 · LCS (insert/delete only). Similarity = LCS / max(<i>m</i>, <i>n</i>).</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">14.3</span><h3>Cosine similarity</h3></div><span class="f">cos(<i>A</i>, <i>B</i>) <span class="op">=</span> <span class="frac"><span><i>A</i> · <i>B</i></span><span>‖<i>A</i>‖ ‖<i>B</i>‖</span></span> <span class="op">=</span> <span class="frac"><span><span class="sum">&Sigma;</span> <i>a</i><sub><i>i</i></sub> <i>b</i><sub><i>i</i></sub></span><span><span class="sqrt"><span><span class="sum">&Sigma;</span> <i>a</i><sub><i>i</i></sub><sup>2</sup></span></span> <span class="sqrt"><span><span class="sum">&Sigma;</span> <i>b</i><sub><i>i</i></sub><sup>2</sup></span></span></span></span></span><span class="f"><span class="lbl">cosine distance</span>&nbsp; 1 <span class="op">&minus;</span> cos(<i>A</i>, <i>B</i>)</span><p>Angle between two term-frequency vectors; ignores document length. 1 = same direction, 0 = nothing in common.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">14.4</span><h3>Jaro &amp; Jaro–Winkler similarity</h3></div><span class="f">sim<sub><i>J</i></sub> <span class="op">=</span> <span class="frac"><span>1</span><span>3</span></span>( <span class="frac"><span><i>m</i></span><span>|<i>s</i><sub>1</sub>|</span></span> <span class="op">+</span> <span class="frac"><span><i>m</i></span><span>|<i>s</i><sub>2</sub>|</span></span> <span class="op">+</span> <span class="frac"><span><i>m</i> <span class="op">&minus;</span> <i>t</i></span><span><i>m</i></span></span> ) , &nbsp; 0  if  <i>m</i> <span class="op">=</span> 0</span><span class="f">sim<sub><i>W</i></sub> <span class="op">=</span> sim<sub><i>J</i></sub> <span class="op">+</span> ℓ · <i>p</i> (1 <span class="op">&minus;</span> sim<sub><i>J</i></sub>)</span><ul><li><i>m</i> = matching characters: same letter within ⌊max(|<i>s</i><sub>1</sub>|, |<i>s</i><sub>2</sub>|)/2⌋ <span class="op">&minus;</span> 1 positions.</li><li><i>t</i> = transpositions = (matched letters in a different order) / 2.</li><li>ℓ = common prefix length (at most 4), <i>p</i> <span class="op">=</span> 0.1. Jaro distance = 1 − sim.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">14.5</span><h3>n-gram distance</h3></div><span class="f">Dice <span class="op">=</span> <span class="frac"><span>2|<i>G</i><sub>1</sub> <span class="op">∩</span> <i>G</i><sub>2</sub>|</span><span>|<i>G</i><sub>1</sub>| <span class="op">+</span> |<i>G</i><sub>2</sub>|</span></span>, &nbsp; Jaccard <span class="op">=</span> <span class="frac"><span>|<i>G</i><sub>1</sub> <span class="op">∩</span> <i>G</i><sub>2</sub>|</span><span>|<i>G</i><sub>1</sub> <span class="op">∪</span> <i>G</i><sub>2</sub>|</span></span></span><p>Split each string into overlapping <i>n</i>-letter pieces: bigrams of "night" are ni, ig, gh, ht. Similarity from the shared pieces; distance = 1 − similarity.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">14.6</span><h3>n-gram language model</h3></div><span class="f left"><i>P</i>(<i>w</i><sub>1</sub> … <i>w</i><sub><i>n</i></sub>) <span class="op">=</span> <i>P</i>(<i>w</i><sub>1</sub>) <i>P</i>(<i>w</i><sub>2</sub> | <i>w</i><sub>1</sub>) … <i>P</i>(<i>w</i><sub><i>n</i></sub> | <i>w</i><sub>1</sub> … <i>w</i><sub><i>n</i><span class="op">&minus;</span>1</sub>)</span><span class="f left"><span class="lbl">unigram</span>&nbsp; <i>P</i>(<i>w</i><sub><i>i</i></sub>) <span class="op">=</span> <span class="frac"><span><i>C</i>(<i>w</i><sub><i>i</i></sub>)</span><span><i>N</i></span></span></span><span class="f left"><span class="lbl">bigram</span>&nbsp; <i>P</i>(<i>w</i><sub><i>i</i></sub> | <i>w</i><sub><i>i</i><span class="op">&minus;</span>1</sub>) <span class="op">=</span> <span class="frac"><span><i>C</i>(<i>w</i><sub><i>i</i><span class="op">&minus;</span>1</sub> <i>w</i><sub><i>i</i></sub>)</span><span><i>C</i>(<i>w</i><sub><i>i</i><span class="op">&minus;</span>1</sub>)</span></span></span><span class="f left"><span class="lbl">trigram</span>&nbsp; <i>P</i>(<i>w</i><sub><i>n</i></sub> | <i>w</i><sub><i>n</i><span class="op">&minus;</span>2</sub>, <i>w</i><sub><i>n</i><span class="op">&minus;</span>1</sub>) <span class="op">=</span> <span class="frac"><span><i>C</i>(<i>w</i><sub><i>n</i><span class="op">&minus;</span>2</sub> <i>w</i><sub><i>n</i><span class="op">&minus;</span>1</sub> <i>w</i><sub><i>n</i></sub>)</span><span><i>C</i>(<i>w</i><sub><i>n</i><span class="op">&minus;</span>2</sub> <i>w</i><sub><i>n</i><span class="op">&minus;</span>1</sub>)</span></span></span><p>Maximum-likelihood estimates from counts <i>C</i>. A bigram sentence probability is the product of its bigram probabilities, with the markers &lt;s&gt; and &lt;/s&gt; counted as words.</p></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Text measures</h3></div><dl><dt>Edit: kitten → sitting</dt><dd>3</dd><dt>LCS: ABCBDAB, BDCABA</dt><dd>4</dd><dt>Cosine of (1,2,0) and (2,1,1)</dt><dd>4 / (√5 · √6) = 0.730</dd><dt>Jaro: MARTHA, MARHTA</dt><dd>m = 6, t = 1, sim = 0.944</dd><dt>Jaro–Winkler (ℓ = 3)</dt><dd>0.961</dd><dt>Bigram: corpus "&lt;s&gt; I am Sam &lt;/s&gt; &lt;s&gt; Sam I am &lt;/s&gt; &lt;s&gt; I do not like green eggs and ham &lt;/s&gt;"</dt><dd>P(I | &lt;s&gt;) = 2/3, P(Sam | am) = 1/2</dd></dl></div>
+</div>
+</section>
+<section id="s15">
+  <div class="sec-head">
+    <span class="sec-num">15</span>
+    <h2>Mixed attribute types</h2>
+    <span class="kicker">One dissimilarity for a record that mixes numbers, labels and ranks.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">15.1</span><h3>Mixed-type dissimilarity</h3></div><span class="f"><i>d</i>(<i>i</i>, <i>j</i>) <span class="op">=</span> <span class="frac"><span><span class="sum">&Sigma;</span><sub><i>f</i></sub> δ<sub>ij</sub><sup>(<i>f</i>)</sup> <i>d</i><sub>ij</sub><sup>(<i>f</i>)</sup></span><span><span class="sum">&Sigma;</span><sub><i>f</i></sub> δ<sub>ij</sub><sup>(<i>f</i>)</sup></span></span></span><p>Compute a 0–1 distance per attribute <i>f</i>, then take the weighted average. <strong>δ = 0</strong> if a value is missing, or if the attribute is asymmetric binary and both values are 0; otherwise δ = 1.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">15.2</span><h3>Per-attribute distance $d_{ij}^{(f)}$</h3></div><div class="tablewrap"><table><thead><tr><th>Attribute type</th><th>Distance</th></tr></thead><tbody><tr><td>Numeric</td><td><span class="f"><span class="frac"><span>|<i>x</i><sub>if</sub> <span class="op">&minus;</span> <i>x</i><sub>jf</sub>|</span><span>max<sub><i>f</i></sub> <span class="op">&minus;</span> min<sub><i>f</i></sub></span></span></span></td></tr><tr><td>Nominal / binary</td><td>0 if equal, else 1</td></tr><tr><td>Ordinal (<i>M</i><sub><i>f</i></sub> levels, rank <i>r</i>)</td><td><span class="f"><i>z</i> <span class="op">=</span> <span class="frac"><span><i>r</i> <span class="op">&minus;</span> 1</span><span><i>M</i><sub><i>f</i></sub> <span class="op">&minus;</span> 1</span></span> &nbsp; then treat as numeric</span></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<footer><span>FDS &mdash; Module 3</span><span style="display:flex;gap:26px"><a href="module-2.html">&larr; Module 2</a><a href="./">All modules</a><a href="module-4.html">Module 4 &rarr;</a></span></footer>
+</div></body></html>
