@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDS Theory Q and A</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--mute:#605e57;--line:#d9d5ca;--card:#fff;--acc:#1f5f8b;--acc2:#8a3b12;--hl:#fff4cf;--ok:#1d6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Georgia,"Times New Roman",serif}
+main{max-width:900px;margin:0 auto;padding:16px 16px 80px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px;font:14px/1.4 system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:6px 14px}
+nav a{color:var(--acc);text-decoration:none}
+h1{font-size:28px;margin:24px 0 4px}
+h2{font-size:21px;margin:38px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--acc);color:var(--acc)}
+h4{font-size:16px;margin:12px 0 2px;color:var(--acc2)}
+p,li{margin:5px 0}
+.sub{color:var(--mute);font:14px system-ui,sans-serif}
+.q{background:var(--card);border:1px solid var(--line);border-radius:6px;margin:14px 0;overflow:hidden}
+.q>.qt{background:var(--hl);padding:8px 12px;font-weight:bold}
+.q>.qt .n{color:var(--acc2);font-family:system-ui,sans-serif;margin-right:6px}
+.q>.qa{padding:4px 14px 10px}
+.tag{font:12px system-ui,sans-serif;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin-left:6px;color:var(--mute);font-weight:normal}
+.flag{border-left:4px solid var(--acc2)}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:15px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:5px 8px;vertical-align:top;text-align:left}
+th{background:var(--hl);font:14px system-ui,sans-serif}
+.f{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--acc);padding:6px 12px;margin:6px 0;font-family:"Cambria Math","Times New Roman",serif;font-size:17px;overflow-x:auto}
+.box{background:var(--hl);border-radius:6px;padding:8px 12px;margin:10px 0;font-size:15px}
+.warn{border-left:4px solid var(--acc2)}
+.ans{color:var(--ok);font-weight:bold}
+.pg{font:12px system-ui,sans-serif;color:var(--mute)}
+ul,ol{padding-left:22px}
+@media print{nav{display:none}body{background:#fff;color:#000;font-size:12px}.q{page-break-inside:avoid}h2{page-break-before:always}}
+</style>
+</head>
+<body>
+<nav><a href="#flagged">Flagged in notes</a><a href="#u11">1.1</a><a href="#u12">1.2</a><a href="#u13">1.3</a><a href="#u14">1.4</a><a href="#u21">2.1</a><a href="#u22">2.2</a><a href="#u23">2.3</a><a href="#extra">Outside syllabus</a><a href="#fixes">Fixes to your notes</a></nav>
+<main>
+<h1>FDS Theory Questions and Model Answers</h1>
+<p class="sub">Built from your handwritten notes (all 38 pages) and arranged by syllabus unit. Page references like <b>[p9]</b> point to your PDF. Answers marked <span class="tag">added from slides</span> cover topics your notes do not have, so the question is still answerable from the syllabus. Section 9 holds topics that are in your notes but not in the syllabus list.</p>
+
+<h2 id="flagged">0. Questions your notes flag directly</h2>
+<ul>
+<li><b>Q1</b> What is a data object and attributes? (5M, "do not write it in your own words") [p1]</li>
+<li><b>Q6</b> Explain properties describing attributes [p4]</li>
+<li><b>Q4</b> Difference between qualitative and quantitative [p4]</li>
+<li><b>Q7</b> Classify the attributes as binary, discrete or continuous, and as qualitative or quantitative [p5]</li>
+<li><b>Q19</b> Explain mean, mode, median and their relationship [p17]</li>
+<li><b>Q27</b> What is correlation? (10M) [p34]</li>
+</ul>
+<p>For the 5M question your teacher asked for the textbook wording, so learn Q1 almost word for word.</p>
+
+<!-- ============ 1.1 ============ -->
+<h2 id="u11">1. Unit 1.1: Data and attributes</h2>
+
+<div class="q flag"><div class="qt"><span class="n">Q1</span>What is a data object and attributes? <span class="tag">5M</span></div><div class="qa">
+<p><b>Data set</b> is made up of data objects. A <b>data object</b> represents an entity. Examples: in a sales database the objects are customers, store items and sales; in a medical database they are patients, medicines and treatments.</p>
+<p>Objects are described by <b>attributes</b>. An attribute represents a characteristic of the object, for example customer_ID, name, address. The set of attributes used to describe an object is called the <b>attribute vector</b>.</p>
+<p>In a database, rows are data objects and columns are attributes. Other names for an attribute: variable (statistics), dimension (warehousing), feature (machine learning). Other names for an object: sample, instance, record, tuple, point, observation.</p>
+</div></div>
+
+<div class="q"><div class="qt"><span class="n">Q2</span>Define data, information, science and data science. <span class="tag">p1</span></div><div class="qa">
+<ul>
+<li><b>Data:</b> raw facts or figures that make no sense or have no meaning by themselves (numbers, dates, images, sound, video). It is raw information that is collected or stored, and can be structured (databases) or unstructured (text, images, video).</li>
+<li><b>Information:</b> data that has been processed by a computer to give it meaning. Example: 7, 7.2, 6 becomes "A 7, B 7.2, C 6" (student pointers).</li>
+<li><b>Knowledge:</b> information used to form judgements or decisions. Example: students with pointer above 7 are eligible for placement. <span class="tag">added from slides</span></li>
+<li><b>Science:</b> systematic study of phenomena using scientific methods and principles.</li>
+<li><b>Data science:</b> an interdisciplinary field that combines statistics, machine learning and domain knowledge to extract insight and knowledge from structured and unstructured data.</li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q3</span>Explain the types of attributes (nominal, binary, ordinal, interval, ratio). <span class="tag">p2–3</span></div><div class="qa">
+<p>Data is first split into <b>qualitative (categorical)</b> and <b>quantitative (numeric)</b>. Qualitative: nominal (with binary as a special case) and ordinal. Quantitative: interval and ratio.</p>
+<table>
+<tr><th>Type</th><th>Meaning</th><th>Example</th><th>Average that makes sense</th></tr>
+<tr><td>Nominal</td><td>Categorises into mutually exclusive groups, labels with no rank, order or quantitative value</td><td>Occupation {teacher, engineer}, hair colour, zip code</td><td>Mode only</td></tr>
+<tr><td>Binary</td><td>Nominal attribute with only 2 states (0 and 1). <b>Symmetric</b>: both outcomes equally important (gender). <b>Asymmetric</b>: outcomes not equally important (medical test, positive or negative); convention: assign 1 to the most important outcome</td><td>Gender, test result</td><td>Mode</td></tr>
+<tr><td>Ordinal</td><td>Categories with a meaningful rank, but the gap between successive values is not known</td><td>Size {small, medium, large}, grades, ranks</td><td>Median and mode</td></tr>
+<tr><td>Interval</td><td>Measured on a scale of equal-size units, values have order, differences can be quantified. <b>No true zero</b></td><td>Temperature 10°C, 30°C, dates</td><td>Mean, median, mode</td></tr>
+<tr><td>Ratio</td><td>Has an inherent zero point, so a value can be an order of magnitude larger than the unit (10 K is twice 5 K)</td><td>Kelvin, length, weight, counts, money</td><td>Mean, median, mode</td></tr>
+</table></div></div>
+
+<div class="q flag"><div class="qt"><span class="n">Q4</span>Differentiate between qualitative and quantitative data. <span class="tag">p4</span></div><div class="qa">
+<table>
+<tr><th></th><th>Quantitative</th><th>Qualitative</th></tr>
+<tr><td>Nature</td><td>Number based, countable or measurable</td><td>Interpretation based, descriptive, in words, images, audio</td></tr>
+<tr><td>Tells</td><td>How many, how much, how often</td><td>Why and how, behind behaviours</td></tr>
+<tr><td>Operations</td><td>Arithmetic and statistics possible</td><td>No arithmetic; analysed by grouping into categories and themes</td></tr>
+<tr><td>Methods</td><td>Measuring and counting</td><td>Interviews, observation, questionnaires</td></tr>
+<tr><td>Subtypes</td><td>Interval, ratio (discrete or continuous)</td><td>Nominal, ordinal</td></tr>
+</table>
+<p class="pg">Check your page 2 tree: the labels "cannot do arithmetic" and "descriptive, subjective" belong on the qualitative branch.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q5</span>Differentiate discrete and continuous attributes. <span class="tag">p3</span></div><div class="qa">
+<table>
+<tr><th></th><th>Discrete (counted)</th><th>Continuous (measured)</th></tr>
+<tr><td>Values</td><td>Finite or countably infinite set of values, whole numbers</td><td>Real numbers as attribute values</td></tr>
+<tr><td>Examples</td><td>Zip codes, profession, number of students</td><td>Temperature, height, weight</td></tr>
+<tr><td>Divisible</td><td>Cannot be broken into fractions</td><td>Can take any value in a range</td></tr>
+<tr><td>Stored as</td><td>Integer variables</td><td>Floating-point variables</td></tr>
+</table>
+<p>A binary attribute is a special case of a discrete attribute.</p></div></div>
+
+<div class="q flag"><div class="qt"><span class="n">Q6</span>Explain the properties used to describe attributes. <span class="tag">p3–4</span></div><div class="qa">
+<ol>
+<li><b>Distinctiveness</b> (=, ≠)</li>
+<li><b>Order</b> (&lt;, ≤, ≥, &gt;)</li>
+<li><b>Addition</b> (+ and −)</li>
+<li><b>Multiplication</b> (× and ÷)</li>
+</ol>
+<table>
+<tr><th>Attribute</th><th>Properties</th></tr>
+<tr><td>Nominal</td><td>Distinctiveness</td></tr>
+<tr><td>Ordinal</td><td>Distinctiveness and order</td></tr>
+<tr><td>Interval</td><td>Distinctiveness, order and meaningful differences</td></tr>
+<tr><td>Ratio</td><td>All 4 properties</td></tr>
+</table></div></div>
+
+<div class="q flag"><div class="qt"><span class="n">Q7</span>Classify each attribute as binary, discrete or continuous, and as qualitative or quantitative (nominal, ordinal, interval, ratio). <span class="tag">p5</span></div><div class="qa">
+<table>
+<tr><th>Attribute</th><th>Type</th><th>Class</th></tr>
+<tr><td>Time as AM or PM</td><td>Binary</td><td>Qualitative. Your notes say nominal; the textbook key says ordinal because AM precedes PM</td></tr>
+<tr><td>Brightness by light meter</td><td>Continuous</td><td>Quantitative, ratio</td></tr>
+<tr><td>Angle between 0 and 360</td><td>Continuous</td><td>Quantitative. Your notes say interval; the textbook key says ratio</td></tr>
+<tr><td>Brightness by human judgement</td><td>Discrete</td><td>Qualitative, ordinal</td></tr>
+<tr><td>Bronze, silver, gold</td><td>Discrete</td><td>Qualitative, ordinal</td></tr>
+<tr><td>Height above sea level <span class="tag">added from slides</span></td><td>Continuous</td><td>Quantitative, interval/ratio</td></tr>
+<tr><td>Number of patients in a hospital</td><td>Discrete</td><td>Quantitative, ratio</td></tr>
+<tr><td>ISBN of books</td><td>Discrete</td><td>Qualitative, nominal</td></tr>
+<tr><td>Opaque, translucent, transparent</td><td>Discrete</td><td>Qualitative, ordinal</td></tr>
+<tr><td>Military rank</td><td>Discrete</td><td>Qualitative, ordinal</td></tr>
+<tr><td>Distance from campus centre</td><td>Continuous</td><td>Quantitative, interval/ratio</td></tr>
+</table>
+<p>For the debatable ones (AM/PM, angle, height, distance) state your reasoning in one line and your teacher's convention will usually be accepted.</p></div></div>
+
+<!-- ============ 1.2 ============ -->
+<h2 id="u12">2. Unit 1.2: Types of datasets</h2>
+
+<div class="q"><div class="qt"><span class="n">Q8</span>Explain the general characteristics of datasets: dimensionality, distribution and resolution. <span class="tag">p7–8</span></div><div class="qa">
+<ul>
+<li><b>Dimensionality:</b> the number of attributes the objects have. If there are a high number of attributes (high dimensionality) the data becomes difficult to analyse. This problem is the <b>curse of dimensionality</b>: data turns sparse, classification models lack enough objects to be reliable and clustering distances lose meaning. Remedy: dimensionality reduction.</li>
+<li><b>Distribution:</b> frequency of occurrence of various values or sets of values of the attributes comprising the objects. It describes the concentration of objects in various regions of the data space. A Gaussian distribution yields powerful analysis techniques. <b>Sparsity</b> means most values are zero; only the non-zero values need storing. <span class="tag">added from slides</span></li>
+<li><b>Resolution:</b> patterns in the data depend on the level of resolution. Too fine and a pattern may not be visible or may be buried in noise (example: the earth's surface looks uneven at metre scale). Too coarse and the pattern may disappear (storms visible over hours are invisible over months).</li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q9</span>Explain the types of datasets. <span class="tag">p8</span></div><div class="qa">
+<p>Your notes list: numerical, bivariate, multivariate, categorical, correlation datasets, and record data (data matrix, document data, transaction data). Details <span class="tag">added from slides</span>:</p>
+<ul>
+<li><b>Numerical:</b> values are numbers, arithmetic possible (weight, height, RBC count).</li>
+<li><b>Bivariate:</b> two variables, studies their relationship (ice-cream sales vs temperature). One variable alone is univariate.</li>
+<li><b>Multivariate:</b> three or more variables (length, width, height, volume of a box).</li>
+<li><b>Categorical:</b> qualitative variables; dichotomous (two values, e.g. gender) or polytomous (more than two).</li>
+<li><b>Correlation datasets:</b> values related to each other, with positive, negative or zero correlation.</li>
+<li><b>Record data:</b> a collection of records, each with a fixed set of attributes and no explicit relationship between records. <i>Data matrix</i>: m objects by n numeric attributes. <i>Document data</i>: each document is a term vector (rows documents, columns terms, value = count). <i>Transaction data</i>: market-basket data, each record is a set of items bought in one trip.</li>
+<li><b>Graph-based:</b> objects as nodes and relationships as links (web pages, social networks), or objects that are graphs (chemical structures).</li>
+<li><b>Ordered:</b> sequence, time series, spatial and spatio-temporal data.</li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q10</span>Differentiate time-series, sequence and spatial data. <span class="tag">added from slides</span></div><div class="qa">
+<table>
+<tr><th>Time series</th><th>Sequence</th><th>Spatial</th></tr>
+<tr><td>Measurements taken over time; temporal correlation matters. Example: daily stock prices</td><td>Ordered entities with positions but no timestamps. Example: DNA nucleotides, words</td><td>Position or area attributes; nearby places have similar values (spatial correlation). Example: weather maps. With time added: spatio-temporal</td></tr>
+</table></div></div>
+
+<!-- ============ 1.3 ============ -->
+<h2 id="u13">3. Unit 1.3: Data science, analytics, engineering and EDA</h2>
+<p class="sub">Your notes do not cover this unit. These answers come from the slides (Lecture 00 and the EDA slides).</p>
+
+<div class="q"><div class="qt"><span class="n">Q11</span>Compare Data Science, Data Analytics and Data Engineering. <span class="tag">added from slides</span></div><div class="qa">
+<table>
+<tr><th></th><th>Data Science</th><th>Data Analytics</th><th>Data Engineering</th></tr>
+<tr><td>Focus</td><td>Overarching field using machine learning and predictive analytics to draw insight</td><td>Processing and statistically analysing existing data to answer specific questions</td><td>Building and maintaining infrastructure for collecting, storing and processing data</td></tr>
+<tr><td>Output</td><td>Models, predictions, insight</td><td>Reports, dashboards, trends</td><td>Pipelines, clean accessible data</td></tr>
+<tr><td>Skills</td><td>Python/R, statistics, ML</td><td>SQL, Excel, Tableau/Power BI</td><td>SQL/NoSQL, Hadoop/Spark, warehousing</td></tr>
+</table>
+<p>Data engineers build the "roads"; data scientists "drive" on them.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q12</span>Differentiate Exploratory Data Analysis from classical data analysis. <span class="tag">added from slides</span></div><div class="qa">
+<table>
+<tr><th>Point</th><th>Classical</th><th>EDA</th></tr>
+<tr><td>Sequence</td><td>Problem → Data → <b>Model → Analysis</b> → Conclusions</td><td>Problem → Data → <b>Analysis → Model</b> → Conclusions</td></tr>
+<tr><td>Model</td><td>Imposes deterministic or probabilistic models (regression, ANOVA)</td><td>No model imposed; data suggests the model</td></tr>
+<tr><td>Focus</td><td>Model parameters</td><td>Data, structure, outliers</td></tr>
+<tr><td>Techniques</td><td>Quantitative: t, F, chi-squared tests</td><td>Graphical: scatter, box plots, histograms</td></tr>
+<tr><td>Rigour</td><td>Rigorous, formal, objective</td><td>Less formal, subjective, suggestive</td></tr>
+<tr><td>Data use</td><td>Compresses data into a few estimates, information may be lost</td><td>Uses all the data, no loss</td></tr>
+<tr><td>Assumptions</td><td>Many</td><td>Few or none</td></tr>
+</table></div></div>
+
+<!-- ============ 1.4 ============ -->
+<h2 id="u14">4. Unit 1.4: Applications of data science</h2>
+
+<div class="q"><div class="qt"><span class="n">Q13</span>Explain the applications of data science in healthcare. <span class="tag">p5–7</span></div><div class="qa">
+<p>Data science combines statistics, machine learning and domain knowledge to extract insight from data. In healthcare it plays a transformative role by analysing clinical, genomic and operational data from EHRs, medical imaging and wearable devices to improve diagnosis and treatment.</p>
+<h4>Key applications</h4>
+<ol>
+<li><b>Predictive diagnosis:</b> ML models (logistic regression, random forest, SVM) analyse patient history to predict diseases like diabetes and cancer at an early stage.</li>
+<li><b>Medical imaging:</b> deep learning (CNNs) detects tumours and abnormalities in X-rays, MRIs and CT scans, improving diagnostic accuracy.</li>
+<li><b>Drug discovery:</b> predictive modelling speeds up identification of drug compounds, reducing clinical trial time and cost.</li>
+<li><b>Personalised medicine:</b> genomic data analysis enables treatment plans tailored to an individual's genetic profile.</li>
+<li><b>Public health surveillance:</b> big data analytics forecasts disease outbreaks (e.g. COVID-19 modelling), aiding policy and resource planning.</li>
+</ol>
+<h4>Benefits</h4>
+<p>Early accurate diagnosis; reduced healthcare cost through preventive care; personalised treatment plans; improved hospital resource management.</p>
+<h4>Examples</h4>
+<p>IBM Watson Health (oncology treatment recommendation); Google DeepMind (early detection of diabetic retinopathy and acute kidney injury); predictive COVID-19 models (outbreak forecasting and vaccine distribution planning).</p>
+<h4>Challenges</h4>
+<p>Data privacy and security (compliance with HIPAA/GDPR); data quality and interoperability across healthcare systems; algorithm bias affecting fairness of diagnostics.</p>
+</div></div>
+
+<div class="q"><div class="qt"><span class="n">Q13b</span>Applications in agriculture and disaster management. <span class="tag">general knowledge, not in slides or notes</span></div><div class="qa">
+<ul>
+<li><b>Agriculture:</b> crop-yield prediction from weather, soil and past yields; precision farming (right water and fertiliser for each plot); drone and satellite imagery for crop health and pest or disease detection; price and demand forecasting.</li>
+<li><b>Disaster management:</b> forecasting floods, cyclones and earthquakes from sensor and satellite data; damage assessment from imagery; mining social media for affected areas and needs; planning evacuation routes and allocating relief resources.</li>
+</ul></div></div>
+
+<!-- ============ 2.1 ============ -->
+<h2 id="u21">5. Unit 2.1: Central tendency, grouped data, SD and variance</h2>
+
+<div class="q"><div class="qt"><span class="n">Q14</span>What are basic statistical descriptors of data? <span class="tag">p8–9</span></div><div class="qa">
+<p>General characteristics of quantitative data are described by four groups of measures:</p>
+<ul>
+<li><b>Central tendency (averages):</b> the tendency of data to concentrate at a certain value at the centre of the distribution.</li>
+<li><b>Variation or dispersion:</b> how the data vary about a measure of central tendency.</li>
+<li><b>Skewness:</b> data in a frequency distribution may fall into symmetrical or asymmetrical patterns; the direction and degree of asymmetry is skewness.</li>
+<li><b>Kurtosis:</b> polygons of frequency distributions exhibit flatness or peakedness.</li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q15</span>Explain frequency distribution: included class, rules for classes, Sturges' rule. <span class="tag">p9</span></div><div class="qa">
+<ul>
+<li>A <b>frequency distribution</b> lists each value (or class) with the number of times it occurs. When the upper and lower limits of a class are both included, it is an <b>inclusive class</b>. When the upper limit belongs to the next class, it is an <b>exclusive class</b>.</li>
+<li><b>Rules for classes:</b> clearly defined; every value included; mutually exclusive and non-overlapping; equal width; the number of classes neither too small nor too large (at least 5).</li>
+<li><b>Sturges' rule:</b> k = 1 + 3.322 log<sub>10</sub> N, where <b>N is the total frequency</b> (number of observations), not the range.</li>
+<li>Class width h ≈ range / k. Mid-point = (lower limit + upper limit)/2.</li>
+<li><b>Class boundaries</b> (to convert inclusive to exclusive): subtract d/2 from the lower limit and add d/2 to the upper limit, where d is the gap between the upper limit of one class and the lower limit of the next. For 10–19, 20–29, d = 1, so the boundaries are 9.5–19.5, 19.5–29.5. <span class="tag">added from slides</span></li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q16</span>Explain the arithmetic mean, weighted mean and the step-deviation method. <span class="tag">p29–31</span></div><div class="qa">
+<div class="f">Mean x̄ = (1/N) Σ f<sub>i</sub>x<sub>i</sub> &nbsp; (ungrouped: Σx / n; grouped: x is the class mid-point)</div>
+<p><b>Step-deviation method.</b> Calculating Σfx/N for large values of f and x is tedious. The arithmetic is eased by taking deviations from an arbitrary point A (usually a value near the middle of the distribution). Since Σf<sub>i</sub>d<sub>i</sub> = Σf<sub>i</sub>x<sub>i</sub> − AN, we get (1/N)Σf<sub>i</sub>d<sub>i</sub> = x̄ − A, so</p>
+<div class="f">x̄ = A + (h/N) Σ f<sub>i</sub>d<sub>i</sub>, &nbsp; d<sub>i</sub> = (x<sub>i</sub> − A)/h</div>
+<p>A = arbitrary point, h = width of the class interval.</p>
+<p><b>Weighted mean</b> <span class="tag">added from slides</span>: x̄<sub>w</sub> = Σwx / Σw. Used when items are not equally important. It equals the simple mean when weights are equal, exceeds it when larger weights go to larger values, and falls below it when larger weights go to smaller values.</p>
+<h4>Worked examples from your notes</h4>
+<ul>
+<li>x = 1…7, f = 5, 9, 12, 17, 14, 10, 6 (N = 73): mean = 299/73 = <span class="ans">4.095</span>.</li>
+<li>Marks 0–10 … 50–60 with f = 12, 18, 27, 20, 17, 6 (N = 100), mid-points 5…55: mean = 2800/100 = <span class="ans">28</span>.</li>
+</ul>
+<p><b>Merits of mean:</b> rigidly defined, easy, based on all observations, stable under sampling. <b>Demerits:</b> distorted by extreme values, cannot be calculated with open-end classes, not for qualitative data. <span class="tag">added from slides</span></p>
+</div></div>
+
+<div class="q"><div class="qt"><span class="n">Q17</span>Explain the median for ungrouped, discrete and grouped data with an example. <span class="tag">p10–14</span></div><div class="qa">
+<ul>
+<li><b>Ungrouped:</b> arrange in ascending order; middle value if n is odd, mean of the two middle values if n is even.</li>
+<li><b>Discrete frequency distribution:</b> find N/2 and read the x whose cumulative frequency is first greater than or equal to N/2.</li>
+<li><b>Continuous (grouped):</b> convert to exclusive classes with boundaries, find N/2, locate the median class (first cf ≥ N/2), then
+<div class="f">Median = l + (h/f)(N/2 − c)</div>
+l = lower boundary of the median class, c = cf of the class before it, f = its frequency, h = its width.</li>
+</ul>
+<h4>Worked example (factory, 3000 workers) [p10–11]</h4>
+<ol>
+<li>Convert percentages to numbers: 5% → 150; 30% → 900; 20% → 600; given 580, 500; the rest 3000 − (150+580+900+500+600) = 270.</li>
+<li>cf: 150, 730, 1630, 2130, 2730, 3000. N/2 = 1500, so the median class is 4.51–6 hours.</li>
+<li>The classes have a gap of 0.01, so make them continuous (subtract and add 0.005): the median class is 4.505–6.005, with l = 4.505, c = 730, f = 900, h = 1.5.</li>
+<li>Median = 4.505 + (1500 − 730)/900 × 1.5 = 4.505 + 1.283 = <span class="ans">5.79 hours</span>.</li>
+</ol>
+<h4>Worked example (missing frequencies) [p12]</h4>
+<p>Classes 10–20 … 70–80 with f = 12, 30, x, 65, y, 25, 18; N = 229; median = 46. N/2 = 114.5, median class 40–50, cf before = 42 + x. From 46 = 40 + (10/65)(114.5 − 42 − x) we get x = 33.5. Frequencies must be whole numbers, so the intended answer is <span class="ans">x = 33, y = 46</span> (x + y = 79; with x = 33 the formula gives 46.08, which rounds to 46). See the fixes section.</p>
+<h4>Worked example (two weighings) [p13–14]</h4>
+<p>Using the median formula for each weighing gives a + b = 9 and x + y = 21; with a = x/3 and b = y/2 you get <span class="ans">a = 3, b = 6, x = 9, y = 12</span>.</p>
+<p><b>Merits of median:</b> not affected by extremes, usable with open-end classes, the only average for rankable qualitative data. <b>Demerits:</b> not based on all values, not suited to algebra. <span class="tag">added from slides</span></p>
+</div></div>
+
+<div class="q"><div class="qt"><span class="n">Q18</span>Explain the mode, the method of grouping and the grouped mode formula. <span class="tag">p15–16</span></div><div class="qa">
+<ul>
+<li><b>Mode</b> is the value that occurs most often. A distribution may have one mode (unimodal), two (bimodal), three (trimodal) or none.</li>
+<li><b>Method of grouping</b> is used when the maximum frequency is repeated, falls at the very start or end, or the data is irregular. Steps:
+<ol>
+<li>Column 1: the given frequencies (note the maximum).</li>
+<li>Column 2: add the frequencies in pairs from the start.</li>
+<li>Column 3: add in pairs, leaving the first one. (Leaving the first two just repeats column 2, so skip it, as your notes say.)</li>
+<li>Column 4: add in threes from the start.</li>
+<li>Column 5: add in threes, leaving the first one.</li>
+<li>Column 6: add in threes, leaving the first two.</li>
+<li>Mark the maximum in each column and note the x values that make it. The x value that appears in the most columns is the mode.</li>
+</ol>
+In your example (size 1–12), the maximum of each column is 45 (x = 10), 75 (5, 6), 72 (6, 7), 98 (4, 5, 6), 107 (5, 6, 7), 100 (6, 7, 8). The value 6 appears in five columns, so <span class="ans">mode = 6</span>.</li>
+<li><b>Grouped data formula:</b>
+<div class="f">Mode = l + h(f<sub>1</sub> − f<sub>0</sub>) / (2f<sub>1</sub> − f<sub>0</sub> − f<sub>2</sub>)</div>
+f<sub>1</sub> = frequency of the modal class, f<sub>0</sub> = of the class before, f<sub>2</sub> = of the class after.
+Example: classes 0–10 … 70–80, f = 5, 8, 7, 12, 28, 20, 10, 10. Modal class 40–50, l = 40, h = 10, f<sub>0</sub> = 12, f<sub>1</sub> = 28, f<sub>2</sub> = 20. Mode = 40 + 10(16)/(56 − 12 − 20) = 40 + 160/24 = <span class="ans">46.67</span>.</li>
+</ul>
+</div></div>
+
+<div class="q flag"><div class="qt"><span class="n">Q19</span>Explain mean, mode, median and their relationship. <span class="tag">p17</span></div><div class="qa">
+<ul>
+<li><b>Mean:</b> sum of all observations divided by their number. <b>Median:</b> middle value of the ordered data. <b>Mode:</b> most frequent value.</li>
+<li><b>Symmetric distribution:</b> mean = median = mode (all at the centre of the bell curve).</li>
+<li><b>Positively skewed:</b> long tail on the right; the mode occurs at a value smaller than the median; Mode &lt; Median &lt; Mean.</li>
+<li><b>Negatively skewed:</b> long tail on the left; the mode occurs at a value greater than the median; Mean &lt; Median &lt; Mode.</li>
+<li><b>Empirical relationship</b> (moderately skewed data): <div class="f">2 Mean + Mode = 3 Median &nbsp;⇒&nbsp; Mode = 3 Median − 2 Mean</div></li>
+</ul>
+<p>Draw three curves: a symmetric bell with mean, median and mode marked at the peak; a right-tailed curve; a left-tailed curve (as on your page 19).</p>
+<p><b>Example</b> (age data from your page 21, n = 27): mean = 30, median = 25, modes 25 and 35 (bimodal). <span class="tag">answer worked out in the study pack</span></p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q20</span>Explain the geometric mean with formula, merits, demerits and uses. <span class="tag">p17</span></div><div class="qa">
+<p>The geometric mean of n observations x<sub>1</sub>, …, x<sub>n</sub> is the n-th root of their product:</p>
+<div class="f">G = (x<sub>1</sub>·x<sub>2</sub>···x<sub>n</sub>)<sup>1/n</sup> &nbsp;⇒&nbsp; log G = (1/n) Σ log x<sub>i</sub> &nbsp;⇒&nbsp; G = antilog[(1/n) Σ log x<sub>i</sub>]</div>
+<p>For a frequency distribution: G = antilog[Σ f<sub>i</sub> log x<sub>i</sub> / N]. Log G is the arithmetic mean of the logarithms.</p>
+<ul>
+<li><b>Merits:</b> rigidly defined, uses all values, suited to algebra, gives more weight to small items.</li>
+<li><b>Demerits:</b> hard for a non-mathematician; zero if any value is zero; imaginary if any value is negative. <span class="tag">added from slides</span></li>
+<li><b>Uses:</b> rate of population growth, rate of interest, index numbers.</li>
+</ul>
+<p>Example: GM of 3, 9, 27 = (729)<sup>1/3</sup> = 9.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q21</span>Define range and midrange. Find them for a data set. <span class="tag">p18–19</span></div><div class="qa">
+<p><b>Range</b> = max − min (difference between the largest and smallest values). <b>Midrange</b> = (max + min)/2 (not in the syllabus list, but your notes use it).</p>
+<p>Salary data (₹ thousands): 47, 50, 30, 36, 52, 56, 52, 60, 63, 70, 70, 110 (n = 12). Sorted: 30, 36, 47, 50, 52, 52, 56, 60, 63, 70, 70, 110.</p>
+<ul>
+<li>Mean = 696/12 = <span class="ans">58</span>. Median = (52 + 56)/2 = <span class="ans">54</span>. Modes: <span class="ans">52 and 70</span>.</li>
+<li>Min 30, max 110; range = <span class="ans">80</span>; midrange = <span class="ans">70</span>.</li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q22</span>Explain variance and standard deviation with the steps and an example. <span class="tag">p20, p21</span></div><div class="qa">
+<div class="f">σ² = Σ(x<sub>i</sub> − x̄)² / N &nbsp;&nbsp; σ = √[(1/N) Σ f<sub>i</sub>(x<sub>i</sub> − x̄)²]</div>
+<p>Low standard deviations indicate data clustered near the measure of central tendency; high standard deviations indicate data spread out from the centre.</p>
+<ol>
+<li>Find the mean x̄ of the data.</li>
+<li>Find the difference between the mean and each data value and square it.</li>
+<li>Find the variance σ² by adding the squares of all the differences and dividing by the number of data values.</li>
+<li>Find the SD by taking the square root of the variance.</li>
+</ol>
+<p><b>Example</b> (elevator stops: 0, 3, 1, 1, 0, 5, 1, 0, 3, 0): mean = 14/10 = 1.4; squared differences 1.96, 2.56, 0.16, 0.16, 1.96, 12.96, 0.16, 1.96, 2.56, 1.96, sum = 26.4; variance = <span class="ans">2.64</span>; SD = <span class="ans">1.62</span>.</p></div></div>
+
+<!-- ============ 2.2 ============ -->
+<h2 id="u22">6. Unit 2.2: Dispersion, mean deviation, correlation</h2>
+
+<div class="q"><div class="qt"><span class="n">Q23</span>Why do we need measures of dispersion? List them and the characteristics of a good measure. <span class="tag">p18</span></div><div class="qa">
+<p>Averages give an idea of the concentration of observations around the central part of the distribution, but averages alone cannot describe the data: different data sets can share the same mean yet differ widely in spread.</p>
+<p><b>Characteristics of a good measure:</b> rigidly defined; easy to calculate and understand; based on all observations; suited to further mathematical treatment; little affected by sampling fluctuations. <span class="tag">last three added from slides</span></p>
+<p><b>Measures:</b> range, quartile (and interquartile range), variance, standard deviation (plus mean deviation).</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q24</span>Define quantile, quartile, interquartile range. Explain the five-number summary and the boxplot with an example. <span class="tag">p18–19</span></div><div class="qa">
+<ul>
+<li><b>Quantiles:</b> data points taken at regular intervals of the data distribution. 2-quantile = median; 4-quantiles = quartiles Q<sub>1</sub>, Q<sub>2</sub>, Q<sub>3</sub>; 100-quantiles = percentiles. Q<sub>1</sub> is the 25th percentile, Q<sub>3</sub> the 75th. <span class="tag">added from slides</span></li>
+<li><b>IQR</b> = Q<sub>3</sub> − Q<sub>1</sub>, the range covered by the middle half of the data.</li>
+<li><b>Five-number summary:</b> min, Q<sub>1</sub>, median, Q<sub>3</sub>, max.</li>
+<li><b>Boxplot:</b> the ends of the box are at the first and third quartiles, so the box length is the IQR; the median is a line inside the box; whiskers are two lines outside the box extending to the minimum and maximum (non-outlier) values; outliers are plotted individually.</li>
+<li><b>Outliers</b> <span class="tag">added from slides</span>: mild outliers lie beyond Q<sub>1</sub> − 1.5·IQR or Q<sub>3</sub> + 1.5·IQR (marked with a circle); extreme outliers lie beyond Q<sub>1</sub> − 3·IQR or Q<sub>3</sub> + 3·IQR (marked with an asterisk).</li>
+</ul>
+<p><b>Example</b> (the 12 salaries in Q21): Q<sub>1</sub> = 47 and Q<sub>3</sub> = 63 in your notes, so IQR = <span class="ans">16</span>. You first computed Q<sub>1</sub> = 48.5 and Q<sub>3</sub> = 66.5 (median of each half) and then crossed that out.</p>
+<p class="pg">Quartile conventions differ. Median of each half gives 48.5 and 66.5; the (n+1)/4 position method gives positions 3.25 and 9.75, i.e. 47.75 and 68.25. Use whichever method your teacher uses, and say which you used.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q25</span>Explain mean deviation and its coefficient. Why is it taken from the median? Give examples. <span class="tag">p20, p32–34</span></div><div class="qa">
+<div class="f">Mean deviation = Σ|d<sub>i</sub>| / n &nbsp; (grouped: Σf<sub>i</sub>|d<sub>i</sub>| / N) &nbsp;&nbsp; Coefficient of MD = MD / Median</div>
+<p>d<sub>i</sub> is the deviation from the median taken with a positive sign. Mean deviation is <b>least when it is taken from the median</b>, so the deviations are normally taken from there. The coefficient is a pure number, so series can be compared.</p>
+<table>
+<tr><th>Type</th><th>Data</th><th>Working</th><th>Result</th></tr>
+<tr><td>Individual items [p32]</td><td>Salaries 150, 210, 240, 280, 300, 330, 360</td><td>Median 280; |d| = 130, 70, 40, 0, 20, 50, 80; Σ = 390</td><td>MD = 390/7 = <span class="ans">55.71</span>; coefficient = 55.71/280 = <span class="ans">0.199</span></td></tr>
+<tr><td>Discrete [p33]</td><td>Marks 13–17, f = 4, 8, 12, 9, 6 (N = 39)</td><td>N/2 = 19.5, median 15; f|d| = 8, 8, 0, 9, 12; Σ = 37</td><td>MD = 37/39 = <span class="ans">0.949</span>; coefficient = 0.949/15 = <span class="ans">0.063</span></td></tr>
+<tr><td>Continuous [p33–34]</td><td>Marks 140–200, f = 4, 6, 10, 18, 9, 3 (N = 50)</td><td>Median 172.8; |d| = 27.8, 17.8, 7.8, 2.2, 12.2, 22.2; f|d| = 111.2, 106.8, 78, 39.6, 109.8, 66.6; Σ = 512</td><td>MD = 512/50 = <span class="ans">10.24</span>; coefficient = 10.24/172.8 = <span class="ans">0.059</span></td></tr>
+</table>
+<p class="pg">Your continuous example stops after the first three f|d| values; the rest are completed above.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q26</span>Explain coefficients of dispersion. Give the formulas. <span class="tag">p21 (page marked incomplete)</span></div><div class="qa">
+<p>A coefficient of dispersion is a pure number independent of the unit of measurement, so it can compare the variability of series in different units or with very different averages.</p>
+<table>
+<tr><th>Based on</th><th>Coefficient</th></tr>
+<tr><td>Range</td><td>(A − B)/(A + B), A and B = greatest and smallest items</td></tr>
+<tr><td>Quartile deviation</td><td>(Q<sub>3</sub> − Q<sub>1</sub>)/(Q<sub>3</sub> + Q<sub>1</sub>)</td></tr>
+<tr><td>Mean deviation</td><td>MD / average from which it is calculated (usually the median)</td></tr>
+<tr><td>Standard deviation</td><td>σ / x̄</td></tr>
+<tr><td>Coefficient of variation</td><td>(σ/x̄) × 100 %; the series with the smaller value is more consistent <span class="tag">added from slides</span></td></tr>
+</table>
+<p>Root mean square deviation <span class="tag">added from slides</span>: s = √[Σ(x − A)²/n], with s² = σ² + d² where d = x̄ − A. It is smallest, and equal to σ, when A is the mean.</p></div></div>
+
+<div class="q flag"><div class="qt"><span class="n">Q27</span>What is correlation? Explain scatter diagram, Karl Pearson's coefficient and Spearman's rank correlation. <span class="tag">10M, p34–36</span></div><div class="qa">
+<p><b>Correlation</b> studies the extent of the relationship between two or more variables. It measures the strength and direction of the linear relationship. Correlation does not imply causation. <span class="tag">last line added from slides</span></p>
+<ol>
+<li><b>Scatter diagram:</b> plot one variable on the x-axis and the other on the y-axis. Points on a narrow strip rising left to right: high positive correlation; falling: high negative; scattered all over: none.</li>
+<li><b>Karl Pearson's coefficient (r):</b>
+<div class="f">r = Σ(x − x̄)(y − ȳ) / √[Σ(x − x̄)² Σ(y − ȳ)²] = Cov(x, y)/(σ<sub>x</sub>σ<sub>y</sub>)</div>
+<div class="f">r = [nΣxy − ΣxΣy] / √{[nΣx² − (Σx)²][nΣy² − (Σy)²]} = [Σxy − n x̄ȳ] / √[(Σx² − n x̄²)(Σy² − nȳ²)]</div>
+x̄ and ȳ are the averages of x and y.</li>
+<li><b>Spearman's rank correlation (ρ):</b> based on ranks. <span class="tag">added from slides</span>
+<div class="f">ρ = 1 − 6Σd² / [n(n² − 1)], d = rank of x − rank of y</div>
+Tied values take the average rank, and each group of m tied values adds m(m² − 1)/12 to Σd².</li>
+</ol>
+<p><b>Properties:</b> −1 ≤ r ≤ +1; r = +1 perfect positive; r = −1 perfect negative; r = 0 no linear correlation. <span class="tag">added from slides</span></p>
+<h4>Worked examples from your notes</h4>
+<ol>
+<li><b>Demand and price [p35].</b> Demand x: 65, 66, 67, 67, 68, 69, 70, 72 (Σ = 544, x̄ = 68). Price y: 67, 68, 65, 68, 72, 72, 69, 71 (Σ = 552, ȳ = 69). (x − x̄): −3, −2, −1, −1, 0, 1, 2, 4. (y − ȳ): −2, −1, −4, −1, 3, 3, 0, 2. Products: 6, 2, 4, 1, 0, 3, 0, <b>+8</b>, so Σ = 24. Σ(x − x̄)² = 36, Σ(y − ȳ)² = 44. r = 24/√(36 × 44) = 24/39.8 = <span class="ans">0.60</span>: moderate positive correlation.</li>
+<li><b>x: 3, 5, 4, 6, 2 and y: 3, 4, 5, 2, 6 [p36].</b> x̄ = ȳ = 4. Products: 1, 0, 0, −4, −4, Σ = −7. Σ(x − x̄)² = Σ(y − ȳ)² = 10. r = −7/√100 = <span class="ans">−0.7</span>: strong negative correlation.</li>
+</ol></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q28</span>Differentiate correlation and covariance. <span class="tag">added from slides</span></div><div class="qa">
+<table>
+<tr><th>Covariance</th><th>Correlation</th></tr>
+<tr><td>Cov(x, y) = Σ(x − x̄)(y − ȳ)/N. Measures how two variables change together.</td><td>r = Cov(x, y)/(σ<sub>x</sub>σ<sub>y</sub>). Measures strength and direction of the linear relationship.</td></tr>
+<tr><td>Depends on units; no fixed range.</td><td>Unit-free; lies between −1 and +1.</td></tr>
+<tr><td>Positive: variables move in the same direction. Negative: opposite. Zero: no relation.</td><td>Positive, negative, or zero.</td></tr>
+</table></div></div>
+
+<!-- ============ 2.3 ============ -->
+<h2 id="u23">7. Unit 2.3: Skewness and kurtosis</h2>
+<p class="sub">Your handwritten notes only name skewness and kurtosis (p8–9, p19) and do not include the measures. These answers come from the slides.</p>
+
+<div class="q"><div class="qt"><span class="n">Q29</span>What is skewness? Explain Karl Pearson's and Bowley's coefficients. <span class="tag">added from slides</span></div><div class="qa">
+<p>Skewness is lack of symmetry: the direction and degree of asymmetry of a frequency distribution. Positive skew: long right tail, Mode &lt; Median &lt; Mean. Negative skew: long left tail, Mean &lt; Median &lt; Mode.</p>
+<div class="f">Karl Pearson: Sk<sub>P</sub> = (Mean − Mode)/S.D. &nbsp; or, if the mode is ill-defined, 3(Mean − Median)/S.D.</div>
+<div class="f">Bowley: Sk<sub>B</sub> = (Q<sub>3</sub> + Q<sub>1</sub> − 2M)/(Q<sub>3</sub> − Q<sub>1</sub>), &nbsp; M = median, between −1 and +1</div>
+<p>Pearson's absolute measure (mean − mode) cannot compare series in different units, so it is divided by σ. Bowley's uses only quartiles, so extreme values do not affect it and it works with open-end classes. Both are 0 for a symmetric distribution.</p>
+<p><b>Example:</b> Q<sub>1</sub> = 40, M = 60, Q<sub>3</sub> = 80 gives Sk<sub>B</sub> = (80 + 40 − 120)/40 = 0, so the distribution is symmetric.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q30</span>What is kurtosis? Explain its types. <span class="tag">added from slides</span></div><div class="qa">
+<p>Kurtosis (Karl Pearson: "the amount of hump") is the peakedness or flatness of a frequency curve; the fourth central moment. It measures how much of the data sits in the tails rather than the centre. The normal curve is the yardstick.</p>
+<div class="f">β<sub>2</sub> = μ<sub>4</sub>/μ<sub>2</sub>² &nbsp;&nbsp; excess kurtosis γ<sub>2</sub> = β<sub>2</sub> − 3</div>
+<table>
+<tr><th>Type</th><th>β<sub>2</sub></th><th>Shape</th></tr>
+<tr><td>Leptokurtic</td><td>&gt; 3</td><td>High, thin peak, heavy tails, large outliers likely</td></tr>
+<tr><td>Mesokurtic</td><td>= 3</td><td>Normal curve</td></tr>
+<tr><td>Platykurtic</td><td>&lt; 3</td><td>Flat-topped, light tails</td></tr>
+</table>
+<p>Moments: μ<sub>r</sub> = Σf(x − x̄)<sup>r</sup>/N, with μ<sub>2</sub> = σ². Moment coefficient of skewness γ<sub>1</sub> = μ<sub>3</sub>/μ<sub>2</sub><sup>3/2</sup>.</p></div></div>
+
+<!-- ============ extra ============ -->
+<h2 id="extra">8. In your notes, but outside the syllabus list</h2>
+<p class="sub">The syllabus for Module 2 does not name these, but your notes spend several pages on them, so they may be asked. Treat them as lower priority.</p>
+
+<div class="q"><div class="qt"><span class="n">Q31</span>Explain relative frequency and the types of graphs for frequency distributions. <span class="tag">p22, p27–28</span></div><div class="qa">
+<ul>
+<li><b>Relative frequency</b> = frequency/N (× 100 for relative percentage frequency). Example: 20 students, hours per day 2…7 with f = 3, 5, 3, 6, 2, 1 → relative % = 15, 25, 15, 30, 10, 5.</li>
+<li><b>Histogram:</b> summarises a univariate data set; adjacent bars on class boundaries. For ungrouped data with jump h between values, each bar spans x − h/2 to x + h/2 (e.g. h = 5, so ±2.5). Grouped, non-continuous data must first be made continuous.</li>
+<li><b>Frequency polygon:</b> plot (x or mid-point, f) and join the points by straight lines, extended to the axis at a hypothetical class before the first and after the last (frequency 0). It can also be drawn by joining the mid-points of the tops of the histogram bars.</li>
+<li><b>Frequency curve:</b> join the plotted points with a smooth freehand line (unlike the straight segments of a polygon).</li>
+<li><b>Steps to make a frequency curve:</b> (1) compute class mid-points, m = (lower + upper)/2; (2) add one hypothetical class before the first and one after the last, each with frequency 0; (3) plot the mid-points on the x-axis and the frequencies on the y-axis; (4) join with a smooth curve.</li>
+</ul></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q32</span>Explain the cumulative frequency curve (ogive), less-than and more-than. <span class="tag">p23–25</span></div><div class="qa">
+<ul>
+<li><b>Less-than cf:</b> running total from the first class (41, 92, 156, 194, 201 for wages 0–20 … 80–100). <b>More-than cf:</b> running total from the last class upward (201, 160, 109, 45, 7).</li>
+<li>Plot less-than cf against the <i>upper</i> class limit (rises, S-shaped) and more-than cf against the <i>lower</i> limit (falls). The two curves cross at the median.</li>
+<li><b>Median from the ogive:</b> draw a horizontal line at N/2 on the cf axis to the curve, then read the value on the x-axis.</li>
+</ul>
+<p>Example (ages of 700 students, page 24): N/2 = 350 lies between the cf values 342 (at age 9) and 438 (at age 10). By formula, median = 9 + (350 − 342)/96 = <span class="ans">9.08 years</span>.</p></div></div>
+
+<div class="q"><div class="qt"><span class="n">Q33</span>Linear regression: find the line and predict. <span class="tag">p37–38; regression is Lecture 13, not in the syllabus</span></div><div class="qa">
+<div class="f">Y = A + BX, &nbsp; B = [nΣxy − ΣxΣy]/[nΣx² − (Σx)²], &nbsp; A = (ΣY − BΣX)/n</div>
+<p>Worked example [p37]: x = 60, 61, 62, 63, 65; y = 3.1, 3.6, 3.8, 4.0, 4.1. Σx = 311, Σy = 18.6, Σxy = 1159.7, Σx² = 19359, n = 5. B = (5 × 1159.7 − 311 × 18.6)/(5 × 19359 − 311²) = 13.9/74 = <span class="ans">0.188</span>. A = (18.6 − 0.188 × 311)/5 = <span class="ans">−7.96</span>. So y = −7.96 + 0.188x; at x = 68, y ≈ <span class="ans">4.82</span>.</p>
+<p>Slope question [p38]: Σx = 50, Σy = 44, Σx² = 150, Σxy = 230, n = 4: B = (4 × 230 − 50 × 44)/(4 × 150 − 50²) = (920 − 2200)/(600 − 2500) = <span class="ans">0.674</span>.</p></div></div>
+
+<!-- ============ fixes ============ -->
+<h2 id="fixes">9. Fixes to your notes</h2>
+<div class="box warn">
+<ol>
+<li><b>[p9] Sturges' rule:</b> your notes say "N is range". N is the total frequency.</li>
+<li><b>[p12] Missing frequencies:</b> your answer x = 33.5, y = 45.5 is not whole. The intended answer is x = 33, y = 46 (the given median 46 is rounded: the formula gives 46.08 for x = 33).</li>
+<li><b>[p24] Median from the graph:</b> the dashed line is drawn at about 10, but the formula gives 9.08 years, so check the plotting.</li>
+<li><b>[p35] Correlation example:</b> the last product is 4 × 2 = +8 (it reads like −8), and Σ(x − x̄)(y − ȳ) = 24, not 576. Your final r ≈ 0.6 is right.</li>
+<li><b>[p38] Slope:</b> the working uses the intercept's numerator (and 50 × 44 where 50 × 230 belongs). The slope is 0.674.</li>
+<li><b>[p2] Tree:</b> "cannot do arithmetic operations" and "descriptive, subjective" belong on the qualitative branch.</li>
+<li><b>[p5] Classification:</b> AM/PM is binary and ordinal in the textbook key (you wrote nominal), and angle is ratio in the key (you wrote interval). Use your teacher's convention.</li>
+<li><b>[p30] Heading:</b> this page is titled "Mean deviation" but its content is the step-deviation method for the mean.</li>
+<li><b>[p19] Quartiles:</b> your Q<sub>1</sub> and Q<sub>3</sub> depend on the method; see Q24.</li>
+</ol>
+</div>
+
+<h2>What is missing from your handwritten notes</h2>
+<p>Weighted mean, root mean square deviation, coefficient of variation, covariance, Spearman and concurrent deviations, outlier fences, skewness (Pearson and Bowley), kurtosis and moments, EDA vs classical, Data Science vs Analytics vs Engineering, agriculture and disaster management, and the details of the dataset types. This file fills them from your slides (tagged). Section 1.4's agriculture and disaster points are general knowledge, not from your course material.</p>
+</main>
+</body>
+</html>

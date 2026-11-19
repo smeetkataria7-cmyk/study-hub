@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Semester III Study Hub</title><meta name="description" content="Study material for SY B.Tech AI &amp; DS Semester III."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet"><style>
+:root{--paper:#f4f3ef;--plate:#fbfaf7;--ink:#191d21;--ink-soft:#4a5259;--ink-faint:#858d94;--rule:#d8d5cc;--hair:#e6e3da;--accent:#0e5c62;--accent-wash:#e4eeee;--amber:#8a5a1c;--grid:rgba(14,92,98,.055)}
+:root[data-theme=dark]{--paper:#12151a;--plate:#181c22;--ink:#e9e7e1;--ink-soft:#a6aeb6;--ink-faint:#79828b;--rule:#2b3138;--hair:#242a31;--accent:#67b8bd;--accent-wash:#17282c;--amber:#d3a05a;--grid:rgba(103,184,189,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#12151a;--plate:#181c22;--ink:#e9e7e1;--ink-soft:#a6aeb6;--ink-faint:#79828b;--rule:#2b3138;--hair:#242a31;--accent:#67b8bd;--accent-wash:#17282c;--amber:#d3a05a;--grid:rgba(103,184,189,.06)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:14.5px/1.55 "Libre Franklin","EB Garamond",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.sheet{max-width:1120px;margin:0 auto;padding:0 26px 80px}
+.mast{background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 22px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/22px 100%;border-bottom:1px solid var(--ink);padding:48px 0 30px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px}
+.eyebrow{font:10.5px "IBM Plex Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0}
+.theme{font:10.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);background:var(--plate);color:var(--ink-soft);padding:5px 11px;cursor:pointer}
+.theme:hover{border-color:var(--accent);color:var(--accent)}
+h1{font:500 clamp(42px,7.4vw,84px)/.97 "EB Garamond",Georgia,serif;letter-spacing:-.02em;margin:0}h1 em{color:var(--accent)}
+.stand{font:19px/1.6 "EB Garamond",Georgia,serif;color:var(--ink-soft);max-width:58ch;margin:22px 0 26px;border-top:1px solid var(--hair);padding-top:18px}
+.stats{display:flex;gap:26px;flex-wrap:wrap;font:11px "IBM Plex Mono",monospace;letter-spacing:.04em;color:var(--ink-faint)}.stats b{color:var(--ink);font-weight:500;font-size:15px;margin-right:5px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2px;margin:34px 0 0}
+.tile{position:relative;display:flex;flex-direction:column;gap:3px;background:var(--plate);border:1px solid var(--hair);border-top:3px solid var(--c);padding:18px 20px 16px;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s}
+.tile:hover{transform:translateY(-2px);border-color:var(--c)}
+.tcode{font:500 34px/1 "EB Garamond",Georgia,serif;color:var(--c);letter-spacing:-.01em}
+.tname{font-weight:600;font-size:14px;margin-top:6px}
+.tmeta{font-size:12.5px;color:var(--ink-faint)}
+.tstart{margin-top:10px;font-size:12.5px;color:var(--ink-soft)}.tstart b{color:var(--c);font-weight:600}
+.bar{position:sticky;top:0;z-index:9;background:var(--paper);border-bottom:1px solid var(--rule);padding:12px 0;margin:0 0 34px}
+.bar .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.search{flex:1 1 260px;min-width:200px;font:14px "Libre Franklin",sans-serif;padding:9px 12px;border:1px solid var(--rule);background:var(--plate);color:var(--ink)}
+.search:focus{outline:2px solid var(--accent);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:10.5px "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);background:var(--plate);color:var(--ink-soft);padding:5px 10px;cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--accent)}.chip.on{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.jump{display:flex;flex-wrap:wrap;gap:0 18px;margin-top:10px}
+.jump a{font:10.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);text-decoration:none;border-bottom:1px solid transparent;padding:2px 0}
+.jump a:hover{color:var(--accent);border-bottom-color:var(--accent)}.jump a span{color:var(--rule);margin-right:5px}
+section{margin:0 0 50px;scroll-margin-top:110px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.sec-num{font:44px/1 "EB Garamond",Georgia,serif;color:var(--c);opacity:.55}
+h2{font:500 31px/1.1 "EB Garamond",Georgia,serif;margin:0}
+.kicker{font-size:12.5px;color:var(--ink-faint);margin-left:auto;text-align:right;max-width:44ch;border-top:1px solid var(--rule);padding-top:5px}
+.rule{height:1px;background:var(--ink);margin-bottom:12px}
+.full{margin:0 0 14px;color:var(--ink-soft);font-size:13.5px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px}
+.item{display:flex;gap:14px;align-items:flex-start;background:var(--plate);border:1px solid var(--hair);padding:14px 18px;text-decoration:none;color:inherit}
+.item:hover{border-color:var(--c);background:var(--accent-wash)}
+.tag{font:500 9.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--c);color:var(--c);margin-top:2px;white-space:nowrap}
+.t-pdf{border-color:var(--amber);color:var(--amber)}
+.it{flex:1;display:flex;flex-direction:column;gap:2px}.it b{font-size:14px}.it em{font-style:normal;font-size:13px;color:var(--ink-soft)}
+.star{font:500 9px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;background:var(--c);color:#fff;padding:2px 6px;margin-left:6px;vertical-align:2px}
+.go{font:10px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px;white-space:nowrap}
+.item:hover .go{color:var(--c)}
+.item[hidden],section[hidden]{display:none}
+.empty{display:none;padding:40px 0;text-align:center;color:var(--ink-faint);font:12px "IBM Plex Mono",monospace;letter-spacing:.06em}
+footer{border-top:1px solid var(--ink);padding-top:18px;display:flex;flex-wrap:wrap;gap:8px 40px;justify-content:space-between;font:10.5px/1.9 "IBM Plex Mono",monospace;color:var(--ink-faint)}
+footer a{color:var(--accent)}
+@media (max-width:640px){.sheet{padding:0 16px 60px}.kicker{margin-left:0;text-align:left}.top{margin-bottom:24px}}
+@media print{.bar,.theme{display:none}}
+.back{font:10.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:1px solid var(--rule);background:var(--plate);padding:5px 11px}
+.back:hover{border-color:var(--accent);color:var(--accent)}
+.sub h1{color:var(--c)}.sub h1 em{color:var(--ink)}
+.tiles.big{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));margin-top:0}
+.tile .tcode{font-size:44px}
+.tcount{margin-top:12px;font:10.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.cols{margin-top:26px}
+.mh{font:500 11px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin:0 0 12px}
+</style></head><body><div class="mast"><div class="sheet"><div class="top"><p class="eyebrow">SY B.Tech AI &amp; DS &middot; K J Somaiya College of Engineering</p><button class="theme" id="theme" type="button">Dark / light</button></div><h1>Semester III<br><em>Study Hub</em></h1><p class="stand">Choose a subject.</p></div></div><div class="sheet cols"><div class="tiles big"><a class="tile" style="--c:#0e7c86" href="fds/index_1.html"><span class="tcode">FDS</span><span class="tname">Fundamentals of Data Science</span><span class="tmeta">Formulas, theory and study packs for all five modules.</span><span class="tcount">10 files &rarr;</span></a><a class="tile" style="--c:#4f46e5" href="dsa/index_1.html"><span class="tcode">DSA</span><span class="tname">Data Structures</span><span class="tmeta">Theory sheet, solved paper and exam-ready C code in the teacher&#x27;s style.</span><span class="tcount">3 files &rarr;</span></a><a class="tile" style="--c:#b45309" href="fcoa/index_1.html"><span class="tcode">FCOA</span><span class="tname">Fundamentals of Computer Organization &amp; Architecture</span><span class="tmeta">Theory in book wording, binary practice and flowcharts.</span><span class="tcount">11 files &rarr;</span></a><a class="tile" style="--c:#be185d" href="cldm/index_1.html"><span class="tcode">CLDM</span><span class="tname">Calculus &amp; Discrete Mathematics</span><span class="tmeta">Question-bank answer key with detailed steps.</span><span class="tcount">2 files &rarr;</span></a><a class="tile" style="--c:#15803d" href="dbms/index_1.html"><span class="tcode">DBMS</span><span class="tname">Database Management Systems</span><span class="tmeta">Full-syllabus notes, practice and a viva guide.</span><span class="tcount">5 files &rarr;</span></a><a class="tile" style="--c:#7c3aed" href="fintech/index_1.html"><span class="tcode">FinTech</span><span class="tname">FinTech</span><span class="tmeta">Short answers with highlighted keywords.</span><span class="tcount">2 files &rarr;</span></a></div><footer style="margin-top:44px"><span>33 files across 6 subjects.</span><span><a href="https://github.com/smeetkataria7-cmyk/study-hub">Source on GitHub</a></span></footer></div><script>(function(){var r=document.documentElement,b=document.getElementById('theme');try{var s=localStorage.getItem('hub-theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+b.addEventListener('click',function(){var d=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);var n=d?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('hub-theme',n)}catch(e){}})})();</script></body></html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>FCOA Module 1 | Semester III Study Hub</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{
+  --paper:#f4f3ef;
+  --plate:#fbfaf7;
+  --ink:#191d21;
+  --ink-soft:#4a5259;
+  --ink-faint:#858d94;
+  --rule:#d8d5cc;
+  --hair:#e6e3da;
+  --accent:#0e5c62;
+  --accent-wash:#e4eeee;
+  --amber:#8a5a1c;
+  --amber-wash:#f5eddf;
+  --grid:rgba(14,92,98,.055);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151a;
+    --plate:#181c22;
+    --ink:#e9e7e1;
+    --ink-soft:#a6aeb6;
+    --ink-faint:#79828b;
+    --rule:#2b3138;
+    --hair:#242a31;
+    --accent:#67b8bd;
+    --accent-wash:#17282c;
+    --amber:#d3a05a;
+    --amber-wash:#241f16;
+    --grid:rgba(103,184,189,.06);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151a;
+  --plate:#181c22;
+  --ink:#e9e7e1;
+  --ink-soft:#a6aeb6;
+  --ink-faint:#79828b;
+  --rule:#2b3138;
+  --hair:#242a31;
+  --accent:#67b8bd;
+  --accent-wash:#17282c;
+  --amber:#d3a05a;
+  --amber-wash:#241f16;
+  --grid:rgba(103,184,189,.06);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  /* EB Garamond sits in the stack so Greek (β, σ, γ, ρ) and math glyphs missing
+     from Libre Franklin resolve there instead of a mismatched system fallback */
+  font-family:"Libre Franklin","EB Garamond",-apple-system,"Segoe UI",sans-serif;
+  font-size:14.5px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:1160px;margin:0 auto;padding:0 26px 80px}
+
+/* ============ masthead ============ */
+.mast{
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 22px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/22px 100%;
+  border-bottom:1px solid var(--ink);
+  padding:52px 0 26px;
+  margin-bottom:0;
+}
+.mast .inner{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 14px;
+}
+.mast h1{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(38px,6.4vw,74px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  margin:0;
+  text-wrap:balance;
+}
+.mast h1 em{font-style:italic;color:var(--accent)}
+.colophon{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  line-height:1.9;
+  color:var(--ink-faint);
+  letter-spacing:.015em;
+  border-left:1px solid var(--rule);
+  padding-left:16px;
+}
+.colophon b{color:var(--ink-soft);font-weight:500}
+.standfirst{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:19px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:64ch;
+  margin:26px 0 0;
+  border-top:1px solid var(--hair);
+  padding-top:22px;
+}
+
+/* ============ contents rail ============ */
+nav{
+  position:sticky;top:0;z-index:9;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  margin:0 0 46px;
+  padding:11px 0;
+  display:flex;flex-wrap:wrap;gap:0 22px;
+}
+nav a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-faint);text-decoration:none;
+  padding:2px 0;border-bottom:1px solid transparent;
+}
+nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav a span{color:var(--rule);margin-right:6px}
+nav a:hover span{color:var(--accent)}
+
+/* ============ sections ============ */
+section{margin:0 0 58px;scroll-margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px}
+.sec-num{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:44px;line-height:1;font-weight:400;
+  color:var(--accent);opacity:.5;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.sec-head h2{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;font-size:31px;line-height:1.1;margin:0;
+  letter-spacing:-.01em;
+}
+.sec-head .kicker{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:12.5px;color:var(--ink-faint);
+  margin-left:auto;text-align:right;max-width:34ch;
+  border-top:1px solid var(--rule);padding-top:5px;
+}
+.rule{height:1px;background:var(--ink);margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(470px,1fr))}
+
+/* ============ formula plates ============ */
+.plate{
+  background:var(--plate);
+  border:1px solid var(--hair);
+  padding:16px 20px 18px;
+  display:flex;flex-direction:column;
+}
+.plate-head{
+  display:flex;align-items:baseline;gap:10px;
+  margin-bottom:12px;
+  padding-bottom:7px;
+  border-bottom:1px solid var(--hair);
+}
+.ref{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;color:var(--accent);letter-spacing:.05em;
+  padding-top:2px;flex:none;
+}
+.plate h3{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:13.5px;font-weight:600;margin:0;letter-spacing:.005em;
+}
+.plate p{margin:11px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.plate p em{color:var(--ink)}
+.plate ul{margin:11px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+.plate li{margin:4px 0}
+.plate li::marker{color:var(--accent)}
+.plate strong{color:var(--ink);font-weight:600}
+
+/* ============ math ============ */
+.f{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:20px;line-height:1.45;color:var(--ink);
+  display:block;overflow-x:auto;padding:10px 0;
+  text-align:center;white-space:nowrap;
+}
+.f.left{text-align:left}
+.f.wrap{white-space:normal;line-height:1.7}
+.f + .f{border-top:1px dotted var(--rule);margin-top:2px}
+i,var{font-family:"EB Garamond",Georgia,serif;font-style:italic}
+.op{padding:0 .22em;font-style:normal}
+.lbl{font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:var(--ink-faint);font-style:normal;letter-spacing:.02em}
+sub,sup{font-size:.62em;font-style:normal;line-height:0}
+
+/* stacked fraction: its own tight line-height, centred on the text baseline */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  line-height:1.16;
+  font-size:.92em;
+  margin:0 .26em;
+}
+.frac>span{display:block;padding:0 .42em;white-space:nowrap}
+.frac>span:last-child{
+  border-top:1px solid currentColor;
+  padding-top:.12em;margin-top:.12em;
+}
+
+/* radical: sits centred against whatever height its content needs */
+.sqrt{display:inline-flex;align-items:center;vertical-align:middle;white-space:nowrap}
+.sqrt::before{content:"\221A";font-style:normal;font-size:1.15em;line-height:1}
+.sqrt>span{border-top:1px solid currentColor;padding:.14em .22em 0}
+.sum{font-style:normal;font-size:1.2em;padding-right:.05em;line-height:1}
+
+/* ============ worked plates ============ */
+.worked{background:var(--amber-wash);border-color:var(--rule)}
+.worked .ref{color:var(--amber)}
+.worked .plate-head{border-bottom-color:var(--rule)}
+.worked .data{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;line-height:1.85;color:var(--ink-soft);
+}
+.worked dl{display:grid;grid-template-columns:auto 1fr;gap:1px 16px;margin:12px 0 0;font-size:13px}
+.worked dt{color:var(--ink-soft)}
+.worked dd{
+  margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink);
+}
+
+/* ============ figures ============ */
+.figure{background:var(--plate);border:1px solid var(--hair);padding:16px 20px 18px}
+.figure svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.shapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:4px}
+.shape figcaption{
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+  text-align:center;margin-top:8px;
+}
+.shape figcaption b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.legend{
+  display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
+.swatch{width:18px;height:2px;display:inline-block}
+
+/* ============ tables ============ */
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);background:var(--plate)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:540px}
+th,td{padding:10px 18px;text-align:left;border-bottom:1px solid var(--hair)}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:500;background:var(--accent-wash);
+  border-bottom:1px solid var(--rule);
+}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;white-space:nowrap}
+td .f{font-size:17px;line-height:1.4;text-align:left;padding:2px 0}
+
+footer{
+  margin-top:30px;padding-top:20px;border-top:1px solid var(--ink);
+  display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;line-height:1.9;color:var(--ink-faint);
+}
+
+@media (max-width:640px){
+  .sheet{padding:0 16px 60px}
+  .mast{padding:34px 0 20px}
+  .colophon{border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:12px}
+  .sec-head{flex-wrap:wrap}
+  .sec-head .kicker{margin-left:0;text-align:left}
+  .f{font-size:18px}
+}
+@media print{
+  nav{display:none}
+  body{background:#fff}
+  .plate,.worked,.figure{break-inside:avoid}
+}
+
+.modband{margin:6px 0 30px;padding:14px 0 12px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:16px;
+  font-family:"EB Garamond",Georgia,serif;font-size:26px;font-weight:500;letter-spacing:-.01em}
+.modband span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:400}
+nav .mod{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding:2px 0;border-left:1px solid var(--rule);padding-left:14px;margin-left:2px}
+.grid.wide .f{white-space:normal;line-height:1.75}
+.grid.wide .f .frac{white-space:nowrap}
+.plate .tablewrap{margin-top:4px}
+.plate table{min-width:0;font-size:13px}
+.plate th,.plate td{padding:6px 10px}
+@media print{.modband{break-after:avoid}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="sheet"><div class="inner"><div><p class="eyebrow">Fundamentals of Computer Organization &amp; Architecture &middot; Module 1</p><h1 style="font-size:clamp(34px,5.4vw,60px)">Structure of a computer system</h1></div><div class="colophon"><b>FCOA</b><br>1 sections &middot; 12 plates<br>0 worked checks<br>SY AIDS &middot; Semester III</div></div></div></div>
+<div class="sheet">
+<nav><a href="./index_1.html"><span>&larr;</span>FCOA</a><a href="module-1_1.html" style="color:var(--accent);border-bottom-color:var(--accent)"><span>1</span>Module 1</a><a href="module-2_1.html"><span>2</span>Module 2</a><a href="module-3_1.html"><span>3</span>Module 3</a><a href="module-4_1.html"><span>4</span>Module 4</a><a href="module-5_1.html"><span>5</span>Module 5</a><a href="FCOA_Complete_Theory_Sheet_1.html"><span>&#9638;</span>Full sheet</a></nav>
+<section id="s1">
+  <div class="sec-head">
+    <span class="sec-num">1</span>
+    <h2>Structure of a computer</h2>
+    <span class="kicker">Parts, stored programs, data representation, instructions and buses.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">1.1</span><h3>Functions of a computer</h3></div><ul><li><strong>Data processing</strong> — arithmetic and logic on data.</li><li><strong>Data storage</strong> — short-term (registers, memory) and long-term (disk).</li><li><strong>Data movement</strong> — between the computer and the outside world (I/O) and between its own parts (communication).</li><li><strong>Control</strong> — coordinates the other three.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.2</span><h3>Structure of a digital computer</h3></div><p style="margin-top:0">Four main parts joined by the <strong>system interconnection</strong> (buses): <strong>CPU</strong>, <strong>main memory</strong>, <strong>I/O</strong> modules.</p><ul><li><strong>CPU</strong> = control unit + ALU + registers + CPU interconnection.</li><li><strong>Control unit</strong> — fetches and decodes instructions and issues control signals.</li><li><strong>ALU</strong> — performs arithmetic and logical operations.</li><li><strong>Registers</strong> — fast storage inside the CPU.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.3</span><h3>Basic functional units</h3></div><ul><li><strong>Input</strong> unit, <strong>output</strong> unit, <strong>memory</strong> (main and secondary), <strong>ALU</strong>, <strong>control unit</strong>.</li><li>The ALU and control unit together form the <strong>processor</strong>.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.4</span><h3>Stored-program concept (von Neumann)</h3></div><p style="margin-top:0">Instructions and data are stored together in the <strong>same read-write memory</strong>, addressed by location and not by type. The CPU fetches instructions one after another using the <strong>program counter</strong> (sequential execution). This idea removes the need to rewire the machine to change the program.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.5</span><h3>IAS computer</h3></div><ul><li>Main memory: <strong>1000 words of 40 bits</strong> each (addresses 0–999).</li><li>A word holds one number (sign + 39 bits) or <strong>two 20-bit instructions</strong>: 8-bit opcode + 12-bit address each.</li><li>Registers: <strong>MBR</strong> (memory buffer), <strong>MAR</strong> (memory address), <strong>IR</strong> (instruction register), <strong>IBR</strong> (instruction buffer, holds the right instruction), <strong>PC</strong>, <strong>AC</strong> (accumulator) and <strong>MQ</strong> (multiplier quotient).</li><li>Works in a repeated <strong>fetch</strong> (instruction into IR) and <strong>execute</strong> cycle; the right-hand instruction is taken from IBR without a memory access.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.6</span><h3>Architecture vs organization</h3></div><div class="tablewrap"><table><thead><tr><th>Computer architecture</th><th>Computer organization</th></tr></thead><tbody><tr><td>Attributes visible to the programmer</td><td>How those attributes are implemented in hardware</td></tr><tr><td>Instruction set, data types, addressing modes, number of registers</td><td>Control signals, interfaces, memory technology, bus design</td></tr><tr><td>Decides <strong>what</strong> the machine does</td><td>Decides <strong>how</strong> it does it</td></tr><tr><td>A family keeps the same architecture for many years</td><td>Organization can change with every model</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">1.7</span><h3>Number systems</h3></div><div class="tablewrap"><table><thead><tr><th>System</th><th>Base</th><th>Digits</th><th>Conversion tip</th></tr></thead><tbody><tr><td>Binary</td><td>2</td><td>0, 1</td><td>Integer part: divide by 2, read remainders upward. Fraction: multiply by 2, read integer parts downward</td></tr><tr><td>Octal</td><td>8</td><td>0–7</td><td>Group binary in 3 bits</td></tr><tr><td>Decimal</td><td>10</td><td>0–9</td><td></td></tr><tr><td>Hexadecimal</td><td>16</td><td>0–9, A–F</td><td>Group binary in 4 bits</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">1.8</span><h3>Fixed-point representation of signed integers (n bits)</h3></div><div class="tablewrap"><table><thead><tr><th>Method</th><th>Range</th><th>Negation</th><th>Notes</th></tr></thead><tbody><tr><td>Sign-magnitude</td><td><span class="f"><span class="op">&minus;</span>(2<sup><i>n</i><span class="op">&minus;</span>1</sup> <span class="op">&minus;</span> 1) &nbsp; to &nbsp; 2<sup><i>n</i><span class="op">&minus;</span>1</sup> <span class="op">&minus;</span> 1</span></td><td>Flip the sign bit</td><td>Two zeros (+0, −0)</td></tr><tr><td>1's complement</td><td><span class="f"><span class="op">&minus;</span>(2<sup><i>n</i><span class="op">&minus;</span>1</sup> <span class="op">&minus;</span> 1) &nbsp; to &nbsp; 2<sup><i>n</i><span class="op">&minus;</span>1</sup> <span class="op">&minus;</span> 1</span></td><td>Invert all bits</td><td>Two zeros</td></tr><tr><td>2's complement</td><td><span class="f"><span class="op">&minus;</span>2<sup><i>n</i><span class="op">&minus;</span>1</sup> &nbsp; to &nbsp; 2<sup><i>n</i><span class="op">&minus;</span>1</sup> <span class="op">&minus;</span> 1</span></td><td>Invert all bits, add 1</td><td>One zero; used in practice</td></tr></tbody></table></div>
+<p>Sign extension: copy the sign bit into the new leading bits to widen a 2's complement number.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.9</span><h3>Instruction formats</h3></div><p style="margin-top:0">An instruction has an <strong>opcode</strong> and zero or more <strong>operand</strong> fields. Formats by number of addresses:</p><ul><li><strong>3-address:</strong> ADD R1, R2, R3 (R1 ← R2 + R3).</li><li><strong>2-address:</strong> ADD R1, R2 (R1 ← R1 + R2).</li><li><strong>1-address:</strong> ADD X (AC ← AC + M[X]), uses the accumulator.</li><li><strong>0-address:</strong> stack machines, ADD pops two and pushes the sum.</li><li>Opcode bits decide how many operations exist: 2<sup>opcode bits</sup>.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.10</span><h3>Addressing modes</h3></div><div class="tablewrap"><table><thead><tr><th>Mode</th><th>Effective address / operand</th><th>Notes</th></tr></thead><tbody><tr><td>Immediate</td><td>Operand = A</td><td>No memory access for the operand; fixed constant</td></tr><tr><td>Direct (absolute)</td><td><span class="f">EA <span class="op">=</span> <i>A</i></span></td><td>One memory access; limited address space</td></tr><tr><td>Indirect</td><td><span class="f">EA <span class="op">=</span> (<i>A</i>)</span></td><td>Two memory accesses; large address space</td></tr><tr><td>Register</td><td><span class="f">EA <span class="op">=</span> <i>R</i></span></td><td>No memory access; very fast</td></tr><tr><td>Register indirect</td><td><span class="f">EA <span class="op">=</span> (<i>R</i>)</span></td><td>Pointers and arrays</td></tr><tr><td>Displacement</td><td><span class="f">EA <span class="op">=</span> <i>A</i> <span class="op">+</span> (<i>R</i>)</span></td><td>Combines direct and register indirect</td></tr><tr><td>Relative</td><td><span class="f">EA <span class="op">=</span> <i>A</i> <span class="op">+</span> (PC)</span></td><td>Position-independent code, branches</td></tr><tr><td>Base register</td><td><span class="f">EA <span class="op">=</span> <i>A</i> <span class="op">+</span> (<i>B</i>)</span></td><td>Relocation of programs</td></tr><tr><td>Indexed</td><td><span class="f">EA <span class="op">=</span> <i>A</i> <span class="op">+</span> (<i>X</i>)</span></td><td>Array access; X is incremented</td></tr><tr><td>Stack</td><td>Top of stack (implicit)</td><td>Zero-address instructions</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">1.11</span><h3>System buses</h3></div><span class="f"><span class="lbl">addressable memory</span>&nbsp; 2<sup><i>n</i></sup></span><span class="f"><span class="lbl">bandwidth</span>&nbsp; bus width <span class="op">&times;</span> transfers per second</span><ul><li><strong>Data bus</strong> — carries data; its width sets how many bits move at once.</li><li><strong>Address bus</strong> — carries the memory / I/O address; <i>n</i> lines address 2<sup><i>n</i></sup> locations.</li><li><strong>Control bus</strong> — read / write, interrupt, clock, bus request / grant signals.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">1.12</span><h3>Bus interconnection and I/O mechanisms</h3></div><p style="margin-top:0">Many devices share a bus, so <strong>arbitration</strong> decides who may use it (centralised or distributed). Single-bus designs are cheap but slow; multiple buses (local, system, expansion) reduce contention. I/O modules connect devices to the buses (detail in Module 5).</p></div>
+</div>
+</section>
+<footer><span>FCOA &mdash; Module 1</span><span style="display:flex;gap:26px"><span></span><a href="./index_1.html">All modules</a><a href="module-2_1.html">Module 2 &rarr;</a></span></footer>
+</div></body></html>

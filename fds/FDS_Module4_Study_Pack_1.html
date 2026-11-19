@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDS Module 4 Study Pack</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--mute:#605e57;--line:#d9d5ca;--card:#fff;--acc:#1f5f8b;--acc2:#8a3b12;--hl:#fff4cf;--ok:#1d6b3a}
+@media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Georgia,"Times New Roman",serif}
+main{max-width:900px;margin:0 auto;padding:16px 16px 80px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px;font:14px/1.4 system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:6px 14px}
+nav a{color:var(--acc);text-decoration:none}
+h1{font-size:28px;margin:24px 0 4px}
+h2{font-size:21px;margin:38px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--acc);color:var(--acc)}
+h3{font-size:17px;margin:20px 0 4px;color:var(--acc2)}
+p,li{margin:5px 0}
+.sub{color:var(--mute);font:14px system-ui,sans-serif}
+.q{background:var(--card);border:1px solid var(--line);border-radius:6px;margin:12px 0;padding:8px 12px}
+.q b.n{color:var(--acc2);font-family:system-ui,sans-serif}
+.sol{background:var(--card);border:1px solid var(--line);border-radius:6px;margin:12px 0;padding:4px 14px 10px}
+.sol h4{margin:8px 0 2px;color:var(--acc2)}
+.tag{font:12px system-ui,sans-serif;background:var(--hl);border-radius:10px;padding:1px 8px;margin-left:6px;color:var(--mute);font-weight:normal}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:15px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:5px 8px;vertical-align:top;text-align:left}
+th{background:var(--hl);font:14px system-ui,sans-serif}
+.num td,.num th{text-align:right}.num td:first-child,.num th:first-child{text-align:left}
+.f{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);padding:6px 12px;margin:6px 0;font-family:"Cambria Math","Times New Roman",serif;font-size:17px;overflow-x:auto}
+.f small{display:block;color:var(--mute);font:13px system-ui,sans-serif}
+.box{background:var(--hl);border-radius:6px;padding:8px 12px;margin:10px 0;font-size:15px}
+.warn{border-left:4px solid var(--acc2)}
+.ans{color:var(--ok);font-weight:bold}
+ul,ol{padding-left:22px}
+.scroll{overflow-x:auto}
+@media print{nav{display:none}body{background:#fff;color:#000;font-size:12px}.q,.sol,.f,table{page-break-inside:avoid}h2{page-break-before:always}}
+</style>
+</head>
+<body>
+<nav><a href="#scope">Scope</a><a href="#formulas">Formula sheet</a><a href="#theory">Theory Q&amp;A</a><a href="#practice">Practice</a><a href="#answers">Answers</a><a href="#solutions">Step-by-step</a><a href="#errors">Slide errors</a></nav>
+<main>
+<h1>FDS Module 4: Data Normalization and Discretization</h1>
+<p class="sub">Built from Lecture 13 (Interpolation and Regression) and the Han and Kamber Chapter 3 preprocessing deck.</p>
+
+<h2 id="scope">0. Scope</h2>
+<p>The syllabus crop you sent shows Module 4, "Data Normalization and discretization techniques". In unit 4.1 the introduction to data mining, data quality problems and issues related to applications are struck out. What is left, as far as I can read it:</p>
+<ul>
+<li><b>Predicting missing data using regression modeling</b></li>
+<li><b>Predicting missing data using the interpolation technique</b></li>
+<li>A third item that starts with "data…" and is cut off in the picture.</li>
+</ul>
+<div class="box warn"><b>Assumption.</b> I took the cut-off item and the module title to mean <b>normalization</b> (min-max, z-score, decimal scaling) and <b>discretization</b> (binning and the other methods). I have not seen the rest of 4.1 or any other units, so if the syllabus says anything else, tell me and I'll adjust.</div>
+<p><b>Left out:</b> data reduction (PCA, wavelets, sampling, compression), data integration and chi-square, and the data-quality introduction. Where the slides touch a borderline topic (the six ways to handle missing values, smoothing noisy data by binning), I kept it short and marked it.</p>
+
+<h2 id="formulas">1. Formula sheet</h2>
+<h3>Interpolation (estimating inside the known range)</h3>
+<div class="f">Linear: y = y<sub>0</sub> + <span>(y<sub>1</sub> − y<sub>0</sub>)/(x<sub>1</sub> − x<sub>0</sub>)</span> · (x − x<sub>0</sub>) <small>valid for x<sub>0</sub> ≤ x ≤ x<sub>1</sub>. Outside that range it is extrapolation.</small></div>
+<div class="f">Same line as y = A + Bx: &nbsp; B = (y<sub>1</sub> − y<sub>0</sub>)/(x<sub>1</sub> − x<sub>0</sub>), &nbsp; A = (y<sub>0</sub>x<sub>1</sub> − y<sub>1</sub>x<sub>0</sub>)/(x<sub>1</sub> − x<sub>0</sub>)</div>
+<div class="f">Lagrange polynomial: P(x) = Σ y<sub>i</sub> L<sub>i</sub>(x), &nbsp; L<sub>i</sub>(x) = Π<sub>j≠i</sub> (x − x<sub>j</sub>)/(x<sub>i</sub> − x<sub>j</sub>)<small>Passes exactly through all N points; the polynomial is unique.</small></div>
+<h3>Regression (a model fitted to all the data)</h3>
+<div class="f">Simple linear: y = a + bx<br>
+b = (nΣxy − ΣxΣy) / (nΣx² − (Σx)²) <br>
+a = (Σy − bΣx)/n = ȳ − b·x̄<small>Least squares: a and b minimise the error between the data and the line.</small></div>
+<div class="f">Multiple (two predictors): ŷ = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub><br>
+b<sub>1</sub> = [(Σx<sub>2</sub>²)(Σx<sub>1</sub>y) − (Σx<sub>1</sub>x<sub>2</sub>)(Σx<sub>2</sub>y)] / [(Σx<sub>1</sub>²)(Σx<sub>2</sub>²) − (Σx<sub>1</sub>x<sub>2</sub>)²]<br>
+b<sub>2</sub> = [(Σx<sub>1</sub>²)(Σx<sub>2</sub>y) − (Σx<sub>1</sub>x<sub>2</sub>)(Σx<sub>1</sub>y)] / [same denominator]<br>
+b<sub>0</sub> = ȳ − b<sub>1</sub>x̄<sub>1</sub> − b<sub>2</sub>x̄<sub>2</sub><small>Here the sums are corrected sums, e.g. Σx<sub>1</sub>² = ΣX<sub>1</sub>² − (ΣX<sub>1</sub>)²/n and Σx<sub>1</sub>y = ΣX<sub>1</sub>Y − (ΣX<sub>1</sub>)(ΣY)/n.</small></div>
+<h3>Normalization</h3>
+<div class="f">Min-max: v′ = <span>(v − min)/(max − min)</span> · (new_max − new_min) + new_min</div>
+<div class="f">Z-score: v′ = (v − μ)/σ &nbsp; (μ = mean, σ = standard deviation)</div>
+<div class="f">Decimal scaling: v′ = v / 10<sup>j</sup>, &nbsp; j = smallest integer such that max|v′| &lt; 1</div>
+<h3>Discretization and binning</h3>
+<div class="f">Equal-width: W = (B − A)/N &nbsp; (A = lowest, B = highest value, N = number of intervals)<br>
+Equal-depth (equal-frequency): each of N bins holds about the same number of values<br>
+Smoothing: replace each value in a bin by the bin <i>mean</i>, <i>median</i> or the nearest bin <i>boundary</i></div>
+
+<h2 id="theory">2. Theory questions and model answers</h2>
+
+<div class="q"><b class="n">T1</b> What is interpolation? Name its types. <span class="tag">Lecture 13</span>
+<p>Interpolation is a method of estimating unknown values that fall <b>within the range</b> of known data points. It assumes that the trend between the known points continues in the same manner. It is a family of methods from Numerical Analysis, used to fill gaps between observed points and give a complete, continuous representation of a function. Example: temperature measured at fixed times; interpolation estimates the temperature at a time in between.</p>
+<p>Types: <b>linear</b>, <b>polynomial</b> (e.g. Lagrange) and <b>spline</b>.</p></div>
+
+<div class="q"><b class="n">T2</b> Explain linear interpolation with the formula and an example.
+<p>Linear interpolation estimates a value between two known points by joining them with a straight line, assuming a linear relationship between them. For points (x<sub>0</sub>, y<sub>0</sub>) and (x<sub>1</sub>, y<sub>1</sub>) the line is y = A + Bx with B = (y<sub>1</sub> − y<sub>0</sub>)/(x<sub>1</sub> − x<sub>0</sub>) and A = (y<sub>0</sub>x<sub>1</sub> − y<sub>1</sub>x<sub>0</sub>)/(x<sub>1</sub> − x<sub>0</sub>). It suits limited data and is used in mathematics, physics, finance and computer science.</p>
+<p>Example: population 2.0 million in 2000 and 2.5 million in 2010; the line gives B = 0.05 and the 2005 estimate 2.25 million.</p></div>
+
+<div class="q"><b class="n">T3</b> Explain polynomial interpolation and splines.
+<ul>
+<li><b>Polynomial interpolation:</b> for N points a polynomial can always be found that passes through all of them, and it is unique. Polynomials are easy to evaluate, differentiate and integrate. Example: Lagrange's interpolation.</li>
+<li><b>Splines:</b> special functions defined piecewise using low-degree polynomials. Popular for easy evaluation, accuracy and the ability to fit complex shapes. They are smoother and more accurate than a single Lagrange polynomial.</li>
+</ul></div>
+
+<div class="q"><b class="n">T4</b> What is regression? Explain linear and multiple linear regression.
+<p>Regression is a statistical method for finding the relationship between a <b>dependent variable</b> (response) and one or more <b>independent variables</b> (predictors or features). The aim is to find the best-fitting line or curve so that the response can be predicted, and it can also predict outside the known range (extrapolation).</p>
+<ul>
+<li><b>Linear regression:</b> the data are modelled to fit a straight line, y = a + bx, where b is the slope and a the intercept. The coefficients are estimated from n observed pairs by the <b>method of least squares</b>, which minimises the error between the data and the line. Because real data scatter, the full model is y = a + bx + ε, where ε is a random error.</li>
+<li><b>Multiple linear regression:</b> an extension that models the response as a linear function of two or more predictors, y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + …</li>
+</ul>
+<p>Uses: trends and sales estimates, the effect of price changes, risk assessment in financial services.</p></div>
+
+<div class="q"><b class="n">T5</b> Differentiate interpolation and regression.
+<table>
+<tr><th>Point</th><th>Interpolation</th><th>Regression</th></tr>
+<tr><td>Origin</td><td>Numerical Analysis (mathematics)</td><td>Statistics</td></tr>
+<tr><td>Purpose</td><td>Estimate values within the range of known points</td><td>Model the relationship between variables to predict or explain the response</td></tr>
+<tr><td>Fit</td><td>The function must match <b>all</b> the data points exactly</td><td>The function need not match the points; it accepts inexact values</td></tr>
+<tr><td>Data</td><td>One value of x is associated with one value of y</td><td>The same x may have several y values</td></tr>
+<tr><td>Beyond the data</td><td>Only inside the observed range</td><td>Can extrapolate beyond it</td></tr>
+<tr><td>Error</td><td>Bounded by a specific expression</td><td>Bounded on average</td></tr>
+<tr><td>Typical use</td><td>Filling gaps, smooth curves, numerical integration and differentiation</td><td>Prediction, forecasting, hypothesis testing</td></tr>
+<tr><td>Models</td><td>Simple linear or polynomial between adjacent points</td><td>Linear and non-linear</td></tr>
+</table>
+<p>Similarities: both come from mathematics, process a set of data points, compute new points as accurately as possible, model the data by a function, and have linear and non-linear versions.</p></div>
+
+<div class="q"><b class="n">T6</b> How can missing data be handled? Explain predicting missing values by regression. <span class="tag">borderline: data cleaning</span>
+<p>Missing data are questions without answers or variables without observations; even a small percentage can lead to wrong conclusions. Six ways to fill them:</p>
+<ol>
+<li>Ignore the data row (tuple) completely, usually when the class label is missing. Not effective if the percentage of missing values per attribute varies a lot.</li>
+<li>Fill the missing value manually (tedious, often infeasible).</li>
+<li>Use a global constant such as "unknown".</li>
+<li>Use the attribute mean.</li>
+<li>Use the attribute mean of all samples belonging to the same class (smarter).</li>
+<li>Use the <b>most probable value</b>, predicted by an inference method such as regression, a Bayesian formula or a decision tree.</li>
+</ol>
+<p><b>Regression method:</b> fit a regression model to the observed values, then use the fitted equation to predict the missing value (for a variable with missing values, a model is fitted and used to impute them; for several variables the process is repeated in turn). <b>Interpolation method:</b> if the missing value lies between two known points, estimate it on the straight line joining them.</p></div>
+
+<div class="q"><b class="n">T7</b> What is data normalization? Explain min-max, z-score and decimal scaling.
+<p>Normalization is a data transformation that scales the values of an attribute to fall within a smaller, specified range, so attributes with large ranges do not dominate those with small ranges.</p>
+<ul>
+<li><b>Min-max:</b> a linear mapping of [min, max] to [new_min, new_max]. v′ = (v − min)/(max − min) × (new_max − new_min) + new_min. Example: income range 12,000–98,000 mapped to [0, 1]; 73,000 becomes (73,000 − 12,000)/86,000 = 0.709. It keeps the original relationships but is sensitive to outliers.</li>
+<li><b>Z-score:</b> v′ = (v − μ)/σ. With μ = 54,000 and σ = 16,000, the value 73,600 becomes 1.225. Useful when the minimum and maximum are unknown or outliers dominate. The result has mean 0 and SD 1.</li>
+<li><b>Decimal scaling:</b> move the decimal point: v′ = v/10<sup>j</sup>, where j is the smallest integer with max|v′| &lt; 1. For values from −986 to 917, j = 3, so −986 becomes −0.986.</li>
+</ul></div>
+
+<div class="q"><b class="n">T8</b> What is discretization? Explain the methods.
+<p>Discretization divides the range of a continuous attribute into intervals; interval labels then replace the actual values. It reduces data size and prepares data for further analysis such as classification. It can be <b>supervised</b> (uses class labels) or <b>unsupervised</b>, and <b>top-down (split)</b> or <b>bottom-up (merge)</b>, and can be applied recursively. Typical methods:</p>
+<table>
+<tr><th>Method</th><th>Kind</th></tr>
+<tr><td>Binning</td><td>Unsupervised, top-down split</td></tr>
+<tr><td>Histogram analysis</td><td>Unsupervised, top-down split</td></tr>
+<tr><td>Clustering analysis</td><td>Unsupervised, top-down or bottom-up</td></tr>
+<tr><td>Decision-tree analysis (uses entropy to pick split points)</td><td>Supervised, top-down split</td></tr>
+<tr><td>Correlation analysis (ChiMerge, chi-square based)</td><td>Supervised, bottom-up merge</td></tr>
+</table></div>
+
+<div class="q"><b class="n">T9</b> Explain binning: equal-width and equal-depth partitioning, and smoothing by bin means and boundaries.
+<ul>
+<li><b>Equal-width (distance):</b> divides the range into N intervals of equal size, W = (B − A)/N. Simple, but outliers may dominate and skewed data is handled poorly.</li>
+<li><b>Equal-depth (frequency):</b> each of the N intervals holds about the same number of samples. Gives good scaling, but categorical attributes are tricky.</li>
+<li><b>Smoothing</b> (first sort the data and partition into bins): replace each value by the <i>bin mean</i>, the <i>bin median</i>, or the closest <i>bin boundary</i>.</li>
+</ul>
+<p>Example: sorted prices 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34 in 3 equal-depth bins: (4, 8, 9, 15), (21, 21, 24, 25), (26, 28, 29, 34). By means: 9, 23, 29. By boundaries: (4, 4, 4, 15), (21, 21, 25, 25), (26, 26, 26, 34).</p></div>
+
+<div class="q"><b class="n">T10</b> What is a concept hierarchy? <span class="tag">borderline</span>
+<p>A concept hierarchy organises attribute values into levels, replacing low-level values (such as age in numbers) with higher-level concepts (youth, adult, senior). For numeric data it is built by discretization; for nominal data by ordering attributes (street &lt; city &lt; state &lt; country) or grouping values ({Urbana, Champaign, Chicago} &lt; Illinois). It supports drilling and rolling in data warehouses.</p></div>
+
+<h2 id="practice">3. Practice questions</h2>
+<div class="q"><b class="n">P1</b> A temperature is 20 °C at 2 h and 26 °C at 4 h. Use linear interpolation to estimate it at 3 h and at 2.5 h.</div>
+<div class="q"><b class="n">P2</b> A city had 2.0 million people in 2000 and 2.5 million in 2010. Estimate the population in 2005 and in 2022 by linear interpolation. Comment on the second answer.</div>
+<div class="q"><b class="n">P3</b> Use the Lagrange polynomial through (1, 1), (2, 4), (4, 16) to estimate y at x = 3.</div>
+<div class="q"><b class="n">P4</b> For x = 60, 61, 62, 63, 65 and y = 3.1, 3.6, 3.8, 4.0, 4.1, find the regression line and predict y at x = 68.</div>
+<div class="q"><b class="n">P5</b> In P4 the value for x = 64 is missing. Estimate it by regression and by linear interpolation, and compare.</div>
+<div class="q"><b class="n">P6</b> x = 1, 2, 3, 4, 5 and y = 2, 4, 5, 4, 5. Find the regression line and predict y at x = 6.</div>
+<div class="q"><b class="n">P7</b> Given Σx = 50, Σy = 44, Σx² = 150, Σxy = 230, n = 4, find the slope and intercept of the regression line.</div>
+<div class="q"><b class="n">P8</b> A fitted multiple regression is ŷ = −6.867 + 3.148x<sub>1</sub> − 1.656x<sub>2</sub>. Predict y for (x<sub>1</sub>, x<sub>2</sub>) = (76, 13) and (70, 20).</div>
+<div class="q"><b class="n">P9</b> (a) Map an income of 73,000 to [0, 1] and to [−1, 1] when the income range is 12,000–98,000. (b) Min-max normalize 200, 300, 400, 600, 1000 to [0, 1].</div>
+<div class="q"><b class="n">P10</b> (a) Z-score normalize 10, 20, 30, 40, 50. (b) Income has mean 54,000 and SD 16,000; find the z-score of 73,600.</div>
+<div class="q"><b class="n">P11</b> Normalize −986 and 917 by decimal scaling.</div>
+<div class="q"><b class="n">P12</b> Prices: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34. (a) Partition into 3 equal-depth bins and smooth by bin means and by bin boundaries. (b) Partition into 3 equal-width bins.</div>
+<div class="q"><b class="n">P13</b> The values 10, 12, ?, 14, 16 have one missing entry. Fill it with the attribute mean.</div>
+
+<h2 id="answers">4. Answers</h2>
+<table>
+<tr><th>Q</th><th>Answer</th></tr>
+<tr><td>P1</td><td>23 °C at 3 h; 21.5 °C at 2.5 h</td></tr>
+<tr><td>P2</td><td>2005: 2.25 million. 2022: 3.1 million, but 2022 lies outside 2000–2010, so this is extrapolation</td></tr>
+<tr><td>P3</td><td>y(3) = 9</td></tr>
+<tr><td>P4</td><td>b = 0.188, a = −7.96; y = −7.96 + 0.188x; y(68) ≈ 4.81</td></tr>
+<tr><td>P5</td><td>Regression 4.06; interpolation 4.05</td></tr>
+<tr><td>P6</td><td>y = 2.2 + 0.6x; y(6) = 5.8</td></tr>
+<tr><td>P7</td><td>b = 0.674, a = 2.579</td></tr>
+<tr><td>P8</td><td>210.85 and 180.37</td></tr>
+<tr><td>P9</td><td>(a) 0.709 and 0.419. (b) 0, 0.125, 0.25, 0.5, 1</td></tr>
+<tr><td>P10</td><td>(a) −1.414, −0.707, 0, 0.707, 1.414. (b) 1.225</td></tr>
+<tr><td>P11</td><td>j = 3: −0.986 and 0.917</td></tr>
+<tr><td>P12</td><td>(a) Means: 9, 23, 29. Boundaries: (4, 4, 4, 15), (21, 21, 25, 25), (26, 26, 26, 34). (b) W = 10: [4, 14): 4, 8, 9; [14, 24): 15, 21, 21; [24, 34]: 24, 25, 26, 28, 29, 34</td></tr>
+<tr><td>P13</td><td>13</td></tr>
+</table>
+
+<h2 id="solutions">5. Step-by-step solutions</h2>
+
+<div class="sol"><h4>P1: Linear interpolation</h4>
+<ol>
+<li>Points (x<sub>0</sub>, y<sub>0</sub>) = (2, 20) and (x<sub>1</sub>, y<sub>1</sub>) = (4, 26).</li>
+<li>Slope = (26 − 20)/(4 − 2) = 3 °C per hour.</li>
+<li>At x = 3: y = 20 + 3(3 − 2) = <span class="ans">23 °C</span>. At x = 2.5: y = 20 + 3(0.5) = <span class="ans">21.5 °C</span>.</li>
+</ol></div>
+
+<div class="sol"><h4>P2: Population</h4>
+<ol>
+<li>B = (2.5 − 2.0)/(2010 − 2000) = 0.05.</li>
+<li>A = (y<sub>0</sub>x<sub>1</sub> − y<sub>1</sub>x<sub>0</sub>)/(x<sub>1</sub> − x<sub>0</sub>) = (2.0 × 2010 − 2.5 × 2000)/10 = (4020 − 5000)/10 = −98.</li>
+<li>2005: y = −98 + 0.05 × 2005 = −98 + 100.25 = <span class="ans">2.25 million</span>.</li>
+<li>2022: y = −98 + 0.05 × 2022 = −98 + 101.1 = <span class="ans">3.1 million</span>.</li>
+<li>2022 is beyond the last known year (2010), so it is not interpolation. Using the line outside the data range is <b>extrapolation</b>, which is less reliable because the trend may not continue.</li>
+</ol></div>
+
+<div class="sol"><h4>P3: Lagrange</h4>
+<ol>
+<li>L<sub>0</sub>(3) = (3 − 2)(3 − 4)/((1 − 2)(1 − 4)) = (1)(−1)/3 = −1/3.</li>
+<li>L<sub>1</sub>(3) = (3 − 1)(3 − 4)/((2 − 1)(2 − 4)) = (2)(−1)/(−2) = 1.</li>
+<li>L<sub>2</sub>(3) = (3 − 1)(3 − 2)/((4 − 1)(4 − 2)) = 2/6 = 1/3.</li>
+<li>P(3) = 1(−1/3) + 4(1) + 16(1/3) = −1/3 + 4 + 16/3 = <span class="ans">9</span> (the points lie on y = x²).</li>
+</ol></div>
+
+<div class="sol"><h4>P4: Regression line</h4>
+<div class="scroll"><table class="num"><tr><th>x</th><th>y</th><th>xy</th><th>x²</th></tr>
+<tr><td>60</td><td>3.1</td><td>186</td><td>3600</td></tr><tr><td>61</td><td>3.6</td><td>219.6</td><td>3721</td></tr><tr><td>62</td><td>3.8</td><td>235.6</td><td>3844</td></tr><tr><td>63</td><td>4.0</td><td>252</td><td>3969</td></tr><tr><td>65</td><td>4.1</td><td>266.5</td><td>4225</td></tr>
+<tr><th>Σ = 311</th><th>18.6</th><th>1159.7</th><th>19359</th></tr></table></div>
+<ol>
+<li>n = 5. b = (5 × 1159.7 − 311 × 18.6)/(5 × 19359 − 311²) = (5798.5 − 5784.6)/(96795 − 96721) = 13.9/74 = <span class="ans">0.188</span>.</li>
+<li>a = (18.6 − 0.188 × 311)/5 = (18.6 − 58.47)/5 = <span class="ans">−7.96</span>.</li>
+<li>Line: y = −7.96 + 0.188x. At x = 68: y = −7.96 + 12.78 = <span class="ans">4.81</span>.</li>
+</ol>
+<p>The lecture slide rounds b to 0.19 and gets a = −8.098 and y = 4.822. Rounding early changes the third digit; carry more digits for a precise answer.</p></div>
+
+<div class="sol"><h4>P5: Missing value at x = 64</h4>
+<ol>
+<li><b>Regression:</b> y = −7.9635 + 0.18784 × 64 = −7.9635 + 12.022 = <span class="ans">4.06</span>.</li>
+<li><b>Interpolation:</b> the neighbours are (63, 4.0) and (65, 4.1). At x = 64, the midpoint: y = 4.0 + (0.1/2)(1) = <span class="ans">4.05</span>.</li>
+<li>The two estimates are close. Interpolation uses only the two nearest points; regression uses all points and smooths them. The point (64, ?) lies inside the data range, so both are valid.</li>
+</ol></div>
+
+<div class="sol"><h4>P6: Regression line</h4>
+<ol>
+<li>Σx = 15, Σy = 20, Σxy = 2 + 8 + 15 + 16 + 25 = 66, Σx² = 1 + 4 + 9 + 16 + 25 = 55, n = 5.</li>
+<li>b = (5 × 66 − 15 × 20)/(5 × 55 − 15²) = (330 − 300)/(275 − 225) = 30/50 = <span class="ans">0.6</span>.</li>
+<li>a = (20 − 0.6 × 15)/5 = 11/5 = <span class="ans">2.2</span>.</li>
+<li>y = 2.2 + 0.6x. At x = 6: y = 2.2 + 3.6 = <span class="ans">5.8</span>. (x = 6 is outside 1–5, so this is extrapolation.)</li>
+</ol></div>
+
+<div class="sol"><h4>P7: Slope and intercept</h4>
+<ol>
+<li>b = (nΣxy − ΣxΣy)/(nΣx² − (Σx)²) = (4 × 230 − 50 × 44)/(4 × 150 − 50²) = (920 − 2200)/(600 − 2500) = −1280/−1900 = <span class="ans">0.674</span>.</li>
+<li>a = (Σy − bΣx)/n = (44 − 0.674 × 50)/4 = (44 − 33.68)/4 = <span class="ans">2.58</span>. (The other formula gives the same: (44 × 150 − 50 × 230)/(−1900) = −4900/−1900 = 2.579.)</li>
+<li>Line: y = 2.58 + 0.674x.</li>
+</ol></div>
+
+<div class="sol"><h4>P8: Multiple regression prediction</h4>
+<ol>
+<li>(76, 13): ŷ = −6.867 + 3.148 × 76 − 1.656 × 13 = −6.867 + 239.248 − 21.528 = <span class="ans">210.85</span>.</li>
+<li>(70, 20): ŷ = −6.867 + 3.148 × 70 − 1.656 × 20 = −6.867 + 220.36 − 33.12 = <span class="ans">180.37</span>.</li>
+</ol></div>
+
+<div class="sol"><h4>P9: Min-max</h4>
+<ol>
+<li>(a) [0, 1]: (73,000 − 12,000)/(98,000 − 12,000) = 61,000/86,000 = <span class="ans">0.709</span>.</li>
+<li>[−1, 1]: 0.709 × (1 − (−1)) + (−1) = 1.419 − 1 = <span class="ans">0.419</span>.</li>
+<li>(b) min = 200, max = 1000, range 800: (200 − 200)/800 = 0; 100/800 = 0.125; 200/800 = 0.25; 400/800 = 0.5; 800/800 = 1. Result <span class="ans">0, 0.125, 0.25, 0.5, 1</span>.</li>
+</ol></div>
+
+<div class="sol"><h4>P10: Z-score</h4>
+<ol>
+<li>(a) Mean = 30. Deviations −20, −10, 0, 10, 20; squares 400, 100, 0, 100, 400; sum 1000; population SD = √(1000/5) = √200 = 14.142.</li>
+<li>z = −20/14.142 = −1.414; −10/14.142 = −0.707; 0; 0.707; 1.414. (With the sample SD 15.81 the values would be −1.265, −0.632, 0, 0.632, 1.265.)</li>
+<li>(b) z = (73,600 − 54,000)/16,000 = 19,600/16,000 = <span class="ans">1.225</span>.</li>
+</ol></div>
+
+<div class="sol"><h4>P11: Decimal scaling</h4>
+<ol>
+<li>The largest absolute value is 986.</li>
+<li>We need 986/10<sup>j</sup> &lt; 1; j = 2 gives 9.86 (too big), j = 3 gives 0.986 (valid). So <span class="ans">j = 3</span>.</li>
+<li>−986 → <span class="ans">−0.986</span>; 917 → <span class="ans">0.917</span>.</li>
+</ol></div>
+
+<div class="sol"><h4>P12: Binning</h4>
+<ol>
+<li>(a) 12 values, 3 bins, so 4 values each: Bin 1 = (4, 8, 9, 15); Bin 2 = (21, 21, 24, 25); Bin 3 = (26, 28, 29, 34).</li>
+<li><b>Bin means:</b> (4 + 8 + 9 + 15)/4 = 9; (21 + 21 + 24 + 25)/4 = 22.75 ≈ 23; (26 + 28 + 29 + 34)/4 = 29.25 ≈ 29. Smoothed: (9, 9, 9, 9), (23, 23, 23, 23), (29, 29, 29, 29).</li>
+<li><b>Bin boundaries:</b> each value moves to the nearer of its bin's minimum and maximum. Bin 1: 4 → 4, 8 → 4 (closer to 4 than to 15), 9 → 4, 15 → 15. Bin 2: 21 → 21, 21 → 21, 24 → 25, 25 → 25. Bin 3: 26 → 26, 28 → 26, 29 → 26, 34 → 34.</li>
+<li>(b) W = (34 − 4)/3 = 10. Intervals [4, 14), [14, 24), [24, 34]. Counts 3, 3 and 6, so equal-width bins are uneven when the data is skewed.</li>
+</ol></div>
+
+<div class="sol"><h4>P13: Mean imputation</h4>
+<ol>
+<li>Known values: 10, 12, 14, 16; sum = 52; count = 4.</li>
+<li>Mean = 52/4 = <span class="ans">13</span>, so the missing value is filled with 13.</li>
+</ol></div>
+
+<h2 id="errors">6. Errors I found in the slides</h2>
+<div class="box warn">
+<ol>
+<li><b>Lecture 13, "interpolation" of the 2022 population.</b> 2000 and 2010 are the known points, so 2022 is outside the range. Strictly this is <b>extrapolation</b>.</li>
+<li><b>Lecture 13, regression version of the same example.</b> The slide gets a slope of 0.025 and a prediction of 2.675 million. The numerator is 5 × 0.25 + (−5)(−0.25) = 2.5 and the denominator 50, so the slope is <b>0.05</b>, the intercept −98 and the 2022 prediction <b>3.1 million</b>, the same as the interpolation answer (a line through two points is the line through two points).</li>
+<li><b>Lecture 13, intercept line:</b> "Y = −98 + 005 × 2022" is a typo for 0.05.</li>
+<li><b>Lecture 13, slope rounding:</b> b = 13.9/74 = 0.1878, which the slide rounds to 0.19 and gets 4.822 for x = 68. With b = 0.188 you get 4.81.</li>
+<li><b>Lecture 13, multiple regression:</b> the b<sub>2</sub> line uses 1,152.5 where the earlier sum was 1,162.5. With 1,162.5 you get b<sub>2</sub> = −1.656, the slide's answer, so 1,152.5 is a typo.</li>
+</ol>
+</div>
+<p class="sub">Tell me if the rest of unit 4.1, or other units, include more topics.</p>
+</main>
+</body>
+</html>

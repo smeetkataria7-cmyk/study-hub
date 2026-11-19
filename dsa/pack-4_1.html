@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>DSA Module 4 study pack | Semester III Study Hub</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{
+  --paper:#f4f3ef;
+  --plate:#fbfaf7;
+  --ink:#191d21;
+  --ink-soft:#4a5259;
+  --ink-faint:#858d94;
+  --rule:#d8d5cc;
+  --hair:#e6e3da;
+  --accent:#0e5c62;
+  --accent-wash:#e4eeee;
+  --amber:#8a5a1c;
+  --amber-wash:#f5eddf;
+  --grid:rgba(14,92,98,.055);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151a;
+    --plate:#181c22;
+    --ink:#e9e7e1;
+    --ink-soft:#a6aeb6;
+    --ink-faint:#79828b;
+    --rule:#2b3138;
+    --hair:#242a31;
+    --accent:#67b8bd;
+    --accent-wash:#17282c;
+    --amber:#d3a05a;
+    --amber-wash:#241f16;
+    --grid:rgba(103,184,189,.06);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151a;
+  --plate:#181c22;
+  --ink:#e9e7e1;
+  --ink-soft:#a6aeb6;
+  --ink-faint:#79828b;
+  --rule:#2b3138;
+  --hair:#242a31;
+  --accent:#67b8bd;
+  --accent-wash:#17282c;
+  --amber:#d3a05a;
+  --amber-wash:#241f16;
+  --grid:rgba(103,184,189,.06);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  /* EB Garamond sits in the stack so Greek (β, σ, γ, ρ) and math glyphs missing
+     from Libre Franklin resolve there instead of a mismatched system fallback */
+  font-family:"Libre Franklin","EB Garamond",-apple-system,"Segoe UI",sans-serif;
+  font-size:14.5px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:1160px;margin:0 auto;padding:0 26px 80px}
+
+/* ============ masthead ============ */
+.mast{
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 22px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/22px 100%;
+  border-bottom:1px solid var(--ink);
+  padding:52px 0 26px;
+  margin-bottom:0;
+}
+.mast .inner{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 14px;
+}
+.mast h1{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(38px,6.4vw,74px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  margin:0;
+  text-wrap:balance;
+}
+.mast h1 em{font-style:italic;color:var(--accent)}
+.colophon{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  line-height:1.9;
+  color:var(--ink-faint);
+  letter-spacing:.015em;
+  border-left:1px solid var(--rule);
+  padding-left:16px;
+}
+.colophon b{color:var(--ink-soft);font-weight:500}
+.standfirst{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:19px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:64ch;
+  margin:26px 0 0;
+  border-top:1px solid var(--hair);
+  padding-top:22px;
+}
+
+/* ============ contents rail ============ */
+nav{
+  position:sticky;top:0;z-index:9;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  margin:0 0 46px;
+  padding:11px 0;
+  display:flex;flex-wrap:wrap;gap:0 22px;
+}
+nav a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-faint);text-decoration:none;
+  padding:2px 0;border-bottom:1px solid transparent;
+}
+nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav a span{color:var(--rule);margin-right:6px}
+nav a:hover span{color:var(--accent)}
+
+/* ============ sections ============ */
+section{margin:0 0 58px;scroll-margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px}
+.sec-num{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:44px;line-height:1;font-weight:400;
+  color:var(--accent);opacity:.5;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.sec-head h2{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;font-size:31px;line-height:1.1;margin:0;
+  letter-spacing:-.01em;
+}
+.sec-head .kicker{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:12.5px;color:var(--ink-faint);
+  margin-left:auto;text-align:right;max-width:34ch;
+  border-top:1px solid var(--rule);padding-top:5px;
+}
+.rule{height:1px;background:var(--ink);margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(470px,1fr))}
+
+/* ============ formula plates ============ */
+.plate{
+  background:var(--plate);
+  border:1px solid var(--hair);
+  padding:16px 20px 18px;
+  display:flex;flex-direction:column;
+}
+.plate-head{
+  display:flex;align-items:baseline;gap:10px;
+  margin-bottom:12px;
+  padding-bottom:7px;
+  border-bottom:1px solid var(--hair);
+}
+.ref{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;color:var(--accent);letter-spacing:.05em;
+  padding-top:2px;flex:none;
+}
+.plate h3{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:13.5px;font-weight:600;margin:0;letter-spacing:.005em;
+}
+.plate p{margin:11px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.plate p em{color:var(--ink)}
+.plate ul{margin:11px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+.plate li{margin:4px 0}
+.plate li::marker{color:var(--accent)}
+.plate strong{color:var(--ink);font-weight:600}
+
+/* ============ math ============ */
+.f{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:20px;line-height:1.45;color:var(--ink);
+  display:block;overflow-x:auto;padding:10px 0;
+  text-align:center;white-space:nowrap;
+}
+.f.left{text-align:left}
+.f.wrap{white-space:normal;line-height:1.7}
+.f + .f{border-top:1px dotted var(--rule);margin-top:2px}
+i,var{font-family:"EB Garamond",Georgia,serif;font-style:italic}
+.op{padding:0 .22em;font-style:normal}
+.lbl{font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:var(--ink-faint);font-style:normal;letter-spacing:.02em}
+sub,sup{font-size:.62em;font-style:normal;line-height:0}
+
+/* stacked fraction: its own tight line-height, centred on the text baseline */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  line-height:1.16;
+  font-size:.92em;
+  margin:0 .26em;
+}
+.frac>span{display:block;padding:0 .42em;white-space:nowrap}
+.frac>span:last-child{
+  border-top:1px solid currentColor;
+  padding-top:.12em;margin-top:.12em;
+}
+
+/* radical: sits centred against whatever height its content needs */
+.sqrt{display:inline-flex;align-items:center;vertical-align:middle;white-space:nowrap}
+.sqrt::before{content:"\221A";font-style:normal;font-size:1.15em;line-height:1}
+.sqrt>span{border-top:1px solid currentColor;padding:.14em .22em 0}
+.sum{font-style:normal;font-size:1.2em;padding-right:.05em;line-height:1}
+
+/* ============ worked plates ============ */
+.worked{background:var(--amber-wash);border-color:var(--rule)}
+.worked .ref{color:var(--amber)}
+.worked .plate-head{border-bottom-color:var(--rule)}
+.worked .data{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;line-height:1.85;color:var(--ink-soft);
+}
+.worked dl{display:grid;grid-template-columns:auto 1fr;gap:1px 16px;margin:12px 0 0;font-size:13px}
+.worked dt{color:var(--ink-soft)}
+.worked dd{
+  margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink);
+}
+
+/* ============ figures ============ */
+.figure{background:var(--plate);border:1px solid var(--hair);padding:16px 20px 18px}
+.figure svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.shapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:4px}
+.shape figcaption{
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+  text-align:center;margin-top:8px;
+}
+.shape figcaption b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.legend{
+  display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
+.swatch{width:18px;height:2px;display:inline-block}
+
+/* ============ tables ============ */
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);background:var(--plate)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:540px}
+th,td{padding:10px 18px;text-align:left;border-bottom:1px solid var(--hair)}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:500;background:var(--accent-wash);
+  border-bottom:1px solid var(--rule);
+}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;white-space:nowrap}
+td .f{font-size:17px;line-height:1.4;text-align:left;padding:2px 0}
+
+footer{
+  margin-top:30px;padding-top:20px;border-top:1px solid var(--ink);
+  display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;line-height:1.9;color:var(--ink-faint);
+}
+
+@media (max-width:640px){
+  .sheet{padding:0 16px 60px}
+  .mast{padding:34px 0 20px}
+  .colophon{border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:12px}
+  .sec-head{flex-wrap:wrap}
+  .sec-head .kicker{margin-left:0;text-align:left}
+  .f{font-size:18px}
+}
+@media print{
+  nav{display:none}
+  body{background:#fff}
+  .plate,.worked,.figure{break-inside:avoid}
+}
+
+.modband{margin:6px 0 30px;padding:14px 0 12px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:16px;
+  font-family:"EB Garamond",Georgia,serif;font-size:26px;font-weight:500;letter-spacing:-.01em}
+.modband span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:400}
+nav .mod{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding:2px 0;border-left:1px solid var(--rule);padding-left:14px;margin-left:2px}
+.grid.wide .f{white-space:normal;line-height:1.75}
+.grid.wide .f .frac{white-space:nowrap}
+.plate .tablewrap{margin-top:4px}
+.plate table{min-width:0;font-size:13px}
+.plate th,.plate td{padding:6px 10px}
+@media print{.modband{break-after:avoid}}
+</style>
+
+<style>pre.code{margin:10px 0 0;padding:12px 14px;background:var(--paper);border:1px solid var(--hair);overflow-x:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;line-height:1.55;color:var(--ink)}
+.grid.wide .f .frac{white-space:nowrap}
+details.ans{margin-top:12px;border-top:1px dashed var(--rule);padding-top:10px}
+details.ans summary{cursor:pointer;font:500 10.5px "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+details.ans[open] summary{margin-bottom:8px}
+details.ans p,details.ans li{font-size:13.5px;color:var(--ink-soft)}
+ol.st{margin:6px 0 0;padding-left:20px;font-size:13.5px;color:var(--ink-soft)}ol.st li{margin:5px 0}
+.fin{margin-top:8px;padding:8px 12px;background:var(--accent-wash);border-left:3px solid var(--accent);font-size:13.5px;color:var(--ink)}
+.qtext{font-size:14px;color:var(--ink);margin:0}
+.tablewrap table{min-width:0}</style></head>
+<body>
+<div class="mast"><div class="sheet"><div class="inner"><div><p class="eyebrow">Data Structures and Algorithms &middot; Module 4 &middot; study pack</p><h1 style="font-size:clamp(34px,5.4vw,60px)">Set, map and dictionary</h1></div><div class="colophon"><b>DSA</b><br>12 theory questions<br>9 practice problems<br>SY AIDS &middot; Semester III</div></div><p class="standfirst">Detailed notes built from the class slides (sets, union-find, maps, dictionaries and the C++ STL functions), then 12 theory questions with full model answers and 9 practice problems with step-by-step solutions.</p></div></div>
+<div class="sheet">
+<nav><a href="./index_1.html"><span>&larr;</span>DSA</a><a href="pack-1_1.html"><span>1</span>Pack 1</a><a href="pack-2_1.html"><span>2</span>Pack 2</a><a href="pack-3_1.html"><span>3</span>Pack 3</a><a href="pack-4_1.html" style="color:var(--accent);border-bottom-color:var(--accent)"><span>4</span>Pack 4</a><a href="pack-5_1.html"><span>5</span>Pack 5</a><a href="#notes"><span>N</span>Notes</a><a href="#qa"><span>Q</span>Theory Q&amp;A</a><a href="#pq"><span>P</span>Practice</a></nav>
+<section id="notes">
+  <div class="sec-head">
+    <span class="sec-num">N</span>
+    <h2>Notes</h2>
+    <span class="kicker">Built from the class slides and notes.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">4.1</span><h3>What a set is</h3></div><p style="margin-top:0">A <strong>set</strong> is a collection that contains <strong>no duplicates</strong>. The three basic operations are <strong>union</strong> (S1 ∪ S2: everything in either set), <strong>intersection</strong> (S1 ∩ S2: only elements in both) and <strong>difference</strong> (S1 − S2: elements of S1 that are not in S2).</p><p>The slides stress that a set allows operations on a collection of elements in an efficient and organised way, and that sets are the base for the partitioning problem (union-find) later in the unit.</p><ul><li><strong>Example:</strong> S1 = {1, 3, 5, 7}, S2 = {3, 4, 5, 6}. S1 ∪ S2 = {1, 3, 4, 5, 6, 7}; S1 ∩ S2 = {3, 5}; S1 − S2 = {1, 7}; S2 − S1 = {4, 6}.</li><li>Order and repetition do not matter: {1, 2, 3} = {3, 2, 1} = {1, 1, 2, 3}.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.2</span><h3>Set ADT and the C++ STL set</h3></div><p>The Set ADT gives a number of methods (the slide shows them as a figure): add / insert an element, remove, check membership, union, intersection, difference, size and empty test. In C++ the set is part of the Standard Template Library and is kept <strong>sorted</strong> (red-black tree), each element stored once.</p><div class="tablewrap"><table><thead><tr><th>Function</th><th>What it does</th><th>Group</th></tr></thead><tbody><tr><td>begin() / end()</td><td>Iterator to the first element / to the theoretical element after the last</td><td>Iterators</td></tr><tr><td>rbegin() / rend()</td><td>Reverse iterator to the last element / to the position before the first</td><td>Iterators (reading assignment)</td></tr><tr><td>cbegin() / cend() / crbegin() / crend()</td><td>The constant (read-only) versions of the iterators above</td><td>Iterators (reading assignment)</td></tr><tr><td>size()</td><td>Number of elements in the set</td><td>Capacity</td></tr><tr><td>max_size()</td><td>Maximum number of elements the set can hold</td><td>Capacity</td></tr><tr><td>empty()</td><td>Whether the set is empty</td><td>Capacity</td></tr><tr><td>insert(g)</td><td>Adds a new element g (ignored if g is already present)</td><td>Modifiers</td></tr><tr><td>insert(position, g)</td><td>Adds g at the position pointed by the iterator (a hint)</td><td>Modifiers</td></tr><tr><td>erase(position) / erase(g)</td><td>Removes the element at the iterator / removes the value g</td><td>Modifiers</td></tr><tr><td>clear()</td><td>Removes all elements</td><td>Modifiers</td></tr><tr><td>emplace(args)</td><td>Constructs and inserts a new element only if it is unique</td><td>Modifiers</td></tr><tr><td>emplace_hint()</td><td>Returns an iterator to where the insertion was done (or where the existing element is)</td><td>Modifiers</td></tr><tr><td>swap()</td><td>Exchanges the contents of two sets of the same type (sizes may differ)</td><td>Modifiers</td></tr><tr><td>operator =</td><td>Copies (or moves) one set into another</td><td>Modifiers</td></tr><tr><td>find(g)</td><td>Iterator to g if found, else end()</td><td>Operations</td></tr><tr><td>count(g)</td><td>1 or 0 depending on whether g is present</td><td>Operations</td></tr><tr><td>lower_bound(g)</td><td>Iterator to the first element equal to g or that does not go before g</td><td>Operations</td></tr><tr><td>upper_bound(g)</td><td>Iterator to the first element that goes after g</td><td>Operations</td></tr><tr><td>equal_range()</td><td>Pair of iterators that bound the range of elements equivalent to the key</td><td>Operations</td></tr><tr><td>key_comp() / value_comp()</td><td>Object that decides the ordering ("&lt;" by default)</td><td>Observers</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">4.3</span><h3>Disjoint sets and partitions</h3></div><p>Sets A1 and A2 are <strong>disjoint partitions</strong> of A if and only if both conditions hold: <strong>A1 ∪ A2 = A</strong> (together they cover A) and <strong>A1 ∩ A2 = Φ</strong> (they share no element).</p><div class="tablewrap"><table><thead><tr><th>Case (A = {1, 2, 3, 4, 5, 6, 7})</th><th>Union</th><th>Intersection</th><th>Disjoint partitions of A?</th></tr></thead><tbody><tr><td>A1 = {1, 2, 3, 4, 5}, A2 = {2, 4, 6}</td><td>{1, 2, 3, 4, 5, 6} (misses 7)</td><td>{2, 4} (not empty)</td><td><strong>No</strong>: fails both conditions</td></tr><tr><td>A1 = {1, 2, 3, 4, 5}, A3 = {6, 7}</td><td>{1, 2, 3, 4, 5, 6, 7} = A</td><td>Φ</td><td><strong>Yes</strong></td></tr></tbody></table></div>
+<p>The slide examples are exactly these: "A1 and A2 are not disjoint partitions of A; A1 and A3 are disjoint partitions of A".</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.4</span><h3>Set partition using union-find</h3></div><p>Two operations manage a partition: <strong>Union</strong> creates (merges into) subsets, <strong>Find</strong> checks connectivity (are two elements in the same subset). Setup from the slide: S = {0, 1, …, 9}, N = 10; initially there are 10 subsets with one element each, so the array is <strong>Arr[i] = i</strong> for every i.</p><div class="tablewrap"><table><thead><tr><th>Step</th><th>Operation (first = child, second = parent)</th><th>Arr[0..9]</th><th>Subsets after the step</th></tr></thead><tbody><tr><td>0</td><td>start</td><td>0 1 2 3 4 5 6 7 8 9</td><td>10 singletons</td></tr><tr><td>1</td><td>Union(2, 1): Arr[2] = 1</td><td>0 1 1 3 4 5 6 7 8 9</td><td>{0} {1,2} {3} {4} {5} {6} {7} {8} {9}</td></tr><tr><td>2</td><td>Union(4, 3): Arr[4] = 3</td><td>0 1 1 3 3 5 6 7 8 9</td><td>{0} {1,2} {3,4} {5} {6} {7} {8} {9}</td></tr><tr><td>3</td><td>Union(8, 4): Arr[8] = 3</td><td>0 1 1 3 3 5 6 7 3 9</td><td>{0} {1,2} {3,4,8} {5} {6} {7} {9}</td></tr><tr><td>4</td><td>Union(9, 3): Arr[9] = 3</td><td>0 1 1 3 3 5 6 7 3 3</td><td>{0} {1,2} {3,4,8,9} {5} {6} {7}</td></tr><tr><td>5</td><td>Union(6, 5): Arr[6] = 5</td><td>0 1 1 3 3 5 5 7 3 3</td><td>{0} {1,2} {3,4,8,9} {5,6} {7}</td></tr><tr><td>6</td><td>Union(5, 2): Arr[5] = 1</td><td>0 1 1 3 3 1 5 7 3 3</td><td>{0} {1,2,5,6} {3,4,8,9} {7}</td></tr></tbody></table></div>
+<p><b>After step 5</b> there are 5 subsets (connected components): {0}, {1, 2}, {3, 4, 8, 9}, {5, 6}, {7}. <b>After step 6</b> Union(5, 2) joins {1, 2} and {5, 6}: {0}, {1, 2, 5, 6}, {3, 4, 8, 9}, {7}.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.5</span><h3>Find queries on the final partition</h3></div><p>Find(a, b) is <strong>True</strong> when a and b have the same root, i.e. they are connected directly or indirectly.</p><div class="tablewrap"><table><thead><tr><th>Query</th><th>Root of first</th><th>Root of second</th><th>Result</th></tr></thead><tbody><tr><td>Find(6, 1)</td><td>1</td><td>1</td><td>True</td></tr><tr><td>Find(8, 9)</td><td>3</td><td>3</td><td>True</td></tr><tr><td>Find(7, 1)</td><td>7</td><td>1</td><td>False</td></tr><tr><td>Find(0, 7)</td><td>0</td><td>7</td><td>False</td></tr></tbody></table></div>
+<p>The slide shows Find(0, 7) = False because 0 and 7 are disconnected, and Find(8, 9) = True. Note Find(6, 1) and Find(8, 9) are the queries asked in the class example; Find(7, 1) is False because 7 was never merged.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.6</span><h3>Union-find in C (teacher style)</h3></div><p>The array Arr stores the parent of every element; a root is its own parent.</p><pre class="code">int arr[10];
+
+void init(void)
+{
+    int i;
+    for (i = 0; i &lt; 10; i++)
+        arr[i] = i;          /* every element is its own set */
+}
+
+int root(int i)
+{
+    while (arr[i] != i)
+        i = arr[i];          /* climb to the set leader */
+    return i;
+}
+
+void unionset(int a, int b)   /* a = child, b = parent */
+{
+    int ra = root(a), rb = root(b);
+    arr[ra] = rb;
+}
+
+int find(int a, int b)        /* connected? */
+{
+    return root(a) == root(b);
+}</pre><p>Cost: with this simple version, root() can take O(n) in the worst case (a long chain), so find and union are O(n). Two standard improvements: <b>union by rank/size</b> (attach the shorter tree under the taller) and <b>path compression</b> (point every node on the search path directly at the root); together they make the operations almost O(1) amortised.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.7</span><h3>Applications of set partitioning</h3></div><ul><li>Elections (grouping voters or results), classification, pattern matching.</li><li>Divide and conquer (splitting a problem into disjoint parts).</li><li>Mutually exclusive processes in an operating system.</li><li>Combinatorial explosion problems where repetition is not allowed.</li><li>In general: algorithms, data analysis and databases. The main advantage of the set data structure is that operations on a collection of elements are efficient and organised.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.8</span><h3>What a map is</h3></div><p style="margin-top:0">A <strong>map</strong> (also called a <strong>table, search table, associative array or associative container</strong>) is a data structure optimised for one specific kind of search or access. A bag is accessed by asking "is X present?", a list by "give me item number X", a queue by "give me the item that has been in the collection the longest". In a <strong>map</strong> we ask: <strong>"give me the value associated with this key."</strong></p><p>A map models a searchable collection of <strong>key-value entries</strong>. It stores pairs (k, v), called entries. Each <strong>key is unique</strong> (it acts as an identifier or "address" for the value), so the association of keys to values defines a mapping. <strong>Multiple entries with the same key are not allowed</strong>; a map cannot contain duplicate keys.</p><ul><li><strong>Operations:</strong> searching, inserting and deleting items.</li><li><strong>Applications:</strong> address book, student-record database (the key is the student ID; two students cannot share an ID), look-up situations such as student ID → last name, or house number → number of pets.</li><li>Unlike an array, whose index must be an integer, a map index (key) can be nearly any scalar type: a character array, a real number, a signed or unsigned integer. The values can be of any type: numeric arrays, structures, cells, character arrays, objects or other maps.</li><li>Example from the slides: mean monthly rainfall, with the month as key and rainfall in mm as value (key "August" gives 37.3).</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.9</span><h3>Map ADT</h3></div><p style="margin-top:0"><strong>Value definition:</strong> a map is a collection of key-value entries, each value associated with a distinct key. <strong>Assumption:</strong> the map provides a special pointer-like object, the <strong>iterator</strong> (position), that references entries and lets us navigate around the map. Given an iterator p, the entry is obtained by dereferencing, *p, and the key and value are read with p-&gt;key() and p-&gt;value().</p><ul><li>Standard operations: find(k) (search by key), put(k, v) (insert or replace), erase(k) / erase(p) (remove), size(), empty(), begin() and end().</li><li>The slides define a map as any data structure that groups a dynamic number of key-value pairs: it lets us <strong>retrieve values by key, insert new key-value pairs and update the values associated with keys</strong>.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.10</span><h3>Map functions in C++ STL</h3></div><p>The slides list the map member functions and then work through each with syntax, parameters, return value and an example.</p><div class="tablewrap"><table><thead><tr><th>Function</th><th>Syntax and behaviour</th><th>Return</th></tr></thead><tbody><tr><td>begin()</td><td>mapname.begin(): iterator to the first element; no parameters</td><td>Bidirectional iterator to the first element</td></tr><tr><td>end()</td><td>mapname.end(): iterator past the last element; it is not a valid element, so it <strong>cannot be dereferenced</strong></td><td>Bidirectional iterator to the position after the last</td></tr><tr><td>insert()</td><td>map_name.insert({key, element}): the pair to insert; <strong>does nothing if the key already exists</strong></td><td>Iterator to the new element (pair of iterator and bool in the full form)</td></tr><tr><td>size()</td><td>map_name.size(): number of elements in the map</td><td>Count (0 for an empty map)</td></tr><tr><td>clear()</td><td>map1.clear(): removes every element, leaving size 0</td><td>None</td></tr><tr><td>erase()</td><td>map_name.erase(key): erase a key, an element at a position, or a range</td><td>1 if the key was found and removed, else 0</td></tr><tr><td>empty()</td><td>mapname.empty(): is the map empty?</td><td>true if empty, false otherwise</td></tr><tr><td>max_size()</td><td>Maximum number of elements the map can hold</td><td>Count</td></tr><tr><td>erase(g) / clear()</td><td>Reading slides: erase(const g) removes key g; clear() empties the map</td><td></td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">4.11</span><h3>Slide programs with their outputs</h3></div><p>These are the example programs from the slides; the outputs shown are what they print (C++ prints the keys in <strong>sorted order</strong>).</p><pre class="code">// begin() and end()
+map&lt;char, int&gt; mymap;
+mymap['a'] = 1; mymap['b'] = 2; mymap['c'] = 3;
+for (auto it = mymap.begin(); it != mymap.end(); ++it)
+    cout &lt;&lt; it-&gt;first &lt;&lt; " = " &lt;&lt; it-&gt;second &lt;&lt; '\n';
+// Output:
+//   a = 1
+//   b = 2
+//   c = 3</pre><pre class="code">// insert({key, element})
+map&lt;int, int&gt; mp;
+mp.insert({2, 30}); mp.insert({1, 40}); mp.insert({3, 60});
+mp.insert({2, 20});   // key 2 already present: NOT inserted
+mp.insert({5, 50});
+// KEY  ELEMENT
+//   1    40
+//   2    30
+//   3    60
+//   5    50</pre><pre class="code">// erase(key): from the slide, remove keys 1 and 2 (the first two)
+// before: 1:40  2:30  3:60  5:50
+// after : 3:60  5:50</pre><pre class="code">// size(), clear(), empty()
+map1 = { {1,"India"}, {2,"Nepal"}, {3,"Sri Lanka"}, {4,"Myanmar"} };
+map1.size();   // 4
+map2 = {};  map2.size();   // 0
+map1.clear();  // map1 = {}
+mymap['a']=10; mymap['b']=20;  mymap.empty();   // false</pre><p><b>bits/stdc++.h</b> (slide): a header that includes every standard library. It saves time in programming contests, but from a software-engineering view it is better to include only what you need, because including everything slows compilation.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.12</span><h3>Ways to implement a map</h3></div><p>The slides list four implementations and then show two in detail (reading slides).</p><div class="tablewrap"><table><thead><tr><th>Implementation</th><th>Search / insert / delete</th><th>Notes</th></tr></thead><tbody><tr><td>Array or simple (doubly) linked list of pairs</td><td>O(n)</td><td>Unsorted list S with header and trailer nodes; entries in arbitrary order. Slow, insufficient for general use</td></tr><tr><td>Hash table</td><td>about O(1) on average</td><td>Needs a good hash function for the key type; keys stored by hash code and size of the internal array; the entries are not in key order (C++ unordered_map)</td></tr><tr><td>Binary search tree</td><td>O(log n)</td><td>Keys come out <strong>ordered</strong>, unlike a hash table (C++ std::map uses a red-black tree)</td></tr><tr><td>Skip list</td><td>O(log n) expected</td><td>Layers of linked lists; simpler than a balanced tree</td></tr></tbody></table></div>
+<p>A <b>list-based map</b> search scans the list until the key is found (O(n)); put replaces the value if the key exists, otherwise adds a new node; erase removes the node. A <b>hash map</b> uses a hash table as its internal storage container.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.13</span><h3>What a dictionary is</h3></div><p style="margin-top:0">A <strong>dictionary</strong> allows the keys and the values to be <strong>of any object type</strong>. <strong>Unlike a map, a dictionary allows multiple entries with the same key.</strong> Example: an English dictionary, where one word can have several definitions. Others from the slides: records of computer-science authors indexed by first and last names; a multi-user computer game that needs a mapping from rooms to players (many players can be in one room).</p><p>The Dictionary ADT therefore supports find(k) (one entry with key k), findAll(k) (all entries with key k), insert(k, v), erase(entry) and size / empty; because keys can repeat, erase takes an entry (position), not just a key.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.14</span><h3>Set, map and dictionary: similarities and differences</h3></div><p>This was a reading assignment; the comparison from the unit content:</p><div class="tablewrap"><table><thead><tr><th>Point</th><th>Set</th><th>Map</th><th>Dictionary</th></tr></thead><tbody><tr><td>Stores</td><td>Single elements</td><td>Key-value pairs</td><td>Key-value pairs</td></tr><tr><td>Duplicates</td><td>Not allowed (no duplicate elements)</td><td>Duplicate keys <strong>not</strong> allowed (values may repeat)</td><td>Duplicate keys <strong>allowed</strong> (several values per key)</td></tr><tr><td>Access question</td><td>Is x present?</td><td>Give the value for this key</td><td>Give a value, or all values, for this key</td></tr><tr><td>Typical C++ type</td><td>set / unordered_set</td><td>map / unordered_map</td><td>multimap / unordered_multimap</td></tr><tr><td>Typical use</td><td>Membership, duplicate removal, partitions</td><td>Student ID to name, symbol table</td><td>English dictionary, phone book with several numbers</td></tr><tr><td>Common implementation</td><td>Hash table or balanced tree</td><td>Hash table or balanced tree</td><td>Hash table with chaining, or ordered list / tree</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">4.15</span><h3>map versus unordered_map</h3></div><p>In C++, std::map and std::unordered_map are the usual containers for a dictionary-like structure; the main difference is performance.</p><div class="tablewrap"><table><thead><tr><th>Property</th><th>std::map</th><th>std::unordered_map</th></tr></thead><tbody><tr><td>Underlying structure</td><td>Red-black tree (balanced BST)</td><td>Hash table</td></tr><tr><td>Order of keys</td><td>Sorted</td><td>No particular order</td></tr><tr><td>Search / insert / delete</td><td>O(log n)</td><td>O(1) on average (O(n) worst case)</td></tr><tr><td>Needs</td><td>A comparison (&lt;) on keys</td><td>A good hash function and equality on keys</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">4.16</span><h3>Dictionary operations in C++</h3></div><p>Using a phone book (slides 68 to 72).</p><pre class="code">std::map&lt;std::string, std::string&gt; phoneBook;
+phoneBook["Alice"] = "123-456-7890";            // add
+phoneBook["Bob"]   = "987-654-3210";
+phoneBook.insert(std::make_pair("Charlie", "555-123-4567"));
+
+std::string aliceNumber = phoneBook["Alice"];     // access by key
+
+if (phoneBook.find("Bob") != phoneBook.end())     // find()
+    std::string bobNumber = phoneBook["Bob"];
+
+phoneBook.erase("Alice");                         // remove
+if (phoneBook.count("Bob") &gt; 0) { ... }          // count()</pre><pre class="code">// ordered dictionary allowing duplicate keys
+std::multimap&lt;std::string, int&gt; d;
+d.insert(std::make_pair("apple", 5));
+d.insert(std::make_pair("banana", 3));
+d.insert(std::make_pair("cherry", 7));
+d.insert(std::make_pair("banana", 8));   // duplicate key allowed
+// iteration order (sorted by key): apple=5, banana=3, banana=8, cherry=7
+// std::unordered_multimap keeps the same entries but in no particular order</pre><p>In a <b>multimap</b> duplicate keys are allowed, so banana appears twice. Both the ordered and unordered multimaps need no extra code to store several values per key.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.17</span><h3>Dictionary implementations</h3></div><div class="tablewrap"><table><thead><tr><th>Implementation</th><th>How it works</th><th>Cost</th></tr></thead><tbody><tr><td>Unordered list</td><td>Entries in a linked list L; keep a location variable of each entry e pointing to e's position in L</td><td>Search O(n); insert O(1)</td></tr><tr><td>Hash table with separate chaining</td><td>Bucket array A with hash function h; collisions go into the list A[h(k)]; the location variable of e points to its position inside that list</td><td>O(1) average with a good h and load factor</td></tr><tr><td>Ordered array or search tree</td><td>Entries sorted by key (binary search or BST)</td><td>Search O(log n); array insert O(n)</td></tr></tbody></table></div>
+</div>
+<div class="plate"><div class="plate-head"><span class="ref">4.18</span><h3>Worked exercise 1: the phone book</h3></div><p>Problem: build a phone book from n name / number entries, then for each query print name=phoneNumber, or Not found if the name is absent. The slide asks: what are the sample dictionary entries, the sample queries and the output?</p><div class="tablewrap"><table><thead><tr><th>Part</th><th>Content</th></tr></thead><tbody><tr><td>Sample dictionary entries (n = 3)</td><td>sam 99912222, tom 11122222, harry 12299933</td></tr><tr><td>Sample queries (read until end of file)</td><td>sam, edward, harry</td></tr><tr><td>Output</td><td>sam=99912222 ; Not found ; harry=12299933</td></tr><tr><td>Method</td><td>Store each entry in a map&lt;string, string&gt; (O(log n)) or unordered_map (O(1) average); for each query use find(name): if it is not end(), print name=value, else print "Not found"</td></tr></tbody></table></div>
+<p>Code outline in C++: read n; repeat n times read name and number and set book[name] = number; then while reading a query name, test book.find(name) != book.end().</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">4.19</span><h3>Worked exercise 2: weather data</h3></div><p>Weather data of 2018 with temperatures of a few cities for some days. Use a <strong>map from (city, date) to temperature</strong>; a map keyed by city holding another map keyed by date also works and keeps each city together. Sample data used here: Chennai 10-11-2018 = 33, Chennai 11-11-2018 = 30, Chennai 9-11-2018 = 31, Delhi 10-11-2018 = 26, Delhi 9-11-2018 = 24, Mumbai 10-11-2018 = 30, Mumbai 9-11-2018 = 29.</p><div class="tablewrap"><table><thead><tr><th>Query</th><th>Method</th><th>Result on the sample</th></tr></thead><tbody><tr><td>Temperature in Delhi on 9-11-2018</td><td>Look up key (Delhi, 9-11-2018): O(log n) or O(1)</td><td>24</td></tr><tr><td>Maximum temperature recorded in Chennai in 2018</td><td>Scan all Chennai entries and take the maximum (O(k) for k Chennai entries)</td><td>33</td></tr><tr><td>Number of entries of 2018</td><td>size() of the map</td><td>7</td></tr><tr><td>Delete the entry of Mumbai on 9-11-2018</td><td>erase(key (Mumbai, 9-11-2018)); returns 1</td><td>size becomes 6</td></tr><tr><td>Delete all entries of Mumbai</td><td>Iterate over keys with city = Mumbai and erase each (or erase the whole inner map in the nested design)</td><td>size becomes 5</td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+
+<section id="qa">
+  <div class="sec-head">
+    <span class="sec-num">Q</span>
+    <h2>Theory questions and model answers</h2>
+    <span class="kicker">Tap "Show model answer" to reveal.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">Q1</span><h3>What is a set? Explain the basic set operations with an example.</h3></div><details class="ans"><summary>Show model answer</summary><p>A <strong>set</strong> is a collection that contains <strong>no duplicates</strong>. The basic operations are <strong>union</strong> S1 ∪ S2, <strong>intersection</strong> S1 ∩ S2 and <strong>difference</strong> S1 − S2.</p><ul><li>S1 = {1, 3, 5, 7}, S2 = {3, 4, 5, 6}.</li><li>S1 ∪ S2 = {1, 3, 4, 5, 6, 7}; S1 ∩ S2 = {3, 5}; S1 − S2 = {1, 7}.</li><li>The Set ADT also provides add, remove, contains (membership), size and empty.</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q2</span><h3>List and explain the main functions of the set container in the C++ STL.</h3></div><details class="ans"><summary>Show model answer</summary><ul><li><strong>Iterators:</strong> begin(), end(), rbegin(), rend() and the constant versions cbegin(), cend(), crbegin(), crend().</li><li><strong>Capacity:</strong> size(), max_size(), empty().</li><li><strong>Modifiers:</strong> insert(g), erase(position) / erase(g), clear(), emplace(), emplace_hint(), swap().</li><li><strong>Operations:</strong> find(g) (iterator or end()), count(g) (1 or 0), lower_bound(g), upper_bound(g), equal_range().</li><li><strong>Observers:</strong> key_comp(), value_comp(); the default order is "&lt;".</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q3</span><h3>What are disjoint sets and partitions? Give an example.</h3></div><details class="ans"><summary>Show model answer</summary><p>Sets A1 and A2 are <strong>disjoint partitions</strong> of A iff A1 ∪ A2 = A and A1 ∩ A2 = Φ. For A = {1, 2, 3, 4, 5, 6, 7}: A1 = {1, 2, 3, 4, 5} and A3 = {6, 7} are disjoint partitions (union = A, intersection empty), but A1 and A2 = {2, 4, 6} are not (intersection {2, 4} is not empty and 7 is missing).</p></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q4</span><h3>Explain set partitioning using the union-find operations with an example.</h3></div><details class="ans"><summary>Show model answer</summary><p><strong>Union</strong> creates disjoint subsets by merging two subsets; <strong>Find</strong> checks connectivity (whether two elements are in the same subset). Keep an array Arr in which Arr[i] is the parent of i; initially Arr[i] = i (each element is its own subset). Union(a, b) makes the root of a a child of the root of b; Find(a, b) is true when both have the same root.</p><ol class="st"><li>S = {0, …, 9}: ten singleton subsets.</li><li>Union(2,1), Union(4,3), Union(8,4), Union(9,3), Union(6,5) → components {0}, {1,2}, {3,4,8,9}, {5,6}, {7}.</li><li>Union(5,2) merges {1,2} and {5,6} → {0}, {1,2,5,6}, {3,4,8,9}, {7}.</li><li>Find(6,1) = True, Find(8,9) = True, Find(7,1) = False.</li></ol><div class="fin">Four subsets remain; the elements of each are said to be connected components.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q5</span><h3>List the applications of set partitioning.</h3></div><details class="ans"><summary>Show model answer</summary><ul><li>Elections, classification, pattern matching.</li><li>Divide and conquer, mutually exclusive processes in an OS.</li><li>Combinatorial problems where repetition is not allowed.</li><li>Algorithms, data analysis and databases; efficient and organised operations on a collection of elements.</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q6</span><h3>What is a Map? Explain the Map ADT.</h3></div><details class="ans"><summary>Show model answer</summary><p>A <strong>map</strong> (table, search table, associative array, associative container) stores <strong>key-value entries</strong>; keys are unique and each key identifies (is the "address" of) its value. Accessing a map means asking for the value associated with a key. Multiple entries with the same key are not allowed.</p><ul><li>Operations: find / get(k), put(k, v) (insert or update), erase(k), size, empty, begin, end.</li><li>An <strong>iterator</strong> (position) references entries; for iterator p, *p is the entry, p-&gt;key() and p-&gt;value() give its parts.</li><li>Applications: address book, student-record database (student ID as key).</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q7</span><h3>Explain any five map functions of the C++ STL with syntax and an example.</h3></div><details class="ans"><summary>Show model answer</summary><ul><li><strong>begin()</strong>: mapname.begin(); iterator to the first element.</li><li><strong>end()</strong>: mapname.end(); iterator past the last element (not dereferenceable).</li><li><strong>insert()</strong>: map_name.insert({key, element}); not inserted if the key exists. mp.insert({2, 30}) then mp.insert({2, 20}) keeps 2 → 30.</li><li><strong>size()</strong>: map_name.size(); {1:India, 2:Nepal, 3:Sri Lanka, 4:Myanmar}.size() = 4, empty map gives 0.</li><li><strong>clear()</strong> removes all elements (size becomes 0); <strong>erase(key)</strong> returns 1 if found else 0; <strong>empty()</strong> returns true if there are no elements.</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q8</span><h3>Explain the different ways of implementing a map.</h3></div><details class="ans"><summary>Show model answer</summary><ul><li><strong>Unsorted (doubly) linked list or array of pairs:</strong> every operation O(n); simple but slow.</li><li><strong>Hash table:</strong> about O(1) average; needs a good hash function; keys unordered.</li><li><strong>Binary search tree:</strong> O(log n); keys in sorted order.</li><li><strong>Skip list:</strong> expected O(log n).</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q9</span><h3>What is a dictionary? How does it differ from a map?</h3></div><details class="ans"><summary>Show model answer</summary><p>A <strong>dictionary</strong> stores key-value entries where keys and values can be of any object type, and — unlike a map — <strong>several entries may have the same key</strong>. Example: a word with many meanings. A map allows only one value per key.</p><ul><li>C++: map / unordered_map for unique keys; multimap / unordered_multimap for duplicate keys.</li><li>ADT operations: find(k), findAll(k), insert(k, v), erase(entry).</li></ul></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q10</span><h3>Compare std::map and std::unordered_map.</h3></div><details class="ans"><summary>Show model answer</summary><p>Both store key-value pairs. <strong>std::map</strong> is a sorted associative container built on a red-black tree: O(log n) search, insert and delete, keys in sorted order. <strong>std::unordered_map</strong> is hash based: O(1) average time (O(n) worst case), no ordering, needs a good hash function.</p></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q11</span><h3>Distinguish between set, map and dictionary.</h3></div><details class="ans"><summary>Show model answer</summary><p>A set holds single elements with no duplicates. A map holds key-value pairs with unique keys. A dictionary holds key-value pairs where keys may repeat. In C++: set, map and multimap respectively (with unordered_ versions for hashing).</p></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">Q12</span><h3>Describe dictionary implementations using an unordered list and a hash table with separate chaining.</h3></div><details class="ans"><summary>Show model answer</summary><ul><li><strong>Unordered list:</strong> entries kept in a linked list L; each entry stores a location variable pointing to its own position in L, so erasing a known entry is O(1); search is O(n).</li><li><strong>Hash table with separate chaining:</strong> bucket array A and hash function h; entry (k, v) goes into the list A[h(k)]; the location variable points to the entry inside that bucket list. Search, insert and erase are O(1) on average with a low load factor.</li></ul></details></div>
+</div>
+</section>
+
+<section id="pq">
+  <div class="sec-head">
+    <span class="sec-num">P</span>
+    <h2>Practice problems with solutions</h2>
+    <span class="kicker">Try each one first, then open the solution.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">P1</span><h3>Set operations</h3></div><p class="qtext" style="margin-top:0">A = {1, 3, 5, 7}, B = {3, 4, 5, 6}. Find A ∪ B, A ∩ B, A − B and B − A, and check whether A and B are disjoint.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>Union: every distinct element of either set: 1, 3, 4, 5, 6, 7.</li><li>Intersection: elements in both: 3 and 5.</li><li>A − B: in A but not in B: 1, 7. B − A: 4, 6.</li><li>A ∩ B is not empty, so A and B are not disjoint.</li></ol><div class="fin">A ∪ B = {1, 3, 4, 5, 6, 7}; A ∩ B = {3, 5}; A − B = {1, 7}; B − A = {4, 6}; not disjoint.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P2</span><h3>Disjoint partitions</h3></div><p class="qtext" style="margin-top:0">For A = {1, …, 7}, A1 = {1,2,3,4,5}, A2 = {2,4,6}, A3 = {6,7}: decide whether (A1, A2) and (A1, A3) are disjoint partitions of A.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>(A1, A2): A1 ∪ A2 = {1,2,3,4,5,6} ≠ A (7 missing) and A1 ∩ A2 = {2, 4} ≠ Φ. Both conditions fail.</li><li>(A1, A3): A1 ∪ A3 = {1,2,3,4,5,6,7} = A and A1 ∩ A3 = Φ. Both conditions hold.</li></ol><div class="fin">(A1, A2) are not disjoint partitions; (A1, A3) are.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P3</span><h3>Union-find trace (class example)</h3></div><p class="qtext" style="margin-top:0">S = {0, …, 9}. Perform Union(2,1), Union(4,3), Union(8,4), Union(9,3), Union(6,5), Union(5,2) (first = child, second = parent), show Arr after each step, then answer Find(6,1), Find(8,9), Find(7,1).</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>Start: Arr = 0 1 2 3 4 5 6 7 8 9.</li><li>Union(2, 1): root(2) = 2, root(1) = 1, so Arr[2] = 1 → Arr = 0 1 1 3 4 5 6 7 8 9.</li><li>Union(4, 3): root(4) = 4, root(3) = 3, so Arr[4] = 3 → Arr = 0 1 1 3 3 5 6 7 8 9.</li><li>Union(8, 4): root(8) = 8, root(4) = 3, so Arr[8] = 3 → Arr = 0 1 1 3 3 5 6 7 3 9.</li><li>Union(9, 3): root(9) = 9, root(3) = 3, so Arr[9] = 3 → Arr = 0 1 1 3 3 5 6 7 3 3.</li><li>Union(6, 5): root(6) = 6, root(5) = 5, so Arr[6] = 5 → Arr = 0 1 1 3 3 5 5 7 3 3.</li><li>Union(5, 2): root(5) = 5, root(2) = 1, so Arr[5] = 1 → Arr = 0 1 1 3 3 1 5 7 3 3.</li><li>After step 5 the subsets are {0}, {1,2}, {3,4,8,9}, {5,6}, {7} (5 subsets); after step 6 they are {0}, {1,2,5,6}, {3,4,8,9}, {7} (4 subsets).</li><li>Find(6,1): root(6) = 1, root(1) = 1 → True.</li><li>Find(8,9): root(8) = 3, root(9) = 3 → True.</li><li>Find(7,1): root(7) = 7, root(1) = 1 → False.</li></ol><div class="fin">Final Arr = 0 1 1 3 3 1 5 7 3 3; Find(6,1) = True, Find(8,9) = True, Find(7,1) = False.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P4</span><h3>Map operations</h3></div><p class="qtext" style="margin-top:0">Starting with an empty map perform insert({2,30}), insert({1,40}), insert({3,60}), insert({2,20}), insert({5,50}), then erase(1), erase(2), size(), empty(). Give the contents after each stage.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>After the first three inserts: {1:40, 2:30, 3:60} (printed in key order).</li><li>insert({2,20}): key 2 already exists, so the map is unchanged. insert({5,50}) → {1:40, 2:30, 3:60, 5:50}.</li><li>erase(1) returns 1 → {2:30, 3:60, 5:50}. erase(2) returns 1 → {3:60, 5:50}.</li><li>size() = 2; empty() = false.</li></ol><div class="fin">Final map {3:60, 5:50}; size 2; not empty (matches the slide "before / after erase" output).</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P5</span><h3>Map ADT calls</h3></div><p class="qtext" style="margin-top:0">Starting with an empty map perform put(3, A), put(5, B), put(3, C), get(3), erase(5), get(5).</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>put(3, A): {3:A}. put(5, B): {3:A, 5:B}.</li><li>put(3, C): key 3 already present, so with put the value is replaced: {3:C, 5:B}. (With the STL insert() the old value would stay.)</li><li>get(3) returns C. erase(5) → {3:C}. get(5): not found.</li></ol><div class="fin">Final {3:C}; get(3) = C; get(5) = not found.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P6</span><h3>Dictionary with chaining</h3></div><p class="qtext" style="margin-top:0">Use h(word) = (sum of ASCII codes) mod 5 and separate chaining. Insert cat, dog, bat, ant and draw the table.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>ASCII sums: cat = 312, dog = 314, bat = 311, ant = 323.</li><li>Indexes (mod 5): cat → 2, dog → 4, bat → 1, ant → 3.</li><li>Bucket 0: (empty)</li><li>Bucket 1: bat</li><li>Bucket 2: cat</li><li>Bucket 3: ant</li><li>Bucket 4: dog</li></ol><div class="fin">Colliding words share a bucket list; a lookup computes h(word), then scans only that bucket.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P7</span><h3>Phone book</h3></div><p class="qtext" style="margin-top:0">Entries: sam 99912222, tom 11122222, harry 12299933. Queries: sam, edward, harry. Show the output and the data structure you use.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>Use a map from name (string) to number; build it from the 3 entries.</li><li>Query sam: find succeeds → sam=99912222.</li><li>Query edward: find returns end() → Not found.</li><li>Query harry: harry=12299933.</li></ol><div class="fin">Output: sam=99912222 / Not found / harry=12299933. Using unordered_map each lookup is O(1) on average, with map it is O(log n).</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P8</span><h3>Weather data queries</h3></div><p class="qtext" style="margin-top:0">Data: Delhi 9-11 = 24, Delhi 10-11 = 26, Chennai 9-11 = 31, 10-11 = 33, 11-11 = 30, Mumbai 9-11 = 29, 10-11 = 30 (year 2018). Answer: (a) temperature in Delhi on 9-11-2018, (b) maximum temperature in Chennai, (c) number of entries, (d) delete Mumbai 9-11-2018, (e) delete all of Mumbai.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>Data structure: map keyed by (city, date) with the temperature as the value (all keys are unique).</li><li>(a) Look up (Delhi, 9-11-2018) → 24.</li><li>(b) Scan Chennai entries 31, 33, 30 → maximum 33.</li><li>(c) size() = 7.</li><li>(d) erase((Mumbai, 9-11-2018)) → size 6.</li><li>(e) Remove the remaining Mumbai entry → size 5.</li></ol><div class="fin">(a) 24, (b) 33, (c) 7, (d) 6 entries left, (e) 4 entries left.</div></details></div>
+<div class="plate"><div class="plate-head"><span class="ref">P9</span><h3>Choose the structure</h3></div><p class="qtext" style="margin-top:0">Pick set, map or dictionary (multimap) for: (a) remove repeated roll numbers from a list, (b) roll number → name, (c) word → all its meanings, (d) store the connected groups of friends.</p><details class="ans"><summary>Show solution</summary><ol class="st"><li>(a) Set: duplicates are dropped automatically.</li><li>(b) Map: one name per unique roll number.</li><li>(c) Dictionary (multimap): one word, several meanings (duplicate keys).</li><li>(d) Disjoint sets with union-find: union adds a friendship, find tells whether two people are in the same group.</li></ol><div class="fin">(a) set, (b) map, (c) dictionary / multimap, (d) union-find on disjoint sets.</div></details></div>
+</div>
+</section>
+
+<footer><span>DSA &mdash; Module 4 study pack</span><span style="display:flex;gap:26px"><a href="pack-3_1.html">&larr; Pack 3</a><a href="./index_1.html">All modules</a><a href="pack-5_1.html">Pack 5 &rarr;</a></span></footer>
+</div></body></html>

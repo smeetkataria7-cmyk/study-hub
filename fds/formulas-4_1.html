@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>FDS Module 4 formulas | Semester III Study Hub</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{
+  --paper:#f4f3ef;
+  --plate:#fbfaf7;
+  --ink:#191d21;
+  --ink-soft:#4a5259;
+  --ink-faint:#858d94;
+  --rule:#d8d5cc;
+  --hair:#e6e3da;
+  --accent:#0e5c62;
+  --accent-wash:#e4eeee;
+  --amber:#8a5a1c;
+  --amber-wash:#f5eddf;
+  --grid:rgba(14,92,98,.055);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151a;
+    --plate:#181c22;
+    --ink:#e9e7e1;
+    --ink-soft:#a6aeb6;
+    --ink-faint:#79828b;
+    --rule:#2b3138;
+    --hair:#242a31;
+    --accent:#67b8bd;
+    --accent-wash:#17282c;
+    --amber:#d3a05a;
+    --amber-wash:#241f16;
+    --grid:rgba(103,184,189,.06);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151a;
+  --plate:#181c22;
+  --ink:#e9e7e1;
+  --ink-soft:#a6aeb6;
+  --ink-faint:#79828b;
+  --rule:#2b3138;
+  --hair:#242a31;
+  --accent:#67b8bd;
+  --accent-wash:#17282c;
+  --amber:#d3a05a;
+  --amber-wash:#241f16;
+  --grid:rgba(103,184,189,.06);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  /* EB Garamond sits in the stack so Greek (β, σ, γ, ρ) and math glyphs missing
+     from Libre Franklin resolve there instead of a mismatched system fallback */
+  font-family:"Libre Franklin","EB Garamond",-apple-system,"Segoe UI",sans-serif;
+  font-size:14.5px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:1160px;margin:0 auto;padding:0 26px 80px}
+
+/* ============ masthead ============ */
+.mast{
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 22px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/22px 100%;
+  border-bottom:1px solid var(--ink);
+  padding:52px 0 26px;
+  margin-bottom:0;
+}
+.mast .inner{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 14px;
+}
+.mast h1{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(38px,6.4vw,74px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  margin:0;
+  text-wrap:balance;
+}
+.mast h1 em{font-style:italic;color:var(--accent)}
+.colophon{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  line-height:1.9;
+  color:var(--ink-faint);
+  letter-spacing:.015em;
+  border-left:1px solid var(--rule);
+  padding-left:16px;
+}
+.colophon b{color:var(--ink-soft);font-weight:500}
+.standfirst{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:19px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:64ch;
+  margin:26px 0 0;
+  border-top:1px solid var(--hair);
+  padding-top:22px;
+}
+
+/* ============ contents rail ============ */
+nav{
+  position:sticky;top:0;z-index:9;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  margin:0 0 46px;
+  padding:11px 0;
+  display:flex;flex-wrap:wrap;gap:0 22px;
+}
+nav a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-faint);text-decoration:none;
+  padding:2px 0;border-bottom:1px solid transparent;
+}
+nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav a span{color:var(--rule);margin-right:6px}
+nav a:hover span{color:var(--accent)}
+
+/* ============ sections ============ */
+section{margin:0 0 58px;scroll-margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px}
+.sec-num{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:44px;line-height:1;font-weight:400;
+  color:var(--accent);opacity:.5;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.sec-head h2{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:500;font-size:31px;line-height:1.1;margin:0;
+  letter-spacing:-.01em;
+}
+.sec-head .kicker{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:12.5px;color:var(--ink-faint);
+  margin-left:auto;text-align:right;max-width:34ch;
+  border-top:1px solid var(--rule);padding-top:5px;
+}
+.rule{height:1px;background:var(--ink);margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px}
+.grid.wide{grid-template-columns:repeat(auto-fill,minmax(470px,1fr))}
+
+/* ============ formula plates ============ */
+.plate{
+  background:var(--plate);
+  border:1px solid var(--hair);
+  padding:16px 20px 18px;
+  display:flex;flex-direction:column;
+}
+.plate-head{
+  display:flex;align-items:baseline;gap:10px;
+  margin-bottom:12px;
+  padding-bottom:7px;
+  border-bottom:1px solid var(--hair);
+}
+.ref{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;color:var(--accent);letter-spacing:.05em;
+  padding-top:2px;flex:none;
+}
+.plate h3{
+  font-family:"Libre Franklin",sans-serif;
+  font-size:13.5px;font-weight:600;margin:0;letter-spacing:.005em;
+}
+.plate p{margin:11px 0 0;font-size:13.5px;color:var(--ink-soft)}
+.plate p em{color:var(--ink)}
+.plate ul{margin:11px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+.plate li{margin:4px 0}
+.plate li::marker{color:var(--accent)}
+.plate strong{color:var(--ink);font-weight:600}
+
+/* ============ math ============ */
+.f{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:20px;line-height:1.45;color:var(--ink);
+  display:block;overflow-x:auto;padding:10px 0;
+  text-align:center;white-space:nowrap;
+}
+.f.left{text-align:left}
+.f.wrap{white-space:normal;line-height:1.7}
+.f + .f{border-top:1px dotted var(--rule);margin-top:2px}
+i,var{font-family:"EB Garamond",Georgia,serif;font-style:italic}
+.op{padding:0 .22em;font-style:normal}
+.lbl{font-family:"Libre Franklin",sans-serif;font-size:11.5px;color:var(--ink-faint);font-style:normal;letter-spacing:.02em}
+sub,sup{font-size:.62em;font-style:normal;line-height:0}
+
+/* stacked fraction: its own tight line-height, centred on the text baseline */
+.frac{
+  display:inline-block;
+  vertical-align:middle;
+  text-align:center;
+  line-height:1.16;
+  font-size:.92em;
+  margin:0 .26em;
+}
+.frac>span{display:block;padding:0 .42em;white-space:nowrap}
+.frac>span:last-child{
+  border-top:1px solid currentColor;
+  padding-top:.12em;margin-top:.12em;
+}
+
+/* radical: sits centred against whatever height its content needs */
+.sqrt{display:inline-flex;align-items:center;vertical-align:middle;white-space:nowrap}
+.sqrt::before{content:"\221A";font-style:normal;font-size:1.15em;line-height:1}
+.sqrt>span{border-top:1px solid currentColor;padding:.14em .22em 0}
+.sum{font-style:normal;font-size:1.2em;padding-right:.05em;line-height:1}
+
+/* ============ worked plates ============ */
+.worked{background:var(--amber-wash);border-color:var(--rule)}
+.worked .ref{color:var(--amber)}
+.worked .plate-head{border-bottom-color:var(--rule)}
+.worked .data{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;line-height:1.85;color:var(--ink-soft);
+}
+.worked dl{display:grid;grid-template-columns:auto 1fr;gap:1px 16px;margin:12px 0 0;font-size:13px}
+.worked dt{color:var(--ink-soft)}
+.worked dd{
+  margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink);
+}
+
+/* ============ figures ============ */
+.figure{background:var(--plate);border:1px solid var(--hair);padding:16px 20px 18px}
+.figure svg{display:block;width:100%;max-width:600px;height:auto;margin:0 auto;overflow:visible}
+.shapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:4px}
+.shape figcaption{
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+  text-align:center;margin-top:8px;
+}
+.shape figcaption b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.legend{
+  display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;
+  font-family:"Libre Franklin",sans-serif;font-size:12px;color:var(--ink-soft);
+}
+.legend i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
+.swatch{width:18px;height:2px;display:inline-block}
+
+/* ============ tables ============ */
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);background:var(--plate)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:540px}
+th,td{padding:10px 18px;text-align:left;border-bottom:1px solid var(--hair)}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:500;background:var(--accent-wash);
+  border-bottom:1px solid var(--rule);
+}
+tbody tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;white-space:nowrap}
+td .f{font-size:17px;line-height:1.4;text-align:left;padding:2px 0}
+
+footer{
+  margin-top:30px;padding-top:20px;border-top:1px solid var(--ink);
+  display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;line-height:1.9;color:var(--ink-faint);
+}
+
+@media (max-width:640px){
+  .sheet{padding:0 16px 60px}
+  .mast{padding:34px 0 20px}
+  .colophon{border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:12px}
+  .sec-head{flex-wrap:wrap}
+  .sec-head .kicker{margin-left:0;text-align:left}
+  .f{font-size:18px}
+}
+@media print{
+  nav{display:none}
+  body{background:#fff}
+  .plate,.worked,.figure{break-inside:avoid}
+}
+
+.modband{margin:6px 0 30px;padding:14px 0 12px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:16px;
+  font-family:"EB Garamond",Georgia,serif;font-size:26px;font-weight:500;letter-spacing:-.01em}
+.modband span{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:400}
+nav .mod{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding:2px 0;border-left:1px solid var(--rule);padding-left:14px;margin-left:2px}
+.grid.wide .f{white-space:normal;line-height:1.75}
+.grid.wide .f .frac{white-space:nowrap}
+.plate .tablewrap{margin-top:4px}
+.plate table{min-width:0;font-size:13px}
+.plate th,.plate td{padding:6px 10px}
+@media print{.modband{break-after:avoid}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="sheet"><div class="inner"><div><p class="eyebrow">Fundamentals of Data Science &middot; Module 4 &middot; formulas</p><h1 style="font-size:clamp(34px,5.4vw,60px)">Data normalization and discretization</h1></div><div class="colophon"><b>FDS</b><br>5 sections &middot; 24 plates<br>5 worked checks<br>SY AIDS &middot; Semester III</div></div></div></div>
+<div class="sheet">
+<nav><a href="./index_1.html"><span>&larr;</span>FDS</a><a href="formulas-1_1.html"><span>1</span>Module 1</a><a href="formulas-2_1.html"><span>2</span>Module 2</a><a href="formulas-3_1.html"><span>3</span>Module 3</a><a href="formulas-4_1.html" style="color:var(--accent);border-bottom-color:var(--accent)"><span>4</span>Module 4</a><a href="formulas-5_1.html"><span>5</span>Module 5</a><a href="FDS_Complete_Formula_Sheet_1.html"><span>&#9638;</span>Full sheet</a></nav>
+<section id="s16">
+  <div class="sec-head">
+    <span class="sec-num">16</span>
+    <h2>Data quality &amp; missing data</h2>
+    <span class="kicker">Clean the data before you scale or bin it.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">16.1</span><h3>Data quality problems</h3></div><ul><li><strong>Noise and outliers</strong> — random error or extreme values.</li><li><strong>Missing values</strong> — attribute not recorded.</li><li><strong>Duplicate data</strong> — the same entity listed twice.</li><li><strong>Inconsistent or wrong data</strong> — conflicting units, impossible values.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">16.2</span><h3>Handling missing values</h3></div><ul><li>Ignore the tuple (poor when many values are missing).</li><li>Fill in manually, or with a global constant such as "unknown".</li><li>Fill with the attribute <strong>mean or median</strong>, or the mean of the same class.</li><li>Predict the value by <strong>regression</strong> or <strong>interpolation</strong>.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">16.3</span><h3>Linear regression (least squares)</h3></div><span class="f"><i>y</i> <span class="op">=</span> <i>a</i> <span class="op">+</span> <i>b</i><i>x</i></span><span class="f"><i>b</i> <span class="op">=</span> <span class="frac"><span><i>n</i> <span class="sum">&Sigma;</span> xy <span class="op">&minus;</span> <span class="sum">&Sigma;</span> <i>x</i> <span class="sum">&Sigma;</span> <i>y</i></span><span><i>n</i> <span class="sum">&Sigma;</span> <i>x</i><sup>2</sup> <span class="op">&minus;</span> (<span class="sum">&Sigma;</span> <i>x</i>)<sup>2</sup></span></span>, &nbsp; <i>a</i> <span class="op">=</span> <i>y&#772;</i> <span class="op">&minus;</span> <i>b</i> <i>x&#772;</i></span><p>Fit <i>y</i> on <i>x</i> from complete rows, then predict the missing <i>y</i>. Multiple regression: <i>y</i> <span class="op">=</span> <i>b</i><sub>0</sub> <span class="op">+</span> <i>b</i><sub>1</sub> <i>x</i><sub>1</sub> <span class="op">+</span> <i>b</i><sub>2</sub> <i>x</i><sub>2</sub> <span class="op">+</span> … by least squares.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">16.4</span><h3>Linear interpolation</h3></div><span class="f"><i>y</i> <span class="op">=</span> <i>y</i><sub>1</sub> <span class="op">+</span> <span class="frac"><span>(<i>x</i> <span class="op">&minus;</span> <i>x</i><sub>1</sub>)(<i>y</i><sub>2</sub> <span class="op">&minus;</span> <i>y</i><sub>1</sub>)</span><span><i>x</i><sub>2</sub> <span class="op">&minus;</span> <i>x</i><sub>1</sub></span></span></span><p>Straight line between the two known points on either side of the gap.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">16.5</span><h3>Lagrange interpolation</h3></div><span class="f"><i>P</i>(<i>x</i>) <span class="op">=</span> <span class="sum">&Sigma;</span><sub><i>i</i></sub> <i>y</i><sub><i>i</i></sub> <span class="sum">&Pi;</span><sub><i>j</i> <span class="op">≠</span> <i>i</i></sub> <span class="frac"><span><i>x</i> <span class="op">&minus;</span> <i>x</i><sub><i>j</i></sub></span><span><i>x</i><sub><i>i</i></sub> <span class="op">&minus;</span> <i>x</i><sub><i>j</i></sub></span></span></span><p>The unique polynomial of degree <i>n</i> <span class="op">&minus;</span> 1 through <i>n</i> points. Evaluate <i>P</i> at the missing <i>x</i>.</p></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Least squares: x = 1…5, y = 2, 4, 5, 4, 5</h3></div><dl><dt>Σx, Σy, Σxy, Σx²</dt><dd>15, 20, 66, 55</dd><dt>b</dt><dd>(5·66 − 15·20) / (5·55 − 225) = 30 / 50 = 0.6</dd><dt>a</dt><dd>4 − 0.6 · 3 = 2.2</dd><dt>Predict x = 6</dt><dd>y = 2.2 + 0.6·6 = 5.8</dd></dl></div>
+</div>
+</section>
+<section id="s17">
+  <div class="sec-head">
+    <span class="sec-num">17</span>
+    <h2>Normalization</h2>
+    <span class="kicker">Put attributes on a comparable scale.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">17.1</span><h3>Min–max normalization</h3></div><span class="f"><i>v</i>′ <span class="op">=</span> <span class="frac"><span><i>v</i> <span class="op">&minus;</span> min<sub><i>A</i></sub></span><span>max<sub><i>A</i></sub> <span class="op">&minus;</span> min<sub><i>A</i></sub></span></span> (new<sub>max</sub> <span class="op">&minus;</span> new<sub>min</sub>) <span class="op">+</span> new<sub>min</sub></span><p>Linearly maps [min<sub><i>A</i></sub>, max<sub><i>A</i></sub>] onto a new range, usually [0, 1]. Preserves the shape of the distribution but is distorted by outliers.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">17.2</span><h3>Z-score normalization</h3></div><span class="f"><i>v</i>′ <span class="op">=</span> <span class="frac"><span><i>v</i> <span class="op">&minus;</span> μ<sub><i>A</i></sub></span><span>σ<sub><i>A</i></sub></span></span></span><p>Result has mean 0 and standard deviation 1. Good when the true min and max are unknown or outliers exist. Variant: divide by the mean absolute deviation <i>s</i><sub><i>A</i></sub> <span class="op">=</span> <span class="sum">&Sigma;</span> |<i>v</i> <span class="op">&minus;</span> μ<sub><i>A</i></sub>| / <i>n</i>.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">17.3</span><h3>Decimal scaling</h3></div><span class="f"><i>v</i>′ <span class="op">=</span> <span class="frac"><span><i>v</i></span><span>10<sup><i>j</i></sup></span></span></span><p><i>j</i> is the smallest integer for which max |v′| &lt; 1.</p></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Data 200, 300, 400, 600, 1000</h3></div><dl><dt>Min–max → [0, 1]</dt><dd>0, 0.125, 0.25, 0.5, 1</dd><dt>μ, σ (population)</dt><dd>500, 282.84</dd><dt>Z-scores</dt><dd>-1.06, -0.71, -0.35, 0.35, 1.77</dd><dt>Decimal scaling</dt><dd>j = 4 → 0.02, 0.03, 0.04, 0.06, 0.1</dd></dl></div>
+</div>
+</section>
+<section id="s18">
+  <div class="sec-head">
+    <span class="sec-num">18</span>
+    <h2>Discretization &amp; binning</h2>
+    <span class="kicker">Turn a continuous attribute into a few intervals.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">18.1</span><h3>Equal-width binning</h3></div><span class="f"><i>w</i> <span class="op">=</span> <span class="frac"><span>max <span class="op">&minus;</span> min</span><span><i>k</i></span></span></span><p>Bin edges are min, min <span class="op">+</span> <i>w</i>, min <span class="op">+</span> 2<i>w</i>, …, max. Simple, but outliers can leave most bins empty.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">18.2</span><h3>Equal-depth (equal-frequency) binning</h3></div><span class="f">values per bin <span class="op">≈</span> <span class="frac"><span><i>n</i></span><span><i>k</i></span></span></span><p>Sort, then cut into <i>k</i> bins holding about the same number of values. Handles skewed data better.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">18.3</span><h3>Smoothing by bins</h3></div><ul><li><strong>Bin means</strong> — replace every value by the mean of its bin.</li><li><strong>Bin medians</strong> — replace by the bin median.</li><li><strong>Bin boundaries</strong> — replace each value by the closer of the bin's minimum or maximum.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">18.4</span><h3>Histogram discretization</h3></div><p style="margin-top:0">Partition the range into buckets (equal width or equal frequency) and keep only each bucket's range and count. Lossy, but compact.</p></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Sorted data: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34</h3></div><dl><dt>Equal-width, k = 3</dt><dd>w = (34 − 4)/3 = 10 → [4, 14), [14, 24), [24, 34]</dd><dt>Equal-depth, k = 3</dt><dd>{4, 8, 9, 15}, {21, 21, 24, 25}, {26, 28, 29, 34}</dd><dt>Smooth by means</dt><dd>9, 9, 9, 9 | 22.75 ×4 | 29.25 ×4</dd><dt>Smooth by boundaries</dt><dd>4, 4, 4, 15 | 21, 21, 25, 25 | 26, 26, 26, 34</dd></dl></div>
+</div>
+</section>
+<section id="s19">
+  <div class="sec-head">
+    <span class="sec-num">19</span>
+    <h2>Decision-tree measures</h2>
+    <span class="kicker">Which attribute splits the data best?</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">19.1</span><h3>Entropy (information)</h3></div><span class="f">Info(<i>D</i>) <span class="op">=</span> <span class="op">&minus;</span><span class="sum">&Sigma;</span> <i>p</i><sub><i>i</i></sub> log<sub>2</sub> <i>p</i><sub><i>i</i></sub></span><span class="f">Info<sub><i>A</i></sub>(<i>D</i>) <span class="op">=</span> <span class="sum">&Sigma;</span> <span class="frac"><span>|<i>D</i><sub><i>j</i></sub>|</span><span>|<i>D</i>|</span></span> Info(<i>D</i><sub><i>j</i></sub>)</span><p>Entropy measures impurity of the class labels: 0 when all tuples are in one class, 1 for a 50/50 two-class split. Info<sub><i>A</i></sub>(<i>D</i>) is the weighted entropy after splitting on attribute <i>A</i>.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">19.2</span><h3>Information gain (ID3)</h3></div><span class="f">Gain(<i>A</i>) <span class="op">=</span> Info(<i>D</i>) <span class="op">&minus;</span> Info<sub><i>A</i></sub>(<i>D</i>)</span><p>Choose the attribute with the highest gain as the split. Biased towards attributes with many values.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">19.3</span><h3>Gain ratio (C4.5)</h3></div><span class="f">SplitInfo<sub><i>A</i></sub>(<i>D</i>) <span class="op">=</span> <span class="op">&minus;</span><span class="sum">&Sigma;</span> <span class="frac"><span>|<i>D</i><sub><i>j</i></sub>|</span><span>|<i>D</i>|</span></span> log<sub>2</sub> <span class="frac"><span>|<i>D</i><sub><i>j</i></sub>|</span><span>|<i>D</i>|</span></span></span><span class="f">GainRatio(<i>A</i>) <span class="op">=</span> <span class="frac"><span>Gain(<i>A</i>)</span><span>SplitInfo<sub><i>A</i></sub>(<i>D</i>)</span></span></span><p>Normalises gain to remove the bias towards many-valued attributes.</p></div>
+<div class="plate"><div class="plate-head"><span class="ref">19.4</span><h3>Gini index (CART)</h3></div><span class="f">Gini(<i>D</i>) <span class="op">=</span> 1 <span class="op">&minus;</span> <span class="sum">&Sigma;</span> <i>p</i><sub><i>i</i></sub><sup>2</sup></span><span class="f">Gini<sub><i>A</i></sub>(<i>D</i>) <span class="op">=</span> <span class="sum">&Sigma;</span> <span class="frac"><span>|<i>D</i><sub><i>j</i></sub>|</span><span>|<i>D</i>|</span></span> Gini(<i>D</i><sub><i>j</i></sub>)</span><span class="f">ΔGini <span class="op">=</span> Gini(<i>D</i>) <span class="op">&minus;</span> Gini<sub><i>A</i></sub>(<i>D</i>)</span><p>Impurity from 0 (pure) up to 1 − 1/<i>k</i>. Pick the split with the largest reduction (CART uses binary splits).</p></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>Class counts 9 yes / 5 no; split on Outlook (sunny 2+/3−, overcast 4+/0−, rain 3+/2−)</h3></div><dl><dt>Info(D)</dt><dd>0.940</dd><dt>Info_Outlook(D)</dt><dd>5/14·0.971 + 4/14·0 + 5/14·0.971 = 0.694</dd><dt>Gain(Outlook)</dt><dd>0.247</dd><dt>Gini(D)</dt><dd>1 − (9/14)² − (5/14)² = 0.459</dd></dl></div>
+</div>
+</section>
+<section id="s20">
+  <div class="sec-head">
+    <span class="sec-num">20</span>
+    <h2>Clustering, attribute selection &amp; sampling</h2>
+    <span class="kicker">Reduce data without losing its structure.</span>
+  </div>
+  <div class="rule"></div>
+<div class="grid wide">
+<div class="plate"><div class="plate-head"><span class="ref">20.1</span><h3>K-means clustering</h3></div><span class="f"><i>c</i><sub><i>i</i></sub> <span class="op">=</span> (<span class="frac"><span><span class="sum">&Sigma;</span> <i>x</i></span><span><i>n</i></span></span>, &nbsp; <span class="frac"><span><span class="sum">&Sigma;</span> <i>y</i></span><span><i>n</i></span></span>)</span><span class="f">SSE <span class="op">=</span> <span class="sum">&Sigma;</span><sub>clusters</sub> <span class="sum">&Sigma;</span><sub><i>x</i> <span class="op">∈</span> <i>C</i><sub><i>i</i></sub></sub> dist(<i>x</i>, <i>c</i><sub><i>i</i></sub>)<sup>2</sup></span><ul><li>Pick <i>k</i> initial centroids.</li><li>Assign every point to the nearest centroid (Euclidean).</li><li>Recompute each centroid as the mean of its points.</li><li>Repeat until the assignment stops changing.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">20.2</span><h3>Attribute subset selection</h3></div><p style="margin-top:0"><i>n</i> attributes have <strong>2ⁿ</strong> subsets, so heuristics are used:</p><ul><li><strong>Stepwise forward selection</strong> — start empty, add the best attribute each step.</li><li><strong>Backward elimination</strong> — start with all, drop the worst each step.</li><li>Combination of the two.</li><li><strong>Decision-tree induction</strong> — keep the attributes that appear in the tree.</li></ul></div>
+<div class="plate"><div class="plate-head"><span class="ref">20.3</span><h3>Sampling</h3></div><span class="f"><i>n</i><sub><i>h</i></sub> <span class="op">=</span> <i>n</i> <span class="frac"><span><i>N</i><sub><i>h</i></sub></span><span><i>N</i></span></span></span><ul><li><strong>SRSWOR</strong> — simple random sample without replacement; <strong>SRSWR</strong> — with replacement.</li><li><strong>Cluster sampling</strong> — pick whole clusters at random.</li><li><strong>Stratified sampling</strong> — sample inside each stratum; proportional allocation uses the formula above.</li></ul></div>
+<div class="plate worked"><div class="plate-head"><span class="ref">Check</span><h3>K-means, k = 2, points (1,1), (2,1), (4,3), (5,4); start c₁ = (1,1), c₂ = (5,4)</h3></div><dl><dt>Assign</dt><dd>(1,1), (2,1) → c₁;  (4,3), (5,4) → c₂</dd><dt>New centroids</dt><dd>c₁ = (1.5, 1), c₂ = (4.5, 3.5)</dd><dt>Next pass</dt><dd>same assignment, so stop</dd></dl></div>
+</div>
+</section>
+<footer><span>FDS &mdash; Module 4</span><span style="display:flex;gap:26px"><a href="formulas-3_1.html">&larr; Module 3</a><a href="./index_1.html">All modules</a><a href="formulas-5_1.html">Module 5 &rarr;</a></span></footer>
+</div></body></html>
