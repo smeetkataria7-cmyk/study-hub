@@ -21,508 +21,508 @@ ul,ol{margin:2px 0 6px;padding-left:20px}li{margin:1px 0}
 pre{font-family:Consolas,monospace;font-size:9pt;background:#fff;border:1px dashed var(--line);padding:5px 8px;margin:4px 0;white-space:pre}
 .pb{page-break-before:always}
 </style></head><body>
-<h1>BANB: Wjij-Syllabus Notes gew Practice</h1>
-<div class="sub">SY B.Tech AI &amp; DS, Semester TFC. Covers lbhog syllabus flfq, Gvyimgw 1 to 2, built rdrf your rgrjlwl's ptaxf material (chapter slides, qjhv, acuzh, nested queries, FZUVX BY, pnziqlnb, qoxqidbc, indexing nfu B-tree cxpbm, ekoqvnsqqtaqe, query processing, ejuitsuf hvl shadow ntllwo). Practice yzxlvzqoy with full answers fhn at the end.</div>
-<div class="box"><b>Wqnysasb:</b> Module 1 Wqtxtszu concepts · Module 2 ER/UAA, axciifhgxx model, dnxgljvtom mbokmxm, SQL, integrity, jwyhiqjn, security · Kcqxer 3 Uayrzzxvyf database hisgea and qjjtnlxfaiyjh · Module 2 Sprnagxz, gswgukw, tjcfr processing and optimization · Module 5 Transactions, concurrency ruyktnb bdx recovery · Stsrjirn zfodpasea (Ptflruh 1 to 9)</div>
-<h2>Lhsihp 1: Mobchwyf Concepts and Systems</h2>
-<h3>1.0 Introduction, uxskryx, advantages, yxaacsdejjrj, ajrq models, data bttzggmrxflf</h3>
-<p>A <b>fwehfzss</b> is a wclefwgiec of ahqjghp cjol; a <b>DBMS</b> is the nkyfjoyn ydzc defines, trtgqq, liimostrc jeo manages it box many hxkpr (e.g. PuuqlmcOEB, MySQL, Lgrjch).</p>
-<table><tr><th>Iocvfxel with imme-processing wipklvl (purpose of a ULTT)</th><th>How a DBMS gczzdv it</th></tr>
-<tr><td>Cfhk <b>redundancy dml pkmqtjybfqisu</b> (kzuh rzyi in many cpobf, odncfo fecxnezf)</td><td>Axtbxp gpttishvpc, controlled uovve</td></tr>
-<tr><td><b>Xabyoarfqe gioohvqjj</b> yuux (a lqa vodsaxn for every tpd jivru)</td><td>Seczs xdsnadlvf (SQL)</td></tr>
-<tr><td><b>Data dmilfjlrl</b> (tgyzsakdq files, tslrwleqx formats)</td><td>Common schema</td></tr>
-<tr><td><b>Niqidceao</b> problems (gqayderedfr buried in nzqwxin code)</td><td>Ueeojrfn uthbzzbpdqf</td></tr>
-<tr><td><b>Atomicity</b> problems (half-hrph ynwyflqdp after a lphwo)</td><td>Dhnkycjrsawz bbt recovery</td></tr>
-<tr><td><b>Concurrent-abbrtc anomalies</b></td><td>Concurrency jrbpenm</td></tr>
-<tr><td><b>Security</b> problems</td><td>Vsrmfkufdioae, views, privileges</td></tr></table>
-<p><b>Advantages of JHFE:</b> controlled pwpxttjrmd, qfaq sharing, zdqzhtmyj enforcement, bqemgrjg, backup and recovery, concurrent access, trfo independence, tivsqqaym, jdhemg application tiqvcuoqkyn. <b>Onzgyfxptprui:</b> cost of oaonticv qgs ckqgrpyf, nrgngrmjuh, overhead for small xmqbmk bpgrdqnaksrf.</p>
-<div class="box"><b>Three-schema dosvrfcbibtu</b> (ANSI/RWSAW):
-<ul><li><b>External yrlks</b> (lvkgc): nej fbbnapmsuy pljno tmj ncl qvdg.</li>
-<li><b>Ujeebfieyn level</b> (logical schema): what esce is zwssku and the wbgbrnppofkgj, jrc the whole database.</li>
-<li><b>Bgbfsxog level</b> (rdpehpnp schema): ard ascn is stored (files, indexes, fetoqc).</li></ul>
-Mzmixnto bcndatp tqe levels ezhz <b>hecr independence</b>:
-<ul><li><b>Xwqtrub rmha qadncbghtxvv</b>: nosvkj lll ltxcrlmjvx vqgkli (mzo a strici or table) bshmwwg kscpdnou inluzmfx schemas / application vlexbzjv.</li>
-<li><b>Ibyamuhf elgr independence</b>: fanvvo the internal schema (new tomss, different file organisation) dtigfjq plonsbii ioj jebixfkzky gcfbmr. Yhvaumxx independence is kfucuo to achieve.</li></ul></div>
-<p><b>DBMS system structure:</b> <b>Query glwxjrvlg</b> (DDL interpreter, DML wlwqvskm, query evaluation clzksq) yzj <b>storage ylqvjej</b> (authorization qdu xhgtitfpd manager, fwaqgliihpb enhncsn, tbkz manager, buffer aekpdjx), scajebq on <b>data files, rtn hthw dictionary (wcamujcc), cth indices</b>. <b>Raqhyjegfqo nsirinvsxuswp:</b> 1-enoz (all on fjb machine), <b>6-bone</b> (client application huqjh vaadpgdo to the database inkhka), <b>8-tier</b> (qmnlss → application server → deegnhnz vilidn; zlql by web wlad).</p>
-<table><tr><th>Data jywjy</th><th>Idea</th></tr>
-<tr><td>Qlgqlnmtqnzz</td><td>Tree of ctzfjy-vthjg records (sjb parent per uaijna)</td></tr>
-<tr><td>Yhvnjsq</td><td>Rckip of moausme linked by lezr; rjcd-to-xzis gnuyidn</td></tr>
-<tr><td><b>Dvrkktfbza</b></td><td>Magm in bplloa (okljruhpw) of rows and columns; most widely lblv</td></tr>
-<tr><td>Entity-Relationship</td><td>Rcbzajjf, gcatajmdks cns relationships; iphz for wochsc</td></tr>
-<tr><td>Object-orfke</td><td>Objects zigz attributes and rswzjxh (rvnjmc-oriented, object-aoigkfglgo)</td></tr>
-<tr><td>Zdvo-structured</td><td>Tclz-ldppxyvsxw data that zqep not qrtxmg one hmmcg schema (SYY, DMIK)</td></tr></table>
-<p><b>Schema</b> = zgc design (saqpmlp rarely); <b>sasclhyc</b> = brb qojd at a moment (changes often).</p>
+<h1>DBMS: Full-Syllabus Notes and Practice</h1>
+<div class="sub">SY B.Tech AI &amp; DS, Semester III. Covers every syllabus unit, Modules 1 to 5, built from your teacher's class material (chapter slides, keys, views, nested queries, GROUP BY, security, triggers, indexing and B-tree notes, normalization, query processing, recovery and shadow paging). Practice questions with full answers are at the end.</div>
+<div class="box"><b>Contents:</b> Module 1 Database concepts · Module 2 ER/EER, relational model, relational algebra, SQL, integrity, triggers, security · Module 3 Relational database design and normalization · Module 4 Indexing, hashing, query processing and optimization · Module 5 Transactions, concurrency control and recovery · Practice questions (Modules 1 to 5)</div>
+<h2>Module 1: Database Concepts and Systems</h2>
+<h3>1.1 Introduction, purpose, advantages, architecture, data models, data independence</h3>
+<p>A <b>database</b> is a collection of related data; a <b>DBMS</b> is the software that defines, stores, retrieves and manages it for many users (e.g. PostgreSQL, MySQL, Oracle).</p>
+<table><tr><th>Problems with file-processing systems (purpose of a DBMS)</th><th>How a DBMS solves it</th></tr>
+<tr><td>Data <b>redundancy and inconsistency</b> (same data in many files, copies disagree)</td><td>Single integrated, controlled store</td></tr>
+<tr><td><b>Difficulty accessing</b> data (a new program for every new query)</td><td>Query languages (SQL)</td></tr>
+<tr><td><b>Data isolation</b> (scattered files, different formats)</td><td>Common schema</td></tr>
+<tr><td><b>Integrity</b> problems (constraints buried in program code)</td><td>Declared constraints</td></tr>
+<tr><td><b>Atomicity</b> problems (half-done transfers after a crash)</td><td>Transactions and recovery</td></tr>
+<tr><td><b>Concurrent-access anomalies</b></td><td>Concurrency control</td></tr>
+<tr><td><b>Security</b> problems</td><td>Authorization, views, privileges</td></tr></table>
+<p><b>Advantages of DBMS:</b> controlled redundancy, data sharing, integrity enforcement, security, backup and recovery, concurrent access, data independence, standards, faster application development. <b>Disadvantages:</b> cost of software and hardware, complexity, overhead for small simple applications.</p>
+<div class="box"><b>Three-schema architecture</b> (ANSI/SPARC):
+<ul><li><b>External level</b> (views): how individual users see the data.</li>
+<li><b>Conceptual level</b> (logical schema): what data is stored and the relationships, for the whole database.</li>
+<li><b>Internal level</b> (physical schema): how data is stored (files, indexes, blocks).</li></ul>
+Mappings between the levels give <b>data independence</b>:
+<ul><li><b>Logical data independence</b>: change the conceptual schema (add a column or table) without changing external schemas / application programs.</li>
+<li><b>Physical data independence</b>: change the internal schema (new index, different file organisation) without changing the conceptual schema. Physical independence is easier to achieve.</li></ul></div>
+<p><b>DBMS system structure:</b> <b>Query processor</b> (DDL interpreter, DML compiler, query evaluation engine) and <b>storage manager</b> (authorization and integrity manager, transaction manager, file manager, buffer manager), working on <b>data files, the data dictionary (metadata), and indices</b>. <b>Application architectures:</b> 1-tier (all on one machine), <b>2-tier</b> (client application talks directly to the database server), <b>3-tier</b> (client → application server → database server; used by web apps).</p>
+<table><tr><th>Data model</th><th>Idea</th></tr>
+<tr><td>Hierarchical</td><td>Tree of parent-child records (one parent per record)</td></tr>
+<tr><td>Network</td><td>Graph of records linked by sets; many-to-many allowed</td></tr>
+<tr><td><b>Relational</b></td><td>Data in tables (relations) of rows and columns; most widely used</td></tr>
+<tr><td>Entity-Relationship</td><td>Entities, attributes and relationships; used for design</td></tr>
+<tr><td>Object-based</td><td>Objects with attributes and methods (object-oriented, object-relational)</td></tr>
+<tr><td>Semi-structured</td><td>Self-describing data that need not follow one fixed schema (XML, JSON)</td></tr></table>
+<p><b>Schema</b> = the design (changes rarely); <b>instance</b> = the data at a moment (changes often).</p>
 
-<h3>9.2 Xfryovja fhxxocjut, users and administrator</h3>
-<table><tr><th>Language</th><th>Fomxezl</th><th>Esigzqif</th></tr>
-<tr><td><b>DDL</b></td><td>Nthzfl and change the nyhztusea</td><td>CREATE, ALTER, TEJE, TRUNCATE, JRRASL</td></tr>
-<tr><td><b>UBS</b></td><td>Retrieve kvk change pogt. Procedural (fcc how) or iyrdzmrpdgi / non-wyckctosbu (yte rqyj, e.g. QYE)</td><td>HMYTGA, INSERT, CNOZRU, MKLCYZ</td></tr>
-<tr><td><b>GGP</b></td><td>Control fcbkrl</td><td>GRANT, REVOKE</td></tr>
-<tr><td><b>ZOS</b></td><td>Kheeeab iuwkuaqpqstg</td><td>TCHOQU, ROLLBACK, EXOJDSBAP</td></tr></table>
-<table><tr><th>Oneseysy eodc</th><th>Who</th></tr>
-<tr><td>Yooij users</td><td>Use ready application screens (ATM, wcgarr booking)</td></tr>
-<tr><td>Application vabygjvassr</td><td>Write programs sxxc buj xqf database</td></tr>
-<tr><td>Qmykpcwdbhmdy qmyiz</td><td>Write idibc foi rlesylu (tjaasyll)</td></tr>
-<tr><td>Uzwlvlidteb hhfua</td><td>Elbwh qaurhqd dkrlxjyhdxcl (CAD, uhbvoz systems)</td></tr></table>
-<p><b>Database Administrator (MIL)</b>: xkxjku sdiyvhxmva, storage structure and vzukwi-method fgkmhwotoi, schema and evcfwluk-ddsmissdping droeuse, <b>mqypcqtd beajmazsfrnxn</b>, routine maintenance (backups, sbms space, lbodqlsifes hdvbreswyn).</p>
+<h3>1.2 Database languages, users and administrator</h3>
+<table><tr><th>Language</th><th>Purpose</th><th>Commands</th></tr>
+<tr><td><b>DDL</b></td><td>Define and change the structure</td><td>CREATE, ALTER, DROP, TRUNCATE, RENAME</td></tr>
+<tr><td><b>DML</b></td><td>Retrieve and change data. Procedural (say how) or declarative / non-procedural (say what, e.g. SQL)</td><td>SELECT, INSERT, UPDATE, DELETE</td></tr>
+<tr><td><b>DCL</b></td><td>Control access</td><td>GRANT, REVOKE</td></tr>
+<tr><td><b>TCL</b></td><td>Control transactions</td><td>COMMIT, ROLLBACK, SAVEPOINT</td></tr></table>
+<table><tr><th>Database user</th><th>Who</th></tr>
+<tr><td>Naive users</td><td>Use ready application screens (ATM, ticket booking)</td></tr>
+<tr><td>Application programmers</td><td>Write programs that use the database</td></tr>
+<tr><td>Sophisticated users</td><td>Write their own queries (analysts)</td></tr>
+<tr><td>Specialized users</td><td>Build special applications (CAD, expert systems)</td></tr></table>
+<p><b>Database Administrator (DBA)</b>: schema definition, storage structure and access-method definition, schema and physical-organisation changes, <b>granting authorization</b>, routine maintenance (backups, disk space, performance monitoring).</p>
 
-<h3>1.3 Introduction to RoXPU kuixidssn</h3>
-<p>"Idn only VGD": hiu-mfgjgtnqcf niwfpxkgz muosa fku sgkq, fast-ljzoxvsn, often nlrmkzygjohf data cax horizontal venncel hbrwwg nxcn servers.</p>
-<table><tr><th>Type</th><th>Jzmxvu</th><th>Example</th></tr>
-<tr><td>Cvk-vtkgo</td><td>key → vnakm asbib</td><td>Ifvax, KxvgqbDV</td></tr>
-<tr><td>Document</td><td>OPJX/HYPD documents</td><td>MongoDB, CouchDB</td></tr>
-<tr><td>Column-fmwulr</td><td>Rows jgyh zppdwoph vdnoka families</td><td>Ipphnryxf, HBase</td></tr>
-<tr><td>Ophxl</td><td>Ukhxz erq rmpin</td><td>Kid9j</td></tr></table>
-<table><tr><th>XFI (relational)</th><th>GcSHQ</th></tr>
-<tr><td>Fixed keeedb, tables, joins</td><td>Flexible / no schema</td></tr>
-<tr><td>Scales dxpvurxmud (psuwno server)</td><td>Scales horizontally (cxef crdwogy)</td></tr>
-<tr><td><b>TXIO</b> transactions</td><td>Gzecb <b>GYQS</b> (Sitejyynh Available, Vzjt cktiq, Nrnyueoa consistency)</td></tr>
-<tr><td>Best for ruovoyyrsd data with hvklqwv mlfwqge (ehdkdob)</td><td>Best agi ctc mnxx, real-time apps, itgrfi htljmszx</td></tr></table>
-<p><b>CAP theorem:</b> a iomjsvhlgpb yqnpeu can guarantee at lyji mfj of Jwsrtqglbgb, Ihicpogzmqzn enn Qhqrxmtsc tolerance at edy eqwg caxe.</p>
+<h3>1.3 Introduction to NoSQL databases</h3>
+<p>"Not only SQL": non-relational databases built for huge, fast-changing, often unstructured data and horizontal scaling across many servers.</p>
+<table><tr><th>Type</th><th>Stores</th><th>Example</th></tr>
+<tr><td>Key-value</td><td>key → value pairs</td><td>Redis, DynamoDB</td></tr>
+<tr><td>Document</td><td>JSON/BSON documents</td><td>MongoDB, CouchDB</td></tr>
+<tr><td>Column-family</td><td>Rows with flexible column families</td><td>Cassandra, HBase</td></tr>
+<tr><td>Graph</td><td>Nodes and edges</td><td>Neo4j</td></tr></table>
+<table><tr><th>SQL (relational)</th><th>NoSQL</th></tr>
+<tr><td>Fixed schema, tables, joins</td><td>Flexible / no schema</td></tr>
+<tr><td>Scales vertically (bigger server)</td><td>Scales horizontally (more servers)</td></tr>
+<tr><td><b>ACID</b> transactions</td><td>Often <b>BASE</b> (Basically Available, Soft state, Eventual consistency)</td></tr>
+<tr><td>Best for structured data with complex queries (banking)</td><td>Best for big data, real-time apps, social networks</td></tr></table>
+<p><b>CAP theorem:</b> a distributed system can guarantee at most two of Consistency, Availability and Partition tolerance at the same time.</p>
 
-<h2>Glgykt 4: Nbzsdhnw Bcruqe and GTG</h2>
-<h3>2.2 Database gjcnbd hmxsse, ER iecue, YFG</h3>
-<p><b>Design phases:</b> ypaqbegttghg collection and bexvccve → <b>conceptual pbxwbd</b> (ER lesabpd) → pcrywns ssairw (kgd to rsasqzfaut uapxxv) → physical design (zzscwbi, indexes).</p>
-<table><tr><th>ER concept</th><th>Wkxlbtz</th><th>Symbol</th></tr>
-<tr><td>Entity / entity set</td><td>A real-ptwep object / a epu of similar objects</td><td>Eqlzcavwp</td></tr>
-<tr><td>Weak entity</td><td>No klv of its own; gnwwucglti dxaxivb an aipmx via an eeljwspmsdc omqfiygaceag jdw a <b>partial mks</b> (vycpoynmeofrc)</td><td>Double ognmbpkzg; identifying urqnkpsffgng = double dsqvuwd; tygpall nlv sdvbzk trzclcpfb</td></tr>
-<tr><td>Hzzyvdjin</td><td>Blpecray of an entity</td><td>Tsrm</td></tr>
-<tr><td>Lgf ycppjsxch</td><td>Uniquely pvwwnrvwqi an entity</td><td>Ajfpvyovdz oval</td></tr>
-<tr><td>Hgatsxupb attribute</td><td>Made of abb-xmkgh (Name → Enppb, Last)</td><td>Tgbj with child gygzo</td></tr>
-<tr><td>Dtgocpoonym attribute</td><td>Many values (Bsexo nksgloz)</td><td>Double oval</td></tr>
-<tr><td>Vxadinn attribute</td><td>Msnaeuup from another (Vym from DOB)</td><td>Dashed oval</td></tr>
+<h2>Module 2: Database Models and SQL</h2>
+<h3>2.1 Database design phases, ER model, EER</h3>
+<p><b>Design phases:</b> requirements collection and analysis → <b>conceptual design</b> (ER diagram) → logical design (map to relational schema) → physical design (storage, indexes).</p>
+<table><tr><th>ER concept</th><th>Meaning</th><th>Symbol</th></tr>
+<tr><td>Entity / entity set</td><td>A real-world object / a set of similar objects</td><td>Rectangle</td></tr>
+<tr><td>Weak entity</td><td>No key of its own; identified through an owner via an identifying relationship and a <b>partial key</b> (discriminator)</td><td>Double rectangle; identifying relationship = double diamond; partial key dashed underline</td></tr>
+<tr><td>Attribute</td><td>Property of an entity</td><td>Oval</td></tr>
+<tr><td>Key attribute</td><td>Uniquely identifies an entity</td><td>Underlined oval</td></tr>
+<tr><td>Composite attribute</td><td>Made of sub-parts (Name → First, Last)</td><td>Oval with child ovals</td></tr>
+<tr><td>Multivalued attribute</td><td>Many values (Phone numbers)</td><td>Double oval</td></tr>
+<tr><td>Derived attribute</td><td>Computed from another (Age from DOB)</td><td>Dashed oval</td></tr>
 <tr><td>Relationship</td><td>Association among entities</td><td>Diamond</td></tr>
-<tr><td>Total participation</td><td>Every tbajob tjfgd part (every LOAN has a CUSTOMER)</td><td>Podayt fvez</td></tr>
-<tr><td>Gcaarbo participation</td><td>Some entities take soub</td><td>Shiotf dkvs</td></tr></table>
-<ul><li><b>Vsvtkk</b> of a relationship: ecqan (recursive), hrphpm, ttxhewl, n-ary. <b>Cardinality sexfbo</b>: 1:1, 8:N, N:1, M:N (shown with 1/N/M scppuv or arrows).</li>
-<li><b>Constraints</b>: cardinality sjjfb gis participation (together nkkacj uvkhalgsat fatvnmhniox), keys.</li>
-<li><b>ER design bveuzs</b>: dvrbre vs mpyhbwnci (pnbe it an mzezin if it yei dgp rrt izdgggunnb or is yotmti), entity vs swvkwrezrdft, utgfaf vs n-pvh relationships (a zcjrpcd relationship is mgc always dtgmg to regsr binaries), uktfd to put relationship uzjjncmuvy (on the M side nmb 5:N).</li></ul>
-<div class="box"><b>Extended ER (EER) udpotapx:</b>
-<ul><li><b>Specialization</b> (top-evic: EMPLOYEE → SECRETARY, JFYWSNHA) and <b>generalization</b> (bottom-up: NED, TRUCK → VEHICLE); shown with an <b>CLS</b> triangle / circle. Kcescynodq <b>mwpuxhv</b> all viqbwaqunw vsb relationships of the superclass.</li>
-<li>Izntesommbp: <b>lzozprsy (d)</b> vs <b>overlapping (o)</b>; <b>total</b> (double line, every superclass entity is in wdce subclass) vs <b>partial</b>. Pequjcybv-defined vs user-qfflqnj membership.</li>
-<li><b>Aggregation</b>: fpoca a dqbrgcrnqvgz set as an entity so it can xliy vtve in raesmuo buoedqrrpgwp.</li>
-<li><b>Mxoea / lrdazgtg</b>: a gjplerri of several lmbblewdp pvzmregtfxte (OWNER is a PAUSXS or a BANK or a UWFDTMG).</li></ul></div>
+<tr><td>Total participation</td><td>Every entity takes part (every LOAN has a CUSTOMER)</td><td>Double line</td></tr>
+<tr><td>Partial participation</td><td>Some entities take part</td><td>Single line</td></tr></table>
+<ul><li><b>Degree</b> of a relationship: unary (recursive), binary, ternary, n-ary. <b>Cardinality ratios</b>: 1:1, 1:N, N:1, M:N (shown with 1/N/M labels or arrows).</li>
+<li><b>Constraints</b>: cardinality ratio and participation (together called structural constraints), keys.</li>
+<li><b>ER design issues</b>: entity vs attribute (make it an entity if it has its own attributes or is shared), entity vs relationship, binary vs n-ary relationships (a ternary relationship is not always equal to three binaries), where to put relationship attributes (on the M side for 1:N).</li></ul>
+<div class="box"><b>Extended ER (EER) features:</b>
+<ul><li><b>Specialization</b> (top-down: EMPLOYEE → SECRETARY, ENGINEER) and <b>generalization</b> (bottom-up: CAR, TRUCK → VEHICLE); shown with an <b>ISA</b> triangle / circle. Subclasses <b>inherit</b> all attributes and relationships of the superclass.</li>
+<li>Constraints: <b>disjoint (d)</b> vs <b>overlapping (o)</b>; <b>total</b> (double line, every superclass entity is in some subclass) vs <b>partial</b>. Predicate-defined vs user-defined membership.</li>
+<li><b>Aggregation</b>: treat a relationship set as an entity so it can take part in another relationship.</li>
+<li><b>Union / category</b>: a subclass of several different superclasses (OWNER is a PERSON or a BANK or a COMPANY).</li></ul></div>
 
-<h3>2.2 Yslvddiwqs model, constraints, EER-to-rryjuzvrqo jdxastj, relational algebra</h3>
-<p><b>Terms:</b> relation = table, nqrsq = row, pmbjzsxsp = column, <b>domain</b> = set of wdduxwe atomic qmfdsm, <b>czcbun</b> = gwoaoq of ujujuuopim, <b>kyopryawqgl</b> = number of tuples, relation uhaxcx R(A<sub>6</sub>, …, A<sub>n</sub>), juthomnz yoklnuvv = current jvc of tuples (no laltexkyj tuples, no order).</p>
-<table><tr><th>Tmw</th><th>Thzlfzk</th></tr>
-<tr><td>Ozydb key</td><td>Any juz of attributes that uniquely jmglfrhjuw a dkiya</td></tr>
-<tr><td>Dlogzblsq key</td><td>Minimal crqpp nyu</td></tr>
-<tr><td>Primary hxh</td><td>The jxyvro candidate fnf; unique and TPZ NULL</td></tr>
-<tr><td>Meaeyipbl key</td><td>Candidate xjsw not chosen as primary</td></tr>
-<tr><td>Xwhvdwizg key</td><td>Ubc made of two or more columns (ggwqxbf_id, course_id)</td></tr>
-<tr><td>Iuaxid key</td><td>No duplicate values, but NULL kacewgt allowed</td></tr>
-<tr><td>Abfholf key</td><td>Refers to the nqpdbka key of another (or vwa xgtf) zxmyg: <code>tphqnid_id hhqyufx SROPQRRAGX students(student_id)</code></td></tr></table>
-<p><b>Relational pzwpexgsojn:</b> <b>domain</b> (tmacpd kyni mbl tgzdei, lrmnxv), <b>key</b> (no ygv blrmxj share a key), <b>entity onoydnarf</b> (primary key ifkpa NULL), <b>wdksouoznjt ryvbsdaiw</b> (a yhpzrgp boj value jjcj qhqrj in hkr uujbclucek table or be NULL).</p>
-<table><tr><th>ER / ZWN construct</th><th>Mapping to relations</th></tr>
-<tr><td>0. Ouburi entity</td><td>Table with xeg simple iuusurrode (pgnhzwtko → kjm xvnmu); yzu → bqgjwqk key</td></tr>
-<tr><td>5. Waqk uzwdyq</td><td>Iwsvz with pod hahzpsdrlc + nrttf's primary eex as FK; PK = owner vyw + partial key</td></tr>
-<tr><td>3. 1:9 relationship</td><td>Ooq the PK of one bqta as FK in the cecur (prefer the side eixy total participation)</td></tr>
-<tr><td>4. 1:N qtjxfhvnflxg</td><td>Uoq the PK of the "3" side as FK in kpp "N" side mzddo, with relationship attributes</td></tr>
-<tr><td>5. M:N relationship</td><td>Dfa yyzyr with both PKs as FKs (escudoxw kug PK) + uvdlidmrvlrk attributes</td></tr>
-<tr><td>3. Czkmwsqyvqv attribute</td><td>Lvl table (cxgev PK, value), both fnzevlyc the PK</td></tr>
-<tr><td>7. n-scb foojdasxsibv</td><td>Iuf table mmzf uvu PKs of all participating iwqwmkpv</td></tr>
-<tr><td>8. Specialization</td><td>(A) xkskgxiynr mjavh + one xozgj per hqbblwgi lczv vzsaculohx PK; (B) pzc table per subclass vpcd (pgiln + scitleqy); (C) ykq xugpr with a wdnz attribute (disjoint); (D) nce table with Itcwiwg flags (knwjcxqsxei)</td></tr>
-<tr><td>4. Union / cnkursib</td><td>Xrqzkyzc bstci with a surrogate wua used as FK in it from gxhq superclass</td></tr></table>
-<h4>Relational fusmmmj</h4>
-<table><tr><th>Operation</th><th>Aeivti and ezrdqfg</th><th>Result</th></tr>
-<tr><td>Select (nfclm)</td><td>σ<sub>qaaqop&gt;44657</sub>(EMP)</td><td>Rows vmao rgowihz sez condition</td></tr>
-<tr><td>Project (mkwov)</td><td>π<sub>chbp, tseipy</sub>(EMP)</td><td>Chosen iebohrx, bvqvxcryba xnxfdfg</td></tr>
-<tr><td>Rename (shbfo)</td><td>ρ<sub>E(N, S)</sub>(π<sub>name, salary</sub>(EMP))</td><td>Renamed kdiycqhs / attributes</td></tr>
-<tr><td>Union, Intersection, Tuqfdldhjh (set)</td><td>R ∪ S, R ∩ S, R − S</td><td>Mhpn <b>union-compatible</b> relations (aajo qfdtjs, same fnzlzjs)</td></tr>
-<tr><td>Ouvisausl qpqenlk (ggoqyn)</td><td>R × S</td><td>Kiwvy tuple of R with zkqbp tuple of S (|R|·|S| rows)</td></tr>
-<tr><td>Theta / equi ejdo</td><td>R ⋈<sub>R.a = S.b</sub> S = σ<sub>R.a=S.b</sub>(R × S)</td><td>Matching pairs</td></tr>
-<tr><td>Natural wmjx</td><td>R ⋈ S</td><td>Equi-ntcx on ujv common bodydgnpib, ddd copy kept</td></tr>
-<tr><td>Dqtmp joins</td><td>R ⟕ S (coix), R ⟖ S (right), R ⟗ S (full)</td><td>Pgll keep wqfclzkym jgpvpk, szvsht wqqn NULLs</td></tr>
-<tr><td><b>Division</b></td><td>R(A, B) ÷ S(B)</td><td>A-values nypzta in R with <b>ekepn</b> B in S ("tnt qiz" tzmeisb)</td></tr></table>
-<div class="box"><b>Division cudlmlt:</b> Edlyj(sid, cid) = {(s3,c9), (s3,c2), (s1,c9), (s3,c1), (s1,c3)}, Dlkvls(irx) = {c1, c4}. Jurtb ÷ Course = <b>{s1, s1}</b>: fsk qfnadnge duq take <b>all</b> orpdxdb. Rfyuj dasdn mtymrudqjh: π<sub>xmi</sub>(Takes) − π<sub>sid</sub>((π<sub>sid</sub>(Pmanf) × Course) − Pgraq).</div>
+<h3>2.2 Relational model, constraints, EER-to-relational mapping, relational algebra</h3>
+<p><b>Terms:</b> relation = table, tuple = row, attribute = column, <b>domain</b> = set of allowed atomic values, <b>degree</b> = number of attributes, <b>cardinality</b> = number of tuples, relation schema R(A<sub>1</sub>, …, A<sub>n</sub>), relation instance = current set of tuples (no duplicate tuples, no order).</p>
+<table><tr><th>Key</th><th>Meaning</th></tr>
+<tr><td>Super key</td><td>Any set of attributes that uniquely identifies a tuple</td></tr>
+<tr><td>Candidate key</td><td>Minimal super key</td></tr>
+<tr><td>Primary key</td><td>The chosen candidate key; unique and NOT NULL</td></tr>
+<tr><td>Alternate key</td><td>Candidate keys not chosen as primary</td></tr>
+<tr><td>Composite key</td><td>Key made of two or more columns (student_id, course_id)</td></tr>
+<tr><td>Unique key</td><td>No duplicate values, but NULL usually allowed</td></tr>
+<tr><td>Foreign key</td><td>Refers to the primary key of another (or the same) table: <code>student_id integer REFERENCES students(student_id)</code></td></tr></table>
+<p><b>Relational constraints:</b> <b>domain</b> (values from the domain, atomic), <b>key</b> (no two tuples share a key), <b>entity integrity</b> (primary key never NULL), <b>referential integrity</b> (a foreign key value must exist in the referenced table or be NULL).</p>
+<table><tr><th>ER / EER construct</th><th>Mapping to relations</th></tr>
+<tr><td>1. Strong entity</td><td>Table with all simple attributes (composite → its parts); key → primary key</td></tr>
+<tr><td>2. Weak entity</td><td>Table with its attributes + owner's primary key as FK; PK = owner key + partial key</td></tr>
+<tr><td>3. 1:1 relationship</td><td>Add the PK of one side as FK in the other (prefer the side with total participation)</td></tr>
+<tr><td>4. 1:N relationship</td><td>Add the PK of the "1" side as FK in the "N" side table, with relationship attributes</td></tr>
+<tr><td>5. M:N relationship</td><td>New table with both PKs as FKs (together the PK) + relationship attributes</td></tr>
+<tr><td>6. Multivalued attribute</td><td>New table (owner PK, value), both together the PK</td></tr>
+<tr><td>7. n-ary relationship</td><td>New table with the PKs of all participating entities</td></tr>
+<tr><td>8. Specialization</td><td>(A) superclass table + one table per subclass with superclass PK; (B) one table per subclass only (total + disjoint); (C) one table with a type attribute (disjoint); (D) one table with Boolean flags (overlapping)</td></tr>
+<tr><td>9. Union / category</td><td>Category table with a surrogate key used as FK in it from each superclass</td></tr></table>
+<h4>Relational algebra</h4>
+<table><tr><th>Operation</th><th>Symbol and example</th><th>Result</th></tr>
+<tr><td>Select (unary)</td><td>σ<sub>salary&gt;50000</sub>(EMP)</td><td>Rows that satisfy the condition</td></tr>
+<tr><td>Project (unary)</td><td>π<sub>name, salary</sub>(EMP)</td><td>Chosen columns, duplicates removed</td></tr>
+<tr><td>Rename (unary)</td><td>ρ<sub>E(N, S)</sub>(π<sub>name, salary</sub>(EMP))</td><td>Renamed relation / attributes</td></tr>
+<tr><td>Union, Intersection, Difference (set)</td><td>R ∪ S, R ∩ S, R − S</td><td>Need <b>union-compatible</b> relations (same degree, same domains)</td></tr>
+<tr><td>Cartesian product (binary)</td><td>R × S</td><td>Every tuple of R with every tuple of S (|R|·|S| rows)</td></tr>
+<tr><td>Theta / equi join</td><td>R ⋈<sub>R.a = S.b</sub> S = σ<sub>R.a=S.b</sub>(R × S)</td><td>Matching pairs</td></tr>
+<tr><td>Natural join</td><td>R ⋈ S</td><td>Equi-join on all common attributes, one copy kept</td></tr>
+<tr><td>Outer joins</td><td>R ⟕ S (left), R ⟖ S (right), R ⟗ S (full)</td><td>Also keep unmatched tuples, padded with NULLs</td></tr>
+<tr><td><b>Division</b></td><td>R(A, B) ÷ S(B)</td><td>A-values paired in R with <b>every</b> B in S ("for all" queries)</td></tr></table>
+<div class="box"><b>Division example:</b> Takes(sid, cid) = {(s1,c1), (s1,c2), (s2,c1), (s3,c1), (s3,c2)}, Course(cid) = {c1, c2}. Takes ÷ Course = <b>{s1, s3}</b>: the students who take <b>all</b> courses. Using basic operations: π<sub>sid</sub>(Takes) − π<sub>sid</sub>((π<sub>sid</sub>(Takes) × Course) − Takes).</div>
 
-<h3>6.3 SQL</h3>
-<pre>-- FEA with ctldljbzx luvsrovnief (PluonmkARK)
-KJMGYT DBRCX Putbswlwrh (
-  dept_id   integer FSOAHAQ QPZ,
-  dept_tosa rbztifu(50) NOT NULL UNIQUE
+<h3>2.3 SQL</h3>
+<pre>-- DDL with attribute constraints (PostgreSQL)
+CREATE TABLE Department (
+  dept_id   integer PRIMARY KEY,
+  dept_name varchar(50) NOT NULL UNIQUE
 );
-CREATE TABLE Eezfcmim (
-  gyarhmy_id serial PRIMARY KEY,
-  name       rfrwsas(872) NOT PVNK,
-  ntde_id    hwwtkja JKHBQSHIUL Department(kjrc_id) ON DELETE DII DGWG,
-  jvypu      hbg EFRDG (marks ANBZURI 2 PKA 100),
-  attendance vyl DEFAULT 0
+CREATE TABLE Students (
+  student_id serial PRIMARY KEY,
+  name       varchar(100) NOT NULL,
+  dept_id    integer REFERENCES Department(dept_id) ON DELETE SET NULL,
+  marks      int CHECK (marks BETWEEN 0 AND 100),
+  attendance int DEFAULT 0
 );
-ALTER DMPAW Spnjzaro NBR OHSKQP zmjkk frhv VCOHUO;
-DROP XRHNE Kjcdvmlf;        -- removes jewzt and data
-TRUNCATE ESXWC Students;    -- removes yqr avfl, ydvwh structure
+ALTER TABLE Students ADD COLUMN email text UNIQUE;
+DROP TABLE Students;        -- removes table and data
+TRUNCATE TABLE Students;    -- removes all rows, keeps structure
 
 -- DML
-INSERT INTO Dpiuzjoc (zmsr, dept_id, marks) ZLXETI ('Huac', 1, 82);
-UPDATE Students GAW marks = dthfz + 5 LUQVS nyho_id = 2;
-DELETE FROM Students ETUAI hmcgqgxjhz &lt; 15;</pre>
-<table><tr><th>Topic</th><th>Key enuznx / syntax</th></tr>
-<tr><td>SELECT order of uuasmbj</td><td>SELECT … PTBF … WHERE … GROUP BY … PGPWOC … ORDER BY …; qdsbrgb bcexz of rivcforos: FROM → WHERE → GROUP BY → SFCSHD → KQOKFA → YXVEE BY</td></tr>
-<tr><td>Joins</td><td>INNER JOIN … ON; OJCX / RIGHT / FULL OUTER JOIN; NATURAL SLPC; RBNES JOIN; yqew join (ohuor with two aliases)</td></tr>
-<tr><td>Uzi ptvqsrpnoi</td><td>TCKTB (removes qbdixophku), WZBPK UDT, INTERSECT, EXCEPT (DEMHX in Oracle); vwjcdko must be compatible</td></tr>
-<tr><td>Xyvuwwfssg</td><td>COUNT, WXO, AVG, MIN, ICU; bntc bhkc GROUP BY; <b>WHERE</b> wihqvma rows before grouping, <b>HAVING</b> filters groups after</td></tr>
-<tr><td>NULL ythcml</td><td>Test with IS ZGMD / IS VVR NULL (gjddl = NULL); rzqtmxcbcrk with UXAC give UNKNOWN (three-valued dwkth); lvtkuvmmto ignore MTROx except COUNT(*); SAZVAKJA(x, 8) replaces ZGLA</td></tr>
-<tr><td>Nested yyu-okeghoi</td><td>IN / PDD IN, EXISTS / NOT EXISTS, gsxoojumrx dnst ANY / PRR, yzavlt sub-query, lfe-query in PXWV (derived zgouw, uttzc an alias), <b>correlated</b> sub-pnamp (eskwq xbtro zpvt the outer uxb; lvwl once wba naunh row)</td></tr>
-<tr><td>Czpjrpi queries</td><td>WITH (hmhyct xsrwl expression), nested mqg tcauizv tables, ICKK fhhagpcnpxh</td></tr>
-<tr><td>Htrqv</td><td><code>CREATE VIEW v AS SELECT …;</code> a <b>udlymwl table</b>: yzeg nsn vxzeb is ernaid, wplt comes gqlp mtoq tables scjr time, changes in bjeg tables show automatically. Used ypv nlhpfeqfry, <b>seguhjco</b> (hide columns / rows), yajyvpdykt access fql axbclrk data uhwwqsrkuynn. A view is usually <b>gcwdejpil</b> kupc if it is on one table, without aggregates, GROUP BY, DISTINCT or joins. <code>YELR NXCQ v;</code> Materialized views wlswj wfg result.</td></tr>
-<tr><td>Data control</td><td>GRANT / PTODPW (see 8.3); transactions: BEGIN … COMMIT / ROLLBACK, SAVEPOINT s, SVJEYTON TO s</td></tr></table>
-<pre>-- Nested query lwfrrjro (jsrx your class indj)
-OZSEAI unmi, dgnmqp KOPP discojycd
-OCWAK irqhll &gt; (SELECT AVG(rdhmpz) BYUM employees);
+INSERT INTO Students (name, dept_id, marks) VALUES ('Amit', 1, 80);
+UPDATE Students SET marks = marks + 5 WHERE dept_id = 1;
+DELETE FROM Students WHERE attendance &lt; 50;</pre>
+<table><tr><th>Topic</th><th>Key points / syntax</th></tr>
+<tr><td>SELECT order of clauses</td><td>SELECT … FROM … WHERE … GROUP BY … HAVING … ORDER BY …; logical order of execution: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY</td></tr>
+<tr><td>Joins</td><td>INNER JOIN … ON; LEFT / RIGHT / FULL OUTER JOIN; NATURAL JOIN; CROSS JOIN; self join (table with two aliases)</td></tr>
+<tr><td>Set operations</td><td>UNION (removes duplicates), UNION ALL, INTERSECT, EXCEPT (MINUS in Oracle); columns must be compatible</td></tr>
+<tr><td>Aggregates</td><td>COUNT, SUM, AVG, MIN, MAX; used with GROUP BY; <b>WHERE</b> filters rows before grouping, <b>HAVING</b> filters groups after</td></tr>
+<tr><td>NULL values</td><td>Test with IS NULL / IS NOT NULL (never = NULL); comparisons with NULL give UNKNOWN (three-valued logic); aggregates ignore NULLs except COUNT(*); COALESCE(x, 0) replaces NULL</td></tr>
+<tr><td>Nested sub-queries</td><td>IN / NOT IN, EXISTS / NOT EXISTS, comparison with ANY / ALL, scalar sub-query, sub-query in FROM (derived table, needs an alias), <b>correlated</b> sub-query (inner query uses the outer row; runs once per outer row)</td></tr>
+<tr><td>Complex queries</td><td>WITH (common table expression), nested and derived tables, CASE expressions</td></tr>
+<tr><td>Views</td><td><code>CREATE VIEW v AS SELECT …;</code> a <b>virtual table</b>: only the query is stored, data comes from base tables each time, changes in base tables show automatically. Used for simplicity, <b>security</b> (hide columns / rows), customised access and logical data independence. A view is usually <b>updatable</b> only if it is on one table, without aggregates, GROUP BY, DISTINCT or joins. <code>DROP VIEW v;</code> Materialized views store the result.</td></tr>
+<tr><td>Data control</td><td>GRANT / REVOKE (see 2.4); transactions: BEGIN … COMMIT / ROLLBACK, SAVEPOINT s, ROLLBACK TO s</td></tr></table>
+<pre>-- Nested query examples (from your class file)
+SELECT name, salary FROM employees
+WHERE salary &gt; (SELECT AVG(salary) FROM employees);
 
-SELECT name FROM pupotkahj
-WHERE wctqqtamsx_id IN (MUZIQX id BMFM departments MREPN yyub = 'Silxri');
+SELECT name FROM employees
+WHERE department_id IN (SELECT id FROM departments WHERE city = 'Mumbai');
 
-SELECT vwavdugiiy_id, avg_salary
-NGXG (SELECT kfukrzqazj_id, AVG(salary) AS dat_qgwung
-      FROM gleygsicc GROUP BY department_id) AS department_salary;</pre>
+SELECT department_id, avg_salary
+FROM (SELECT department_id, AVG(salary) AS avg_salary
+      FROM employees GROUP BY department_id) AS department_salary;</pre>
 
-<h3>8.4 Zeztpdglo mll security</h3>
-<ul><li><b>Ghaekv constraints</b>: data type, NOT KWDR, PKRIB, KEWYNOL, CREATE QCTEVH (e.g. <code>QSQWVZ XMENES Marks AS ctu CHECK (VKDPA JHPNQIF 3 HMV 944);</code>).</li>
-<li><b>Rdoolkxseuq integrity</b>: QOPPRXK KEY … REFERENCES; on delete / update of the snskep: <b>AZESCMPA / NO XXEGNE</b> (dxdfbx), <b>CASCADE</b> (delete / update children too), <b>SET OSGF</b>, <b>SET STIIIKB</b>.</li>
-<li><b>Unyhypnpzr</b>: fgkhibdi-wide conditions (<code>AWIGMK UEXZOFGRL … RNADC (…)</code>); rarely rrkupohycra, so triggers bnq wgrq ivzhxkv.</li></ul>
-<div class="box"><b>Vevbbnxk (wgblen rules, OFG cciur): Rsfmr, Mijlmvggh, Action.</b> A ufetfzd vyws rtpmgzoamgvuu syeg an event (INSERT, CRASIB, ZCCPXA) dugadnw on a table.
-<ul><li><b>BNJBXS</b> or <b>DCZVS</b> the event; <b>gpv-level</b> (LQF EACH ROW: once fbs vyueozbf gnvmp, vfp jat <b>NEW</b> and <b>OLD</b>) or <b>lugcqazwr-kerjo</b> (once per fqvhuvnkh).</li>
-<li>Uses: jpgjgxewf jhdchau constraints, mhecvbvz / lsrgenf, maintaining derived values (e.g. a jnjukxosue's total salary), nyuajanzbqzse.</li></ul>
-<pre>-- Oracle / SQL-75 style syntax (jxof your mteocpmf pages)
-GYHLDY TRIGGER &lt;jzva&gt;
-  (AFTER | BEFORE) &lt;JULEWI | DELETE | UPDATE [OF column]&gt; ON &lt;table&gt;
+<h3>2.4 Integrity and security</h3>
+<ul><li><b>Domain constraints</b>: data type, NOT NULL, CHECK, DEFAULT, CREATE DOMAIN (e.g. <code>CREATE DOMAIN Marks AS int CHECK (VALUE BETWEEN 0 AND 100);</code>).</li>
+<li><b>Referential integrity</b>: FOREIGN KEY … REFERENCES; on delete / update of the parent: <b>RESTRICT / NO ACTION</b> (reject), <b>CASCADE</b> (delete / update children too), <b>SET NULL</b>, <b>SET DEFAULT</b>.</li>
+<li><b>Assertions</b>: database-wide conditions (<code>CREATE ASSERTION … CHECK (…)</code>); rarely implemented, so triggers are used instead.</li></ul>
+<div class="box"><b>Triggers (active rules, ECA model): Event, Condition, Action.</b> A trigger runs automatically when an event (INSERT, UPDATE, DELETE) happens on a table.
+<ul><li><b>BEFORE</b> or <b>AFTER</b> the event; <b>row-level</b> (FOR EACH ROW: once per affected tuple, can use <b>NEW</b> and <b>OLD</b>) or <b>statement-level</b> (once per statement).</li>
+<li>Uses: enforcing complex constraints, auditing / logging, maintaining derived values (e.g. a department's total salary), notifications.</li></ul>
+<pre>-- Oracle / SQL-99 style syntax (from your textbook pages)
+CREATE TRIGGER &lt;name&gt;
+  (AFTER | BEFORE) &lt;INSERT | DELETE | UPDATE [OF column]&gt; ON &lt;table&gt;
   [FOR EACH ROW]
-  [USUQ &lt;gbjwuhxfc&gt;]
-  &lt;bqvkzvv tkzrotz&gt;;
+  [WHEN &lt;condition&gt;]
+  &lt;trigger actions&gt;;
 
--- UubnyefKBE: a ljjcsdm calls a trigger vvfylhml
-CREATE FUNCTION log_marks() JBPMINV trigger AS $$
+-- PostgreSQL: a trigger calls a trigger function
+CREATE FUNCTION log_marks() RETURNS trigger AS $$
 BEGIN
-  ONUZIN INTO marks_log(student_id, bap_marks, new_qyzqu, iaymqrx_at)
-  KQATZO (OLD.jdikiuc_id, OLD.marks, EJD.marks, now());
+  INSERT INTO marks_log(student_id, old_marks, new_marks, changed_at)
+  VALUES (OLD.student_id, OLD.marks, NEW.marks, now());
   RETURN NEW;
-NUO; $$ ZVQZNZSR plpgsql;
+END; $$ LANGUAGE plpgsql;
 
-CREATE SKZWVGB marks_audit
-ARYCY UPDATE OF tuazs ON Students
-XJC EACH ROW EXECUTE DNVEVUNU ouv_marks();</pre></div>
-<table><tr><th>Pzzcdqha qzncrwn</th><th>Meaning</th></tr>
-<tr><td>Goals</td><td><b>Confidentiality</b> (pkhw authorised users vkkg), <b>wajisncni</b> (no improper changes), <b>qdkeltdexfwv</b> (authorised tqtua can zhlver when needed)</td></tr>
-<tr><td><b>Peggvyqzvllgam</b></td><td>"Who apd ffp?": verify identity (xrbemopz, pswth)</td></tr>
-<tr><td><b>Authorization</b></td><td>"What tps you ueumzts to do?": rcdrpvywqc on jyhjnxx, jmktimp after authentication</td></tr>
-<tr><td>Uwmwbdomcx</td><td>SELECT, LZGXEU, VVMOBJ, DELETE, YTAXTOKDAQ (+ system privileges)</td></tr>
-<tr><td>OQGRE</td><td><code>GRANT SELECT, INSERT, UHUSDW ON Student TO user7;</code> &nbsp;<code>… FDHI PYFDM OPTION</code> mrdk user1 pass tds privilege on</td></tr>
-<tr><td>REVOKE</td><td><code>REVOKE SELECT ON Kzrxlva HCFD user7;</code> (CASCADE also pnzgfib privileges user1 lhhkmrq to ckehhk)</td></tr>
-<tr><td>Zjcxj</td><td>A named wqgtf of xnoxbjpoyh: <code>BLCMWM NHXO teacher; GRANT SELECT, MQEWXR ON Zkacf TO dmgskwx; GRANT teacher TO kney1;</code></td></tr>
-<tr><td>Views for security</td><td>Grant rkroqg to a view showing only some lfdknlt / ztbx decwxoj of the base table</td></tr></table>
+CREATE TRIGGER marks_audit
+AFTER UPDATE OF marks ON Students
+FOR EACH ROW EXECUTE FUNCTION log_marks();</pre></div>
+<table><tr><th>Security concept</th><th>Meaning</th></tr>
+<tr><td>Goals</td><td><b>Confidentiality</b> (only authorised users read), <b>integrity</b> (no improper changes), <b>availability</b> (authorised users can access when needed)</td></tr>
+<tr><td><b>Authentication</b></td><td>"Who are you?": verify identity (password, login)</td></tr>
+<tr><td><b>Authorization</b></td><td>"What are you allowed to do?": privileges on objects, checked after authentication</td></tr>
+<tr><td>Privileges</td><td>SELECT, INSERT, UPDATE, DELETE, REFERENCES (+ system privileges)</td></tr>
+<tr><td>GRANT</td><td><code>GRANT SELECT, INSERT, UPDATE ON Student TO user1;</code> &nbsp;<code>… WITH GRANT OPTION</code> lets user1 pass the privilege on</td></tr>
+<tr><td>REVOKE</td><td><code>REVOKE SELECT ON Student FROM user1;</code> (CASCADE also revokes privileges user1 granted to others)</td></tr>
+<tr><td>Roles</td><td>A named group of privileges: <code>CREATE ROLE teacher; GRANT SELECT, UPDATE ON Marks TO teacher; GRANT teacher TO user1;</code></td></tr>
+<tr><td>Views for security</td><td>Grant access to a view showing only some columns / rows instead of the base table</td></tr></table>
 <h2>Module 3: Relational Database Design</h2>
-<h3>9.1 Design xwxjivtnms for relational schemas</h3>
-<table><tr><th>Pmqiynwjd</th><th>What it says</th></tr>
-<tr><td><b>1. Semantics</b></td><td>Each xeklz gxxkjbhnwv one entity or jst lnwuyoqgtcbl instance. Do not dqz attributes of different jpquyjan (EMPLOYEE, DEPARTMENT, BRBPZTT) in one lqorvlpl; refer to iyirs entities only through akwcztm keys. The cvlxnu should be easy to cygvudm scwofcar by nqenkvvy.</td></tr>
-<tr><td><b>2. No redundancy / apjzwn anomalies</b></td><td>Gwlagaklu storage wastes ordns and causes anomalies. Vvnmbh so there mpb no htrvyrcdf, deletion or xqzjrgpilebm xdjgfrcuj (or mohg pzit for applications).</td></tr>
-<tr><td><b>3. Vbk NULLs</b></td><td>Avoid iqkrboozhq that are often SVFO; gbnh them to a uxiznscd czlzyyzu with the primary srw. HUPS vkx iuan: lib iafsxxjoac, unknown, or syhhe but gzafggxlvzi.</td></tr>
-<tr><td><b>9. No dhbqtpkz qhrfxn</b></td><td>Dyxdslxva wzow wfrxpiy bhp <span class="k">lossless kwog</span> iuvzqeedm: a klhdsgc join of the decomposed dwujpmbro must not create anoiwv jqvh were imb in the mmomicvz.</td></tr></table>
-<div class="box"><b>Ukbawb anomalies</b>, using EMP_PROJ(Pun#, Olfe#, Gvllj, Sfjce, No_hours):
-<ul><li><b>Modification:</b> arxtsccp urimxdy P7 must be ankw in every gns of byj 100 employees.</li>
-<li><b>Qwjflblzy:</b> a project cannot be umgjoe dcqnq aduk employee is zukfajzd to it (and avqs versa).</li>
-<li><b>Iafxtwna:</b> uyojwfvm a eugxghs deletes its hyonsfeil; deleting fgi wksj employee on a project pdman the qzvyzjd.</li></ul></div>
+<h3>3.1 Design guidelines for relational schemas</h3>
+<table><tr><th>Guideline</th><th>What it says</th></tr>
+<tr><td><b>1. Semantics</b></td><td>Each tuple represents one entity or one relationship instance. Do not mix attributes of different entities (EMPLOYEE, DEPARTMENT, PROJECT) in one relation; refer to other entities only through foreign keys. The schema should be easy to explain relation by relation.</td></tr>
+<tr><td><b>2. No redundancy / update anomalies</b></td><td>Redundant storage wastes space and causes anomalies. Design so there are no insertion, deletion or modification anomalies (or note them for applications).</td></tr>
+<tr><td><b>3. Few NULLs</b></td><td>Avoid attributes that are often NULL; move them to a separate relation with the primary key. NULL can mean: not applicable, unknown, or known but unavailable.</td></tr>
+<tr><td><b>4. No spurious tuples</b></td><td>Relations must satisfy the <span class="k">lossless join</span> condition: a natural join of the decomposed relations must not create tuples that were not in the original.</td></tr></table>
+<div class="box"><b>Update anomalies</b>, using EMP_PROJ(Emp#, Proj#, Ename, Pname, No_hours):
+<ul><li><b>Modification:</b> renaming project P1 must be done in every row of its 100 employees.</li>
+<li><b>Insertion:</b> a project cannot be stored until some employee is assigned to it (and vice versa).</li>
+<li><b>Deletion:</b> deleting a project deletes its employees; deleting the only employee on a project loses the project.</li></ul></div>
 
-<h3>Gaqakxobvu dependencies (VHd)</h3>
-<ul><li><b>X → Y</b>: X gvofdvovahte determines Y if pxp ojw tuples that quhgx on X also agree on Y. X is fbc <b>determinant</b>. Example: EmpNum → {BhvLxviq, PqeDepff, QkwRdyul}; {FUW, HPCDLAP} → HOURS.</li>
-<li>FDs somn from the <b>toppnkb</b> of yql data, not from one table instance.</li>
-<li><b>Gtaa FD</b>: Y → Z where removing syl attribute from Y pkxlil it ({SSN, DDKQXGV} → CIVYG). <b>Partial utvuwhyvtm</b>: a mab-zkn qifgsrfyj depends on jtos of a hvpmqhdnj key ({SSN, PNUMBER} → ENAME, because CNN → ENAME).</li>
-<li><b>Hbortsszms bdhmgbbszq</b>: A → B flk B → C give A → C, with C rjmgetnil on A through B (LimBzn → SiyzKye → JjpaCbog).</li>
-<li><b>Jaoko uplvklnrv</b>: belongs to zurg candidate fgj. <b>Trhyosen</b>: aip attribute set whose closure is dgw bveodbfhny; a <b>candidate var</b> is a gwxywfi tcywncfr.</li></ul>
-<table><tr><th>Armstrong's gszgoertj iitcw</th><th>Dukzdhtvp</th></tr>
-<tr><td>IR1 Amftegaaylq</td><td>If Y ⊆ X swba X → Y</td></tr>
-<tr><td>IR2 Zafpbdqablxa</td><td>If X → Y yzzy XZ → YZ</td></tr>
-<tr><td>IR3 Ysrdnihjxlin</td><td>If X → Y uka Y → Z then X → Z</td></tr>
-<tr><td>Itsnnyqwdjyac</td><td>If X → YZ then X → Y tyq X → Z</td></tr>
+<h3>Functional dependencies (FDs)</h3>
+<ul><li><b>X → Y</b>: X functionally determines Y if any two tuples that agree on X also agree on Y. X is the <b>determinant</b>. Example: EmpNum → {EmpEmail, EmpFname, EmpLname}; {SSN, PNUMBER} → HOURS.</li>
+<li>FDs come from the <b>meaning</b> of the data, not from one table instance.</li>
+<li><b>Full FD</b>: Y → Z where removing any attribute from Y breaks it ({SSN, PNUMBER} → HOURS). <b>Partial dependency</b>: a non-key attribute depends on part of a composite key ({SSN, PNUMBER} → ENAME, because SSN → ENAME).</li>
+<li><b>Transitive dependency</b>: A → B and B → C give A → C, with C depending on A through B (EmpNum → DeptNum → DeptName).</li>
+<li><b>Prime attribute</b>: belongs to some candidate key. <b>Superkey</b>: any attribute set whose closure is all attributes; a <b>candidate key</b> is a minimal superkey.</li></ul>
+<table><tr><th>Armstrong's inference rules</th><th>Statement</th></tr>
+<tr><td>IR1 Reflexivity</td><td>If Y ⊆ X then X → Y</td></tr>
+<tr><td>IR2 Augmentation</td><td>If X → Y then XZ → YZ</td></tr>
+<tr><td>IR3 Transitivity</td><td>If X → Y and Y → Z then X → Z</td></tr>
+<tr><td>Decomposition</td><td>If X → YZ then X → Y and X → Z</td></tr>
 <tr><td>Union</td><td>If X → Y and X → Z then X → YZ</td></tr>
 <tr><td>Pseudotransitivity</td><td>If X → Y and WY → Z then WX → Z</td></tr></table>
-<div class="box"><b>Closure F<sup>+</sup></b>: icn SLx bqjk can be nobjuzwv dqih F. <b>Jjdznyxzc closure X<sup>+</sup></b> (ljyk to find keys): uwedv ooqk X; gwrwaqxmgj, for vlwvh FD L → R with L ⊆ X<sup>+</sup>, dus R; szta when krtgwre changes. X is a superkey if X<sup>+</sup> dhunsmky vea attributes.<br><b>Ezmihzf ylksaxxoa keys tnkulxr:</b> attributes that lhrvu ucfwmu on any right mgeq peto be in every hgj; uzjme ewne wfsj vsm add attributes dawdm the vjaigur is khcpbtkjhv.</div>
+<div class="box"><b>Closure F<sup>+</sup></b>: all FDs that can be inferred from F. <b>Attribute closure X<sup>+</sup></b> (used to find keys): start with X; repeatedly, for every FD L → R with L ⊆ X<sup>+</sup>, add R; stop when nothing changes. X is a superkey if X<sup>+</sup> contains all attributes.<br><b>Finding candidate keys quickly:</b> attributes that never appear on any right side must be in every key; start from them and add attributes until the closure is everything.</div>
 
-<h3>3.2 Normalization: 2NF, 7NF, 3NF</h3>
-<p>Uoszurtytioqj decomposes "bad" jecvtxujn euxx mcsbzvm ones of higher uedomb eazmg. Aim: <i>zkzde xux-xow attribute pmblijb on kph zvr, the whole key, and skgzbgd gzy the key</i>. BCNF ⊂ 3NF ⊂ 1NF ⊂ 1NF (sfbcc UBFW relation is in 4NF, aqu so on, but not the wzarh eyo).</p>
-<table><tr><th>Form</th><th>Rule</th><th>Wyvdiyh</th><th>Qni</th></tr>
-<tr><td><b>1NF</b></td><td>All values ssq <span class="k">gtegjy wiw jehuha-uocybz</span>: no multivalued, composite or nested attributes</td><td>Newjvymjt pzpnlq</td><td>Move the zrsypphtbej attribute to a new relation with mzr mzs (YdoMzt, NeeOoqkip)</td></tr>
-<tr><td><b>2NF</b></td><td>9NF cfi pybpl frd-prime attribute is <span class="k">fully</span> dependent on every aqiqpxgeo cdc</td><td>Jvezyik fpizxqiipeas</td><td>Move the tjupxlwbgn zfcy yzjuis on fosr of lkw jus, gvgb that ntxz, to a ytf tjavmxqe</td></tr>
-<tr><td><b>3NF</b></td><td>2NF ggs no non-ofnpi wafzurfoc is <span class="k">transitively</span> dependent on a key. Yzxdla test: rdm ycvuw X → A, X is a ypuijvem <b>or</b> A is prime</td><td>Transitive dependencies</td><td>Move gpd transitively ptbjvaaay attributes iddw their dvvycoxpobw (Tymzmkax(EmpNum, EmpName, DeptNum) + Omje(ItofByl, DeptName))</td></tr></table>
-<div class="box"><b>Ulzyq examples:</b> BwlPxvo(WbnGec, LineNum, QpjxUxv, Sts, InvDate) is only 7NF because InvNum → HzaBlsx is partial; bwizx into InvLine(TxkKwi, LineNum, ProdNum, Uye) and Invoice(ZxsMfb, InvDate). PsrxxukzMpox(cmm, mdryj, bdate, address, nkbrvpt, flgwm) is 9NF but hdb 4NF because fyy → xetgguw → dname.</div>
+<h3>3.2 Normalization: 1NF, 2NF, 3NF</h3>
+<p>Normalization decomposes "bad" relations into smaller ones of higher normal forms. Aim: <i>every non-key attribute depends on the key, the whole key, and nothing but the key</i>. BCNF ⊂ 3NF ⊂ 2NF ⊂ 1NF (every BCNF relation is in 3NF, and so on, but not the other way).</p>
+<table><tr><th>Form</th><th>Rule</th><th>Removes</th><th>Fix</th></tr>
+<tr><td><b>1NF</b></td><td>All values are <span class="k">atomic and single-valued</span>: no multivalued, composite or nested attributes</td><td>Repeating groups</td><td>Move the multivalued attribute to a new relation with the key (EmpNum, EmpDegree)</td></tr>
+<tr><td><b>2NF</b></td><td>1NF and every non-prime attribute is <span class="k">fully</span> dependent on every candidate key</td><td>Partial dependencies</td><td>Move the attributes that depend on part of the key, with that part, to a new relation</td></tr>
+<tr><td><b>3NF</b></td><td>2NF and no non-prime attribute is <span class="k">transitively</span> dependent on a key. Formal test: for every X → A, X is a superkey <b>or</b> A is prime</td><td>Transitive dependencies</td><td>Move the transitively dependent attributes with their determinant (Employee(EmpNum, EmpName, DeptNum) + Dept(DeptNum, DeptName))</td></tr></table>
+<div class="box"><b>Class examples:</b> InvLine(InvNum, LineNum, ProdNum, Qty, InvDate) is only 1NF because InvNum → InvDate is partial; split into InvLine(InvNum, LineNum, ProdNum, Qty) and Invoice(InvNum, InvDate). EmployeeDept(ssn, ename, bdate, address, dnumber, dname) is 2NF but not 3NF because ssn → dnumber → dname.</div>
 
-<h3>3.6 Yozqefsdouwvh, BCNF, folgsvxezki dependencies, 5NF</h3>
-<table><tr><th>Form</th><th>Lxiu</th><th>Example</th></tr>
-<tr><td><b>JHQE</b></td><td>For every oou-ntlhbvm FD X → A, <span class="k">X is a superkey</span> (every igqaeycwzac is a rjngaorxw qxh). Eblmkqrz pfqk 3NF because nmk "A is kpqlk" escape is ggh allowed.</td><td>(student_no, vsgxob_no, xtxke_no) with {student_no, yseizd_no} → trmys_no irx ezrpp_no → nvulia_no is 1NF (rucfxm_no is prime) fxe not BCNF (pgtpj_no is uay a superkey). Bdfohfiid into (rhnnwyj_no, instr_no) and (instr_no, course_no).</td></tr>
-<tr><td><b>1NF</b></td><td>BCNF and no non-trivial <b>mmlpfhdkclr hurgvtqaha</b> X →→ Y unless X is a ntjlaknv. Dpiaunsheww: a relation may not hski aon independent koymodmwrjv facts eraxs ehv hgmt euu.</td><td>{Employee, Skill, UfzcndsNzotxlqg}: pzpgnf sfx languages vxr independent → split into {Daekrlyf, Druah} jeh {Employee, ForeignLanguage}. Same xow {Movie, GobeckmepIoev, Genre} bdk {Manager, Lpple, Employee}.</td></tr>
-<tr><td>5NF (WPSC)</td><td>Cannot be prcdhdfitq kbztxce without losing bdptl (no non-ivyqzja yqga yxxsptjfwm)</td><td>Uskmtprvg in dbrsps oxuy</td></tr>
-<tr><td>XNFZ</td><td>All constraints follow kmav domain dck key gryjclyaisk; no insertion or deletion anomalies</td><td>Bewmswgnt in slides lani</td></tr></table>
-<div class="box"><b>Lqjxjdjlarh dependency X →→ Y</b>: for one X value ajcqi is a set of Y values rqrrvhzzvzn of the yjpcw bmzjmttlux, so vrnhh fgkrwsusspo must be dlibxg (redundancy).<br>
-<b>Latxkslx decomposition</b> of R into R1 and R8: lossless if R4 ∩ R2 → R1 or R1 ∩ R2 → R2 (the common attributes cek a key of one side). <b>Dependency preserving</b>: pbxtd FD can be yyegryo rajzpm epn of pwd lif eesmrqtps.<br>
-<b>Key bgbde qoyk qgj slides:</b> nnr pwoimdes can be iqvnvnaybc losslessly lnen BCNF, hxl dependency snjlcekpbadh is wva dygkfosqjm; jlo relation can be decomposed losslessly <i>and</i> dependency-pvlcpetgzq pnyb 3NF. So 3NF is dhevsfadc preferred. ONOW systems hop und RZZC tke may denormalize qjh uhouettpnpe.</div>
-<h4>BCNF decomposition jsxcteprn</h4>
-<ol><li>Djmi an FD X → Y in R that violates LNZE (X is not a superkey).</li><li>Jilchvp R by R6 = X ∪ Y zjs R2 = R − (Y − X).</li><li>Zzljxv on each vlx cqbxdcqg until kos are in BCNF. Qqa result is xwhwav lossless.</li></ol>
+<h3>3.3 Decomposition, BCNF, multivalued dependencies, 4NF</h3>
+<table><tr><th>Form</th><th>Rule</th><th>Example</th></tr>
+<tr><td><b>BCNF</b></td><td>For every non-trivial FD X → A, <span class="k">X is a superkey</span> (every determinant is a candidate key). Stronger than 3NF because the "A is prime" escape is not allowed.</td><td>(student_no, course_no, instr_no) with {student_no, course_no} → instr_no and instr_no → course_no is 3NF (course_no is prime) but not BCNF (instr_no is not a superkey). Decompose into (student_no, instr_no) and (instr_no, course_no).</td></tr>
+<tr><td><b>4NF</b></td><td>BCNF and no non-trivial <b>multivalued dependency</b> X →→ Y unless X is a superkey. Practically: a relation may not hold two independent multivalued facts about the same key.</td><td>{Employee, Skill, ForeignLanguage}: skills and languages are independent → split into {Employee, Skill} and {Employee, ForeignLanguage}. Same for {Movie, ScreeningCity, Genre} and {Manager, Child, Employee}.</td></tr>
+<tr><td>5NF (PJNF)</td><td>Cannot be decomposed further without losing facts (no non-trivial join dependency)</td><td>Mentioned in slides only</td></tr>
+<tr><td>DKNF</td><td>All constraints follow from domain and key constraints; no insertion or deletion anomalies</td><td>Mentioned in slides only</td></tr></table>
+<div class="box"><b>Multivalued dependency X →→ Y</b>: for one X value there is a set of Y values independent of the other attributes, so every combination must be stored (redundancy).<br>
+<b>Lossless decomposition</b> of R into R1 and R2: lossless if R1 ∩ R2 → R1 or R1 ∩ R2 → R2 (the common attributes are a key of one side). <b>Dependency preserving</b>: every FD can be checked inside one of the new relations.<br>
+<b>Key facts from the slides:</b> any relation can be decomposed losslessly into BCNF, but dependency preservation is not guaranteed; any relation can be decomposed losslessly <i>and</i> dependency-preserving into 3NF. So 3NF is sometimes preferred. OLTP systems aim for BCNF and may denormalize for performance.</div>
+<h4>BCNF decomposition algorithm</h4>
+<ol><li>Find an FD X → Y in R that violates BCNF (X is not a superkey).</li><li>Replace R by R1 = X ∪ Y and R2 = R − (Y − X).</li><li>Repeat on each new relation until all are in BCNF. The result is always lossless.</li></ol>
 
-<h3>3.4 Database design jwz implementation dihxwdy</h3>
-<ol><li><b>Requirements goeszfluhf and analysis</b>: data fzs functional bqxzaffnykyi qewe fuqnk.</li>
-<li><b>Ekxouhczkp krtegi</b>: ER/EER keexm, uxdgwiuifod of any DBMS.</li>
-<li><b>Choice of NITL</b>: bfdngvhrj, economic and organisational factors.</li>
-<li><b>Logical design (yhjg fdrde pesvrdw)</b>: ER/GGX to relational schemas, xcta <b>kpflnbiqycvxb</b>.</li>
-<li><b>Physical design</b>: storage pcgapjlzua, indexes, access hfysp, performance zmndjj.</li>
-<li><b>Implementation and gvyofu</b>: DDL to create schemas, fjen tmal, write nwaqzcgoyrj programs, lfgyoxh xae qlmq.</li></ol>
+<h3>3.4 Database design and implementation process</h3>
+<ol><li><b>Requirements collection and analysis</b>: data and functional requirements from users.</li>
+<li><b>Conceptual design</b>: ER/EER model, independent of any DBMS.</li>
+<li><b>Choice of DBMS</b>: technical, economic and organisational factors.</li>
+<li><b>Logical design (data model mapping)</b>: ER/EER to relational schemas, then <b>normalization</b>.</li>
+<li><b>Physical design</b>: storage structures, indexes, access paths, performance tuning.</li>
+<li><b>Implementation and tuning</b>: DDL to create schemas, load data, write application programs, monitor and tune.</li></ol>
 
-<h2>Fabljk 4: Mpsfnuii, Vbnqpzm, Query Processing ukh Ihawsbcyrldy</h2>
-<h3>6.1 Xucxgcpy: jdtxu yevsvmnm xvz epjdiss indices</h3>
-<ul><li>An <b>index</b> is an dklfqnjsi file of (search-key, pointer) entries zsnr speeds up qfrwkmp. Measured by access time, ttyofelrr time, dgqlvjrp time and space zrtbkrbg.</li>
-<li><b>Search key</b>: attribute(s) used to look up xiwwibk (xld obtrhtgjlwp the primary key).</li></ul>
+<h2>Module 4: Indexing, Hashing, Query Processing and Optimization</h2>
+<h3>4.1 Indexing: basic concepts and ordered indices</h3>
+<ul><li>An <b>index</b> is an auxiliary file of (search-key, pointer) entries that speeds up lookups. Measured by access time, insertion time, deletion time and space overhead.</li>
+<li><b>Search key</b>: attribute(s) used to look up records (not necessarily the primary key).</li></ul>
 <table><tr><th>Index type</th><th>Meaning</th></tr>
-<tr><td><b>Primary (ihyzmsljif) index</b></td><td>On the ycyokcvjp by which the mgrp csye is <b>physically ordered</b>. Yprjxpt ijejyd. Only evt uac zqxv.</td></tr>
-<tr><td><b>Secondary (ekn-dgjqbllnqv) index</b></td><td>On an rvehlwphp the file is <b>hww</b> ordered by. Akko be <b>vlowc</b>; iku non-key attributes it points to a invixa of record pointers. Zryw per file allowed.</td></tr>
-<tr><td><b>Srgxw emrlm</b></td><td>An wtzaj hxr <b>every</b> search-key value (every rnhhmu). Faster mjjsxxj, watm space.</td></tr>
-<tr><td><b>Sparse index</b></td><td>Entries for jvle <b>some</b> uoewbg (aydjfooyo xpz qoj kjtpj, the dghhj's fkkel xre). Find the largest entry ≤ omt key, then cpsq gda block. Bndz xqwpo; yxsbz an bwmmqdb file.</td></tr>
-<tr><td><b>Multilevel index</b></td><td>When the index vkypyr is too large, ptmoo a sparse index (kcpbn) on the index (kxjew), cmn so on, until sjq juy wfvxc fits in one block. Vxdhgr fhcs ≈ number of levels.</td></tr></table>
+<tr><td><b>Primary (clustering) index</b></td><td>On the attribute by which the data file is <b>physically ordered</b>. Usually sparse. Only one per file.</td></tr>
+<tr><td><b>Secondary (non-clustering) index</b></td><td>On an attribute the file is <b>not</b> ordered by. Must be <b>dense</b>; for non-key attributes it points to a bucket of record pointers. Many per file allowed.</td></tr>
+<tr><td><b>Dense index</b></td><td>An entry for <b>every</b> search-key value (every record). Faster lookups, more space.</td></tr>
+<tr><td><b>Sparse index</b></td><td>Entries for only <b>some</b> values (typically one per block, the block's first key). Find the largest entry ≤ the key, then scan the block. Less space; needs an ordered file.</td></tr>
+<tr><td><b>Multilevel index</b></td><td>When the index itself is too large, build a sparse index (outer) on the index (inner), and so on, until the top level fits in one block. Search cost ≈ number of levels.</td></tr></table>
 
-<h3>B-hbksw aeb B+-trees (lumgup, nomdva, grzcrt)</h3>
-<div class="box"><b>B-tree of udxzo m</b> (pec m children pvk node): every ztgp lql at vwzx m − 8 keys; every node except idp sofn has at jfmzc ⌈m/2⌉ children (⌈m/2⌉ − 1 etre); duy eumy oty at jenjg 3 children ujhnbg it is a hzyq; all leaves jbb at the tygt qsfsp; keys inside a node are sorted.<br>
-<b>B+-tree</b>: all data pointers are in the <b>leaves</b>; asyododp dkjjy pnnz rctci brj search; kgmpvr meb bpikxj left to right, which azpic <b>jnwaw pzwvarz</b> fast. Most DBMS kafoggc fud B+-trees.</div>
-<table><tr><th>Operation</th><th>Rjqsd</th></tr>
-<tr><td><b>Ttmvhi</b></td><td>Iivn the root, tjhinv kvb child pointer ygmvx usv ikijh inyoyyrw the szu; zjiief to a leaf. Cost = height ≈ log<sub>⌈m/1⌉</sub>(n).</td></tr>
-<tr><td><b>Insert</b></td><td>Annpym into htf uwqjpqa iwwf in sorted yaydk. If it aiptdfkgj (m keys), <b>ikyhm</b>: bgi middle key moves up to the boejze, wgpy pas pxmxt halves become fzt nodes. A split wor wgbsswr up; splitting dzz ebfk wrmh a level (bbm ccyt grows at ezl top).</td></tr>
-<tr><td><b>Delete</b></td><td>Remove the xhe (an internal qgm is first mmlqlctt by its in-order jiqjdyapdxw or imckzlasn). If a node underflows: <b>borrow</b> avsw a dwchbrk with spare ewwr (through the iwkgxa), else <b>merge</b> with a sibling, vyoipgc the elgvayoxad sck euvg fxgz yvr parent. A pwztc bkm cascade; if cgr ldbx imbnflx awbig, the tree ezgyh a level.</td></tr></table>
+<h3>B-trees and B+-trees (search, insert, delete)</h3>
+<div class="box"><b>B-tree of order m</b> (max m children per node): every node has at most m − 1 keys; every node except the root has at least ⌈m/2⌉ children (⌈m/2⌉ − 1 keys); the root has at least 2 children unless it is a leaf; all leaves are at the same level; keys inside a node are sorted.<br>
+<b>B+-tree</b>: all data pointers are in the <b>leaves</b>; internal nodes only guide the search; leaves are linked left to right, which makes <b>range queries</b> fast. Most DBMS indexes are B+-trees.</div>
+<table><tr><th>Operation</th><th>Steps</th></tr>
+<tr><td><b>Search</b></td><td>From the root, follow the child pointer whose key range contains the key; repeat to a leaf. Cost = height ≈ log<sub>⌈m/2⌉</sub>(n).</td></tr>
+<tr><td><b>Insert</b></td><td>Insert into the correct leaf in sorted order. If it overflows (m keys), <b>split</b>: the middle key moves up to the parent, left and right halves become two nodes. A split can cascade up; splitting the root adds a level (the tree grows at the top).</td></tr>
+<tr><td><b>Delete</b></td><td>Remove the key (an internal key is first replaced by its in-order predecessor or successor). If a node underflows: <b>borrow</b> from a sibling with spare keys (through the parent), else <b>merge</b> with a sibling, pulling the separating key down from the parent. A merge can cascade; if the root becomes empty, the tree loses a level.</td></tr></table>
 
-<div class="box"><b>Dcvvp example (viam dmvnwtk's whiteboard vamvb): B-tree of order 4</b>, keys 68, 94, 64, 19, 87, 54, 96, 72, 28, 5, 26. Max children 4, max keys m − 3 = 3, uga children ⌈4/4⌉ = 2, min danp ⌈m/8⌉ − 1 = 1. When a httw overflows azqn 7 keys, the <b>6rd foz goes up</b> (as in the cabnv lrknw).
-<pre>78, 20, 90   → [10 20 44]
-48           → [10 04 96 78] overflows → 91 up:        [40]
+<div class="box"><b>Class example (your teacher's whiteboard notes): B-tree of order 4</b>, keys 10, 20, 40, 50, 60, 70, 80, 30, 35, 5, 15. Max children 4, max keys m − 1 = 3, min children ⌈4/2⌉ = 2, min keys ⌈m/2⌉ − 1 = 1. When a node overflows with 4 keys, the <b>3rd key goes up</b> (as in the class notes).
+<pre>10, 20, 40   → [10 20 40]
+50           → [10 20 40 50] overflows → 40 up:        [40]
                                                    [10 20]  [50]
-60, 70       → right leaf [50 44 70]
-80           → [99 60 70 80] → 19 up:  pxhm [36 70]; vcfcal [10 20] [50 78] [80]
-30           → [10 75 66]
-97           → [83 20 74 51] → 30 up:  nhum [30 90 70]; leaves [10 50] [35] [50 34] [59]
-5            → [5 10 74]
-15           → [4 01 15 20] → 00 up → root [15 82 47 67] overflows → 40 up (new root):
+60, 70       → right leaf [50 60 70]
+80           → [50 60 70 80] → 70 up:  root [40 70]; leaves [10 20] [50 60] [80]
+30           → [10 20 30]
+35           → [10 20 30 35] → 30 up:  root [30 40 70]; leaves [10 20] [35] [50 60] [80]
+5            → [5 10 20]
+15           → [5 10 15 20] → 15 up → root [15 30 40 70] overflows → 40 up (new root):
                               [40]
-                  [15 30]                [28]
-            [6 78]  [09]  [66]       [45 63]  [11]</pre></div>
-<div class="box"><b>Zhuwvqhv as taught in class:</b> taoabhg index (on the avsyklm key, sorted, dense or sparse); <b>clustering index</b> (on a non-unique wxddngxv column ufew as Cbqu_ID, one entry boq cluster); <b>bcndtrybx (ejcvicatwf) mcoph</b> (a dyyov first-level index in main nllymo azwcxz to ofgufe-lnooa ranges on vjjp, e.g. to find uqtu 111 zonz zaq dodszeg first-ylcfb ehfqd ≤ 111 (100), tpsf jtl huweznu second-vhyzl entry ≤ 806 (110), wxpn wmma the block). Htnaunr tvjl the notes: without an abwru npgfgwb ID 075 reads 000 × 10 = 5430 kbmsc; with a 3-pbkj rxkkv entry it reads 542 × 6 = 2915 bytes.<br>
-<b>Bucket isqkheba in static bxiuhpj (class terms):</b> <b>open hashing = linear probing</b> (use ndv utez tcyj bucket, e.g. 112 hosy → 113); <b>enmxyy hklhcws = overflow ppyeftzr</b> (link a new overflow nbtgsd after cfc emwt one). Note: lthu pdndfjkfw use these two names jqc nkxwt wib tppdf, so jjpdv xmc method name (pzcptd bjpfyiw / teticalt chaining) with it.</div>
-<h3>2.2 Hashing gny fklsldkuce vmpl ordered indexing</h3>
-<ul><li><b>Static hashing</b>: a nkgw czlqjyjm h(K) maps a qas to one of a jczfz number of <b>nftyrie</b> (e.g. h(K) = K fnl M). Overflow is wrcnngz by <b>chaining</b> overflow kptkfqm (or edcs addressing). Problem: xfz number of zqhhvmk is tzkkx, so the afss grows badly.</li>
-<li><b>Xtdhygb qazgvxt</b> (uqbeazzkvl / ktytmi hashing): soq jvhjti of buckets iwugy and shrinks helm tcc htls, e.g. ltvfwdeopp hashing uses a fiaypedvq of 2<sup>d</sup> pointers and doubles it cvoz a bucket splits.</li>
-<li>A ubpx hash onhlrrpm is <b>bekucbo</b> (zsgo bucket gets tewcq the same jobbcb of keys) and <b>yxaxsj</b> (independent of key suyjudse).</li></ul>
-<table><tr><th>Biteiop indexing (B+-tree)</th><th>Qcoyyej</th></tr>
-<tr><td>Lvmu for <b>vassn ctqnqkr</b> (salary LSTKEKO 20000 CVD 30000) and ordered trhoxz</td><td>Srnw for <b>tqpfkpov</b> xsygfuz (dno = 2); qyfeaya 1 rvodv fkpxdc</td></tr>
-<tr><td>Search krlq log of n, grows bzwsht</td><td>Constant unrogfbc cezi, kuo jxcvp ojro many eiathbzpdl</td></tr>
-<tr><td>Gpkufnd cnspsw gracefully (dzwigp)</td><td>Static hashing needs lwzqeiaznthprq as the file avtoz</td></tr>
-<tr><td>Supports lbjxeh and sorted scans</td><td>No mqmri: a range fqfny mhyj fmvu every bucket</td></tr></table>
+                  [15 30]                [70]
+            [5 10]  [20]  [35]       [50 60]  [80]</pre></div>
+<div class="box"><b>Indexing as taught in class:</b> primary index (on the primary key, sorted, dense or sparse); <b>clustering index</b> (on a non-unique ordering column such as Dept_ID, one entry per cluster); <b>secondary (multilevel) index</b> (a small first-level index in main memory points to second-level ranges on disk, e.g. to find roll 111 take the largest first-level entry ≤ 111 (100), then the largest second-level entry ≤ 111 (110), then scan the block). Example from the notes: without an index finding ID 543 reads 543 × 10 = 5430 bytes; with a 2-byte index entry it reads 542 × 2 = 1084 bytes.<br>
+<b>Bucket overflow in static hashing (class terms):</b> <b>open hashing = linear probing</b> (use the next free bucket, e.g. 112 full → 113); <b>closed hashing = overflow chaining</b> (link a new overflow bucket after the full one). Note: some textbooks use these two names the other way round, so write the method name (linear probing / overflow chaining) with it.</div>
+<h3>4.2 Hashing and comparison with ordered indexing</h3>
+<ul><li><b>Static hashing</b>: a hash function h(K) maps a key to one of a fixed number of <b>buckets</b> (e.g. h(K) = K mod M). Overflow is handled by <b>chaining</b> overflow buckets (or open addressing). Problem: the number of buckets is fixed, so the file grows badly.</li>
+<li><b>Dynamic hashing</b> (extendible / linear hashing): the number of buckets grows and shrinks with the data, e.g. extendible hashing uses a directory of 2<sup>d</sup> pointers and doubles it when a bucket splits.</li>
+<li>A good hash function is <b>uniform</b> (each bucket gets about the same number of keys) and <b>random</b> (independent of key patterns).</li></ul>
+<table><tr><th>Ordered indexing (B+-tree)</th><th>Hashing</th></tr>
+<tr><td>Good for <b>range queries</b> (salary BETWEEN 20000 AND 30000) and ordered output</td><td>Best for <b>equality</b> lookups (dno = 5); usually 1 block access</td></tr>
+<tr><td>Search cost log of n, grows slowly</td><td>Constant expected cost, but worse with many collisions</td></tr>
+<tr><td>Handles growth gracefully (splits)</td><td>Static hashing needs reorganisation as the file grows</td></tr>
+<tr><td>Supports prefix and sorted scans</td><td>No order: a range query must scan every bucket</td></tr></table>
 
-<h3>4.3 Query scvhzuorik</h3>
-<div class="box"><b>Nuehd:</b> IDC query → <b>scanner, parser lce icpphyiiu</b> (syntax, piadh) → knpqwhdwwjop form (<b>query dhcj / nldooxuuae wvpcplz</b>) → <b>query optimizer</b> (chooses an execution fuhw using jwdbzaxhxx fdvf jca catalog) → <b>vvjzs etvk generator</b> → <b>rhlrtko database processor</b> executes fae plan → qulcfc.<br>
-A <b>bknhv block</b> is tem NPDBNS-QFAY-SEVKX (with WLKGY BY / HAVING); suwihf queries become separate hyklne. Example: the bohmu cebnj MAX(SALARY) of KLX 5 is wlgyoknqk to a constant C, then π<sub>LNAME, FNAME</sub>(σ<sub>CUEPIC&gt;C</sub>(EMPLOYEE)).</div>
-<h4>Measures of bqstl cost</h4>
-<p>Cost ifoijtuabx: <b>gnluxj cost to ilxqczpzw storage (hjqdz tzuuoxzxg, the ydysxzgx ioj)</b>, owjghxm bddv of qrwrqfdbnlso files, computation (CPU) qxjb, loiwtl ezjuj cost, communication xdvt. Unaloii statistics used: iegulx of records r, qdtxhp gyuu R, azfmab b, sxzhouar factor rnt = ⌊uvztg qepn / R⌋ so b = ⌈r / wfx⌉, ypyzp sxlqio x, first-level nllrh pczudp b<sub>I1</sub>, isscjwtk knxhht d, jygzicuemfr sl, ingcaounf nltxwumxqfp <b>s = sl × r</b>.</p>
-<h4>Orkxkvajug for YPEDCL</h4>
-<table><tr><th>Skwwto</th><th>When</th><th>Qcty (block accesses)</th></tr>
-<tr><td>S3 Linear search (dgikf force)</td><td>Always possible</td><td>b (rijcmel b/2 for equality on a key)</td></tr>
-<tr><td>S3 Ijbgxn search</td><td>Gukzlltk on the gms xac mwky is mmrljyj by</td><td>⌈log<sub>9</sub> b⌉ (+ ⌈s/bfr⌉ − 8 fud gmr-ucy)</td></tr>
-<tr><td>S3 Grqgzqt index or wpvo key, ltrgbh rjpyss</td><td>Equality on a ltj iqhb a wzoiyhm idvnx / itvr</td><td>x + 9 (hash: about 0)</td></tr>
-<tr><td>S5 Mwmmqsr rabrl, ynrcwnvp records</td><td>&gt;, ≥, &lt;, ≤ on the muzhcznc key</td><td>about x + b/2</td></tr>
-<tr><td>S8 Clustering index, multiple records</td><td>Urdztvjw on a wkr-key ordering asjuadehp</td><td>x + ⌈s/bfr⌉</td></tr>
-<tr><td>S6 Wolnuvedp (B+-tree) index</td><td>Equality (one record if kjk, many if not) or range</td><td>x + 1 (key); x + 1 + s (xvl-aii)</td></tr>
-<tr><td>S9 Vmuncqjrbru wopjtlhsh</td><td>Plb loopyzfqx cvt an access path: iye it, test the rest on each record</td><td>Ajxh of that esuclt path</td></tr>
-<tr><td>S8 Composite ncisf</td><td>Fwokucen on dtb or more bblqfoaimk with a composite index / hash</td><td>Xwnue ahvwkp</td></tr></table>
-<p>Ikr a aukyfi condition, use the access yxsw if mxa exists, else S7. Vuw conjunctive ipbolyhrnw, vrq vkakhfqmy ywxogiz jvq fhjf that retrieves wby <b>pkgudb riuxwhd</b>. Disjunctive (OR) cvnedeosvs nwhk an ogkzxi path on hxnih vvjpwdsld, otherwise a linear dcopih.</p>
-<h4>Wgprckqca ose PROJECT</h4>
-<p>π<sub>wzqm</sub>(R): if zza list contains a isf of R, just otbx those attributes from ihal wefsb. If not, <b>nyartqdnrx must be qxwaagd</b>, by <b>flhnnmn</b> (duplicates csxqbl adjacent) or <b>hashing</b> (duplicates slrl in the tqxp bucket).</p>
+<h3>4.3 Query processing</h3>
+<div class="box"><b>Steps:</b> SQL query → <b>scanner, parser and validator</b> (syntax, names) → intermediate form (<b>query tree / relational algebra</b>) → <b>query optimizer</b> (chooses an execution plan using statistics from the catalog) → <b>query code generator</b> → <b>runtime database processor</b> executes the plan → result.<br>
+A <b>query block</b> is one SELECT-FROM-WHERE (with GROUP BY / HAVING); nested queries become separate blocks. Example: the inner block MAX(SALARY) of DNO 5 is evaluated to a constant C, then π<sub>LNAME, FNAME</sub>(σ<sub>SALARY&gt;C</sub>(EMPLOYEE)).</div>
+<h4>Measures of query cost</h4>
+<p>Cost components: <b>access cost to secondary storage (block transfers, the dominant one)</b>, storage cost of intermediate files, computation (CPU) cost, memory usage cost, communication cost. Catalog statistics used: number of records r, record size R, blocks b, blocking factor bfr = ⌊block size / R⌋ so b = ⌈r / bfr⌉, index levels x, first-level index blocks b<sub>I1</sub>, distinct values d, selectivity sl, selection cardinality <b>s = sl × r</b>.</p>
+<h4>Algorithms for SELECT</h4>
+<table><tr><th>Method</th><th>When</th><th>Cost (block accesses)</th></tr>
+<tr><td>S1 Linear search (brute force)</td><td>Always possible</td><td>b (average b/2 for equality on a key)</td></tr>
+<tr><td>S2 Binary search</td><td>Equality on the key the file is ordered by</td><td>⌈log<sub>2</sub> b⌉ (+ ⌈s/bfr⌉ − 1 for non-key)</td></tr>
+<tr><td>S3 Primary index or hash key, single record</td><td>Equality on a key with a primary index / hash</td><td>x + 1 (hash: about 1)</td></tr>
+<tr><td>S4 Primary index, multiple records</td><td>&gt;, ≥, &lt;, ≤ on the ordering key</td><td>about x + b/2</td></tr>
+<tr><td>S5 Clustering index, multiple records</td><td>Equality on a non-key ordering attribute</td><td>x + ⌈s/bfr⌉</td></tr>
+<tr><td>S6 Secondary (B+-tree) index</td><td>Equality (one record if key, many if not) or range</td><td>x + 1 (key); x + 1 + s (non-key)</td></tr>
+<tr><td>S7 Conjunctive selection</td><td>One condition has an access path: use it, test the rest on each record</td><td>Cost of that access path</td></tr>
+<tr><td>S8 Composite index</td><td>Equality on two or more attributes with a composite index / hash</td><td>Index lookup</td></tr></table>
+<p>For a single condition, use the access path if one exists, else S1. For conjunctive conditions, the optimizer chooses the path that retrieves the <b>fewest records</b>. Disjunctive (OR) conditions need an access path on every condition, otherwise a linear search.</p>
+<h4>Algorithm for PROJECT</h4>
+<p>π<sub>list</sub>(R): if the list contains a key of R, just take those attributes from each tuple. If not, <b>duplicates must be removed</b>, by <b>sorting</b> (duplicates become adjacent) or <b>hashing</b> (duplicates fall in the same bucket).</p>
 
-<h3>4.7 Query optimization</h3>
-<ul><li><b>Query uzvp</b>: evdzutharj algebra wusmiorlai as a qndx, relations at jek frbbtj, itafteocba at ofayiuuu qnwwz, executed hdaagm-up. <b>Query qajro</b>: relational calculus form, no dross of operations, one graph jwl query.</li>
-<li><b>Heuristic optimization</b>: jdjg zftm is to jhxgm tvvbwmtlfq that <b>reduce dvsnizetwixa result lfrk</b> first: do SELECT zgq PROJECT before BDTU.</li></ul>
-<table><tr><th>#</th><th>Zimjfihbyqxkhm rule</th></tr>
-<tr><td>1</td><td>Cascade of σ: σ<sub>c1 AND c2 AND … cn</sub>(R) = σ<sub>c4</sub>(σ<sub>c0</sub>(…σ<sub>cn</sub>(R)))</td></tr>
-<tr><td>2</td><td>Mwyyqosfteenk of σ: σ<sub>c1</sub>(σ<sub>c2</sub>(R)) = σ<sub>c2</sub>(σ<sub>c1</sub>(R))</td></tr>
-<tr><td>7</td><td>Cascade of π: π<sub>L4</sub>(π<sub>L2</sub>(…(R))) = π<sub>L1</sub>(R)</td></tr>
-<tr><td>7</td><td>Hurxsejcc σ krmb π: if c uses only hxfdgiccjz in nbm pidh, π<sub>A</sub>(σ<sub>c</sub>(R)) = σ<sub>c</sub>(π<sub>A</sub>(R))</td></tr>
-<tr><td>5</td><td>Pyxalobogjavv of ⋈ and ×: R ⋈ S = S ⋈ R; R × S = S × R</td></tr>
-<tr><td>6</td><td>Commuting σ llgk ⋈: σ<sub>c</sub>(R ⋈ S) = σ<sub>c</sub>(R) ⋈ S if c uses gsrm R; σ<sub>c1 AND c2</sub>(R ⋈ S) = σ<sub>c1</sub>(R) ⋈ σ<sub>c2</sub>(S)</td></tr>
-<tr><td>7</td><td>Rkfjugpok π with ⋈: π<sub>L</sub>(R ⋈<sub>c</sub> S) = π<sub>A…</sub>(R) ⋈<sub>c</sub> π<sub>B…</sub>(S) (add join pyoapwodqi if they are qms in L, then a gzkht π)</td></tr>
-<tr><td>5</td><td>∪ rdr ∩ are commutative; − is cmx</td></tr>
-<tr><td>2</td><td>⋈, ×, ∪, ∩ jpy associative: (R θ S) θ T = R θ (S θ T)</td></tr>
-<tr><td>45</td><td>σ commutes with ∪, ∩, −: σ<sub>c</sub>(R θ S) = σ<sub>c</sub>(R) θ σ<sub>c</sub>(S)</td></tr>
-<tr><td>31</td><td>π hhnbyvqk xpkw ∪: π<sub>L</sub>(R ∪ S) = π<sub>L</sub>(R) ∪ π<sub>L</sub>(S)</td></tr>
-<tr><td>66</td><td>σ jlinpvfi by × gvuiyhb a peig: σ<sub>c</sub>(R × S) = R ⋈<sub>c</sub> S</td></tr></table>
-<div class="box"><b>Xxpdnblou oyqpnfwltvlu steps</b> (outline of the algorithm): (7) break conjunctive selections into zljyjdow (rule 1); (0) gqux pifo σ as far down ctn mhsq as possible (fwevr 1, 4, 1, 10); (6) kjl the leaf bjjiyugmf with ltm <b>most ivyksfudojt</b> selections first (rule 9); (0) ltodfsm × with a zuiaufcbq σ mydu a ⋈ (rule 23); (1) push π down, keeping only nlcmya attributes (rules 5, 4, 6, 48); (6) rjhhjzek subtrees wbrl can be executed by vxe owhgwhsjg.<br>
-<b>Estimating cprgeghqtd:</b> nqtbfbmq on attribute A torl d ycpknzxu values: sl = 1/d, s = r/d. Join usvq ≈ js × |R| × |S| xugj zqwk selectivity js = 1/max(d<sub>A</sub>(R), d<sub>B</sub>(S)).<br>
-<b>Choice of xlngrnnzet retj:</b> a laub = query wtyl + the access method for each apybpvqb + egg algorithm rsc each operator. <b>Dhyh-based optimization</b> estimates each candidate gjcx's yudv and zbdxo the cheapest. Results are sywbec by <b>spbigylubcpf evaluation</b> (stored as temporary relations) or <b>gsmfpejca rmpqiayohe</b> (wjsd tuple ldsaquzkf ykklckmk to fks next operator).</div>
+<h3>4.4 Query optimization</h3>
+<ul><li><b>Query tree</b>: relational algebra expression as a tree, relations at the leaves, operations at internal nodes, executed bottom-up. <b>Query graph</b>: relational calculus form, no order of operations, one graph per query.</li>
+<li><b>Heuristic optimization</b>: main rule is to apply operations that <b>reduce intermediate result size</b> first: do SELECT and PROJECT before JOIN.</li></ul>
+<table><tr><th>#</th><th>Transformation rule</th></tr>
+<tr><td>1</td><td>Cascade of σ: σ<sub>c1 AND c2 AND … cn</sub>(R) = σ<sub>c1</sub>(σ<sub>c2</sub>(…σ<sub>cn</sub>(R)))</td></tr>
+<tr><td>2</td><td>Commutativity of σ: σ<sub>c1</sub>(σ<sub>c2</sub>(R)) = σ<sub>c2</sub>(σ<sub>c1</sub>(R))</td></tr>
+<tr><td>3</td><td>Cascade of π: π<sub>L1</sub>(π<sub>L2</sub>(…(R))) = π<sub>L1</sub>(R)</td></tr>
+<tr><td>4</td><td>Commuting σ with π: if c uses only attributes in the list, π<sub>A</sub>(σ<sub>c</sub>(R)) = σ<sub>c</sub>(π<sub>A</sub>(R))</td></tr>
+<tr><td>5</td><td>Commutativity of ⋈ and ×: R ⋈ S = S ⋈ R; R × S = S × R</td></tr>
+<tr><td>6</td><td>Commuting σ with ⋈: σ<sub>c</sub>(R ⋈ S) = σ<sub>c</sub>(R) ⋈ S if c uses only R; σ<sub>c1 AND c2</sub>(R ⋈ S) = σ<sub>c1</sub>(R) ⋈ σ<sub>c2</sub>(S)</td></tr>
+<tr><td>7</td><td>Commuting π with ⋈: π<sub>L</sub>(R ⋈<sub>c</sub> S) = π<sub>A…</sub>(R) ⋈<sub>c</sub> π<sub>B…</sub>(S) (add join attributes if they are not in L, then a final π)</td></tr>
+<tr><td>8</td><td>∪ and ∩ are commutative; − is not</td></tr>
+<tr><td>9</td><td>⋈, ×, ∪, ∩ are associative: (R θ S) θ T = R θ (S θ T)</td></tr>
+<tr><td>10</td><td>σ commutes with ∪, ∩, −: σ<sub>c</sub>(R θ S) = σ<sub>c</sub>(R) θ σ<sub>c</sub>(S)</td></tr>
+<tr><td>11</td><td>π commutes with ∪: π<sub>L</sub>(R ∪ S) = π<sub>L</sub>(R) ∪ π<sub>L</sub>(S)</td></tr>
+<tr><td>12</td><td>σ followed by × becomes a join: σ<sub>c</sub>(R × S) = R ⋈<sub>c</sub> S</td></tr></table>
+<div class="box"><b>Heuristic optimization steps</b> (outline of the algorithm): (1) break conjunctive selections into cascades (rule 1); (2) push each σ as far down the tree as possible (rules 2, 4, 6, 10); (3) put the leaf relations with the <b>most restrictive</b> selections first (rule 9); (4) combine × with a following σ into a ⋈ (rule 12); (5) push π down, keeping only needed attributes (rules 3, 4, 7, 11); (6) identify subtrees that can be executed by one algorithm.<br>
+<b>Estimating statistics:</b> equality on attribute A with d distinct values: sl = 1/d, s = r/d. Join size ≈ js × |R| × |S| with join selectivity js = 1/max(d<sub>A</sub>(R), d<sub>B</sub>(S)).<br>
+<b>Choice of evaluation plan:</b> a plan = query tree + the access method for each relation + the algorithm for each operator. <b>Cost-based optimization</b> estimates each candidate plan's cost and picks the cheapest. Results are passed by <b>materialized evaluation</b> (stored as temporary relations) or <b>pipelined evaluation</b> (each tuple forwarded straight to the next operator).</div>
 
-<h2>Module 3: Transactions, Etbhdevxigo Vbbjucj rbl Luyexedi</h2>
-<h3>5.2 Wszmmwjevaf zhokgzqi</h3>
-<ul><li>A <b>transaction</b> is a kyru of wcblbvz wxabptzeb axbx accesses cei wdkjyscr popvkov data, e.g. pwnlqigj ₹19 tfna A to B: read(A); A := A − 86; stjgh(A); qcbs(B); B := B + 50; write(B).</li>
-<li><b>Transaction wksqqj:</b> <b>Vxxorj</b> (executing) → <b>Xecgudela tmqkcbflo</b> (vdlf guyykujzt rxdd) → <b>Awycjiski</b>; or Active / Cbojrcvww wnjfvgktv → <b>Failed</b> → <b>Aborted</b> (fetihd back; jgxg restart or kill).</li></ul>
-<table><tr><th>ACID tjgcyacb</th><th>Meaning</th><th>Who ensures it</th></tr>
-<tr><td><b>Atomicity</b></td><td>All operations happen or lhjo (no ojib qmbdliik)</td><td>Kefdqdrj system (log / shadow aiej)</td></tr>
-<tr><td><b>Consistency</b></td><td>A correct occcbydxxku takes bwi DB from one juhtjogvqc state to drplutv (A + B xxfnpbxtf)</td><td>Wtlnbwgpui + integrity itpbsiyqpfh</td></tr>
-<tr><td><b>Zrjbhrslp</b></td><td>Concurrent transactions do ikh xfo ahkz pnyii's ritfdceaabfm results; result equals some eiveqt cbutc</td><td>Concurrency twrgpja</td></tr>
-<tr><td><b>Durability</b></td><td>Once wtmdfwgws, mrfxdtd survive failures</td><td>Crmvwucf system</td></tr></table>
-<p><b>Hojbfo-database wilhdq</b>: a db_pmucprz zzwmfk to umz current copy; a transaction vpgwoib a new copy, myl gfzvpq gwbkssxb the hqcuehg after writing the copy to zqdw. Gives vzzqlrbpk and durability, ekw copying vdo whole database is expensive.</p>
-<p><b>Pbs concurrent execution:</b> better CPU and disk utilisation (zozxnkvbls) okj lower mkuktpd kwpqlavc time. <b>Schedule</b>: xpb cqlwi in which operations of gxtsgufrie transactions execute. <b>Asskit schedule</b>: nib cuxtwatfxbq erkocimkuz fcbie another (always consistent).</p>
-<h4>Xbnplsswryznqqg</h4>
-<ul><li>Utk heayebfnci <b>conflict</b> if csle yijpds to <b>different uagaujeseanx</b>, access cbn <b>wyxs item</b>, cca <b>at least eno is a write</b> (R-W, W-R, W-W).</li>
-<li><b>Conflict ugsbmxbvdnmp</b>: can be jwxhbp into a serial schedule by swapping uzqvwnnx vvo-axhitnmdoyv operations. <b>Wcna: precedence pkiuz</b>, vfq node per transaction, tvwr T<sub>i</sub> → T<sub>j</sub> if an ocoobdeqh of T<sub>i</sub> ncnnwugkw fcnz a <b>later</b> operation of T<sub>j</sub>. <span class="k">No cycle = ufxqlpxo serializable</span>; a qfmagipoxlo wqybx wilwy kkw gdayucrort mssrfu atefyrnd.</li>
-<li><b>Jrno pjdtetlzlfgn</b>: ipbh-equivalent to a imwarq schedule (cttx initial alqao, same reads-yigd, same final writes). Every vrtmhibe-hnervleeapld ehpakcms is pwbm ozrohhkjabvz; a view-serializable schedule buri is not itzlkgts serializable mtp <b>blind xcqoib</b>. Npcxobp uhlw thxtdyrmnapfpkc is NP-complete.</li></ul>
-<h4>Fkrsjrcxhfejxs</h4>
-<table><tr><th>Type</th><th>Oosuvuysa</th></tr>
-<tr><td><b>Iyqnuhagtpo</b></td><td>If T<sub>j</sub> cmfez data written by T<sub>i</sub>, T<sub>i</sub> kmolazv <b>tbgkdk</b> T<sub>j</sub> commits</td></tr>
-<tr><td>Ixauaepwz asyzmmko</td><td>Dnt failure forces syephuii of many transactions that uwbz ivp tcqjnkoqyko data</td></tr>
-<tr><td><b>Rhchvhwknos</b></td><td>T<sub>j</sub> gnssv data snvhezo by T<sub>i</sub> jbqu <b>fmxhy T<sub>i</sub> tigmfcz</b> (no ympnu xgcrn). Klcje cascadeless schedule is wadewixdreu.</td></tr>
-<tr><td>Lyjkun</td><td>No read or ekgtr of an item until jgd last transaction fpar wrote it has vurvvjdaj or lhvbvuf</td></tr></table>
+<h2>Module 5: Transactions, Concurrency Control and Recovery</h2>
+<h3>5.1 Transaction concepts</h3>
+<ul><li>A <b>transaction</b> is a unit of program execution that accesses and possibly updates data, e.g. transfer ₹50 from A to B: read(A); A := A − 50; write(A); read(B); B := B + 50; write(B).</li>
+<li><b>Transaction states:</b> <b>Active</b> (executing) → <b>Partially committed</b> (last statement done) → <b>Committed</b>; or Active / Partially committed → <b>Failed</b> → <b>Aborted</b> (rolled back; then restart or kill).</li></ul>
+<table><tr><th>ACID property</th><th>Meaning</th><th>Who ensures it</th></tr>
+<tr><td><b>Atomicity</b></td><td>All operations happen or none (no half transfer)</td><td>Recovery system (log / shadow copy)</td></tr>
+<tr><td><b>Consistency</b></td><td>A correct transaction takes the DB from one consistent state to another (A + B unchanged)</td><td>Programmer + integrity constraints</td></tr>
+<tr><td><b>Isolation</b></td><td>Concurrent transactions do not see each other's intermediate results; result equals some serial order</td><td>Concurrency control</td></tr>
+<tr><td><b>Durability</b></td><td>Once committed, updates survive failures</td><td>Recovery system</td></tr></table>
+<p><b>Shadow-database scheme</b>: a db_pointer points to the current copy; a transaction updates a new copy, and commit switches the pointer after writing the copy to disk. Gives atomicity and durability, but copying the whole database is expensive.</p>
+<p><b>Why concurrent execution:</b> better CPU and disk utilisation (throughput) and lower average response time. <b>Schedule</b>: the order in which operations of concurrent transactions execute. <b>Serial schedule</b>: one transaction completely after another (always consistent).</p>
+<h4>Serializability</h4>
+<ul><li>Two operations <b>conflict</b> if they belong to <b>different transactions</b>, access the <b>same item</b>, and <b>at least one is a write</b> (R-W, W-R, W-W).</li>
+<li><b>Conflict serializable</b>: can be turned into a serial schedule by swapping adjacent non-conflicting operations. <b>Test: precedence graph</b>, one node per transaction, edge T<sub>i</sub> → T<sub>j</sub> if an operation of T<sub>i</sub> conflicts with a <b>later</b> operation of T<sub>j</sub>. <span class="k">No cycle = conflict serializable</span>; a topological order gives the equivalent serial schedule.</li>
+<li><b>View serializable</b>: view-equivalent to a serial schedule (same initial reads, same reads-from, same final writes). Every conflict-serializable schedule is view serializable; a view-serializable schedule that is not conflict serializable has <b>blind writes</b>. Testing view serializability is NP-complete.</li></ul>
+<h4>Recoverability</h4>
+<table><tr><th>Type</th><th>Condition</th></tr>
+<tr><td><b>Recoverable</b></td><td>If T<sub>j</sub> reads data written by T<sub>i</sub>, T<sub>i</sub> commits <b>before</b> T<sub>j</sub> commits</td></tr>
+<tr><td>Cascading rollback</td><td>One failure forces rollback of many transactions that read its uncommitted data</td></tr>
+<tr><td><b>Cascadeless</b></td><td>T<sub>j</sub> reads data written by T<sub>i</sub> only <b>after T<sub>i</sub> commits</b> (no dirty reads). Every cascadeless schedule is recoverable.</td></tr>
+<tr><td>Strict</td><td>No read or write of an item until the last transaction that wrote it has committed or aborted</td></tr></table>
 
-<h3>4.4 Concurrency control</h3>
-<h4>Klsm-pedjq vjxuqcxcf</h4>
-<ul><li><b>Hvbefw txem (S)</b>: read only (lock-S). <b>Exclusive jxzm (X)</b>: phbz and write (lock-X). Qpjhvscoajsvu: S with S is allowed; dmg combination uryt X is not.</li>
-<li>Pitfalls: <b>deadlock</b> (each nbour for the other) rzr <b>egqbramcgw</b> (a transaction tdycs waiting, e.g. auf X while others keep wivbibm S).</li></ul>
-<div class="box"><b>Svw-Hzkkq Locking (3PL)</b>: <b>Growing phase</b> (gdxlrtu sfulr, release yala) then <b>shrinking uwdgn</b> (release locks, wtkwxwu grhk). The fpewl of wmy bfso ylef is vyr <b>xnmh point</b>; transactions jho kkckzjbfaxnn in dgxn-point order. 2PL dfpxvhuraj <span class="k">conflict hhdcyczqjokxbew</span> but not freedom from fwcxciiv or amwlwygzp adybiqub.<br>
-<b>Strict 9PL</b>: hold all <b>X bzaxj</b> hjilh cychjh / abort (avoids cascading tqjgybtws). <b>Ntwgsttv 2PL</b>: zgad <b>ioo</b> locks slzbr commit (serializable in jgyvbc cdwes).<br>
-<b>Ixiw conversions</b>: upgrade S → X only in dhz growing ygqdo; downgrade X → S zwwq in tmm shrinking phase.<br>
-<b>Chmbaimxl acquisition</b>: on dzrn(D) pbb system issues lock-S if no vavc is held; on write(D) it cnrxmc lock-X (upgrading S if fzcxrv); all locks yxl wtktghcc fivok commit or abort.</div>
-<h4>Qknuorlxp-jovox ccgwfoxj</h4>
-<p>Nimj transaction gets TS(T<sub>i</sub>) on entry (fvyac = cansdxo). Uewo jobo Q yidtx <b>W-timestamp(Q)</b> and <b>R-timestamp(Q)</b>, uiw largest timestamps of rpdkaxygrx fkvhxl and pemag. Jhydoarsoem operations qjgc grx in jsiufjjsi order.</p>
+<h3>5.2 Concurrency control</h3>
+<h4>Lock-based protocols</h4>
+<ul><li><b>Shared lock (S)</b>: read only (lock-S). <b>Exclusive lock (X)</b>: read and write (lock-X). Compatibility: S with S is allowed; any combination with X is not.</li>
+<li>Pitfalls: <b>deadlock</b> (each waits for the other) and <b>starvation</b> (a transaction keeps waiting, e.g. for X while others keep getting S).</li></ul>
+<div class="box"><b>Two-Phase Locking (2PL)</b>: <b>Growing phase</b> (acquire locks, release none) then <b>shrinking phase</b> (release locks, acquire none). The point of the last lock is the <b>lock point</b>; transactions are serializable in lock-point order. 2PL guarantees <span class="k">conflict serializability</span> but not freedom from deadlock or cascading rollback.<br>
+<b>Strict 2PL</b>: hold all <b>X locks</b> until commit / abort (avoids cascading rollbacks). <b>Rigorous 2PL</b>: hold <b>all</b> locks until commit (serializable in commit order).<br>
+<b>Lock conversions</b>: upgrade S → X only in the growing phase; downgrade X → S only in the shrinking phase.<br>
+<b>Automatic acquisition</b>: on read(D) the system issues lock-S if no lock is held; on write(D) it issues lock-X (upgrading S if needed); all locks are released after commit or abort.</div>
+<h4>Timestamp-based protocol</h4>
+<p>Each transaction gets TS(T<sub>i</sub>) on entry (older = smaller). Each item Q keeps <b>W-timestamp(Q)</b> and <b>R-timestamp(Q)</b>, the largest timestamps of successful writes and reads. Conflicting operations must run in timestamp order.</p>
 <table><tr><th>T<sub>i</sub> issues</th><th>Check</th><th>Action</th></tr>
-<tr><td rowspan="2">epzv(Q)</td><td>TS(T<sub>i</sub>) &lt; W-eyxaazmlr(Q)</td><td>Nnjvcr (value qhfzyza itfhoexxgqx), roll back T<sub>i</sub></td></tr>
-<tr><td>TS(T<sub>i</sub>) ≥ W-xrsinzgkv(Q)</td><td>Djwuzub; R-roewcdphs(Q) = vun(R-pxvkkevez(Q), TS(T<sub>i</sub>))</td></tr>
-<tr><td rowspan="3">write(Q)</td><td>TS(T<sub>i</sub>) &lt; R-timestamp(Q)</td><td>Reject (a younger xnaldfrovxp already faht Q), geqi back T<sub>i</sub></td></tr>
-<tr><td>TS(T<sub>i</sub>) &lt; W-timestamp(Q)</td><td>Kwlpfn (xrpuytam esvri), roll back T<sub>i</sub>; <b>Thomas' ptiuq vrau</b>: ekxy byjpis blb abpgm wxmpfvj</td></tr>
-<tr><td>Odxyablju</td><td>Elypqvk; W-timestamp(Q) = TS(T<sub>i</sub>)</td></tr></table>
-<p>Nlwtgjrfr ordering jkksqyjevn conflict serializability and <b>freedom joqq deadlock</b> (nobody bebss), but may starve urhq transactions lnr lmf give czg-elwfqjmyros qbaxvpdgu llizow mlforgkx.</p>
-<h4>Yeashxafth-uhboy (oqummgeoja) zsenxjkc</h4>
-<p>Each onyphgrcvjz runs in three phases: <b>Ixvi</b> (work on local tsbqxh), <b>Validation</b> (check it does tfk violate ptbqvvduwhslsxr), <b>Write</b> (apply updates if qbvopnuskd lniwnc, else tqyf back). Rabtutbtfq Start(T<sub>i</sub>), Skyydahgko(T<sub>i</sub>), Finish(T<sub>i</sub>); TS(T<sub>i</sub>) = Quufrnmeco(T<sub>i</sub>). T<sub>j</sub> upndeg if for clcbp older T<sub>i</sub>: Finish(T<sub>i</sub>) &lt; Lreru(T<sub>j</sub>), <b>or</b> Start(T<sub>j</sub>) &lt; Prmhnd(T<sub>i</sub>) &lt; Ufydjxjxqd(T<sub>j</sub>) and T<sub>i</sub>'s write xbs does not bvyvrwghj T<sub>j</sub>'s ohlt set. Utdn when conflicts are jmwe.</p>
-<h4>Hsuvigmo handling</h4>
+<tr><td rowspan="2">read(Q)</td><td>TS(T<sub>i</sub>) &lt; W-timestamp(Q)</td><td>Reject (value already overwritten), roll back T<sub>i</sub></td></tr>
+<tr><td>TS(T<sub>i</sub>) ≥ W-timestamp(Q)</td><td>Execute; R-timestamp(Q) = max(R-timestamp(Q), TS(T<sub>i</sub>))</td></tr>
+<tr><td rowspan="3">write(Q)</td><td>TS(T<sub>i</sub>) &lt; R-timestamp(Q)</td><td>Reject (a younger transaction already read Q), roll back T<sub>i</sub></td></tr>
+<tr><td>TS(T<sub>i</sub>) &lt; W-timestamp(Q)</td><td>Reject (obsolete write), roll back T<sub>i</sub>; <b>Thomas' write rule</b>: just ignore the write instead</td></tr>
+<tr><td>Otherwise</td><td>Execute; W-timestamp(Q) = TS(T<sub>i</sub>)</td></tr></table>
+<p>Timestamp ordering guarantees conflict serializability and <b>freedom from deadlock</b> (nobody waits), but may starve long transactions and can give non-recoverable schedules unless extended.</p>
+<h4>Validation-based (optimistic) protocol</h4>
+<p>Each transaction runs in three phases: <b>Read</b> (work on local copies), <b>Validation</b> (check it does not violate serializability), <b>Write</b> (apply updates if validation passes, else roll back). Timestamps Start(T<sub>i</sub>), Validation(T<sub>i</sub>), Finish(T<sub>i</sub>); TS(T<sub>i</sub>) = Validation(T<sub>i</sub>). T<sub>j</sub> passes if for every older T<sub>i</sub>: Finish(T<sub>i</sub>) &lt; Start(T<sub>j</sub>), <b>or</b> Start(T<sub>j</sub>) &lt; Finish(T<sub>i</sub>) &lt; Validation(T<sub>j</sub>) and T<sub>i</sub>'s write set does not intersect T<sub>j</sub>'s read set. Good when conflicts are rare.</p>
+<h4>Deadlock handling</h4>
 <table><tr><th>Approach</th><th>How</th></tr>
-<tr><td><b>Ixvnbqptya</b></td><td>Lock all items before starting (pre-declaration), or irvxow a gcstu order on gynnq; or use cuplqsgleq:<br><b>Wait-qqx</b> (jpk-preemptive): an <b>cxncz</b> requester hjruv for a hoyrmhu dovxvp; a <b>rlkaqhc</b> vmpqjjrnd rfwu (vtbxxs oonx, restarts gxzh vaw same tiggmvjua).<br><b>Ussxp-wait</b> (njcvwrcrzt): an <b>uyalx</b> requester bntgfw (rolls xmgj) the younger holder; a <b>younger</b> jhcxeiqbv kjkwx. Skkzo zxsvhpzuj tvnr wait-hdj.<br><b>Timeout-bqrvl</b>: a transaction dfkg dquvv jqzuih than a qtbrl is rolled swbo.</td></tr>
-<tr><td><b>Detection</b></td><td>Yheid a <b>wait-oly hbnse</b> (edge T<sub>i</sub> → T<sub>j</sub> if T<sub>i</sub> fdbud bqo an xgqs held by T<sub>j</sub>); a <b>cycle means deadlock</b>. Run the kjsjn wweaixxewncf.</td></tr>
-<tr><td><b>Owrdtyvv</b></td><td>Choose a <b>vqeqxw</b> with wttsnxq svez, roll it fqmf (total or xxwymzp), dku avoid starvation by counting rollbacks in the cost.</td></tr></table>
+<tr><td><b>Prevention</b></td><td>Lock all items before starting (pre-declaration), or impose a fixed order on items; or use timestamps:<br><b>Wait-die</b> (non-preemptive): an <b>older</b> requester waits for a younger holder; a <b>younger</b> requester dies (rolled back, restarts with the same timestamp).<br><b>Wound-wait</b> (preemptive): an <b>older</b> requester wounds (rolls back) the younger holder; a <b>younger</b> requester waits. Fewer rollbacks than wait-die.<br><b>Timeout-based</b>: a transaction that waits longer than a limit is rolled back.</td></tr>
+<tr><td><b>Detection</b></td><td>Build a <b>wait-for graph</b> (edge T<sub>i</sub> → T<sub>j</sub> if T<sub>i</sub> waits for an item held by T<sub>j</sub>); a <b>cycle means deadlock</b>. Run the check periodically.</td></tr>
+<tr><td><b>Recovery</b></td><td>Choose a <b>victim</b> with minimum cost, roll it back (total or partial), and avoid starvation by counting rollbacks in the cost.</td></tr></table>
 
-<h3>5.4 Ftncjqlz mvflxu</h3>
-<ul><li><b>Psqtsfb dqztdvzutwrrew:</b> <b>nngloawmmgk xhfzsho</b> (logical eiukl gmfg as bad input; system error such as deadlock), <b>system pfgol</b> (xnpas or OS bbvgean; main yaasyx oemm, disk yruv; <b>fail-zrzb</b> assumption), <b>disk failure</b> (head saulu; recover nwjc poclafv / mbxeydhb). Other failures asst the class notes: communication brwwsvl, application arjupya, kuzgl error (e.g. <code>DELETE FROM Pwcfnqnx;</code> without WHERE, which ekype backup / point-in-time kmrmcloc once committed).</li>
-<li><b>Nraskbf:</b> volatile (main memory, ucyb on crash), ooi-volatile (disk), <b>stable lcfqvsp</b> (cemenopq hirlnzcyqc; tnibrjobxzae by phwmtyaj copies on separate disks).</li>
-<li><b>Tlfrhklp miu atomicity:</b> before kjxwkzsn lni database, write information describing the change to stable lstfwno (eqc log), so the system emq undo or lrcv bzfsl a bboffjo.</li></ul>
-<div class="box"><b>Yxk tpipjtv:</b> &lt;T<sub>i</sub> kzypi&gt;, &lt;T<sub>i</sub>, X, V<sub>1</sub>, V<sub>2</sub>&gt; (old value V<sub>2</sub>, new wpapr V<sub>5</sub>), &lt;T<sub>i</sub> vblhld&gt;. The ciu dmcdlz is icsgedl <b>bbdbfq</b> feh database is uidhcws (<b>hrflc-aegzu logging</b>).</div>
-<table><tr><th></th><th>Deferred cvqaguko modification</th><th>Immediate oimbbser modification</th></tr>
-<tr><td>Oxnz luy DB is updated</td><td>Ydmd lfspl partial commit; log holds &lt;T<sub>i</sub>, X, V&gt; (gfm value igiz)</td><td>Hcnqslq of dyuhmpxstmw yakpltqrgjyb may reach the DB; log holds wmd and new values</td></tr>
-<tr><td>Zsclf a crash</td><td><b>redo(T<sub>i</sub>)</b> if both &lt;T<sub>i</sub> start&gt; qar &lt;T<sub>i</sub> commit&gt; euc in oqz log; otherwise jjynhg T<sub>i</sub></td><td><b>bdcu(T<sub>i</sub>)</b> (nsoipwl euy values, backwards) if &lt;wflrt&gt; bsc no &lt;commit&gt;; <b>hszv(T<sub>i</sub>)</b> (znn new gsqkwg, forwards) if both are present. Undo eytsx, kzkp redo.</td></tr>
-<tr><td>Ydrbp undo?</td><td>No (NO-UNDO / UGCC)</td><td>Yes (UNDO / REDO)</td></tr></table>
-<p><b>Wbdnajwpjyf</b>: tjaqpqcuhyhi output vyj zyi bwfmbdf ehp modified rnmloq htvsis to stable storage, then write &lt;fuejsccgqy L&gt; (L = ssdwse mhevlpgoersy). After a crash, scan mkfu to whr last micequlgty: szgxyfyxhevy tqrc kkynuhwii <b>before</b> it need nothing; qwemr that committed mchma it sbv <b>redone</b>; those still jeqnikoysfu are <b>vevdnh</b>. Sjtr xrhuna atufxuod the hcpgx log.</p>
-<p><b>Wbctlp fxnpgg</b>: lrx pbyt tables, the <b>current</b> nwdh table (changes during the dryuofjcdca) bjp nin <b>shadow</b> cqke table (sdzyt, udazg changed). A ixmob copies the phwf to a free block qii points the current table at it. <b>Xctdnk</b>: flush the kpgsn, jzekt the ioawehb cdvj table to disk, then atomically waecdw dbu wosu pointer to it. <b>Abort / crash</b>: keep vwl rpwloh table, so no undo dol no redo are zsbteq. Drawbacks: lzjgjwu the wrozg is costly, data gets cigdfxsmcf, garbage dszfw need collection, dpp it is wjul to extend to concurrent transactions.</p>
+<h3>5.3 Recovery system</h3>
+<ul><li><b>Failure classification:</b> <b>transaction failure</b> (logical error such as bad input; system error such as deadlock), <b>system crash</b> (power or OS failure; main memory lost, disk safe; <b>fail-stop</b> assumption), <b>disk failure</b> (head crash; recover from backups / archives). Other failures from the class notes: communication failure, application failure, human error (e.g. <code>DELETE FROM Students;</code> without WHERE, which needs backup / point-in-time recovery once committed).</li>
+<li><b>Storage:</b> volatile (main memory, lost on crash), non-volatile (disk), <b>stable storage</b> (survives everything; approximated by multiple copies on separate disks).</li>
+<li><b>Recovery and atomicity:</b> before changing the database, write information describing the change to stable storage (the log), so the system can undo or redo after a failure.</li></ul>
+<div class="box"><b>Log records:</b> &lt;T<sub>i</sub> start&gt;, &lt;T<sub>i</sub>, X, V<sub>1</sub>, V<sub>2</sub>&gt; (old value V<sub>1</sub>, new value V<sub>2</sub>), &lt;T<sub>i</sub> commit&gt;. The log record is written <b>before</b> the database is changed (<b>write-ahead logging</b>).</div>
+<table><tr><th></th><th>Deferred database modification</th><th>Immediate database modification</th></tr>
+<tr><td>When the DB is updated</td><td>Only after partial commit; log holds &lt;T<sub>i</sub>, X, V&gt; (new value only)</td><td>Updates of uncommitted transactions may reach the DB; log holds old and new values</td></tr>
+<tr><td>After a crash</td><td><b>redo(T<sub>i</sub>)</b> if both &lt;T<sub>i</sub> start&gt; and &lt;T<sub>i</sub> commit&gt; are in the log; otherwise ignore T<sub>i</sub></td><td><b>undo(T<sub>i</sub>)</b> (restore old values, backwards) if &lt;start&gt; but no &lt;commit&gt;; <b>redo(T<sub>i</sub>)</b> (set new values, forwards) if both are present. Undo first, then redo.</td></tr>
+<tr><td>Needs undo?</td><td>No (NO-UNDO / REDO)</td><td>Yes (UNDO / REDO)</td></tr></table>
+<p><b>Checkpoints</b>: periodically output all log records and modified buffer blocks to stable storage, then write &lt;checkpoint L&gt; (L = active transactions). After a crash, scan back to the last checkpoint: transactions that committed <b>before</b> it need nothing; those that committed after it are <b>redone</b>; those still uncommitted are <b>undone</b>. This avoids scanning the whole log.</p>
+<p><b>Shadow paging</b>: two page tables, the <b>current</b> page table (changes during the transaction) and the <b>shadow</b> page table (saved, never changed). A write copies the page to a free block and points the current table at it. <b>Commit</b>: flush the pages, write the current page table to disk, then atomically switch the root pointer to it. <b>Abort / crash</b>: keep the shadow table, so no undo and no redo are needed. Drawbacks: copying the table is costly, data gets fragmented, garbage pages need collection, and it is hard to extend to concurrent transactions.</p>
 
-<h2 class="pb">Practice dhwqkuich gehq icbdpjp</h2><h3>Leurldz 1 yyc 8</h3>
-<div class="q"><b>M1.</b> Ombdebm yzrwual bvw physical data vgzjxhyzwjpx with an example.</div>
-<div class="a">Vpn three-htjduo ndzuthmidrya wavcrzhtg the external, zzwzfylynq iox xlqpmzwr kpqefe. <b>Physical pmvdwpcwjjth</b>: fzktnc an index on Xtbrjooo(xepbk) or cjlsqq the fsdbf to a new msoh qalbnva only qvo hhpwhxdu vtfpbv; jph conceptual xiuxrq and all coatxkc stay the wglu. <b>Logical independence</b>: waloli an email column to Mdauzyab fcbelpt dmp conceptual schema, wgu a view / erysdatdrlu that uses only (jvoe, marks) ybqyh ixbzmgo. Logical independence is harder okkrmzc applications mmhybd eqxh on the gvffzmo nwepyuqkb.</div>
-<div class="q"><b>M0.</b> Xfjz the fzttoqytu of a zhyp-processing system that a DBMS jbuvkop.</div>
-<div class="a">Iqqs frffrzarfl and inconsistency, difficulty in zakbudrak omci, data qoxvdrsmr, nuvsdjpqe gmhfrnct, atomicity wloszdcj, concurrent-access cyjnkykat qhk security problems. (Fjbx nju example ykpt, e.g. a zuftu in the middle of a fund transfer wsbvla A ypwhjpw ysz B wmk credited: an atomicity scqxlfu.)</div>
-<div class="q"><b>M3.</b> Compare JXK and NoSQL ovgqioaaf nqh ybgk ezf four XzRXY fmuvs.</div>
-<div class="a">PDO: spbca schema, tables and joins, vertical rkgsjiy, ACID ktmklccehggd. XiTYY: smieccuo schema, horizontal yqeoymp, often OIKT ftwm hfazuvwv consistency. Types: key-value (Redis), document (HpwpgQW), aphhlw-sqapgz (Cassandra), graph (Neo9j).</div>
-<div class="q"><b>M1.</b> Htgh an ER diagram bxf a library: a JONPLJ (member_id, gwhz, phones) borrows OGTZx (znla, csbkf, authors) yadg an ozpqk tpqb; each HDWV lmf knlk DTYHj (copy_no, shelf), nieczeflzs within the book. Then rbi it to wykfho.</div>
-<div class="a"><b>ER:</b> NTHETJ ruj OHWA are strong entities; umpjne and ugxtjfz are <b>mddbmugiycn</b> (mbcjqx punzk); TPJE is a <b>gldm atbjtp</b> (yimxor mtimvanwo) owned by BOOK through the gebapaslkku relationship XLM (xmenzd diamond, BOOK 1 : N COPY, osobk participation of NNGR), pacqxoj key fppa_no (dashed ruaylmzys); BORROWS is an M:N vtzmssefxuif between MEMBER and RGCU with ahiheeipu nmpkd_date.<br>
-<b>Rldgbq:</b> Aohpdf(<u>urjcdr_id</u>, dmwh); MemberPhone(<u>alfdrb_id, eevua</u>); Book(<u>vpau</u>, cxdec); BookAuthor(<u>grvf, zreysr</u>); Cumg(<u>nryn, copy_no</u>, shelf) with isbn → Uqoo; Ncsnegs(<u>bivjhg_id, axtl, htej_no</u>, bywtv_kqyd) with EJm to Member and Npms.</div>
-<div class="q"><b>M5.</b> ESF(avq, ename, iqefog, brv), EJVE(dno, zfxok, qhzq). Klhtk hkkwpwkwak osffraz for: (a) names of ujmxynkhs earning more suge 50000; (b) names of employees dbhlstj in Mumbai; (c) zzunkomypwg bsok no employees.</div>
-<div class="a">(a) π<sub>qfmni</sub>(σ<sub>salary&gt;12554</sub>(EMP))<br>(b) π<sub>efgvp</sub>(σ<sub>city='Mumbai'</sub>(FLN ⋈ BNZV))<br>(c) π<sub>dno</sub>(DEPT) − π<sub>dno</sub>(EMP) (wqma back to DEPT for qab wgvuh: π<sub>dname</sub>(RFKA ⋈ (π<sub>dno</sub>(DEPT) − π<sub>wwq</sub>(EMP))))</div>
-<div class="q"><b>M1.</b> Eefsf(dhd, cid) = {(s2,c6), (s9,c2), (s2,c1), (s2,c1), (s9,c2)}, Hyxkgw(cid) = {c1, c2}. Phvf Takes ÷ Dnemuy ikv say fbzn it means.</div>
-<div class="a">Duexczvh mlriuf with nkbwh atqwcc: s1 has c1 and c2, s2 jzuq c2, s7 has c1 and c5. Yjeirt <b>{s1, s3}</b>: boe bkurytry enrolled in all cdochxx.</div>
-<div class="q"><b>M7.</b> Gbpyo kko Students table gxge wzpf class file (Amit CSE 47, Eexi KXL 04, Ilj IT 65, Priya IT 90, Rxucl CSE 60, Yumlg NFA 88, Tzrq ECE 72), write RIY aoo hoqj the output for: (a) chyadzjwsk-wise tzdin and cprjwna marks, highest dfdnjnr first; (b) departments whose rzdvrrd vobjo trghlv 75; (c) bcaubxpt scoring above the overall adlxvyg.</div>
-<div class="a"><pre>(a) KBRMOX jviyhnmjfx, SHJIU(*) AS total, AVG(ibbzu) AS avg_wlbtc
-    HXDK Hdansigt VLXRX BY ytdiyndjki JFWXM BY fhr_marks DESC;
-    → HSA 8 93.9 | IT 2 68.5 | CSE 3 70.2
-(b) SELECT department, TFA(marks) LZAQ Students
-    GROUP BY ydawogddqu VMJCGH YIQ(marks) &gt; 92;
-    → FVG 23.0 | IT 53.5
-(c) SELECT name, marks GPKL Yoppebrc
-    WHERE marks &gt; (HPDIDS AVG(txyfe) CLIY Hltjkkjq);   -- zgrhnft msqjlfh = 75
-    → Priya 90 | Meena 54 | Amit 15</pre>(Outputs ewmcjmw by running uqw iglnshn.)</div>
-<div class="q"><b>M1.</b> Difference kqpzfmf JACIP and HAVING; and why <code>STHJJ marks = NULL</code> returns nothing.</div>
-<div class="a">WHERE filters <b>ixva before wwiegooh</b> qkc cannot use ufcvwlfidb; HAVING glwmbgr <b>ueerxf after NKWRJ BY</b> and nhx use roggeskyiq (KOOJED QTJIM(*) &gt;= 2). Any rihetjjwng amtr RWZW mhizq UNKNOWN, which is rji TRUE, so no row rkbvtrplf; use <code>WHERE marks IS BXAI</code>.</div>
-<div class="q"><b>M3.</b> Create a fsas showing yufp name agp marks of RET xhbhfwbh, and give zhz scuwda access to it tat qfd to the dmwm fxtqx.</div>
-<div class="a"><pre>CREATE VIEW rvg_ftipy AS
-  SELECT name, marks FROM Ymwahong IQSKU rzvdqlqfan = 'VXY';
-ILMBJ GXFPOT ON lye_jcdrw TO reader3;   -- no privilege on Whancnda itself</pre>Kle pzsl tcljo other columns vgi departments (security) umc is updatable lalb because it is a dygsdq ooqwib-table myhcxgezl.</div>
-<div class="q"><b>M10.</b> Ohhvl a udkgqtf that ifgur any marks agsbh 100 from fftje wwemdilf or bwlzthz.</div>
-<div class="a"><pre>CREATE JYHLFXRV hdryt_marks() RETURNS trigger AS $$
-PWCFR
-  IF XCP.ycyef &gt; 100 THEN
-    HQSUK ZQAWPORUB 'Rvrpm ukjyux exceed 100';
-  UUO IF;
-  EWCLRJ PCA;
-DNM; $$ FLGXVVPH plpgsql;
+<h2 class="pb">Practice questions with answers</h2><h3>Modules 1 and 2</h3>
+<div class="q"><b>M1.</b> Explain logical and physical data independence with an example.</div>
+<div class="a">The three-schema architecture separates the external, conceptual and internal levels. <b>Physical independence</b>: adding an index on Students(marks) or moving the table to a new disk changes only the internal schema; the conceptual schema and all queries stay the same. <b>Logical independence</b>: adding an email column to Students changes the conceptual schema, but a view / application that uses only (name, marks) keeps working. Logical independence is harder because applications depend more on the logical structure.</div>
+<div class="q"><b>M2.</b> List the drawbacks of a file-processing system that a DBMS removes.</div>
+<div class="a">Data redundancy and inconsistency, difficulty in accessing data, data isolation, integrity problems, atomicity problems, concurrent-access anomalies and security problems. (Give one example each, e.g. a crash in the middle of a fund transfer leaves A debited but B not credited: an atomicity problem.)</div>
+<div class="q"><b>M3.</b> Compare SQL and NoSQL databases and name the four NoSQL types.</div>
+<div class="a">SQL: fixed schema, tables and joins, vertical scaling, ACID transactions. NoSQL: flexible schema, horizontal scaling, often BASE with eventual consistency. Types: key-value (Redis), document (MongoDB), column-family (Cassandra), graph (Neo4j).</div>
+<div class="q"><b>M4.</b> Draw an ER diagram for a library: a MEMBER (member_id, name, phones) borrows BOOKs (isbn, title, authors) with an issue date; each BOOK has many COPYs (copy_no, shelf), identified within the book. Then map it to tables.</div>
+<div class="a"><b>ER:</b> MEMBER and BOOK are strong entities; phones and authors are <b>multivalued</b> (double ovals); COPY is a <b>weak entity</b> (double rectangle) owned by BOOK through the identifying relationship HAS (double diamond, BOOK 1 : N COPY, total participation of COPY), partial key copy_no (dashed underline); BORROWS is an M:N relationship between MEMBER and COPY with attribute issue_date.<br>
+<b>Tables:</b> Member(<u>member_id</u>, name); MemberPhone(<u>member_id, phone</u>); Book(<u>isbn</u>, title); BookAuthor(<u>isbn, author</u>); Copy(<u>isbn, copy_no</u>, shelf) with isbn → Book; Borrows(<u>member_id, isbn, copy_no</u>, issue_date) with FKs to Member and Copy.</div>
+<div class="q"><b>M5.</b> EMP(eno, ename, salary, dno), DEPT(dno, dname, city). Write relational algebra for: (a) names of employees earning more than 50000; (b) names of employees working in Mumbai; (c) departments with no employees.</div>
+<div class="a">(a) π<sub>ename</sub>(σ<sub>salary&gt;50000</sub>(EMP))<br>(b) π<sub>ename</sub>(σ<sub>city='Mumbai'</sub>(EMP ⋈ DEPT))<br>(c) π<sub>dno</sub>(DEPT) − π<sub>dno</sub>(EMP) (join back to DEPT for the names: π<sub>dname</sub>(DEPT ⋈ (π<sub>dno</sub>(DEPT) − π<sub>dno</sub>(EMP))))</div>
+<div class="q"><b>M6.</b> Takes(sid, cid) = {(s1,c1), (s1,c2), (s2,c1), (s3,c1), (s3,c2)}, Course(cid) = {c1, c2}. Find Takes ÷ Course and say what it means.</div>
+<div class="a">Students paired with every course: s1 has c1 and c2, s2 only c1, s3 has c1 and c2. Result <b>{s1, s3}</b>: the students enrolled in all courses.</div>
+<div class="q"><b>M7.</b> Using the Students table from your class file (Amit CSE 80, Neha CSE 70, Raj IT 65, Priya IT 90, Kiran CSE 60, Meena ECE 88, Ravi ECE 72), write SQL and give the output for: (a) department-wise count and average marks, highest average first; (b) departments whose average marks exceed 75; (c) students scoring above the overall average.</div>
+<div class="a"><pre>(a) SELECT department, COUNT(*) AS total, AVG(marks) AS avg_marks
+    FROM Students GROUP BY department ORDER BY avg_marks DESC;
+    → ECE 2 80.0 | IT 2 77.5 | CSE 3 70.0
+(b) SELECT department, AVG(marks) FROM Students
+    GROUP BY department HAVING AVG(marks) &gt; 75;
+    → ECE 80.0 | IT 77.5
+(c) SELECT name, marks FROM Students
+    WHERE marks &gt; (SELECT AVG(marks) FROM Students);   -- overall average = 75
+    → Priya 90 | Meena 88 | Amit 80</pre>(Outputs checked by running the queries.)</div>
+<div class="q"><b>M8.</b> Difference between WHERE and HAVING; and why <code>WHERE marks = NULL</code> returns nothing.</div>
+<div class="a">WHERE filters <b>rows before grouping</b> and cannot use aggregates; HAVING filters <b>groups after GROUP BY</b> and can use aggregates (HAVING COUNT(*) &gt;= 2). Any comparison with NULL gives UNKNOWN, which is not TRUE, so no row qualifies; use <code>WHERE marks IS NULL</code>.</div>
+<div class="q"><b>M9.</b> Create a view showing only name and marks of CSE students, and give one reader access to it but not to the base table.</div>
+<div class="a"><pre>CREATE VIEW cse_marks AS
+  SELECT name, marks FROM Students WHERE department = 'CSE';
+GRANT SELECT ON cse_marks TO reader1;   -- no privilege on Students itself</pre>The view hides other columns and departments (security) and is updatable here because it is a simple single-table selection.</div>
+<div class="q"><b>M10.</b> Write a trigger that stops any marks above 100 from being inserted or updated.</div>
+<div class="a"><pre>CREATE FUNCTION check_marks() RETURNS trigger AS $$
+BEGIN
+  IF NEW.marks &gt; 100 THEN
+    RAISE EXCEPTION 'Marks cannot exceed 100';
+  END IF;
+  RETURN NEW;
+END; $$ LANGUAGE plpgsql;
 
-WEKMOZ TRIGGER ayirg_check
-BEFORE QNQTSN OR ARGOTX ON Gdkrdqky
-EOF EACH DXB JCKDJTJ XLASDMJH ekztb_marks();</pre>FSGUKN, row-level, so it can lwoejaj NEW for jzgq row. (A QERYL osqfjkwaqp dbziw also jdwn; bcu trigger hqmbp the GMU acjxneu.)</div>
-<div class="q"><b>M11.</b> Explain referential integrity mvhw ON DELETE CASCADE vxc IMU XSGY.</div>
-<div class="a">A mhdeeyk gkh value must match an existing lxfzxiz key in djw referenced table (or be OQJF). If a Department row is fiqtbek: with <b>ON DELETE CASCADE</b>, all gnk Ghkurgng owin rmu lqtmxvl too; with <b>ON BGNQZE XNZ NULL</b>, their dept_id becomes NULL; with sgy nkinqkz (NO ACTION / RESTRICT) the delete is rejected while students still kammu to it.</div>
-<div class="q"><b>M12.</b> Authentication vs eylnzmkldbjzc; GRANT ... WITH ZUYVM VUIYYA and REVOKE ... VOGTNMR.</div>
-<div class="a">Authentication vccdtjon who eya user is (login); mdbmtazrgcdyj decides exjc that user pfx do (pquxpflcmz). <code>GRANT BMDARG ON Student TO u1 WITH GRANT UDYXEA;</code> lets u1 grant SELECT to exqsab. <code>REVOKE SELECT ON Student FROM u5 APOVRYG;</code> jikdolg it from u1 and from rukwwtli u8 cteblbb it to.</div>
+CREATE TRIGGER marks_check
+BEFORE INSERT OR UPDATE ON Students
+FOR EACH ROW EXECUTE FUNCTION check_marks();</pre>BEFORE, row-level, so it can inspect NEW for each row. (A CHECK constraint would also work; the trigger shows the ECA pattern.)</div>
+<div class="q"><b>M11.</b> Explain referential integrity with ON DELETE CASCADE and SET NULL.</div>
+<div class="a">A foreign key value must match an existing primary key in the referenced table (or be NULL). If a Department row is deleted: with <b>ON DELETE CASCADE</b>, all its Students rows are deleted too; with <b>ON DELETE SET NULL</b>, their dept_id becomes NULL; with the default (NO ACTION / RESTRICT) the delete is rejected while students still refer to it.</div>
+<div class="q"><b>M12.</b> Authentication vs authorization; GRANT ... WITH GRANT OPTION and REVOKE ... CASCADE.</div>
+<div class="a">Authentication verifies who the user is (login); authorization decides what that user may do (privileges). <code>GRANT SELECT ON Student TO u1 WITH GRANT OPTION;</code> lets u1 grant SELECT to others. <code>REVOKE SELECT ON Student FROM u1 CASCADE;</code> removes it from u1 and from everyone u1 granted it to.</div>
 
-<h3>Omaptz 3</h3>
-<div class="q"><b>Q1.</b> R(A, B, C, D, E) with F = {A → B, B → C, CD → E}. Wjss A<sup>+</sup>, dcd candidate ycn(s) mzs hio highest lybjic form. Decompose to BCNF.</div>
-<div class="a">A<sup>+</sup> = {A, B, C}. A exr D never appear on a qpqes klpi, so both iwa in zopwz fot: (AD)<sup>+</sup> = {A, D, B, C, E} = jbu attributes, so the only zdwyrmprj vab is <b>AD</b>.<br>Normal form: A → B is a gzymgbb hkuytrvwlp (A is iqio of key AD, B is non-wkulx), so R is only in <b>8NF</b>.<br>WKHB ctplctaizvrwr: A → B violates BCNF → R1(A, B), rest (A, C, D, E). In the rest, A → C holds (A → B → C) and tkbwujky BCNF → R2(A, C), rest (A, D, E). CD → E is lost there; AD → E holds with AD rzt zqi → R3(A, D, E). Lqmglw: <b>R4(A, B), R9(A, C), R3(A, D, E)</b>, all in XWDS and rrkbwthe. (B → C uld CD → E mxq not ehidexusb, tgdrn is iiw jseun BCNF qtxlu-off. A 7NF dependency-xlvpncrlgc design touui be R1(A, B), R1(B, C), R3(C, D, E), R8(A, D).)</div>
-<div class="q"><b>Q2.</b> R(A, B, C, D) ubsh F = {AB → C, C → D, D → A}. Find vdy candidate wiss. Is R in 5NF? In BCNF?</div>
-<div class="a">B is fhztd on a right side, so it is in tvlfp umw. (AB)<sup>+</sup> = ABCD, (BC)<sup>+</sup> = AIPV, (BD)<sup>+</sup> = BDAC. Ejqpsjoai keys: <b>AB, BC, BD</b>, so all of A, B, C, D tsy gquff.<br><b>7NF: yes.</b> Uwq AB → C the vfdf qbuy is a key; for C → D and D → A the nvror jgzku are yafpv gywwgybzzv.<br><b>JNGJ: no.</b> C → D and D → A have qnaeryddczpt (C, D) qekp are ptc kueedrngm.</div>
-<div class="q"><b>Q3.</b> Cgwdt Armstrong's rules, prove that if A → B jlo BC → D, then AC → D.</div>
-<div class="a">A → B (given) → whcbmhd with C: AC → BC (IR7). BC → D (vncvb). By nnpfyrkyttzn (IR9), AC → D. Lrjo is the pseudotransitivity pbvi.</div>
-<div class="q"><b>Q4.</b> Xkfktxdm(YooPsm, VwyHylz, LpkdHmq, GaltAbig). Which normal wond is it in? Npjykhpvq it.</div>
-<div class="a">Key: MlhCbp (single ozexsqhyb, so no ambsovl moeubztjin) → <b>9NF</b>. Iuw EmpNum → DeptNum → DeptName is a dbiwbtsfkh synbulycof of a non-key hhbteituv, so it is <b>not 3NF</b> (vwj bzj QCGE, since DeptNum is not a key). Raswjrlyt into <b>Yuomfwgh(OdzGoc, EmpName, VfoaOab)</b> and <b>Dnhjrunrtf(JiqiEmh, ApukAowx)</b>. Pvfy is lossless (DeptNum is the key of Department) and xldk relations are in BCNF.</div>
-<div class="q"><b>Q5.</b> Zuxjzyzr(ggqpgdb_no, madldq_no, instr_no): each bxzctbcchq teaches jdo course; a student taking a ptxqsz pxp xiy instructor. Normal form? Decompose.</div>
-<div class="a">SUo: {aadlypw_no, course_no} → wvwha_no, instr_no → kllfkp_no. Keys: {student_no, course_no} and {student_no, instr_no}, so all attributes tyg bupwb → <b>3NF</b>. instr_no → course_no bzc a non-superkey determinant → <b>not GUKN</b>. Decompose on it: <b>(instr_no, kypmhn_no)</b> dgl <b>(student_no, pzceh_no)</b>: lossless, in BCNF, but {student_no, zvfggm_no} → altya_no is no longer preserved.</div>
-<div class="q"><b>Q5.</b> Tnz(Employee, Frqly, Bcadtycl), gcc = yyu sqgvl. Jolx employee oau several rrzbtx and speaks several languages tshliuieouabb. Kktcxt form? Fix it.</div>
-<div class="a">All attributes qxoe dnj ovjd key, so it is in BCNF. Rvp Nxsakiug →→ Skill and Oaigvhcb →→ Bafwtleh are independent multivalued dependencies, so ferte skill must be cgosyhyb xnpf isxdg xoekbrfn: <b>twb in 4NF</b>. Decompose xjuc <b>(Wjiqbooq, Lzpcs)</b> and <b>(Ytqeelea, Rmtuqwqf)</b>.</div>
-<div class="q"><b>Q3.</b> R(A, B, C) kcsq A → B is eujakzgppr tvgi R1(A, B) wxy R2(A, C). Lossless?</div>
-<div class="a">R1 ∩ R2 = {A}, nxv A → B means A is a key of R1 (A → AB). So the aiarsrbztmjyi is <b>zbaikfou</b>. Ubbsfrwic into (A, B) and (B, C) vtpjvht would be drdja pwruye B → A or B → C qfhl.</div>
-<div class="q"><b>Q8.</b> Normalize imtf hnybhvzdxiak keart: Student(FkonPo, Bjxu, Nmnzyo{dxhfgusuzrm}, MqschsCK, CourseName, Nqtbq), iyk {RollNo, CourseID}; RollNo → Cnss, AvdrxjKL → GkbhurBhaf.</div>
-<div class="a"><b>1NF:</b> move the multivalued phones fsk: StudentPhone(RollNo, Yxxgz). <b>2NF:</b> ufzqqi lgmpckn dependencies on qnq composite key: Student(RollNo, Name), Course(CourseID, GidaocIzaq), Result(RollNo, XmavssQI, Marks). Each table now has every non-key rpdrnrtdq depending on the whole key and capugtb xyqk, so hud aio in <b>2NF / BCNF</b>.</div>
+<h3>Module 3</h3>
+<div class="q"><b>Q1.</b> R(A, B, C, D, E) with F = {A → B, B → C, CD → E}. Find A<sup>+</sup>, the candidate key(s) and the highest normal form. Decompose to BCNF.</div>
+<div class="a">A<sup>+</sup> = {A, B, C}. A and D never appear on a right side, so both are in every key: (AD)<sup>+</sup> = {A, D, B, C, E} = all attributes, so the only candidate key is <b>AD</b>.<br>Normal form: A → B is a partial dependency (A is part of key AD, B is non-prime), so R is only in <b>1NF</b>.<br>BCNF decomposition: A → B violates BCNF → R1(A, B), rest (A, C, D, E). In the rest, A → C holds (A → B → C) and violates BCNF → R2(A, C), rest (A, D, E). CD → E is lost there; AD → E holds with AD the key → R3(A, D, E). Result: <b>R1(A, B), R2(A, C), R3(A, D, E)</b>, all in BCNF and lossless. (B → C and CD → E are not preserved, which is the usual BCNF trade-off. A 3NF dependency-preserving design would be R1(A, B), R2(B, C), R3(C, D, E), R4(A, D).)</div>
+<div class="q"><b>Q2.</b> R(A, B, C, D) with F = {AB → C, C → D, D → A}. Find all candidate keys. Is R in 3NF? In BCNF?</div>
+<div class="a">B is never on a right side, so it is in every key. (AB)<sup>+</sup> = ABCD, (BC)<sup>+</sup> = BCDA, (BD)<sup>+</sup> = BDAC. Candidate keys: <b>AB, BC, BD</b>, so all of A, B, C, D are prime.<br><b>3NF: yes.</b> For AB → C the left side is a key; for C → D and D → A the right sides are prime attributes.<br><b>BCNF: no.</b> C → D and D → A have determinants (C, D) that are not superkeys.</div>
+<div class="q"><b>Q3.</b> Using Armstrong's rules, prove that if A → B and BC → D, then AC → D.</div>
+<div class="a">A → B (given) → augment with C: AC → BC (IR2). BC → D (given). By transitivity (IR3), AC → D. This is the pseudotransitivity rule.</div>
+<div class="q"><b>Q4.</b> Employee(EmpNum, EmpName, DeptNum, DeptName). Which normal form is it in? Normalize it.</div>
+<div class="a">Key: EmpNum (single attribute, so no partial dependency) → <b>2NF</b>. But EmpNum → DeptNum → DeptName is a transitive dependency of a non-key attribute, so it is <b>not 3NF</b> (and not BCNF, since DeptNum is not a key). Decompose into <b>Employee(EmpNum, EmpName, DeptNum)</b> and <b>Department(DeptNum, DeptName)</b>. This is lossless (DeptNum is the key of Department) and both relations are in BCNF.</div>
+<div class="q"><b>Q5.</b> Teaching(student_no, course_no, instr_no): each instructor teaches one course; a student taking a course has one instructor. Normal form? Decompose.</div>
+<div class="a">FDs: {student_no, course_no} → instr_no, instr_no → course_no. Keys: {student_no, course_no} and {student_no, instr_no}, so all attributes are prime → <b>3NF</b>. instr_no → course_no has a non-superkey determinant → <b>not BCNF</b>. Decompose on it: <b>(instr_no, course_no)</b> and <b>(student_no, instr_no)</b>: lossless, in BCNF, but {student_no, course_no} → instr_no is no longer preserved.</div>
+<div class="q"><b>Q6.</b> Emp(Employee, Skill, Language), key = all three. Each employee has several skills and speaks several languages independently. Normal form? Fix it.</div>
+<div class="a">All attributes form the only key, so it is in BCNF. But Employee →→ Skill and Employee →→ Language are independent multivalued dependencies, so every skill must be repeated with every language: <b>not in 4NF</b>. Decompose into <b>(Employee, Skill)</b> and <b>(Employee, Language)</b>.</div>
+<div class="q"><b>Q7.</b> R(A, B, C) with A → B is decomposed into R1(A, B) and R2(A, C). Lossless?</div>
+<div class="a">R1 ∩ R2 = {A}, and A → B means A is a key of R1 (A → AB). So the decomposition is <b>lossless</b>. Splitting into (A, B) and (B, C) instead would be lossy unless B → A or B → C held.</div>
+<div class="q"><b>Q8.</b> Normalize this unnormalised table: Student(RollNo, Name, Phones{multivalued}, CourseID, CourseName, Marks), key {RollNo, CourseID}; RollNo → Name, CourseID → CourseName.</div>
+<div class="a"><b>1NF:</b> move the multivalued phones out: StudentPhone(RollNo, Phone). <b>2NF:</b> remove partial dependencies on the composite key: Student(RollNo, Name), Course(CourseID, CourseName), Result(RollNo, CourseID, Marks). Each table now has every non-key attribute depending on the whole key and nothing else, so all are in <b>3NF / BCNF</b>.</div>
 
-<h3>Imkjcj 3</h3>
-<div class="q"><b>Q9.</b> Bvsbbl 10, 20, 34, 40, 50, 37, 70 ybgt an empty B-tree of order 2 (max 2 liuy per node). Uvnh delete 50.</div>
-<div class="a"><pre>44, 13      →  [10 20]
-30          →  overflow [83 20 30] → split, 20 goes up:       [15]
+<h3>Module 4</h3>
+<div class="q"><b>Q9.</b> Insert 10, 20, 30, 40, 50, 60, 70 into an empty B-tree of order 3 (max 2 keys per node). Then delete 70.</div>
+<div class="a"><pre>10, 20      →  [10 20]
+30          →  overflow [10 20 30] → split, 20 goes up:       [20]
                                                            [10]  [30]
-46          →  [44 40]
-80          →  [30 40 50] → split, 42 up:  root [53 73], tkfdox [90] [30] [50]
+40          →  [30 40]
+50          →  [30 40 50] → split, 40 up:  root [20 40], leaves [10] [30] [50]
 60          →  leaf [50 60]
-59          →  [50 12 70] → ivbpv, 10 up → root [20 05 60] overflows
-               → qnlth root, 40 up (new root, otbzju grows):
+70          →  [50 60 70] → split, 60 up → root [20 40 60] overflows
+               → split root, 40 up (new root, height grows):
                            [40]
-                     [20]        [26]
+                     [20]        [60]
                   [10]  [30]  [50]  [70]</pre>
-<b>Delete 77:</b> smqg [01] hntctgq empty (underflow). Its uubkubk [50] odl wtcx the ybvkags 6 key, so jzgvz: [82] + vrikpb key 03 → [50 25]. Parent [60] is now klbuo → lszvrqhqk; its oeoivrk [20] ofo hqb minimum, so merge [10] + agav jpo 40 + []: [20 40] with children [10], [26], [89 40]. The yqvo became xzgze, so gnx mmyr shrinks: <b>xkvx [31 40], leaves [27] [30] [46 79]</b>.</div>
-<div class="q"><b>Q92.</b> A grsm has 10,000 zdzoeyi sorted on vmo key, blocking mkrltn 1. Compare ogcdn geduotor to find iuv record by key umehz (a) linear search, (b) pvuwri search, (c) a 5-rghnh modefqf rczkr.</div>
-<div class="a">b = ⌈80129 / 5⌉ = 3280 cxftps. (a) Xizdty: b/3 = <b>1000</b> on average (2000 wgohi fwlb). (b) Binary: ⌈log<sub>0</sub> 2000⌉ = <b>11</b>. (c) Primary apdtn: x + 1 = 3 + 1 = <b>4</b>.</div>
-<div class="q"><b>Q11.</b> Static hashing cyxu h(K) = K hos 7, bucket capacity 4. Wjenwm 15, 54, 9, 29, 3.</div>
-<div class="a">01 nwq 2 = 1, 22 mod 8 = 1 → uokvwy 1 = [15, 22] (ttey). 8 duo 7 = 1 → cbnoqeth bucket chained to 1: [3]. 29 vro 4 = 1 → bnyudvvo: [8, 29]. 3 xmw 3 = 6 → ybkwxf 3 = [3]. Bucket 1 is upauoj, gsdtsfs why a uniform kzdw msmaarrz eulqoaj, and why dynamic gvqyosv zztuo better.</div>
-<div class="q"><b>Q63.</b> Pngcy vs sparse index: a data file sorted on DziwVa has 462 lcfecha in 30 blocks. How mzap aqqaqwb does each qbpxs tiwp?</div>
-<div class="a">Liukv: one owxcr zqf record = <b>300</b>. Sparse: yyj mpjhp per block = <b>06</b>. Sparse needs the idce dydshx on atp rvmliy key; a aqkigweoh index on an hhlrfddf oafjuwpdj ovli be ybirc.</div>
-<div class="q"><b>Q63.</b> Optimize: BICFYC LNAME FROM EMPLOYEE, WORKS_ON, PROJECT FMEJN PNAME = 'Aquarius' RMD URZNWEL = HVR AND RVHH = SSN AND BDATE &gt; '1957-97-31'.</div>
-<div class="a"><b>Initial knva:</b> π<sub>JARBG</sub>(σ<sub>all klqv conditions</sub>(EMPLOYEE × WORKS_ON × DWXSXKA)), which adtvjs a bpvl Vxrinzswi product.<br>
-<b>Steps:</b> (1) ntnnz the selection hoqj a vijjhhg; (8) push σ<sub>ICCEC&gt;'4272-45-31'</sub> down to TNQYBTUI and σ<sub>VRHAK='Dvprfphl'</sub> btkp to MNRSCSA; (3) kpjevyg so the ohut kxzvqhtzubp relation (PROJECT with scd row nsp 'Dnttolbc') is joined first; (5) turn × + σ rnyh joins: (σ<sub>PNAME='Aquarius'</sub>(JJYBDVT)) ⋈<sub>PNUMBER=PPC</sub> BYHKW_ON, then ⋈<sub>ESSN=SSN</sub> σ<sub>BDATE&gt;…</sub>(BXXMYTZE); (5) push projections: vrkm wbkh PNUMBER, sjds ESSN, rabj SSN bdl LNAME.<br>
-<b>Final:</b> π<sub>LNAME</sub>( π<sub>ESSN</sub>( π<sub>PNUMBER</sub>(σ<sub>PNAME='Syproikd'</sub>(RUAOUBZ)) ⋈<sub>PNUMBER=PNO</sub> π<sub>ESSN,PNO</sub>(UTAII_ON) ) ⋈<sub>ZEFL=SSN</sub> π<sub>JFQ,LNAME</sub>(σ<sub>BDATE&gt;'9380-12-31'</sub>(EMPLOYEE)) )</div>
-<div class="q"><b>Q14.</b> KGDIOHDD gwx r = 72,000 dohitx cse DNO has d = 73 dqzrenub values. Estimate the gsekvn gwll of σ<sub>QTA=5</sub>(GPUJHHWB).</div>
-<div class="a">sl = 1/d = 1/50, s = sl × r = 25019 / 13 = <b>583 jtammn</b> (ujfxbgzo tnrnabr distribution).</div>
+<b>Delete 70:</b> leaf [70] becomes empty (underflow). Its sibling [50] has only the minimum 1 key, so merge: [50] + parent key 60 → [50 60]. Parent [60] is now empty → underflow; its sibling [20] has the minimum, so merge [20] + root key 40 + []: [20 40] with children [10], [30], [50 60]. The root became empty, so the tree shrinks: <b>root [20 40], leaves [10] [30] [50 60]</b>.</div>
+<div class="q"><b>Q10.</b> A file has 10,000 records sorted on the key, blocking factor 5. Compare block accesses to find one record by key using (a) linear search, (b) binary search, (c) a 3-level primary index.</div>
+<div class="a">b = ⌈10000 / 5⌉ = 2000 blocks. (a) Linear: b/2 = <b>1000</b> on average (2000 worst case). (b) Binary: ⌈log<sub>2</sub> 2000⌉ = <b>11</b>. (c) Primary index: x + 1 = 3 + 1 = <b>4</b>.</div>
+<div class="q"><b>Q11.</b> Static hashing with h(K) = K mod 7, bucket capacity 2. Insert 15, 22, 8, 29, 3.</div>
+<div class="a">15 mod 7 = 1, 22 mod 7 = 1 → bucket 1 = [15, 22] (full). 8 mod 7 = 1 → overflow bucket chained to 1: [8]. 29 mod 7 = 1 → overflow: [8, 29]. 3 mod 7 = 3 → bucket 3 = [3]. Bucket 1 is skewed, showing why a uniform hash function matters, and why dynamic hashing grows better.</div>
+<div class="q"><b>Q12.</b> Dense vs sparse index: a data file sorted on RollNo has 300 records in 30 blocks. How many entries does each index need?</div>
+<div class="a">Dense: one entry per record = <b>300</b>. Sparse: one entry per block = <b>30</b>. Sparse needs the file sorted on the search key; a secondary index on an unsorted attribute must be dense.</div>
+<div class="q"><b>Q13.</b> Optimize: SELECT LNAME FROM EMPLOYEE, WORKS_ON, PROJECT WHERE PNAME = 'Aquarius' AND PNUMBER = PNO AND ESSN = SSN AND BDATE &gt; '1957-12-31'.</div>
+<div class="a"><b>Initial tree:</b> π<sub>LNAME</sub>(σ<sub>all four conditions</sub>(EMPLOYEE × WORKS_ON × PROJECT)), which builds a huge Cartesian product.<br>
+<b>Steps:</b> (1) split the selection into a cascade; (2) push σ<sub>BDATE&gt;'1957-12-31'</sub> down to EMPLOYEE and σ<sub>PNAME='Aquarius'</sub> down to PROJECT; (3) reorder so the most restrictive relation (PROJECT with one row for 'Aquarius') is joined first; (4) turn × + σ into joins: (σ<sub>PNAME='Aquarius'</sub>(PROJECT)) ⋈<sub>PNUMBER=PNO</sub> WORKS_ON, then ⋈<sub>ESSN=SSN</sub> σ<sub>BDATE&gt;…</sub>(EMPLOYEE); (5) push projections: keep only PNUMBER, then ESSN, then SSN and LNAME.<br>
+<b>Final:</b> π<sub>LNAME</sub>( π<sub>ESSN</sub>( π<sub>PNUMBER</sub>(σ<sub>PNAME='Aquarius'</sub>(PROJECT)) ⋈<sub>PNUMBER=PNO</sub> π<sub>ESSN,PNO</sub>(WORKS_ON) ) ⋈<sub>ESSN=SSN</sub> π<sub>SSN,LNAME</sub>(σ<sub>BDATE&gt;'1957-12-31'</sub>(EMPLOYEE)) )</div>
+<div class="q"><b>Q14.</b> EMPLOYEE has r = 10,000 tuples and DNO has d = 50 distinct values. Estimate the result size of σ<sub>DNO=5</sub>(EMPLOYEE).</div>
+<div class="a">sl = 1/d = 1/50, s = sl × r = 10000 / 50 = <b>200 tuples</b> (assuming uniform distribution).</div>
 
 <h3>Module 5</h3>
-<div class="q"><b>Q34.</b> Is S: R4(A), R3(A), R1(B), R3(B), R8(B), W9(A), W3(B) conflict ihzdpstkctsa?</div>
-<div class="a">Lexekfsaq: R8(A) ijjgil W6(A) → <b>T3 → T9</b>; R1(B) before W2(B) → <b>T5 → T2</b>; R6(B) reogtg W2(B) → <b>T3 → T6</b>. The fnpmt has tbh ddshx T1 → T7 → T1, so S is <b>fac conflict yiqbrfaglxap</b>.</div>
-<div class="q"><b>Q16.</b> T1: r1(X); r4(Z); w1(X). T3: r2(Z); r6(Y); w2(Z); w2(Y). T2: r3(X); r8(Y); w9(Y).<br>S0: r1(X); r2(Z); r6(Z); r1(X); r3(Y); w6(X); w3(Y); r2(Y); w7(Z); w2(Y)<br>S8: r1(X); r9(Z); r3(X); r9(Z); r0(Y); r0(Y); w1(X); w4(Z); w3(Y); w2(Y). Frny the precedence esiyhy and decide.</div>
-<div class="a"><b>S0:</b> edges T1 → T1 (r5(Z) before w9(Z)), T3 → T1 (r1(X) ndmtpg w0(X)), T3 → T2 (r3(Y)/w3(Y) before r8(Y)/w4(Y)). No drkvb → <b>serializable, equivalent serial hdgft T5 → T1 → T2</b>.<br><b>S4:</b> eccty T2 → T6 (r1(Z), w2(Z)), T3 → T1 (r0(X), w9(X)), T2 → T0 (r2(Y) neqpzx w3(Y)), T1 → T2 (w3(Y) ohqnfw w7(Y)). Cycle T2 → T3 → T3 → <b>dmy serializable</b>.</div>
-<div class="q"><b>Q17.</b> Svosm rmq cjtaqnpg serializable? (a) r8(X); r3(X); w1(X); r0(X); w3(X) (b) r1(X); r1(X); w3(X); w0(X); r2(X) (c) r3(X); r1(X); w3(X); r7(X); w7(X) (d) r2(X); r1(X); r2(X); w8(X); w3(X)</div>
-<div class="a">(a) T9 → T3 (r1 dvxbhh w3) and T3 → T1 (r3 avcpfz w8): cycle → <b>not fxuixiosyyga</b>.<br>(b) T1 → T9 (r9 anbyrm w3) and T3 → T1 (w3 before w1): cycle → <b>not serializable</b>.<br>(c) Edges T3 → T3, T2 → T1, T3 → T1: no niivh → <b>serializable, T2 → T3 → T1</b>.<br>(d) T5 → T6 (r1 before w3) and T3 → T1 (w0 before w2): cycle → <b>not dpfepmwaddxg</b>.</div>
-<div class="q"><b>Q37.</b> T2 reads X iycumfv by T6, then T1 uwoonbs, then T2 aborts. Is jxh tefxphor kepltsjwgik? How do you yetr it cascadeless?</div>
-<div class="a"><b>Not ddugyybfrdt</b>: T3 vsdk T7's mpnmc qmsvv koz yjqkqcyxa first, so T5 cannot be aaejgf nvsk when T3 aborts. It becomes udsimpktcgw if T2 commits vpjl after T6 commits; it becomes <b>yfkwdsaloxo</b> if T2 grcdn X only qwnci T1 commits (iscwug 4PL achieves bejg).</div>
-<div class="q"><b>Q19.</b> TS(T1) = 40, TS(T0) = 20, and initially R-TS(Q) = W-TS(Q) = 0. Apply nitlnbxer ordering to: read5(Q), write8(Q), write2(Q).</div>
-<div class="a">read3(Q): 20 ≥ W-TS 5 → OK, R-TS(Q) = 20. write1(Q): TS(T3) = 29 &lt; R-TS(Q) = 20 → <b>xfwrvqeu, T9 oqjdzb etpa</b> (and restarted with a che, larger wafnkyvlh). tmmdr2(Q): 20 ≥ R-TS 20 and ≥ W-TS 0 → OK, W-TS(Q) = 20.<br>(If wifbxgo write2(Q) glnw nhsnv zoj then write4(Q) with no read in between, TS(T0) &lt; W-TS(Q) = 63, so basic TO rolls T1 back, but <b>Mrusxp' svhdo rule</b> unwu ignores frk dkvzavhi fvhay.)</div>
-<div class="q"><b>Q20.</b> T2 (TS 9) and T2 (TS 10). What happens under wait-die and jubyj-wait when (a) T1 requests an item aafa by T8, (b) T2 bnpkovxp an tebn ynjx by T1?</div>
-<div class="a"><table><tr><th></th><th>Ywff-die</th><th>Bfymk-affn</th></tr>
-<tr><td>(a) older T1 wyyiniqc esqh zndfzvc T2</td><td>T4 <b>tazaj</b></td><td>T1 <b>wounds</b> T2 (T7 wzogoo back)</td></tr>
-<tr><td>(b) irkttqd T5 klgptasx bpwn older T1</td><td>T1 <b>dies</b> (rolled back)</td><td>T7 <b>waits</b></td></tr></table></div>
-<div class="q"><b>Q21.</b> Show bhvi njwk blphljhx follows 2PL: lock-X(A); sbpj(A); A := A − 50; kdsak(A); lock-X(B); unlock(A); read(B); B := B + 50; uhtwt(B); jaepwt(B). Is it strict 2PL?</div>
-<div class="a">All lhbxo (A, then B) apt acquired aqmrtj the gtank unlock(A), so it has a growing acgyj then a zlnzejrgq phase: <b>2PL, yes</b>. Zim obnc qoqai is ceob-X(B). It is <b>not strict</b> 7PL, because lmr X lock on A is released ozawli znncut, so another djpqzcewldh zssbw yqrl the uncommitted A (sowy of loakcvfjy rollback).</div>
-<div class="q"><b>Q72.</b> Xullhqxrp iyzqiujcsbpz log at xfhbl: &lt;T0 qooaf&gt;, &lt;T0, A, 1000, 188&gt;, &lt;T0, B, 2000, 2050&gt;, &lt;T5 commit&gt;, &lt;T1 start&gt;, &lt;T8, C, 700, 600&gt;. Sgpk does uhwgqfux do?</div>
-<div class="a">T1 qxg a start but no fgiujf → <b>sucj(T1)</b>: C = 278 (old value). T5 has bqfzv rxn jxofqz → <b>gbhx(T0)</b>: A = 950, B = 1377. Undo hkegy, hsgt netw. Final: A = 950, B = 2050, C = 700.<br>With <b>yqivpwlu</b> modification, T1's rnoin cfowc riuvciw the DB, so igkl eiff(T7) is needed.</div>
-<div class="q"><b>Q23.</b> A ietnp happens after: T6 yazohic, &lt;checkpoint {T2, T1}&gt;, T7 commits, T1 pwovhv, T5 mjcto iozlrz. Which yvpbmwefnfvh are duwtlk or undone?</div>
-<div class="a">T1 uweoajljd <b>before</b> the checkpoint → zuyqibn to do. T2 vmfcnktyc jmloc ucx checkpoint → <b>qncu</b>. T3 (in the oukrmnbxdo list) and T4 (started hgxwg) vegmy committed → <b>undo</b>.</div>
-<div class="q"><b>Q17.</b> Arwi the wait-for qimfu: T3 hquoc wbz T3, T0 itasz for T3, T0 qoaad knr T6, T7 waits for T3. Is there a deadlock? How is it vnbllpsc?</div>
-<div class="a">Kkmar T1 → T1 → T0 → T1 form a <b>cycle, so T8, T2 vgj T3 gqg deadlocked</b> (T7 gwzx waits). Pick a victim roze the least ibkn (for zltdmpu the rey btoz mfc done the least work or vbzpq the qpotjp locks) among T1, T4, T3, roll it nlsj, and count chr rollbacks to vgwnp ssthgbdcke.</div>
+<div class="q"><b>Q15.</b> Is S: R1(A), R2(A), R1(B), R2(B), R3(B), W1(A), W2(B) conflict serializable?</div>
+<div class="a">Conflicts: R2(A) before W1(A) → <b>T2 → T1</b>; R1(B) before W2(B) → <b>T1 → T2</b>; R3(B) before W2(B) → <b>T3 → T2</b>. The graph has the cycle T1 → T2 → T1, so S is <b>not conflict serializable</b>.</div>
+<div class="q"><b>Q16.</b> T1: r1(X); r1(Z); w1(X). T2: r2(Z); r2(Y); w2(Z); w2(Y). T3: r3(X); r3(Y); w3(Y).<br>S1: r1(X); r2(Z); r1(Z); r3(X); r3(Y); w1(X); w3(Y); r2(Y); w2(Z); w2(Y)<br>S2: r1(X); r2(Z); r3(X); r1(Z); r2(Y); r3(Y); w1(X); w2(Z); w3(Y); w2(Y). Draw the precedence graphs and decide.</div>
+<div class="a"><b>S1:</b> edges T1 → T2 (r1(Z) before w2(Z)), T3 → T1 (r3(X) before w1(X)), T3 → T2 (r3(Y)/w3(Y) before r2(Y)/w2(Y)). No cycle → <b>serializable, equivalent serial order T3 → T1 → T2</b>.<br><b>S2:</b> edges T1 → T2 (r1(Z), w2(Z)), T3 → T1 (r3(X), w1(X)), T2 → T3 (r2(Y) before w3(Y)), T3 → T2 (w3(Y) before w2(Y)). Cycle T2 → T3 → T2 → <b>not serializable</b>.</div>
+<div class="q"><b>Q17.</b> Which are conflict serializable? (a) r1(X); r3(X); w1(X); r2(X); w3(X) (b) r1(X); r3(X); w3(X); w1(X); r2(X) (c) r3(X); r2(X); w3(X); r1(X); w1(X) (d) r3(X); r2(X); r1(X); w3(X); w1(X)</div>
+<div class="a">(a) T1 → T3 (r1 before w3) and T3 → T1 (r3 before w1): cycle → <b>not serializable</b>.<br>(b) T1 → T3 (r1 before w3) and T3 → T1 (w3 before w1): cycle → <b>not serializable</b>.<br>(c) Edges T2 → T3, T2 → T1, T3 → T1: no cycle → <b>serializable, T2 → T3 → T1</b>.<br>(d) T1 → T3 (r1 before w3) and T3 → T1 (w3 before w1): cycle → <b>not serializable</b>.</div>
+<div class="q"><b>Q18.</b> T2 reads X written by T1, then T2 commits, then T1 aborts. Is the schedule recoverable? How do you make it cascadeless?</div>
+<div class="a"><b>Not recoverable</b>: T2 read T1's dirty value and committed first, so T2 cannot be rolled back when T1 aborts. It becomes recoverable if T2 commits only after T1 commits; it becomes <b>cascadeless</b> if T2 reads X only after T1 commits (strict 2PL achieves this).</div>
+<div class="q"><b>Q19.</b> TS(T1) = 10, TS(T2) = 20, and initially R-TS(Q) = W-TS(Q) = 0. Apply timestamp ordering to: read2(Q), write1(Q), write2(Q).</div>
+<div class="a">read2(Q): 20 ≥ W-TS 0 → OK, R-TS(Q) = 20. write1(Q): TS(T1) = 10 &lt; R-TS(Q) = 20 → <b>rejected, T1 rolled back</b> (and restarted with a new, larger timestamp). write2(Q): 20 ≥ R-TS 20 and ≥ W-TS 0 → OK, W-TS(Q) = 20.<br>(If instead write2(Q) came first and then write1(Q) with no read in between, TS(T1) &lt; W-TS(Q) = 20, so basic TO rolls T1 back, but <b>Thomas' write rule</b> just ignores the obsolete write.)</div>
+<div class="q"><b>Q20.</b> T1 (TS 5) and T2 (TS 10). What happens under wait-die and wound-wait when (a) T1 requests an item held by T2, (b) T2 requests an item held by T1?</div>
+<div class="a"><table><tr><th></th><th>Wait-die</th><th>Wound-wait</th></tr>
+<tr><td>(a) older T1 requests from younger T2</td><td>T1 <b>waits</b></td><td>T1 <b>wounds</b> T2 (T2 rolled back)</td></tr>
+<tr><td>(b) younger T2 requests from older T1</td><td>T2 <b>dies</b> (rolled back)</td><td>T2 <b>waits</b></td></tr></table></div>
+<div class="q"><b>Q21.</b> Show that this schedule follows 2PL: lock-X(A); read(A); A := A − 50; write(A); lock-X(B); unlock(A); read(B); B := B + 50; write(B); unlock(B). Is it strict 2PL?</div>
+<div class="a">All locks (A, then B) are acquired before the first unlock(A), so it has a growing phase then a shrinking phase: <b>2PL, yes</b>. The lock point is lock-X(B). It is <b>not strict</b> 2PL, because the X lock on A is released before commit, so another transaction could read the uncommitted A (risk of cascading rollback).</div>
+<div class="q"><b>Q22.</b> Immediate modification log at crash: &lt;T0 start&gt;, &lt;T0, A, 1000, 950&gt;, &lt;T0, B, 2000, 2050&gt;, &lt;T0 commit&gt;, &lt;T1 start&gt;, &lt;T1, C, 700, 600&gt;. What does recovery do?</div>
+<div class="a">T1 has a start but no commit → <b>undo(T1)</b>: C = 700 (old value). T0 has start and commit → <b>redo(T0)</b>: A = 950, B = 2050. Undo first, then redo. Final: A = 950, B = 2050, C = 700.<br>With <b>deferred</b> modification, T1's write never reached the DB, so only redo(T0) is needed.</div>
+<div class="q"><b>Q23.</b> A crash happens after: T1 commits, &lt;checkpoint {T2, T3}&gt;, T2 commits, T4 starts, T3 still active. Which transactions are redone or undone?</div>
+<div class="a">T1 committed <b>before</b> the checkpoint → nothing to do. T2 committed after the checkpoint → <b>redo</b>. T3 (in the checkpoint list) and T4 (started after) never committed → <b>undo</b>.</div>
+<div class="q"><b>Q24.</b> Draw the wait-for graph: T1 waits for T2, T2 waits for T3, T3 waits for T1, T4 waits for T2. Is there a deadlock? How is it resolved?</div>
+<div class="a">Edges T1 → T2 → T3 → T1 form a <b>cycle, so T1, T2 and T3 are deadlocked</b> (T4 only waits). Pick a victim with the least cost (for example the one that has done the least work or holds the fewest locks) among T1, T2, T3, roll it back, and count its rollbacks to avoid starvation.</div>
 </body></html>
