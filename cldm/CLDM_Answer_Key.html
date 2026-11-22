@@ -1,4 +1,4 @@
-<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en" data-theme="dark"><head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CLDM Answer Key</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -80,6 +80,6 @@ footer{color:var(--mute);font-size:12.5px;text-align:center;padding:24px 16px 40
 document.querySelectorAll('.toggle').forEach(function(b){b.onclick=function(){b.closest('.card').classList.toggle('hide')}});
 var quiz=false;document.getElementById('quiz').onclick=function(e){quiz=!quiz;document.querySelectorAll('.card').forEach(function(c){c.classList.toggle('hide',quiz)});e.target.textContent=quiz?'Show answers':'Hide answers'};
 document.querySelectorAll('.chip').forEach(function(ch){ch.onclick=function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});ch.classList.add('on');var f=ch.dataset.f;document.querySelectorAll('.card').forEach(function(c){c.style.display=(f==='all'||c.dataset.sec===f)?'':'none'})}});
-document.getElementById('theme').onclick=function(){var r=document.documentElement;var dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark'};
+document.getElementById('theme').onclick=function(){var r=document.documentElement;var dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('hub-theme',r.dataset.theme)}catch(e){}};
 </script>
 </body></html>

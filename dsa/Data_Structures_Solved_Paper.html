@@ -1,4 +1,4 @@
-<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en" data-theme="dark"><head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Data Structures Re-Exam Dec 2025: Solved</title>
 <style>:root{--bg:#f4f6fb;--card:#fff;--ink:#14182b;--mute:#5b6478;--line:#e3e7f0;--brand:#4f46e5;--brand2:#7c3aed;--hl:#fff4c2;--hlink:#7a5b00;--dg:#f8fafc;--code:#f1f3f9}
 :root[data-theme=dark]{--bg:#0b0f1d;--card:#141a2e;--ink:#e7eaf3;--mute:#9aa3b8;--line:#262d45;--hl:#3b3112;--hlink:#ffd76a;--dg:#0b1020;--code:#0e1426}
@@ -149,5 +149,5 @@ else if (temp-&gt;left != NULL &amp;&amp; temp-&gt;right != NULL) {  // Case 3: 
 <script>
 document.querySelectorAll('.toggle').forEach(function(b){b.onclick=function(){b.closest('.card').classList.toggle('hide')}});
 var quiz=false;document.getElementById('quiz').onclick=function(e){quiz=!quiz;document.querySelectorAll('.card').forEach(function(c){c.classList.toggle('hide',quiz)});e.target.textContent=quiz?'Show answers':'Hide answers'};
-document.getElementById('theme').onclick=function(){var r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark'};
+document.getElementById('theme').onclick=function(){var r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('hub-theme',r.dataset.theme)}catch(e){}};
 </script></body></html>

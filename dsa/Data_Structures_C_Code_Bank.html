@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -587,7 +587,7 @@ pre.code{margin:0;padding:14px 16px;background:var(--paper);border:1px solid var
 @media print{.cp{display:none}pre.code{white-space:pre-wrap}}
 </style>
 
-</head>
+<style id="hubtheme-css">#hubtheme{position:fixed;right:14px;bottom:14px;z-index:99999;font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:rgba(128,128,128,.18);color:inherit;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}@media print{#hubtheme{display:none!important}}</style></head>
 <body>
 <div class="mast"><div class="sheet"><div class="inner"><div>
 <p class="eyebrow">Data Structures &middot; Module 1&ndash;5 &middot; C</p>
@@ -2818,4 +2818,4 @@ free(q);</pre></div>
     <span class="c-kw">return</span> k;                                      <span class="c-cm">// number of non-zero terms in the result</span>
 }</pre></div>
 </section>
-<footer><span>Tip: trace each function on paper with a small example before the exam.</span><span>Programs were written by hand and not compiled here; compile and test before relying on them.</span></footer></div><script>document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.codeplate').querySelector('pre').innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1200)}).catch(function(){var r=document.createRange();r.selectNode(b.closest('.codeplate').querySelector('pre'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(function(){b.textContent='Copy'},1200)})})})</script></body></html>
+<footer><span>Tip: trace each function on paper with a small example before the exam.</span><span>Programs were written by hand and not compiled here; compile and test before relying on them.</span></footer></div><script>document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.codeplate').querySelector('pre').innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1200)}).catch(function(){var r=document.createRange();r.selectNode(b.closest('.codeplate').querySelector('pre'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(function(){b.textContent='Copy'},1200)})})})</script><button id="hubtheme" type="button">Dark / light</button><script>(function(){var b=document.getElementById("hubtheme"),r=document.documentElement;b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);var n=d?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("hub-theme",n)}catch(e){}}})();</script></body></html>

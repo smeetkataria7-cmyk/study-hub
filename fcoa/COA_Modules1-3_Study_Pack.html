@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>COA Modules 1 to 3 Study Pack</title>
 <style>
 :root{--bg:#fbfaf7;--fg:#1d1d1b;--mute:#605e57;--line:#d9d5ca;--card:#fff;--acc:#1f5f8b;--acc2:#8a3b12;--hl:#fff4cf;--ok:#1d6b3a}
-@media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}}:root[data-theme=dark]{--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Georgia,"Times New Roman",serif}
 main{max-width:920px;margin:0 auto;padding:16px 16px 80px}
@@ -40,7 +40,7 @@ ul,ol{padding-left:22px}
 .scroll{overflow-x:auto}
 @media print{nav{display:none}body{background:#fff;color:#000;font-size:12px}.q,.sol,.f,table{page-break-inside:avoid}h2{page-break-before:always}}
 </style>
-</head>
+<style id="hubtheme-css">#hubtheme{position:fixed;right:14px;bottom:14px;z-index:99999;font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:rgba(128,128,128,.18);color:inherit;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}@media print{#hubtheme{display:none!important}}</style></head>
 <body>
 <nav><a href="#scope">Scope</a><a href="#formulas">Formula sheet</a><a href="#theory">Theory Q&amp;A</a><a href="#practice">Practice</a><a href="#answers">Answers</a><a href="#solutions">Step-by-step</a></nav>
 <main>
@@ -609,5 +609,5 @@ Then do an <b>arithmetic right shift</b> of A, Q, Q<sub>−1</sub> (the leftmost
 
 <p class="sub" style="margin-top:36px">If your syllabus has more units after 3.1, send them and I'll extend the pack.</p>
 </main>
-</body>
+<button id="hubtheme" type="button">Dark / light</button><script>(function(){var b=document.getElementById("hubtheme"),r=document.documentElement;b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);var n=d?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("hub-theme",n)}catch(e){}}})();</script></body>
 </html>

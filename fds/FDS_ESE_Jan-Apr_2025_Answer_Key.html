@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -586,7 +586,7 @@ ol.st{margin:6px 0 0;padding-left:22px;font-size:14px;color:var(--ink-soft)}ol.s
 .fm b{font:500 10.5px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:8px}
 </style>
 
-</head>
+<style id="hubtheme-css">#hubtheme{position:fixed;right:14px;bottom:14px;z-index:99999;font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:rgba(128,128,128,.18);color:inherit;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}@media print{#hubtheme{display:none!important}}</style></head>
 <body>
 <div class="mast"><div class="sheet"><div class="inner"><div><p class="eyebrow">Fundamentals of Data Science &middot; End-Semester Exam 27/05/2025</p><h1>Answer<br>Key</h1></div><div class="colophon"><b>SY AIDS</b> &middot; Semester III<br>Every step &rarr; formula shown<br>9 plates &middot; 0 worked checks<br>Compiled from the SVU-2025 syllabus</div></div><p class="standfirst">Model answers to the Jan&ndash;Apr 2025 end-semester paper (216U42C304): every question solved step by step with the formula used.</p></div></div>
 <div class="sheet">
@@ -667,4 +667,4 @@ ol.st{margin:6px 0 0;padding-left:22px;font-size:14px;color:var(--ink-soft)}ol.s
 </div>
 </section>
 
-<footer><span>All questions are from the SVU-2025 FDS syllabus (ANOVA is the self-learning topic in Module 2).</span><span>Every number was computed by program.</span></footer></div></body></html>
+<footer><span>All questions are from the SVU-2025 FDS syllabus (ANOVA is the self-learning topic in Module 2).</span><span>Every number was computed by program.</span></footer></div><button id="hubtheme" type="button">Dark / light</button><script>(function(){var b=document.getElementById("hubtheme"),r=document.documentElement;b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);var n=d?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("hub-theme",n)}catch(e){}}})();</script></body></html>

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -316,7 +316,7 @@ details.ans p,details.ans li{font-size:13.5px;color:var(--ink-soft)}
 ol.st{margin:6px 0 0;padding-left:20px;font-size:13.5px;color:var(--ink-soft)}ol.st li{margin:5px 0}
 .fin{margin-top:8px;padding:8px 12px;background:var(--accent-wash);border-left:3px solid var(--accent);font-size:13.5px;color:var(--ink)}
 .qtext{font-size:14px;color:var(--ink);margin:0}
-.tablewrap table{min-width:0}</style></head>
+.tablewrap table{min-width:0}</style><style id="hubtheme-css">#hubtheme{position:fixed;right:14px;bottom:14px;z-index:99999;font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:rgba(128,128,128,.18);color:inherit;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}@media print{#hubtheme{display:none!important}}</style></head>
 <body>
 <div class="mast"><div class="sheet"><div class="inner"><div><p class="eyebrow">Computer Organization &amp; Architecture &middot; Module 5 &middot; study pack</p><h1 style="font-size:clamp(34px,5.4vw,60px)">I/O organization and multiprocessor configurations</h1></div><div class="colophon"><b>FCOA</b><br>notes &middot; 6 questions<br>5 practice problems<br>SY AIDS &middot; Semester III</div></div><p class="standfirst">The notes for this module, then theory questions with model answers and practice problems with step-by-step solutions.</p></div></div>
 <div class="sheet">
@@ -374,4 +374,4 @@ ol.st{margin:6px 0 0;padding-left:20px;font-size:13.5px;color:var(--ink-soft)}ol
 </section>
 
 <footer><span>FCOA &mdash; Module 5 study pack</span><span style="display:flex;gap:26px"><a href="pack-4.html">&larr; Pack 4</a><a href="./">All modules</a><span></span></span></footer>
-</div></body></html>
+</div><button id="hubtheme" type="button">Dark / light</button><script>(function(){var b=document.getElementById("hubtheme"),r=document.documentElement;b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);var n=d?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("hub-theme",n)}catch(e){}}})();</script></body></html>

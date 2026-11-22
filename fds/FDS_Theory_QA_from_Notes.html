@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FDS Theory Q and A</title>
 <style>
 :root{--bg:#fbfaf7;--fg:#1d1d1b;--mute:#605e57;--line:#d9d5ca;--card:#fff;--acc:#1f5f8b;--acc2:#8a3b12;--hl:#fff4cf;--ok:#1d6b3a}
-@media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}}:root[data-theme=dark]{--bg:#16171a;--fg:#e8e6df;--mute:#a09d94;--line:#34363b;--card:#1d1f23;--acc:#7db7e0;--acc2:#e3a070;--hl:#3a331a;--ok:#74c48f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Georgia,"Times New Roman",serif}
 main{max-width:900px;margin:0 auto;padding:16px 16px 80px}
@@ -34,7 +34,7 @@ th{background:var(--hl);font:14px system-ui,sans-serif}
 ul,ol{padding-left:22px}
 @media print{nav{display:none}body{background:#fff;color:#000;font-size:12px}.q{page-break-inside:avoid}h2{page-break-before:always}}
 </style>
-</head>
+<style id="hubtheme-css">#hubtheme{position:fixed;right:14px;bottom:14px;z-index:99999;font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:rgba(128,128,128,.18);color:inherit;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}@media print{#hubtheme{display:none!important}}</style></head>
 <body>
 <nav><a href="#flagged">Flagged in notes</a><a href="#u11">1.1</a><a href="#u12">1.2</a><a href="#u13">1.3</a><a href="#u14">1.4</a><a href="#u21">2.1</a><a href="#u22">2.2</a><a href="#u23">2.3</a><a href="#extra">Outside syllabus</a><a href="#fixes">Fixes to your notes</a></nav>
 <main>
@@ -470,5 +470,5 @@ Tied values take the average rank, and each group of m tied values adds m(mÂ² âˆ
 <h2>What is missing from your handwritten notes</h2>
 <p>Weighted mean, root mean square deviation, coefficient of variation, covariance, Spearman and concurrent deviations, outlier fences, skewness (Pearson and Bowley), kurtosis and moments, EDA vs classical, Data Science vs Analytics vs Engineering, agriculture and disaster management, and the details of the dataset types. This file fills them from your slides (tagged). Section 1.4's agriculture and disaster points are general knowledge, not from your course material.</p>
 </main>
-</body>
+<button id="hubtheme" type="button">Dark / light</button><script>(function(){var b=document.getElementById("hubtheme"),r=document.documentElement;b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);var n=d?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("hub-theme",n)}catch(e){}}})();</script></body>
 </html>

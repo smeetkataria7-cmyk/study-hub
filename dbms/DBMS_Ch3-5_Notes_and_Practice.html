@@ -1,5 +1,5 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>DBMS Chapters 3-5</title>
+<html><head><script>(function(){try{var s=localStorage.getItem("hub-theme");if(s)document.documentElement.setAttribute("data-theme",s)}catch(e){}})();</script><meta charset="utf-8"><title>DBMS Chapters 3-5</title>
 <style>
 @page{size:A4;margin:12mm}
 :root{--navy:#1f2a44;--line:#c9cfdc;--soft:#f3f5fa;--hl:#fff3b0;--ok:#e8f5e9}
@@ -20,7 +20,7 @@ code,.m{font-family:Consolas,"Courier New",monospace;font-size:9.4pt}
 ul,ol{margin:2px 0 6px;padding-left:20px}li{margin:1px 0}
 pre{font-family:Consolas,monospace;font-size:9pt;background:#fff;border:1px dashed var(--line);padding:5px 8px;margin:4px 0;white-space:pre}
 .pb{page-break-before:always}
-</style></head><body>
+</style><style id="hubtheme-css">#hubtheme{position:fixed;right:14px;bottom:14px;z-index:99999;font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;padding:9px 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:rgba(128,128,128,.18);color:inherit;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}@media print{#hubtheme{display:none!important}}</style><style id="hubtheme-dark">html[data-theme=light]{background:#fff}@media(prefers-color-scheme:dark){html:not([data-theme=light]){background:#fff;filter:invert(.92) hue-rotate(180deg)}html:not([data-theme=light]) img{filter:invert(1) hue-rotate(180deg)}}html[data-theme=dark]{background:#fff;filter:invert(.92) hue-rotate(180deg)}html[data-theme=dark] img{filter:invert(1) hue-rotate(180deg)}@media print{html{filter:none!important;background:none!important}html img{filter:none!important}}</style></head><body>
 <h1>DBMS Chapters 3, 4 and 5: Notes and Practice</h1>
 <div class="sub">SY B.Tech AI &amp; DS, Semester III. Built from your class slides for Chapter 3 (Relational Database Design, Normalization), Chapter 4 (Indexing, Hashing, Query Processing and Optimization) and Chapter 5 (Transactions, Concurrency Control and Recovery), checked against the syllabus units 3.1 to 5.3. Chapters 1 and 2 are in your earlier DBMS notes PDFs. Practice questions with full answers are in Part 2.</div>
 
@@ -275,4 +275,4 @@ A <b>query block</b> is one SELECT-FROM-WHERE (with GROUP BY / HAVING); nested q
 <div class="a">T1 committed <b>before</b> the checkpoint → nothing to do. T2 committed after the checkpoint → <b>redo</b>. T3 (in the checkpoint list) and T4 (started after) never committed → <b>undo</b>.</div>
 <div class="q"><b>Q24.</b> Draw the wait-for graph: T1 waits for T2, T2 waits for T3, T3 waits for T1, T4 waits for T2. Is there a deadlock? How is it resolved?</div>
 <div class="a">Edges T1 → T2 → T3 → T1 form a <b>cycle, so T1, T2 and T3 are deadlocked</b> (T4 only waits). Pick a victim with the least cost (for example the one that has done the least work or holds the fewest locks) among T1, T2, T3, roll it back, and count its rollbacks to avoid starvation.</div>
-</body></html>
+<button id="hubtheme" type="button">Dark / light</button><script>(function(){var b=document.getElementById("hubtheme"),r=document.documentElement;b.onclick=function(){var d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);var n=d?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("hub-theme",n)}catch(e){}}})();</script></body></html>
